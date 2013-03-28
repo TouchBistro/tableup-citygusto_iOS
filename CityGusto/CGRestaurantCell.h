@@ -1,0 +1,19 @@
+//
+//  CGRestaurantCell.h
+//  CityGusto
+//
+//  Created by Padraic Doyle on 3/12/13.
+//  Copyright (c) 2013 CityGusto. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+@interface CGRestaurantCell : UITableViewCell
+
+@property (strong, nonatomic) IBOutlet UIView *headerView;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *primaryPhotoImage;
+@property (strong, nonatomic) IBOutlet UILabel *topFiveLabel;
+@property (strong, nonatomic) IBOutlet UILabel *ratings;
+
+@end

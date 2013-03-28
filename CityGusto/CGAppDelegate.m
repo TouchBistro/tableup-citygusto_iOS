@@ -7,15 +7,145 @@
 //
 
 #import "CGAppDelegate.h"
+#import "CGCreditCard.h"
+#import "CGCuisine.h"
+#import "CGFeature.h"
+#import "CGMenu.h"
+#import "CGPhoto.h"
+#import "CGReviewLink.h"
+#import "CGRestaurant.h"
+#import "CGRestaurantParameter.h"
+#import <RestKit/RestKit.h>
 
 @implementation CGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
+    //set default parameters
+    CGRestaurantParameter *params = [CGRestaurantParameter shared];
+    params.cityId = [[NSNumber alloc] initWithInt:4];
+    params.max = [[NSNumber alloc] initWithInt:25];
+    params.offset = [[NSNumber alloc] initWithInt:0];
+    
+    params.deliveryFilter = NO;
+    params.kitchenOpenFilter = NO;
+    params.useCurrentLocation = NO;
+    params.sortOrder = @"distance";
+    
+    [params buildAllCuisines];
+    [params buildAllFeatures];
+    
+    RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
+    RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelInfo);
+    
+    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8080"];
+    AFHTTPClient* client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
+    [client setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
+    
+    RKObjectManager *objectManager = [[RKObjectManager alloc] initWithHTTPClient:client];
+    
+    RKObjectMapping *creditCardMapping = [RKObjectMapping mappingForClass:[CGCreditCard class]];
+    [creditCardMapping addAttributeMappingsFromArray:@[ @"name" ]];
+    
+    RKObjectMapping *cuisineMapping = [RKObjectMapping mappingForClass:[CGCuisine class]];
+    [cuisineMapping addAttributeMappingsFromArray:@[ @"name" ]];
+    
+    RKObjectMapping *featureMapping = [RKObjectMapping mappingForClass:[CGFeature class]];
+    [featureMapping addAttributeMappingsFromArray:@[ @"name" ]];
+    
+    RKObjectMapping *menuMapping = [RKObjectMapping mappingForClass:[CGMenu class]];
+    [menuMapping addAttributeMappingsFromArray:@[ @"name", @"menuURL" ]];
+    
+    RKObjectMapping *photoMapping = [RKObjectMapping mappingForClass:[CGPhoto class]];
+    [photoMapping addAttributeMappingsFromArray:@[ @"caption", @"photoURL" ]];
+    
+    RKObjectMapping *reviewLinkMapping = [RKObjectMapping mappingForClass:[CGReviewLink class]];
+    [reviewLinkMapping addAttributeMappingsFromArray:@[ @"text", @"link" ]];
+    
+    
+    RKObjectMapping* restaurantMapping = [RKObjectMapping mappingForClass:[CGRestaurant class] ];
+    [restaurantMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantId" }];
+    [restaurantMapping addAttributeMappingsFromArray:@[ @"name", @"primaryPhotoURL"
+     , @"primaryPhotoURL150x150"
+     , @"sunIsClosed"
+     , @"sunIsOpenAllDay"
+     , @"sunOpenTime"
+     , @"sunCloseTime"
+     , @"monIsClosed"
+     , @"monIsOpenAllDay"
+     , @"monOpenTime"
+     , @"monCloseTime"
+     , @"tuesIsClosed"
+     , @"tuesIsOpenAllDay"
+     , @"tuesOpenTime"
+     , @"tuesCloseTime"
+     , @"wedIsClosed"
+     , @"wedIsOpenAllDay"
+     , @"wedOpenTime"
+     , @"wedCloseTime"
+     , @"thursIsClosed"
+     , @"thursIsOpenAllDay"
+     , @"thursOpenTime"
+     , @"thursCloseTime"
+     , @"friIsClosed"
+     , @"friIsOpenAllDay"
+     , @"friOpenTime"
+     , @"friCloseTime"
+     , @"satIsClosed"
+     , @"satIsOpenAllDay"
+     , @"satOpenTime"
+     , @"satCloseTime"
+     , @"numberOfTopFiveLists"
+     , @"address1"
+     , @"address2"
+     , @"cityName"
+     , @"state"
+     , @"zipcode"
+     , @"phoneNumber"
+     , @"encodedAddress"
+     , @"about"
+     , @"price"
+     , @"delivers"
+     , @"deliveryInfo"
+     , @"parkingInfo"
+     , @"twitterUserName"
+     , @"facebookURL"
+     , @"latitude"
+     , @"longitude"
+     , @"open"
+     , @"numberOfReviews"
+     , @"numberOfRatings"
+     , @"cumulativeRating"
+     , @"numberOfLikes"
+     , @"numberOfDislikes"
+     , @"percentageLike"
+     , @"numberOfStars"
+     , @"numberOfDollarSigns"
+     , @"citygustoURL"
+     , @"ambianceName1"
+     , @"ambianceName2"
+     , @"ambianceName3"
+     , @"ambianceNames"
+     , @"featureNames"
+     , @"creditcardNames"
+     , @"cuisineNames"
+     ]];
+    
+    
+    [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"creditCards" toKeyPath:@"creditCards" withMapping:creditCardMapping]];
+    [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"cuisines" toKeyPath:@"cuisines" withMapping:cuisineMapping]];
+    [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"features" toKeyPath:@"features" withMapping:featureMapping]];
+    [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menus" toKeyPath:@"menus" withMapping:menuMapping]];
+    [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"photos" toKeyPath:@"photos" withMapping:photoMapping]];
+    [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"reviewLinks" toKeyPath:@"reviewLinks" withMapping:reviewLinkMapping]];
+    
+    RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:restaurantMapping pathPattern:nil keyPath:@"restaurants" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
+    
+    [objectManager addResponseDescriptor:responseDescriptor];
+    
     return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
