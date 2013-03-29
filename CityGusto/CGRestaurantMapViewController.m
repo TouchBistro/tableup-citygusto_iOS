@@ -8,7 +8,7 @@
 
 #import "CGRestaurantMapViewController.h"
 #import "CGRestaurant.h"
-#import "CGRestaurantDetailViewController.h"
+#import "CGRestaurantHomeViewController.h"
 #import "CGAnnotation.h"
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
@@ -76,7 +76,7 @@
             mapPin.canShowCallout = YES;
             
             UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            [disclosureButton addTarget:self action:@selector(showRestaurantDetail:) forControlEvents:UIControlEventTouchUpInside];
+            [disclosureButton addTarget:self action:@selector(showRestaurantHome:) forControlEvents:UIControlEventTouchUpInside];
             
             mapPin.rightCalloutAccessoryView = disclosureButton;
             
@@ -88,16 +88,16 @@
     return mapPin;
 }
 
--(void) showRestaurantDetail:(UIButton *) sender {
+-(void) showRestaurantHome:(UIButton *) sender {
     CGAnnotation *annotation = [[mapView selectedAnnotations] objectAtIndex:0];
     self.selectedRestaurant = annotation.restaurant;
-    [self performSegueWithIdentifier:@"mapDetailSegue" sender:self];
+    [self performSegueWithIdentifier:@"mapHomeSegue" sender:self];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"mapDetailSegue"]){
-        CGRestaurantDetailViewController *detailController = [segue destinationViewController];
-        detailController.restaurant = self.selectedRestaurant;
+    if ([[segue identifier] isEqualToString:@"mapHomeSegue"]){
+        CGRestaurantHomeViewController *homeController = [segue destinationViewController];
+        homeController.restaurant = self.selectedRestaurant;
     }
 }
 

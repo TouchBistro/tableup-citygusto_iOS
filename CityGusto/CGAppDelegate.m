@@ -15,6 +15,7 @@
 #import "CGReviewLink.h"
 #import "CGRestaurant.h"
 #import "CGRestaurantParameter.h"
+#import "CGTopListPosition.h"
 #import <RestKit/RestKit.h>
 
 @implementation CGAppDelegate
@@ -62,6 +63,8 @@
     RKObjectMapping *reviewLinkMapping = [RKObjectMapping mappingForClass:[CGReviewLink class]];
     [reviewLinkMapping addAttributeMappingsFromArray:@[ @"text", @"link" ]];
     
+    RKObjectMapping *topListMapping = [RKObjectMapping mappingForClass:[CGTopListPosition class]];
+    [topListMapping addAttributeMappingsFromArray:@[ @"listName", @"neighborhoodName", @"cityName", @"listId", @"position" ]];
     
     RKObjectMapping* restaurantMapping = [RKObjectMapping mappingForClass:[CGRestaurant class] ];
     [restaurantMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantId" }];
@@ -138,6 +141,9 @@
     [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"menus" toKeyPath:@"menus" withMapping:menuMapping]];
     [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"photos" toKeyPath:@"photos" withMapping:photoMapping]];
     [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"reviewLinks" toKeyPath:@"reviewLinks" withMapping:reviewLinkMapping]];
+    [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"restaurantListPositions" toKeyPath:@"restaurantListPositions" withMapping:topListMapping]];
+    
+    
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:restaurantMapping pathPattern:nil keyPath:@"restaurants" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     

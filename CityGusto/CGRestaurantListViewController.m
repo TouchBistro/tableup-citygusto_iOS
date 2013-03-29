@@ -11,7 +11,7 @@
 #import "CGRestaurantCell.h"
 #import "CGRestaurantParameter.h"
 #import "CGRestaurantMapViewController.h"
-#import "CGRestaurantDetailViewController.h"
+#import "CGRestaurantHomeViewController.h"
 #import "CGRestaurantOptionsViewController.h"
 
 #import <RestKit/RestKit.h>
@@ -158,7 +158,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedRestaurant = [self.restaurants objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"detailSegue" sender:self];
+    [self performSegueWithIdentifier:@"homeSegue" sender:self];
 }
 
 
@@ -171,9 +171,9 @@
             CGRestaurantMapViewController *mapController = (CGRestaurantMapViewController *)navController.topViewController;
             mapController.restaurants = self.restaurants;
         }
-    }else if ([[segue identifier] isEqualToString:@"detailSegue"]){
-        CGRestaurantDetailViewController *detailController = [segue destinationViewController];
-        detailController.restaurant = self.selectedRestaurant;
+    }else if ([[segue identifier] isEqualToString:@"homeSegue"]){
+        CGRestaurantHomeViewController *homeController = [segue destinationViewController];
+        homeController.restaurant = self.selectedRestaurant;
     }else if ([[segue identifier] isEqualToString:@"optionSegue"]){
         UINavigationController *navController = [segue destinationViewController];
         
