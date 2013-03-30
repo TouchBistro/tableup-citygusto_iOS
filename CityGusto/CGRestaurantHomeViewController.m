@@ -10,6 +10,7 @@
 #import "CGRestaurantMenuViewController.h"
 #import "CGRestaurantTopListViewController.h"
 #import "CGMoreInformationViewController.h"
+#import "CGRestaurantMapViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface CGRestaurantHomeViewController ()
@@ -80,7 +81,14 @@
     }else if ([[segue identifier] isEqualToString:@"moreInfoSegue"]){
         CGMoreInformationViewController *moreInfoController = [segue destinationViewController];
         moreInfoController.selectedRestaurant = self.restaurant;
+    }else if ([[segue identifier] isEqualToString:@"mapFromHomeSegue"]){
+        CGRestaurantMapViewController *mapController = [segue destinationViewController];
+        
+        NSMutableArray *restaurants = [[NSMutableArray alloc]initWithObjects:self.restaurant, nil];
+        [mapController.restaurants removeAllObjects];
+        mapController.restaurants = restaurants;
     }
+    
 }
 
 - (IBAction)call:(id)sender {

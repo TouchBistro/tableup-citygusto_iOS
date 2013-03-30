@@ -8,6 +8,7 @@
 
 #import "CGRestaurantOptionsViewController.h"
 #import "CGRestaurantParameter.h"
+#import "CGCuisineViewController.h"
 #import "ActionSheetPicker.h"
 #import "CGLocationViewController.h"
 
@@ -108,6 +109,7 @@
 - (IBAction)clearAll:(id)sender {
     [[CGRestaurantParameter shared].cuisines removeAllObjects];
     [[CGRestaurantParameter shared].features removeAllObjects];
+    [[CGRestaurantParameter shared] fetchFeatures];
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cleared"
                                                     message:@"Cuisines and Features cleared."

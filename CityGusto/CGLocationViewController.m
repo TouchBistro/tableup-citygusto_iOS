@@ -86,80 +86,55 @@
     if (indexPath.row == 0){
         [CGRestaurantParameter shared].useCurrentLocation = YES;
     }else if (indexPath.row == 1){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = nil;
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:nil];
     }else if (indexPath.row == 2){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:9];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:9]];
     }else if (indexPath.row == 3){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:16];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:16]];
     }else if (indexPath.row == 4){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:17];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:17]];
     }else if (indexPath.row == 5){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:10];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:10]];
     }else if (indexPath.row == 6){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:19];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:19]];
     }else if (indexPath.row == 7){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:14];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:14]];
     }else if (indexPath.row == 8){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:15];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:15]];
     }else if (indexPath.row == 9){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:20];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:20]];
     }else if (indexPath.row == 10){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:13];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:13]];
     }else if (indexPath.row == 11){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:18];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:18]];
     }else if (indexPath.row == 12){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:12];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:12]];
     }else if (indexPath.row == 13){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:4];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:11];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:4] neighborhoodId:[NSNumber numberWithInt:11]];
     }else if (indexPath.row == 14){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:2];
-        [CGRestaurantParameter shared].neighborhoodId = nil;
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:2] neighborhoodId:nil];
     }else if (indexPath.row == 15){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:3];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:3];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:3] neighborhoodId:[NSNumber numberWithInt:3]];
     }else if (indexPath.row == 16){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:3];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:2];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:3] neighborhoodId:[NSNumber numberWithInt:2]];
     }else if (indexPath.row == 17){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:3];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:5];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:3] neighborhoodId:[NSNumber numberWithInt:5]];
     }else if (indexPath.row == 18){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:3];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:7];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:3] neighborhoodId:[NSNumber numberWithInt:7]];
     }else if (indexPath.row == 19){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:3];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:4];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:3] neighborhoodId:[NSNumber numberWithInt:4]];
     }else if (indexPath.row == 20){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:3];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:1];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:3] neighborhoodId:[NSNumber numberWithInt:1]];
     }else if (indexPath.row == 21){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:3];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:8];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:3] neighborhoodId:[NSNumber numberWithInt:8]];
     }else if (indexPath.row == 22){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:3];
-        [CGRestaurantParameter shared].neighborhoodId = [NSNumber numberWithInt:6];
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:3] neighborhoodId:[NSNumber numberWithInt:6]];
     }else if (indexPath.row == 23){
-        [CGRestaurantParameter shared].cityId = [NSNumber numberWithInt:1];
-        [CGRestaurantParameter shared].neighborhoodId = nil;
+        [[CGRestaurantParameter shared] changeLocation:[NSNumber numberWithInt:1] neighborhoodId:nil];
     }
     
     [self.delegate locationChanged];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
-    
 }
 
 - (IBAction)cancel:(id)sender {

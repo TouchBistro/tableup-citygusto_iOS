@@ -33,8 +33,11 @@
 @property (nonatomic, strong) NSMutableArray *cuisines;
 @property (nonatomic, strong) NSMutableArray *features;
 
-@property (nonatomic, strong) NSMutableArray *allCuisines;
-@property (nonatomic, strong) NSMutableArray *allFeatures;
+//@property (nonatomic, strong) NSMutableArray *allCuisines;
+//@property (nonatomic, strong) NSMutableArray *allFeatures;
+
+@property (nonatomic, strong) NSMutableArray *cuisinesForSelectedLocation;
+@property (nonatomic, strong) NSMutableArray *featuresForSelectedLocationAndCuisines;
 
 @property (nonatomic, strong) NSMutableDictionary *cities;
 @property (nonatomic, strong) NSMutableDictionary *neighborhoods;
@@ -48,6 +51,9 @@
 - (NSString *) getCityName;
 - (NSString *) getNeighborhoodName;
 - (NSString *) getLocationName;
+
+- (void) changeLocation:(NSNumber *)cityId neighborhoodId:(NSNumber *)neighborhoodId;
+- (void) fetchFeatures;
 
 
 + (CGRestaurantParameter *)shared;

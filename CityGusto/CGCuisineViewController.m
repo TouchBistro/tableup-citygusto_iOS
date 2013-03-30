@@ -9,6 +9,8 @@
 #import "CGRestaurantParameter.h"
 #import "CGCuisineViewController.h"
 #import "CGCuisine.h"
+#import "CGFeature.h"
+#import <RestKit/RestKit.h>
 
 @interface CGCuisineViewController ()
 
@@ -37,7 +39,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [CGRestaurantParameter shared].allCuisines.count;
+    return [CGRestaurantParameter shared].cuisinesForSelectedLocation.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -45,10 +47,10 @@
     static NSString *CellIdentifier = @"CuisineCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    CGCuisine *cuisine = [[CGRestaurantParameter shared].allCuisines objectAtIndex:indexPath.row];
+    CGCuisine *cuisine = [[CGRestaurantParameter shared].cuisinesForSelectedLocation objectAtIndex:indexPath.row];
     
     if (cuisine){
-        cell.textLabel.text = [[[CGRestaurantParameter shared].allCuisines objectAtIndex:indexPath.row] name];
+        cell.textLabel.text = [[[CGRestaurantParameter shared].cuisinesForSelectedLocation objectAtIndex:indexPath.row] name];
         
         if ([CGRestaurantParameter shared].cuisines.count > 0){
             NSUInteger index = [[CGRestaurantParameter shared].cuisines  indexOfObject:cuisine];
@@ -69,7 +71,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //add to selected cuisines
-    CGCuisine *selectedCuisine = [[CGRestaurantParameter shared].allCuisines objectAtIndex:indexPath.row];
+    CGCuisine *selectedCuisine = [[CGRestaurantParameter shared].cuisinesForSelectedLocation objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (cell.accessoryType == UITableViewCellAccessoryNone){
@@ -83,6 +85,7 @@
 }
 
 - (IBAction)done:(id)sender {
+    [[CGRestaurantParameter shared] fetchFeatures];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

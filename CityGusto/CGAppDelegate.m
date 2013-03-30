@@ -22,20 +22,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    //set default parameters
-    CGRestaurantParameter *params = [CGRestaurantParameter shared];
-    params.cityId = [[NSNumber alloc] initWithInt:4];
-    params.max = [[NSNumber alloc] initWithInt:25];
-    params.offset = [[NSNumber alloc] initWithInt:0];
-    
-    params.deliveryFilter = NO;
-    params.kitchenOpenFilter = NO;
-    params.useCurrentLocation = NO;
-    params.sortOrder = @"distance";
-    
-    [params buildAllCuisines];
-    [params buildAllFeatures];
-    
     RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelInfo);
     
@@ -49,10 +35,10 @@
     [creditCardMapping addAttributeMappingsFromArray:@[ @"name" ]];
     
     RKObjectMapping *cuisineMapping = [RKObjectMapping mappingForClass:[CGCuisine class]];
-    [cuisineMapping addAttributeMappingsFromArray:@[ @"name" ]];
+    [cuisineMapping addAttributeMappingsFromArray:@[ @"name", @"cuisineId" ]];
     
     RKObjectMapping *featureMapping = [RKObjectMapping mappingForClass:[CGFeature class]];
-    [featureMapping addAttributeMappingsFromArray:@[ @"name" ]];
+    [featureMapping addAttributeMappingsFromArray:@[ @"name", @"featureId" ]];
     
     RKObjectMapping *menuMapping = [RKObjectMapping mappingForClass:[CGMenu class]];
     [menuMapping addAttributeMappingsFromArray:@[ @"name", @"menuURL" ]];
@@ -148,6 +134,21 @@
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:restaurantMapping pathPattern:nil keyPath:@"restaurants" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     [objectManager addResponseDescriptor:responseDescriptor];
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:cuisineMapping pathPattern:nil keyPath:@"cuisines" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:featureMapping pathPattern:nil keyPath:@"features" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    
+    //set default parameters
+    CGRestaurantParameter *params = [CGRestaurantParameter shared];
+    params.max = [[NSNumber alloc] initWithInt:25];
+    params.offset = [[NSNumber alloc] initWithInt:0];
+    
+    params.deliveryFilter = NO;
+    params.kitchenOpenFilter = NO;
+    params.useCurrentLocation = NO;
+    params.sortOrder = @"distance";
+    
+    [params changeLocation:[[NSNumber alloc] initWithInt:4] neighborhoodId:nil];
+    
     
     return YES;
 }

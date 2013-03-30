@@ -11,6 +11,8 @@
 
 @protocol CGRestaurantOptionsViewDelegate
 - (void) updateRestaurants:(NSArray *)newRestaurants;
+- (void) updateCuisines:(NSArray *)newCuisines;
+- (void) updateFeatures:(NSArray *)newFeatures;
 @end
 
 @interface CGRestaurantOptionsViewController : UIViewController <UIScrollViewDelegate, CGLocationViewDelegate>{

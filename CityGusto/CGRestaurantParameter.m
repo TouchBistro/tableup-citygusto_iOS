@@ -9,6 +9,7 @@
 #import "CGCuisine.h"
 #import "CGFeature.h"
 #import "CGRestaurantParameter.h"
+#import <RestKit/RestKit.h>
 
 @implementation CGRestaurantParameter
 
@@ -31,9 +32,12 @@
 @synthesize cuisines;
 @synthesize features;
 
-@synthesize allCuisines;
+//@synthesize allCuisines;
 @synthesize cities;
 @synthesize neighborhoods;
+
+@synthesize cuisinesForSelectedLocation;
+@synthesize featuresForSelectedLocationAndCuisines;
 
 
 + (CGRestaurantParameter *)shared {
@@ -42,14 +46,17 @@
     dispatch_once(&pred, ^{
         _sharedObject = [[self alloc] init]; // or some other init method
         
-        _sharedObject.allCuisines = [[NSMutableArray alloc] init];
-        _sharedObject.allFeatures = [[NSMutableArray alloc] init];
+//        _sharedObject.allCuisines = [[NSMutableArray alloc] init];
+//        _sharedObject.allFeatures = [[NSMutableArray alloc] init];
         
         _sharedObject.cuisines = [[NSMutableArray alloc] init];
         _sharedObject.features = [[NSMutableArray alloc] init];
         
         _sharedObject.cities = [[NSMutableDictionary alloc] init];
         _sharedObject.neighborhoods = [[NSMutableDictionary alloc] init];
+        
+        _sharedObject.cuisinesForSelectedLocation = [[NSMutableArray alloc] init];
+        _sharedObject.featuresForSelectedLocationAndCuisines = [[NSMutableArray alloc] init];
         
         [_sharedObject.cities setObject:@"Somerville" forKey:@"1"];
         [_sharedObject.cities setObject:@"Brookline" forKey:@"2"];
@@ -183,7 +190,7 @@
     
     return locationName;
 }
-
+/*
 - (void) buildAllCuisines{
     [self.allCuisines addObject:[[CGCuisine alloc] initWithName:@"Afghani" cuisineId:@"3"]];
     [self.allCuisines addObject:[[CGCuisine alloc] initWithName:@"African" cuisineId:@"4"]];
@@ -531,6 +538,59 @@
     [self.allFeatures addObject:[[CGFeature alloc] initWithName:@"Wine Cellar" featureId:@"157"]];
     [self.allFeatures addObject:[[CGFeature alloc] initWithName:@"Wine Pairing" featureId:@"158"]];
     [self.allFeatures addObject:[[CGFeature alloc] initWithName:@"Wine Tastings" featureId:@"159"]];
+}
+*/
+- (void) changeLocation:(NSNumber *)cityId_ neighborhoodId:(NSNumber *)neighborhoodId_{
+    if (cityId_){
+        self.cityId = cityId_;
+    }
+    
+    if (neighborhoodId_){
+        self.neighborhoodId = neighborhoodId_;
+    }
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/cuisines"
+                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [self.cuisinesForSelectedLocation removeAllObjects];
+                                                      [self.featuresForSelectedLocationAndCuisines removeAllObjects];
+                                                      
+                                                      [self.cuisinesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"cuisines"]];
+                                                      [self.featuresForSelectedLocationAndCuisines addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"features"]];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
+    
+}
+
+- (void) fetchFeatures{
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/features"
+                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [self.featuresForSelectedLocationAndCuisines removeAllObjects];
+                                                      [self.featuresForSelectedLocationAndCuisines addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"features"]];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
+    
 }
 
 @end

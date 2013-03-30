@@ -35,7 +35,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [CGRestaurantParameter shared].allFeatures.count;
+    return [CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -43,10 +43,10 @@
     static NSString *CellIdentifier = @"FeatureCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    CGFeature *feature = [[CGRestaurantParameter shared].allFeatures objectAtIndex:indexPath.row];
+    CGFeature *feature = [[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines objectAtIndex:indexPath.row];
     
     if (feature){
-        cell.textLabel.text = [[[CGRestaurantParameter shared].allFeatures objectAtIndex:indexPath.row] name];
+        cell.textLabel.text = [[[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines objectAtIndex:indexPath.row] name];
         
         if ([CGRestaurantParameter shared].features.count > 0){
             NSUInteger index = [[CGRestaurantParameter shared].features indexOfObject:feature];
@@ -68,7 +68,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //add to selected cuisines
-    CGFeature *selectedFeature = [[CGRestaurantParameter shared].allFeatures objectAtIndex:indexPath.row];
+    CGFeature *selectedFeature = [[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines objectAtIndex:indexPath.row];
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     
     if (cell.accessoryType == UITableViewCellAccessoryNone){
