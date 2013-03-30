@@ -59,6 +59,25 @@
     cityText = [cityText stringByAppendingString:@" "];
     cityText = [cityText stringByAppendingString:self.restaurant.zipcode];
     self.cityLabel.text = cityText;
+    
+    NSString *numberOfRatings = [self.restaurant.numberOfRatings stringValue];
+    numberOfRatings = [numberOfRatings stringByAppendingString:@" Ratings"];
+    self.ratingLabel.text = numberOfRatings;
+    
+    if (self.restaurant.numberOfStars == [NSNumber numberWithInt:1]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_1.png"]];
+    }else if (self.restaurant.numberOfStars == [NSNumber numberWithInt:2]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_2.png"]];
+    }else if (self.restaurant.numberOfStars == [NSNumber numberWithInt:3]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_3.png"]];
+    }else if (self.restaurant.numberOfStars == [NSNumber numberWithInt:4]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_4.png"]];
+    }else if (self.restaurant.numberOfStars == [NSNumber numberWithInt:5]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_5.png"]];
+    }else{
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_0.png"]];
+    }
+    
     [super viewDidLoad];
 }
 

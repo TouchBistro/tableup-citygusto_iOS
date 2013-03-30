@@ -116,6 +116,35 @@
         numberOfRatings = [numberOfRatings stringByAppendingString:@" Ratings"];
         
         cell.ratings.text = numberOfRatings;
+        
+        if (restaurant.numberOfStars == [NSNumber numberWithInt:1]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_1.png"]];
+        }else if (restaurant.numberOfStars == [NSNumber numberWithInt:2]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_2.png"]];
+        }else if (restaurant.numberOfStars == [NSNumber numberWithInt:3]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_3.png"]];
+        }else if (restaurant.numberOfStars == [NSNumber numberWithInt:4]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_4.png"]];
+        }else if (restaurant.numberOfStars == [NSNumber numberWithInt:5]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_5.png"]];
+        }else{
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_0.png"]];
+        }
+        
+        if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:1]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars1.png"]];
+        }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:2]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars2.png"]];
+        }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:3]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars3.png"]];
+        }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:4]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars4.png"]];
+        }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:5]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars5.png"]];
+        }else{
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars1.png"]];
+        }
+        
     }
     
     return cell;

@@ -367,7 +367,7 @@
             <objects>
                 <tableViewController id="gVH-JG-SJX" customClass="CGMoreInformationViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Xko-lH-kLc">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -496,7 +496,6 @@
                                         </imageView>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Currently in Top 5 of 0 Lists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VXb-0H-7bm">
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="220" id="3iE-cT-TcG"/>
                                                 <constraint firstAttribute="height" constant="21" id="aRw-53-RGm"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -508,7 +507,7 @@
                                                 <constraint firstAttribute="height" constant="32" id="G0b-hm-S10"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ratings" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kZ-Yc-Vgf">
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ratings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0kZ-Yc-Vgf">
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="21" id="0WB-ke-dnv"/>
                                                 <constraint firstAttribute="width" constant="63" id="iGm-Rr-3v1"/>
@@ -517,28 +516,37 @@
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stars_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="rdI-q9-Bzl"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="reviewdollars1.png" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-Tl-G4J"/>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
+                                    <constraint firstItem="0kZ-Yc-Vgf" firstAttribute="centerY" secondItem="rdI-q9-Bzl" secondAttribute="centerY" type="default" id="4dI-hW-Wla"/>
                                     <constraint firstItem="VXb-0H-7bm" firstAttribute="leading" secondItem="EOA-P9-vx1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="6Nt-Zh-rex"/>
                                     <constraint firstAttribute="bottom" secondItem="VXb-0H-7bm" secondAttribute="bottom" constant="21" id="6jL-St-w7z"/>
                                     <constraint firstItem="TBy-IE-ATC" firstAttribute="trailing" secondItem="JET-Z7-w5T" secondAttribute="trailing" type="default" id="AcK-df-xiM"/>
                                     <constraint firstAttribute="trailing" secondItem="VXb-0H-7bm" secondAttribute="trailing" constant="20" type="default" id="D1z-Rd-oBh"/>
-                                    <constraint firstItem="EOA-P9-vx1" firstAttribute="top" secondItem="JET-Z7-w5T" secondAttribute="top" constant="30" id="HwB-mP-AZL"/>
+                                    <constraint firstItem="EOA-P9-vx1" firstAttribute="top" secondItem="JET-Z7-w5T" secondAttribute="top" constant="30" id="EaF-8l-yK4"/>
+                                    <constraint firstItem="EUd-Tl-G4J" firstAttribute="leading" secondItem="JET-Z7-w5T" secondAttribute="leading" constant="80" id="Evl-4t-2xZ"/>
                                     <constraint firstItem="Zzg-fx-eRz" firstAttribute="top" secondItem="TBy-IE-ATC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="KiR-a0-gug"/>
-                                    <constraint firstAttribute="trailing" secondItem="0kZ-Yc-Vgf" secondAttribute="trailing" constant="92" id="KoI-hc-sxv"/>
-                                    <constraint firstItem="0kZ-Yc-Vgf" firstAttribute="top" secondItem="JET-Z7-w5T" secondAttribute="top" constant="49" id="O5S-aQ-RLj"/>
                                     <constraint firstItem="EOA-P9-vx1" firstAttribute="top" secondItem="TBy-IE-ATC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="T4l-S1-Gma"/>
+                                    <constraint firstItem="0kZ-Yc-Vgf" firstAttribute="top" secondItem="JET-Z7-w5T" secondAttribute="top" constant="46" id="Tcm-tL-uJd"/>
+                                    <constraint firstItem="EUd-Tl-G4J" firstAttribute="leading" secondItem="EOA-P9-vx1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="czz-dy-RAi"/>
                                     <constraint firstItem="TBy-IE-ATC" firstAttribute="top" secondItem="JET-Z7-w5T" secondAttribute="top" type="default" id="ieo-4s-sIy"/>
                                     <constraint firstItem="TBy-IE-ATC" firstAttribute="leading" secondItem="JET-Z7-w5T" secondAttribute="leading" type="default" id="sHs-4v-PXP"/>
+                                    <constraint firstItem="rdI-q9-Bzl" firstAttribute="leading" secondItem="EOA-P9-vx1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="u86-y3-y2e"/>
                                     <constraint firstAttribute="trailing" secondItem="Zzg-fx-eRz" secondAttribute="trailing" constant="6" id="vHR-mZ-gdE"/>
+                                    <constraint firstItem="EUd-Tl-G4J" firstAttribute="top" secondItem="TBy-IE-ATC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vgY-FZ-XbJ"/>
+                                    <constraint firstItem="0kZ-Yc-Vgf" firstAttribute="leading" secondItem="rdI-q9-Bzl" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="wp1-36-Wf4"/>
                                 </constraints>
                                 <connections>
                                     <outlet property="headerView" destination="TBy-IE-ATC" id="Y0h-VR-rdZ"/>
                                     <outlet property="nameLabel" destination="zk0-H9-283" id="oxu-lS-Gup"/>
+                                    <outlet property="priceImageView" destination="EUd-Tl-G4J" id="14E-kH-doV"/>
                                     <outlet property="primaryPhotoImage" destination="EOA-P9-vx1" id="iOX-8Q-Wvt"/>
                                     <outlet property="ratings" destination="0kZ-Yc-Vgf" id="l9i-69-Vr6"/>
+                                    <outlet property="starImages" destination="rdI-q9-Bzl" id="Br8-vO-Yr9"/>
                                     <outlet property="topFiveLabel" destination="VXb-0H-7bm" id="d6s-wc-mZw"/>
                                 </connections>
                             </tableViewCell>
@@ -573,7 +581,7 @@
             <objects>
                 <tableViewController id="PEQ-5f-E8I" customClass="CGRestaurantHomeViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="NfM-r4-jnJ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="spl-dS-nhy">
@@ -625,7 +633,25 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ico-ratings-dislike.png" translatesAutoresizingMaskIntoConstraints="NO" id="H3t-Mr-xDx"/>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ico-ratings-like.png" translatesAutoresizingMaskIntoConstraints="NO" id="wt6-Tj-m0W"/>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yk7-Be-3rt">
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stars_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="jgG-b4-0Wy"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="100 Ratings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jFa-wh-5uQ">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="79" id="E8p-TL-hui"/>
+                                                        <constraint firstAttribute="height" constant="21" id="yGE-cu-Gsg"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="italicSystem" pointSize="13"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="jFa-wh-5uQ" firstAttribute="trailing" secondItem="Yk7-Be-3rt" secondAttribute="trailing" type="default" id="4ex-Bk-VKQ"/>
+                                                <constraint firstItem="jFa-wh-5uQ" firstAttribute="centerY" secondItem="jgG-b4-0Wy" secondAttribute="centerY" type="default" id="9gn-Zq-sUc"/>
+                                                <constraint firstItem="jFa-wh-5uQ" firstAttribute="top" secondItem="Yk7-Be-3rt" secondAttribute="top" constant="4" id="dxM-a8-hic"/>
+                                                <constraint firstItem="jgG-b4-0Wy" firstAttribute="leading" secondItem="Yk7-Be-3rt" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="gEd-bY-00w"/>
+                                            </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TTv-Eu-nNp">
                                             <subviews>
@@ -646,7 +672,7 @@
                                             </constraints>
                                         </view>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="Yk7-Be-3rt" firstAttribute="centerX" secondItem="TCF-e7-oVS" secondAttribute="centerX" type="default" id="26I-1l-Xak"/>
                                         <constraint firstItem="TTv-Eu-nNp" firstAttribute="top" secondItem="Yk7-Be-3rt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5wj-gn-sbp"/>
@@ -658,11 +684,11 @@
                                         <constraint firstItem="Xrn-8K-tvp" firstAttribute="baseline" secondItem="TCF-e7-oVS" secondAttribute="baseline" type="default" id="Hg3-gn-wIh"/>
                                         <constraint firstItem="v1N-Ql-Yef" firstAttribute="baseline" secondItem="TCF-e7-oVS" secondAttribute="baseline" type="default" id="Nhk-vh-rWh"/>
                                         <constraint firstAttribute="bottom" secondItem="TTv-Eu-nNp" secondAttribute="bottom" constant="7" id="PF3-T6-W2b"/>
-                                        <constraint firstItem="Yk7-Be-3rt" firstAttribute="centerX" secondItem="Oc1-QD-EsM" secondAttribute="centerX" type="default" id="Qgm-OJ-1js"/>
                                         <constraint firstAttribute="trailing" secondItem="H3t-Mr-xDx" secondAttribute="trailing" constant="31" id="VQc-wr-l9M"/>
+                                        <constraint firstItem="Yk7-Be-3rt" firstAttribute="top" secondItem="Oc1-QD-EsM" secondAttribute="top" constant="38" id="YIf-Ve-Cnm"/>
                                         <constraint firstItem="TTv-Eu-nNp" firstAttribute="trailing" secondItem="Yk7-Be-3rt" secondAttribute="trailing" type="default" id="do8-6V-oPQ"/>
                                         <constraint firstItem="wt6-Tj-m0W" firstAttribute="top" secondItem="Oc1-QD-EsM" secondAttribute="top" constant="12" id="fEy-dN-9Sh"/>
-                                        <constraint firstItem="v1N-Ql-Yef" firstAttribute="top" secondItem="Oc1-QD-EsM" secondAttribute="top" constant="9" id="ggF-PV-ybE"/>
+                                        <constraint firstItem="TTv-Eu-nNp" firstAttribute="centerX" secondItem="Oc1-QD-EsM" secondAttribute="centerX" type="default" id="mxb-Pj-2r0"/>
                                         <constraint firstItem="Yk7-Be-3rt" firstAttribute="top" secondItem="v1N-Ql-Yef" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="peM-tE-zkc"/>
                                         <constraint firstItem="TTv-Eu-nNp" firstAttribute="leading" secondItem="Yk7-Be-3rt" secondAttribute="leading" type="default" id="sHz-Np-ien"/>
                                         <constraint firstItem="TTv-Eu-nNp" firstAttribute="top" secondItem="Oc1-QD-EsM" secondAttribute="top" constant="76" id="vgd-Ta-Uw4"/>
@@ -831,7 +857,9 @@
                         <outlet property="nameLabel" destination="E8a-bb-dMU" id="srl-vR-iAb"/>
                         <outlet property="numberOfDislikesLabel" destination="Xrn-8K-tvp" id="FO8-p3-ItU"/>
                         <outlet property="numberOfLikesLabel" destination="v1N-Ql-Yef" id="W6k-aH-DV4"/>
+                        <outlet property="ratingLabel" destination="jFa-wh-5uQ" id="WbO-HN-yuy"/>
                         <outlet property="ratingsView" destination="Yk7-Be-3rt" id="ao0-rI-Atc"/>
+                        <outlet property="starImageView" destination="jgG-b4-0Wy" id="OhO-iZ-RbN"/>
                         <outlet property="topFiveLabel" destination="Xah-Za-Mbt" id="ccW-fM-5gZ"/>
                         <outlet property="topFiveView" destination="TTv-Eu-nNp" id="fXt-JJ-ULq"/>
                     </connections>
@@ -845,7 +873,7 @@
             <objects>
                 <tableViewController id="P4h-EQ-10m" customClass="CGRestaurantReviewSiteViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Myz-G6-g2l">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -882,7 +910,7 @@
             <objects>
                 <tableViewController id="AP3-iR-1oX" customClass="CGRestaurantMenuViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eSa-me-qQZ">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -919,7 +947,7 @@
             <objects>
                 <tableViewController id="WLE-7A-H0e" customClass="CGRestaurantTopListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HeZ-9U-0Aa">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -956,7 +984,7 @@
             <objects>
                 <viewController id="19t-C9-hou" customClass="CGRestaurantMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FjG-ea-Xw2">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yeB-p5-hx1"/>
@@ -1099,6 +1127,8 @@
         <image name="ico-list-arrow-alt.png" width="20" height="30"/>
         <image name="ico-ratings-dislike.png" width="16" height="16"/>
         <image name="ico-ratings-like.png" width="16" height="16"/>
+        <image name="reviewdollars1.png" width="49" height="16"/>
+        <image name="stars_0.png" width="80" height="15"/>
     </resources>
     <classes>
         <class className="CGCuisineViewController" superclassName="UITableViewController">
@@ -1135,8 +1165,10 @@
             <relationships>
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="ratings" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="starImages" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="topFiveLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -1157,8 +1189,10 @@
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numberOfDislikesLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="numberOfLikesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="ratingsView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="starImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="topFiveLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="topFiveView" candidateClass="UIView"/>
             </relationships>
@@ -1213,7 +1247,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MXO-9X-nkW"/>
+        <segue reference="Aqm-km-h2h"/>
         <segue reference="Ygo-TM-eei"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -15,5 +15,7 @@
 @property (strong, nonatomic) IBOutlet UIImageView *primaryPhotoImage;
 @property (strong, nonatomic) IBOutlet UILabel *topFiveLabel;
 @property (strong, nonatomic) IBOutlet UILabel *ratings;
+@property (strong, nonatomic) IBOutlet UIImageView *starImages;
+@property (strong, nonatomic) IBOutlet UIImageView *priceImageView;
 
 @end
