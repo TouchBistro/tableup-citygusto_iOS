@@ -68,6 +68,7 @@
                                                                                             otherButtonTitles:nil];
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
+                                                      [self.activityView stopAnimating];
                                                   }];
         
     }

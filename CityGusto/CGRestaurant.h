@@ -72,6 +72,7 @@
 
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
+@property (nonatomic, strong) NSNumber *distance;
 
 @property (nonatomic, assign, getter=isOpen) BOOL open;
 

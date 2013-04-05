@@ -91,6 +91,11 @@
 		1BBF71F61704F7FC00489EE4 /* CGInformationCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF71F51704F7FC00489EE4 /* CGInformationCell.m */; };
 		1BBF71F91704F8CB00489EE4 /* CGMoreInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF71F81704F8CB00489EE4 /* CGMoreInformationViewController.m */; };
 		1BBF71FC1704FEA700489EE4 /* CGInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF71FB1704FEA700489EE4 /* CGInformation.m */; };
+		1BE5E8E6170E3BAC00A84099 /* CGRestaurantListCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8E5170E3BAC00A84099 /* CGRestaurantListCategory.m */; };
+		1BE5E8EA170E3C6700A84099 /* CGRestaurantList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8E9170E3C6700A84099 /* CGRestaurantList.m */; };
+		1BE5E8ED170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8EC170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.m */; };
+		1BE5E900170F5C6A00A84099 /* CGRestaurantListListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8FF170F5C6A00A84099 /* CGRestaurantListListViewController.m */; };
+		1BE5E903170F61E700A84099 /* CGSelectRestaurantListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E902170F61E700A84099 /* CGSelectRestaurantListViewController.m */; };
 		CED77D3C5A7C4B969FB71F35 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8716EDC73E47486696F97EC2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -212,6 +217,16 @@
 		1BBF71F81704F8CB00489EE4 /* CGMoreInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMoreInformationViewController.m; sourceTree = "<group>"; };
 		1BBF71FA1704FEA700489EE4 /* CGInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGInformation.h; sourceTree = "<group>"; };
 		1BBF71FB1704FEA700489EE4 /* CGInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGInformation.m; sourceTree = "<group>"; };
+		1BE5E8E4170E3BAC00A84099 /* CGRestaurantListCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantListCategory.h; sourceTree = "<group>"; };
+		1BE5E8E5170E3BAC00A84099 /* CGRestaurantListCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantListCategory.m; sourceTree = "<group>"; };
+		1BE5E8E8170E3C6700A84099 /* CGRestaurantList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantList.h; sourceTree = "<group>"; };
+		1BE5E8E9170E3C6700A84099 /* CGRestaurantList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantList.m; sourceTree = "<group>"; };
+		1BE5E8EB170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantListCategoryHomeViewController.h; sourceTree = "<group>"; };
+		1BE5E8EC170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantListCategoryHomeViewController.m; sourceTree = "<group>"; };
+		1BE5E8FE170F5C6A00A84099 /* CGRestaurantListListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantListListViewController.h; sourceTree = "<group>"; };
+		1BE5E8FF170F5C6A00A84099 /* CGRestaurantListListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantListListViewController.m; sourceTree = "<group>"; };
+		1BE5E901170F61E700A84099 /* CGSelectRestaurantListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSelectRestaurantListViewController.h; sourceTree = "<group>"; };
+		1BE5E902170F61E700A84099 /* CGSelectRestaurantListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSelectRestaurantListViewController.m; sourceTree = "<group>"; };
 		3B7108018E0D4E1499AB8B8E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		8716EDC73E47486696F97EC2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -344,6 +359,10 @@
 				1BBF71F21704F08900489EE4 /* CGTopListPosition.m */,
 				1BBF71FA1704FEA700489EE4 /* CGInformation.h */,
 				1BBF71FB1704FEA700489EE4 /* CGInformation.m */,
+				1BE5E8E4170E3BAC00A84099 /* CGRestaurantListCategory.h */,
+				1BE5E8E5170E3BAC00A84099 /* CGRestaurantListCategory.m */,
+				1BE5E8E8170E3C6700A84099 /* CGRestaurantList.h */,
+				1BE5E8E9170E3C6700A84099 /* CGRestaurantList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -384,6 +403,12 @@
 				1BBF71EF1704EFFD00489EE4 /* CGRestaurantTopListViewController.m */,
 				1BBF71F71704F8CB00489EE4 /* CGMoreInformationViewController.h */,
 				1BBF71F81704F8CB00489EE4 /* CGMoreInformationViewController.m */,
+				1BE5E8EB170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.h */,
+				1BE5E8EC170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.m */,
+				1BE5E8FE170F5C6A00A84099 /* CGRestaurantListListViewController.h */,
+				1BE5E8FF170F5C6A00A84099 /* CGRestaurantListListViewController.m */,
+				1BE5E901170F61E700A84099 /* CGSelectRestaurantListViewController.h */,
+				1BE5E902170F61E700A84099 /* CGSelectRestaurantListViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -598,6 +623,11 @@
 				1BBF71F61704F7FC00489EE4 /* CGInformationCell.m in Sources */,
 				1BBF71F91704F8CB00489EE4 /* CGMoreInformationViewController.m in Sources */,
 				1BBF71FC1704FEA700489EE4 /* CGInformation.m in Sources */,
+				1BE5E8E6170E3BAC00A84099 /* CGRestaurantListCategory.m in Sources */,
+				1BE5E8EA170E3C6700A84099 /* CGRestaurantList.m in Sources */,
+				1BE5E8ED170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.m in Sources */,
+				1BE5E900170F5C6A00A84099 /* CGRestaurantListListViewController.m in Sources */,
+				1BE5E903170F61E700A84099 /* CGSelectRestaurantListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

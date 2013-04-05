@@ -16,6 +16,8 @@
 #import "CGRestaurant.h"
 #import "CGRestaurantParameter.h"
 #import "CGTopListPosition.h"
+#import "CGRestaurantListCategory.h"
+#import "CGRestaurantList.h"
 #import <RestKit/RestKit.h>
 
 @implementation CGAppDelegate
@@ -129,13 +131,23 @@
     [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"reviewLinks" toKeyPath:@"reviewLinks" withMapping:reviewLinkMapping]];
     [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"restaurantListPositions" toKeyPath:@"restaurantListPositions" withMapping:topListMapping]];
     
+    RKObjectMapping *restaurantListMapping = [RKObjectMapping mappingForClass:[CGRestaurantList class]];
+    [restaurantListMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantListId" }];
+    [restaurantListMapping addAttributeMappingsFromArray:@[ @"name", @"cityUrlId", @"neighborhoodUrlId", @"photoURL" ]];
+    [restaurantListMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"restaurants" toKeyPath:@"restaurants" withMapping:restaurantMapping]];
     
+    RKObjectMapping *restaurantListCategoryMapping = [RKObjectMapping mappingForClass:[CGRestaurantListCategory class]];
+    [restaurantListCategoryMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantListCategoryId" }];
+    [restaurantListCategoryMapping addAttributeMappingsFromArray:@[ @"name", @"neighborhoodName", @"cityName" ]];
+    
+    [restaurantListCategoryMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"restaurantLists" toKeyPath:@"restaurantLists" withMapping:restaurantListMapping]];
     
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:restaurantMapping pathPattern:nil keyPath:@"restaurants" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     [objectManager addResponseDescriptor:responseDescriptor];
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:cuisineMapping pathPattern:nil keyPath:@"cuisines" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:featureMapping pathPattern:nil keyPath:@"features" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:restaurantListCategoryMapping pathPattern:nil keyPath:@"restaurantListCategories" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
     
     //set default parameters
     CGRestaurantParameter *params = [CGRestaurantParameter shared];
@@ -148,7 +160,6 @@
     params.sortOrder = @"distance";
     
     [params changeLocation:[[NSNumber alloc] initWithInt:4] neighborhoodId:nil];
-    
     
     return YES;
 }
