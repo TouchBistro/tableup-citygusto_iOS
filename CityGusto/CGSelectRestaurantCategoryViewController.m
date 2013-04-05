@@ -1,21 +1,19 @@
 //
-//  CGSelectRestaurantListViewController.m
+//  CGSelectRestaurantCategoryViewController.m
 //  CityGusto
 //
 //  Created by Padraic Doyle on 4/5/13.
 //  Copyright (c) 2013 CityGusto. All rights reserved.
 //
+#import "CGRestaurantListCategory.h"
+#import "CGSelectRestaurantCategoryViewController.h"
 
-#import "CGRestaurantList.h"
-#import "CGSelectRestaurantListViewController.h"
-
-@interface CGSelectRestaurantListViewController ()
+@interface CGSelectRestaurantCategoryViewController ()
 
 @end
 
-@implementation CGSelectRestaurantListViewController
+@implementation CGSelectRestaurantCategoryViewController
 
-@synthesize restaurantLists;
 @synthesize delegate = _delegate;
 
 - (void)viewDidLoad
@@ -37,18 +35,17 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.restaurantLists.count;
+    return self.restaurantCategories.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"ListCell";
+    static NSString *CellIdentifier = @"CategoryCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    CGRestaurantList *restaurantList = [self.restaurantLists objectAtIndex:indexPath.row];
-    
-    if (restaurantList){
-        cell.textLabel.text = restaurantList.name;
+    CGRestaurantListCategory *category = [self.restaurantCategories objectAtIndex:indexPath.row];
+    if (category){
+        cell.textLabel.text = category.name;
     }
     
     return cell;
@@ -58,14 +55,15 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGRestaurantList *selectedList = [self.restaurantLists objectAtIndex:indexPath.row];
-    if (selectedList){
-        [self.delegate updateRestaurantList:selectedList];
+    CGRestaurantListCategory *category = [self.restaurantCategories objectAtIndex:indexPath.row];
+    if (category){
+        [self.delegate updateRestaurantCategory:category];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
 
-- (IBAction)cancel:(id)sender {
+-(IBAction)cancel:(id)sender{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 @end

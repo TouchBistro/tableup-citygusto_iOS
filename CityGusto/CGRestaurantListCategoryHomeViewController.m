@@ -57,15 +57,18 @@
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: self.activityView];
     
-    UITapGestureRecognizer *singleFingerTap1 =[[UITapGestureRecognizer alloc] initWithTarget:self
+    UITapGestureRecognizer *singleFingerTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(handleRestaurantViewTap:)];
-    UITapGestureRecognizer *singleFingerTap2 =[[UITapGestureRecognizer alloc] initWithTarget:self
+    UITapGestureRecognizer *singleFingerTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(handleRestaurantViewTap:)];
-    UITapGestureRecognizer *singleFingerTap3 =[[UITapGestureRecognizer alloc] initWithTarget:self
+    UITapGestureRecognizer *singleFingerTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(handleRestaurantViewTap:)];
     
-    UITapGestureRecognizer *singleFingerTapListView1 =[[UITapGestureRecognizer alloc] initWithTarget:self
+    UITapGestureRecognizer *singleFingerTapListView1 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                       action:@selector(handleRestaurantListViewTap:)];
+    
+    UITapGestureRecognizer *singleFingerTapHeaderView1 = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                              action:@selector(handleHeaderViewTap:)];
     
     [singleFingerTap1 setCancelsTouchesInView:NO];
     [singleFingerTap2 setCancelsTouchesInView:NO];
@@ -77,6 +80,9 @@
     [singleFingerTapListView1 setCancelsTouchesInView:NO];
     [self.listNameView addGestureRecognizer:singleFingerTapListView1];
     
+    [singleFingerTapHeaderView1 setCancelsTouchesInView:NO];
+    [self.headerView addGestureRecognizer:singleFingerTapHeaderView1];
+    
     [self.activityView startAnimating];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantListCategories"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
@@ -85,6 +91,9 @@
                                                       self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                       if (self.restaurantListCategories.count > 0){
                                                           currentCategory = self.restaurantListCategories[0];
+                                                          if (currentCategory){
+                                                              self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+                                                          }
                                                           [self showRestaurantListCategory];
                                                       }
                                                   }
@@ -108,7 +117,9 @@
 -(void) showRestaurantListCategory{
     if (currentCategory){
         self.headerLabel.text = currentCategory.name;
-        currentRestaurantList = self.currentCategory.restaurantLists[0];
+        if (self.currentRestaurantList == nil){
+            self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+        }
         
         if (currentRestaurantList){
             self.listNameLabel.text = currentRestaurantList.name;
@@ -205,7 +216,23 @@
             selectListView.restaurantLists = self.currentCategory.restaurantLists;
             selectListView.delegate = self;
         }
+    }else if ([[segue identifier] isEqualToString:@"selectCategorySegue"]){
+        UINavigationController *navController = [segue destinationViewController];
+        
+        if (navController != nil){
+            CGSelectRestaurantCategoryViewController *selectCategoryView = (CGSelectRestaurantCategoryViewController *)navController.topViewController;
+            selectCategoryView.restaurantCategories = self.restaurantListCategories;
+            selectCategoryView.delegate = self;
+        }
+    }else if ([[segue identifier] isEqualToString:@"listLocationSegue"]){
+        UINavigationController *navController = [segue destinationViewController];
+        
+        if (navController != nil){
+            CGLocationViewController *locationController = (CGLocationViewController *)navController.topViewController;
+            locationController.delegate = self;
+        }
     }
+    
 }
 - (void)handleRestaurantListViewTap:(UITapGestureRecognizer *)recognizer {
     if (recognizer.view == self.listNameView){
@@ -213,12 +240,57 @@
     }
 }
 
+- (void)handleHeaderViewTap:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.view == self.headerView){
+        [self performSegueWithIdentifier:@"selectCategorySegue" sender:self];
+    }
+}
+
+
 - (void) updateRestaurantList:(CGRestaurantList *) restaurantList{
     self.currentRestaurantList = restaurantList;
     [self showRestaurantListCategory];
 }
 
+- (void) updateRestaurantCategory:(CGRestaurantListCategory *) restaurantCategory{
+    self.currentCategory = restaurantCategory;
+    if (self.currentCategory){
+        self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+    }
+    [self showRestaurantListCategory];
+}
 
-- (IBAction)locationChange:(id)sender {
+
+- (void)locationChanged{
+    [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
+    
+    [self.activityView startAnimating];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantListCategories"
+                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                      if (self.restaurantListCategories.count > 0){
+                                                          currentCategory = self.restaurantListCategories[0];
+                                                          if (currentCategory){
+                                                              self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+                                                          }
+                                                          [self showRestaurantListCategory];
+                                                      }
+                                                  }
+                                                  
+                                                  [self.activityView stopAnimating];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                                  
+                                                  [self.activityView stopAnimating];
+                                              }];
 }
 @end

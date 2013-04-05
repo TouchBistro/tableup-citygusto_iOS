@@ -1294,7 +1294,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
-                                            <action selector="locationChange:" destination="YiM-wi-x3g" eventType="touchUpInside" id="T7e-0h-ZYl"/>
+                                            <segue destination="GsO-uf-fI1" kind="modal" identifier="listLocationSegue" id="iew-l2-cJO"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1352,7 +1352,7 @@
                         <outlet property="imageSliderView" destination="lYd-Ku-c7f" id="SfU-3C-U5a"/>
                         <outlet property="listNameLabel" destination="1hU-tZ-z7x" id="6D9-p4-etX"/>
                         <outlet property="listNameView" destination="155-z0-AOC" id="FDa-KV-bft"/>
-                        <outlet property="locationButton" destination="aY3-vv-xPe" id="QL9-Ik-viX"/>
+                        <outlet property="locationButton" destination="aY3-vv-xPe" id="NvA-vT-Ys8"/>
                         <outlet property="restaurant1Label" destination="ehU-c2-hnN" id="InR-tq-vp3"/>
                         <outlet property="restaurant1View" destination="nWk-vs-893" id="nSE-Km-eN7"/>
                         <outlet property="restaurant2Label" destination="TAy-9A-YNi" id="49i-Q1-bXD"/>
@@ -1361,6 +1361,7 @@
                         <outlet property="restaurant3View" destination="SqJ-nf-vvq" id="w0S-sO-NEP"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="listRestaurantDetailSegue" id="Em6-Bi-MbD"/>
                         <segue destination="am7-Sl-lRs" kind="push" identifier="restaurantListListSegue" id="NQz-2H-uJM"/>
+                        <segue destination="O0s-AD-xuG" kind="modal" identifier="selectCategorySegue" id="lv7-AY-OCh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcu-Er-tdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1562,6 +1563,69 @@
             </objects>
             <point key="canvasLocation" x="1744" y="2783"/>
         </scene>
+        <!--Select Restaurant Category View Controller-->
+        <scene sceneID="mMt-zL-zEX">
+            <objects>
+                <tableViewController id="6US-dB-sHC" customClass="CGSelectRestaurantCategoryViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="4DC-dv-Odd">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CategoryCell" textLabel="L8d-aQ-1eS" style="IBUITableViewCellStyleDefault" id="IQn-7L-syt">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L8d-aQ-1eS">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="6US-dB-sHC" id="wrG-dc-ETT"/>
+                            <outlet property="delegate" destination="6US-dB-sHC" id="Lqy-r0-L0m"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="Kde-RB-cYP">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="RJ1-OD-NHF">
+                            <connections>
+                                <action selector="cancel:" destination="6US-dB-sHC" id="xaJ-im-Sjm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ds-Jp-qyB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2270" y="3535"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="k0J-04-6Ng">
+            <objects>
+                <navigationController id="O0s-AD-xuG" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="32I-NL-Q99"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bez-yJ-jaZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6US-dB-sHC" kind="relationship" relationship="rootViewController" id="huV-29-lec"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qo2-zG-fb4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1744" y="3535"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bg-list-320.png" width="320" height="150"/>
@@ -1700,6 +1764,12 @@
         <class className="CGRestaurantTopListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantTopListViewController.h"/>
         </class>
+        <class className="CGSelectRestaurantCategoryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSelectRestaurantCategoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+            </relationships>
+        </class>
         <class className="CGSelectRestaurantListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSelectRestaurantListViewController.h"/>
             <relationships>
@@ -1716,6 +1786,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="iew-l2-cJO"/>
         <segue reference="Em6-Bi-MbD"/>
         <segue reference="NzV-4r-3WK"/>
     </inferredMetricsTieBreakers>

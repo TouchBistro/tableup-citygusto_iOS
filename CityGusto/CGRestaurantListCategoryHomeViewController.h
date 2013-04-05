@@ -10,9 +10,11 @@
 #import "CGRestaurant.h"
 #import "CGRestaurantListCategory.h"
 #import "CGSelectRestaurantListViewController.h"
+#import "CGSelectRestaurantCategoryViewController.h"
+#import "CGLocationViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface CGRestaurantListCategoryHomeViewController : UIViewController <CGSelectRestaurantListViewViewDelegate>
+@interface CGRestaurantListCategoryHomeViewController : UIViewController <CGSelectRestaurantListViewViewDelegate, CGSelectRestaurantCategoryDelegate, CGLocationViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *restaurantListCategories;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
@@ -31,7 +33,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *restaurant3Label;
 
 @property (strong, nonatomic) IBOutlet UIView *footerView;
-@property (strong, nonatomic) IBOutlet UIButton *locationButton;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 @property (nonatomic, strong) CGRestaurantListCategory *currentCategory;
@@ -42,6 +43,7 @@
 @property (nonatomic, strong) CGRestaurant *restaurant3;
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
+@property (strong, nonatomic) IBOutlet UIButton *locationButton;
 
 - (IBAction)locationChange:(id)sender;
 
