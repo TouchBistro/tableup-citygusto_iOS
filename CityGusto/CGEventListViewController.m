@@ -12,6 +12,7 @@
 #import "CGEventCell.h"
 #import "CGEvent.h"
 #import "CGEventOptionsViewController.h"
+#import "CGEventDetailViewController.h"
 #import <RestKit/RestKit.h>
 
 
@@ -135,13 +136,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    self.selectedEvent = [self.events objectAtIndex:indexPath.row];
+    [self performSegueWithIdentifier:@"eventDetailSegue" sender:self];
 }
 
 -(void) viewMorePressed:(id)sender{
@@ -156,7 +152,12 @@
             CGEventOptionsViewController *optionsController = (CGEventOptionsViewController *)navController.topViewController;
             optionsController.delegate = self;
         }
+    }else if ([[segue identifier] isEqualToString:@"eventDetailSegue"]){
+        CGEventDetailViewController *detailController = [segue destinationViewController];
+        detailController.event = self.selectedEvent;
     }
+    
+    
 }
 
 -(void)updateEvents:(NSArray *)newEvents{

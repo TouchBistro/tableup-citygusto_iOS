@@ -162,6 +162,7 @@
      , @"venueNeighborhoodName"
      , @"venueLatitude"
      , @"venueLongitude"
+     , @"venueId"
      , @"venuePhoneNumber"
      , @"description"
      , @"venueType"
