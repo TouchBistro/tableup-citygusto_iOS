@@ -195,12 +195,8 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"mapSegue"]){
-        UINavigationController *navController = [segue destinationViewController];
-        
-        if (navController != nil){
-            CGRestaurantMapViewController *mapController = (CGRestaurantMapViewController *)navController.topViewController;
-            mapController.restaurants = self.restaurants;
-        }
+        CGRestaurantMapViewController *mapController = [segue destinationViewController];
+        mapController.restaurants = self.restaurants;
     }else if ([[segue identifier] isEqualToString:@"homeSegue"]){
         CGRestaurantHomeViewController *homeController = [segue destinationViewController];
         homeController.restaurant = self.selectedRestaurant;

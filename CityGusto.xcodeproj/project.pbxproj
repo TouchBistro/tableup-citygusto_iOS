@@ -97,6 +97,14 @@
 		1BE5E900170F5C6A00A84099 /* CGRestaurantListListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8FF170F5C6A00A84099 /* CGRestaurantListListViewController.m */; };
 		1BE5E903170F61E700A84099 /* CGSelectRestaurantListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E902170F61E700A84099 /* CGSelectRestaurantListViewController.m */; };
 		1BE5E906170F684700A84099 /* CGSelectRestaurantCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E905170F684700A84099 /* CGSelectRestaurantCategoryViewController.m */; };
+		1BE5E911171828C200A84099 /* CGEventListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E910171828C200A84099 /* CGEventListViewController.m */; };
+		1BE5E914171829ED00A84099 /* CGEventCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E913171829ED00A84099 /* CGEventCell.m */; };
+		1BE5E91717182F7500A84099 /* CGCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E91617182F7400A84099 /* CGCategory.m */; };
+		1BE5E91A17182F8200A84099 /* CGTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E91917182F8200A84099 /* CGTag.m */; };
+		1BE5E91D17189F9E00A84099 /* CGEventOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E91C17189F9D00A84099 /* CGEventOptionsViewController.m */; };
+		1BE5E9201718C05B00A84099 /* CGEventCategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E91F1718C05A00A84099 /* CGEventCategoryViewController.m */; };
+		1BE5E9231718C47400A84099 /* CGEventTagViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E9221718C47300A84099 /* CGEventTagViewController.m */; };
+		1BE5E9261718D3D200A84099 /* CGEventDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E9251718D3D100A84099 /* CGEventDateViewController.m */; };
 		CED77D3C5A7C4B969FB71F35 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8716EDC73E47486696F97EC2 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -230,6 +238,22 @@
 		1BE5E902170F61E700A84099 /* CGSelectRestaurantListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSelectRestaurantListViewController.m; sourceTree = "<group>"; };
 		1BE5E904170F684600A84099 /* CGSelectRestaurantCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSelectRestaurantCategoryViewController.h; sourceTree = "<group>"; };
 		1BE5E905170F684700A84099 /* CGSelectRestaurantCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSelectRestaurantCategoryViewController.m; sourceTree = "<group>"; };
+		1BE5E90F171828C100A84099 /* CGEventListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEventListViewController.h; sourceTree = "<group>"; };
+		1BE5E910171828C200A84099 /* CGEventListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEventListViewController.m; sourceTree = "<group>"; };
+		1BE5E912171829ED00A84099 /* CGEventCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEventCell.h; sourceTree = "<group>"; };
+		1BE5E913171829ED00A84099 /* CGEventCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEventCell.m; sourceTree = "<group>"; };
+		1BE5E91517182F7400A84099 /* CGCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCategory.h; sourceTree = "<group>"; };
+		1BE5E91617182F7400A84099 /* CGCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCategory.m; sourceTree = "<group>"; };
+		1BE5E91817182F8100A84099 /* CGTag.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGTag.h; sourceTree = "<group>"; };
+		1BE5E91917182F8200A84099 /* CGTag.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGTag.m; sourceTree = "<group>"; };
+		1BE5E91B17189F9C00A84099 /* CGEventOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEventOptionsViewController.h; sourceTree = "<group>"; };
+		1BE5E91C17189F9D00A84099 /* CGEventOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEventOptionsViewController.m; sourceTree = "<group>"; };
+		1BE5E91E1718C05900A84099 /* CGEventCategoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEventCategoryViewController.h; sourceTree = "<group>"; };
+		1BE5E91F1718C05A00A84099 /* CGEventCategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEventCategoryViewController.m; sourceTree = "<group>"; };
+		1BE5E9211718C47200A84099 /* CGEventTagViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEventTagViewController.h; sourceTree = "<group>"; };
+		1BE5E9221718C47300A84099 /* CGEventTagViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEventTagViewController.m; sourceTree = "<group>"; };
+		1BE5E9241718D3D000A84099 /* CGEventDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEventDateViewController.h; sourceTree = "<group>"; };
+		1BE5E9251718D3D100A84099 /* CGEventDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEventDateViewController.m; sourceTree = "<group>"; };
 		3B7108018E0D4E1499AB8B8E /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		8716EDC73E47486696F97EC2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -366,6 +390,10 @@
 				1BE5E8E5170E3BAC00A84099 /* CGRestaurantListCategory.m */,
 				1BE5E8E8170E3C6700A84099 /* CGRestaurantList.h */,
 				1BE5E8E9170E3C6700A84099 /* CGRestaurantList.m */,
+				1BE5E91517182F7400A84099 /* CGCategory.h */,
+				1BE5E91617182F7400A84099 /* CGCategory.m */,
+				1BE5E91817182F8100A84099 /* CGTag.h */,
+				1BE5E91917182F8200A84099 /* CGTag.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -377,6 +405,8 @@
 				1BA698AD16EF6DDC00191786 /* CGRestaurantCell.m */,
 				1BBF71F41704F7FC00489EE4 /* CGInformationCell.h */,
 				1BBF71F51704F7FC00489EE4 /* CGInformationCell.m */,
+				1BE5E912171829ED00A84099 /* CGEventCell.h */,
+				1BE5E913171829ED00A84099 /* CGEventCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -414,6 +444,16 @@
 				1BE5E902170F61E700A84099 /* CGSelectRestaurantListViewController.m */,
 				1BE5E904170F684600A84099 /* CGSelectRestaurantCategoryViewController.h */,
 				1BE5E905170F684700A84099 /* CGSelectRestaurantCategoryViewController.m */,
+				1BE5E90F171828C100A84099 /* CGEventListViewController.h */,
+				1BE5E910171828C200A84099 /* CGEventListViewController.m */,
+				1BE5E91B17189F9C00A84099 /* CGEventOptionsViewController.h */,
+				1BE5E91C17189F9D00A84099 /* CGEventOptionsViewController.m */,
+				1BE5E91E1718C05900A84099 /* CGEventCategoryViewController.h */,
+				1BE5E91F1718C05A00A84099 /* CGEventCategoryViewController.m */,
+				1BE5E9211718C47200A84099 /* CGEventTagViewController.h */,
+				1BE5E9221718C47300A84099 /* CGEventTagViewController.m */,
+				1BE5E9241718D3D000A84099 /* CGEventDateViewController.h */,
+				1BE5E9251718D3D100A84099 /* CGEventDateViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -634,6 +674,14 @@
 				1BE5E900170F5C6A00A84099 /* CGRestaurantListListViewController.m in Sources */,
 				1BE5E903170F61E700A84099 /* CGSelectRestaurantListViewController.m in Sources */,
 				1BE5E906170F684700A84099 /* CGSelectRestaurantCategoryViewController.m in Sources */,
+				1BE5E911171828C200A84099 /* CGEventListViewController.m in Sources */,
+				1BE5E914171829ED00A84099 /* CGEventCell.m in Sources */,
+				1BE5E91717182F7500A84099 /* CGCategory.m in Sources */,
+				1BE5E91A17182F8200A84099 /* CGTag.m in Sources */,
+				1BE5E91D17189F9E00A84099 /* CGEventOptionsViewController.m in Sources */,
+				1BE5E9201718C05B00A84099 /* CGEventCategoryViewController.m in Sources */,
+				1BE5E9231718C47400A84099 /* CGEventTagViewController.m in Sources */,
+				1BE5E9261718D3D200A84099 /* CGEventDateViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

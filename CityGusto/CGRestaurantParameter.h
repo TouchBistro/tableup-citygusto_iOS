@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSNumber *lon;
 
 @property (nonatomic, strong) NSString *sortOrder;
+@property (nonatomic, strong) NSString *eventSortOrder;
 
 @property (nonatomic, assign, getter=isDeliveryFilter) BOOL deliveryFilter;
 @property (nonatomic, assign, getter=isKitchenOpenFilter) BOOL kitchenOpenFilter;
@@ -42,7 +43,16 @@
 @property (nonatomic, strong) NSMutableDictionary *cities;
 @property (nonatomic, strong) NSMutableDictionary *neighborhoods;
 
+//event specfic
+@property (nonatomic, strong) NSMutableArray *times;
+@property (nonatomic, strong) NSDate *date;
+@property (nonatomic, strong) NSMutableArray *categories;
+@property (nonatomic, strong) NSMutableArray *tags;
+@property (nonatomic, strong) NSMutableArray *categoriesForSelectedLocation;
+@property (nonatomic, strong) NSMutableArray *tagsForSelectedLocationAndCategories;
+
 - (NSMutableDictionary *) buildParameterMap;
+- (NSMutableDictionary *) buildEventParameterMap;
 
 - (void) resetOffsets;
 - (void) buildAllCuisines;
@@ -54,10 +64,9 @@
 
 - (void) changeLocation:(NSNumber *)cityId neighborhoodId:(NSNumber *)neighborhoodId;
 - (void) fetchFeatures;
-
+- (void) fetchTags;
 
 + (CGRestaurantParameter *)shared;
-
 
 
 @end

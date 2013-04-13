@@ -18,6 +18,9 @@
 #import "CGTopListPosition.h"
 #import "CGRestaurantListCategory.h"
 #import "CGRestaurantList.h"
+#import "CGEvent.h"
+#import "CGCategory.h"
+#import "CGTag.h"
 #import <RestKit/RestKit.h>
 
 @implementation CGAppDelegate
@@ -142,12 +145,57 @@
     
     [restaurantListCategoryMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"restaurantLists" toKeyPath:@"restaurantLists" withMapping:restaurantListMapping]];
     
+    RKObjectMapping *eventMapping = [RKObjectMapping mappingForClass:[CGEvent class]];
+    [eventMapping addAttributeMappingsFromDictionary:@{ @"id": @"eventId" }];
+    [eventMapping addAttributeMappingsFromArray:@[ @"name"
+     , @"venueName"
+     , @"venueShortName"
+     , @"dateString"
+     , @"venueAddress1"
+     , @"venueAddress2"
+     , @"venueEncodedAddress"
+     , @"venueCityName"
+     , @"venueState"
+     , @"venueZipcode"
+     , @"venuePhotoURL"
+     , @"venueWebsite"
+     , @"venueNeighborhoodName"
+     , @"venueLatitude"
+     , @"venueLongitude"
+     , @"venuePhoneNumber"
+     , @"description"
+     , @"venueType"
+     , @"startTime"
+     , @"endTime"
+     , @"distance"
+     ]];
+    
+    RKObjectMapping *categoryMapping = [RKObjectMapping mappingForClass:[CGCategory class]];
+    [categoryMapping addAttributeMappingsFromArray:@[ @"name", @"categoryId" ]];
+    
+    RKObjectMapping *tagMapping = [RKObjectMapping mappingForClass:[CGTag class]];
+    [tagMapping addAttributeMappingsFromArray:@[ @"name", @"tagId" ]];
+    
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:restaurantMapping pathPattern:nil keyPath:@"restaurants" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     [objectManager addResponseDescriptor:responseDescriptor];
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:cuisineMapping pathPattern:nil keyPath:@"cuisines" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:featureMapping pathPattern:nil keyPath:@"features" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:categoryMapping
+                                                                                 pathPattern:nil
+                                                                                     keyPath:@"categories"
+                                                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:tagMapping
+                                                                                 pathPattern:nil
+                                                                                     keyPath:@"tags"
+                                                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:restaurantListCategoryMapping pathPattern:nil keyPath:@"restaurantListCategories" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:eventMapping
+                                                                                 pathPattern:nil
+                                                                                     keyPath:@"events"
+                                                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
     
     //set default parameters
     CGRestaurantParameter *params = [CGRestaurantParameter shared];
@@ -158,6 +206,12 @@
     params.kitchenOpenFilter = NO;
     params.useCurrentLocation = NO;
     params.sortOrder = @"distance";
+    params.date = [[NSDate alloc] init];
+    [params.times addObject:[NSNumber numberWithInt:1]];
+    [params.times addObject:[NSNumber numberWithInt:2]];
+    [params.times addObject:[NSNumber numberWithInt:3]];
+    [params.times addObject:[NSNumber numberWithInt:4]];
+    
     
     [params changeLocation:[[NSNumber alloc] initWithInt:4] neighborhoodId:nil];
     
