@@ -30,6 +30,10 @@
 		1BA08D451703BEAB0088FE9F /* CGLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D441703BEAB0088FE9F /* CGLocationViewController.m */; };
 		1BA08D481703D39B0088FE9F /* CGAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D471703D39B0088FE9F /* CGAnnotation.m */; };
 		1BA08D4B1703D7240088FE9F /* CGRestaurantAnnotationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D4A1703D7240088FE9F /* CGRestaurantAnnotationView.m */; };
+		1BA5C3BC1721950A00A38E7A /* CGUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3BB1721950A00A38E7A /* CGUser.m */; };
+		1BA5C3C01721B41300A38E7A /* CGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3BF1721B41300A38E7A /* CGLoginViewController.m */; };
+		1BA5C3C31721CFAE00A38E7A /* CGRestaurantFavoriteList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3C21721CFAE00A38E7A /* CGRestaurantFavoriteList.m */; };
+		1BA5C3C61721D11E00A38E7A /* CGMyRestaurantFavoriteListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3C51721D11D00A38E7A /* CGMyRestaurantFavoriteListViewController.m */; };
 		1BA6983B16ECCEA400191786 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA6983A16ECCEA400191786 /* UIKit.framework */; };
 		1BA6983D16ECCEA400191786 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA6983C16ECCEA400191786 /* Foundation.framework */; };
 		1BA6983F16ECCEA400191786 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA6983E16ECCEA400191786 /* CoreGraphics.framework */; };
@@ -143,6 +147,14 @@
 		1BA08D471703D39B0088FE9F /* CGAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGAnnotation.m; sourceTree = "<group>"; };
 		1BA08D491703D7240088FE9F /* CGRestaurantAnnotationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantAnnotationView.h; sourceTree = "<group>"; };
 		1BA08D4A1703D7240088FE9F /* CGRestaurantAnnotationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantAnnotationView.m; sourceTree = "<group>"; };
+		1BA5C3BA1721950A00A38E7A /* CGUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGUser.h; sourceTree = "<group>"; };
+		1BA5C3BB1721950A00A38E7A /* CGUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGUser.m; sourceTree = "<group>"; };
+		1BA5C3BE1721B41300A38E7A /* CGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLoginViewController.h; sourceTree = "<group>"; };
+		1BA5C3BF1721B41300A38E7A /* CGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLoginViewController.m; sourceTree = "<group>"; };
+		1BA5C3C11721CFAE00A38E7A /* CGRestaurantFavoriteList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantFavoriteList.h; sourceTree = "<group>"; };
+		1BA5C3C21721CFAE00A38E7A /* CGRestaurantFavoriteList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantFavoriteList.m; sourceTree = "<group>"; };
+		1BA5C3C41721D11D00A38E7A /* CGMyRestaurantFavoriteListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGMyRestaurantFavoriteListViewController.h; sourceTree = "<group>"; };
+		1BA5C3C51721D11D00A38E7A /* CGMyRestaurantFavoriteListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGMyRestaurantFavoriteListViewController.m; sourceTree = "<group>"; };
 		1BA6983616ECCEA400191786 /* CityGusto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityGusto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA6983A16ECCEA400191786 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1BA6983C16ECCEA400191786 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -403,6 +415,10 @@
 				1BE5E91617182F7400A84099 /* CGCategory.m */,
 				1BE5E91817182F8100A84099 /* CGTag.h */,
 				1BE5E91917182F8200A84099 /* CGTag.m */,
+				1BA5C3BA1721950A00A38E7A /* CGUser.h */,
+				1BA5C3BB1721950A00A38E7A /* CGUser.m */,
+				1BA5C3C11721CFAE00A38E7A /* CGRestaurantFavoriteList.h */,
+				1BA5C3C21721CFAE00A38E7A /* CGRestaurantFavoriteList.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -469,6 +485,10 @@
 				1BE5E92B1718FD2B00A84099 /* CGMoreViewController.m */,
 				1BE5E92D1718FE9400A84099 /* CGNewRestaurantsListViewController.h */,
 				1BE5E92E1718FE9500A84099 /* CGNewRestaurantsListViewController.m */,
+				1BA5C3BE1721B41300A38E7A /* CGLoginViewController.h */,
+				1BA5C3BF1721B41300A38E7A /* CGLoginViewController.m */,
+				1BA5C3C41721D11D00A38E7A /* CGMyRestaurantFavoriteListViewController.h */,
+				1BA5C3C51721D11D00A38E7A /* CGMyRestaurantFavoriteListViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -700,6 +720,10 @@
 				1BE5E9291718ED1E00A84099 /* CGEventDetailViewController.m in Sources */,
 				1BE5E92C1718FD2C00A84099 /* CGMoreViewController.m in Sources */,
 				1BE5E92F1718FE9600A84099 /* CGNewRestaurantsListViewController.m in Sources */,
+				1BA5C3BC1721950A00A38E7A /* CGUser.m in Sources */,
+				1BA5C3C01721B41300A38E7A /* CGLoginViewController.m in Sources */,
+				1BA5C3C31721CFAE00A38E7A /* CGRestaurantFavoriteList.m in Sources */,
+				1BA5C3C61721D11E00A38E7A /* CGMyRestaurantFavoriteListViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

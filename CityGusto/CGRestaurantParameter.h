@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 CityGusto. All rights reserved.
 //
 
+#import "CGUser.h"
 #import <Foundation/Foundation.h>
 
 @interface CGRestaurantParameter : NSObject
@@ -50,6 +51,8 @@
 @property (nonatomic, strong) NSMutableArray *tags;
 @property (nonatomic, strong) NSMutableArray *categoriesForSelectedLocation;
 @property (nonatomic, strong) NSMutableArray *tagsForSelectedLocationAndCategories;
+
+@property (nonatomic, strong) CGUser *loggedInUser;
 
 - (NSMutableDictionary *) buildParameterMap;
 - (NSMutableDictionary *) buildEventParameterMap;

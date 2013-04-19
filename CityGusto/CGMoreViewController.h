@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CGLoginViewController.h"
 
-@interface CGMoreViewController : UITableViewController
+@interface CGMoreViewController : UITableViewController <CGLoginViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *restaurants;
+@property (nonatomic, strong) NSMutableArray *restaurantFavoriteLists;
+@property (strong, nonatomic) UIActivityIndicatorView *activityView;
 
 @end

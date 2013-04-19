@@ -21,6 +21,8 @@
 #import "CGEvent.h"
 #import "CGCategory.h"
 #import "CGTag.h"
+#import "CGUser.h"
+#import "CGRestaurantFavoriteList.h"
 #import <RestKit/RestKit.h>
 
 @implementation CGAppDelegate
@@ -177,6 +179,14 @@
     RKObjectMapping *tagMapping = [RKObjectMapping mappingForClass:[CGTag class]];
     [tagMapping addAttributeMappingsFromArray:@[ @"name", @"tagId" ]];
     
+    RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[CGUser class]];
+    [userMapping addAttributeMappingsFromDictionary:@{ @"id": @"userId" }];
+    [userMapping addAttributeMappingsFromArray:@[ @"username" ]];
+    
+    RKObjectMapping *restaurantFavoriteListMapping = [RKObjectMapping mappingForClass:[CGUser class]];
+    [restaurantFavoriteListMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantFavoriteListId" }];
+    [restaurantFavoriteListMapping addAttributeMappingsFromArray:@[ @"name" ]];
+    
     RKResponseDescriptor *responseDescriptor = [RKResponseDescriptor responseDescriptorWithMapping:restaurantMapping pathPattern:nil keyPath:@"restaurants" statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)];
     
     [objectManager addResponseDescriptor:responseDescriptor];
@@ -196,6 +206,16 @@
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:eventMapping
                                                                                  pathPattern:nil
                                                                                      keyPath:@"events"
+                                                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:userMapping
+                                                                                 pathPattern:nil
+                                                                                     keyPath:@"users"
+                                                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:restaurantFavoriteListMapping
+                                                                                 pathPattern:nil
+                                                                                     keyPath:@"restaurantFavoriteLists"
                                                                                  statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
     
     //set default parameters

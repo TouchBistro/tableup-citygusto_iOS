@@ -52,6 +52,8 @@
 @synthesize date;
 @synthesize eventSortOrder;
 
+@synthesize loggedInUser;
+
 
 + (CGRestaurantParameter *)shared {
     static dispatch_once_t pred = 0;
