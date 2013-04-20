@@ -1555,12 +1555,19 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="e5D-b1-hti">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantFavListCell" textLabel="wDR-WX-BWl" style="IBUITableViewCellStyleDefault" id="e5D-b1-hti">
                                 <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="My Spots" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wDR-WX-BWl">
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </label>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                             </tableViewCell>
@@ -1573,6 +1580,7 @@
                     <navigationItem key="navigationItem" id="jmm-5g-m00"/>
                     <connections>
                         <outlet property="headerView" destination="18I-eS-Jxk" id="yAd-6M-2oR"/>
+                        <segue destination="Yi3-hm-8PJ" kind="push" identifier="restaurantFavoriteListRestaurantSegue" id="JyS-5L-Zpw"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmG-3E-9DH" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2971,7 +2979,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="fs8-tF-cgV">
-                        <barButtonItem key="rightBarButtonItem" title="Map" id="2Qi-B6-Q9a"/>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="2Qi-B6-Q9a">
+                            <connections>
+                                <segue destination="19t-C9-hou" kind="push" identifier="newMapSegue" id="UbO-gB-6Wh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7m3-5d-kmC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3230,8 +3242,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="JyS-5L-Zpw"/>
+        <segue reference="UbO-gB-6Wh"/>
         <segue reference="iew-l2-cJO"/>
         <segue reference="1Ra-4h-4jl"/>
-        <segue reference="PaO-af-0TP"/>
     </inferredMetricsTieBreakers>
 </document>

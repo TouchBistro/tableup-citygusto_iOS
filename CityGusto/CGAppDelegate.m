@@ -183,7 +183,7 @@
     [userMapping addAttributeMappingsFromDictionary:@{ @"id": @"userId" }];
     [userMapping addAttributeMappingsFromArray:@[ @"username" ]];
     
-    RKObjectMapping *restaurantFavoriteListMapping = [RKObjectMapping mappingForClass:[CGUser class]];
+    RKObjectMapping *restaurantFavoriteListMapping = [RKObjectMapping mappingForClass:[CGRestaurantFavoriteList class]];
     [restaurantFavoriteListMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantFavoriteListId" }];
     [restaurantFavoriteListMapping addAttributeMappingsFromArray:@[ @"name" ]];
     

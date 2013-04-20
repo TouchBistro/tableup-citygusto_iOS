@@ -111,7 +111,7 @@
 
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"mapSegue"]){
+    if ([[segue identifier] isEqualToString:@"newMapSegue"]){
         CGRestaurantMapViewController *mapController = [segue destinationViewController];
         mapController.restaurants = self.restaurants;
     }else if ([[segue identifier] isEqualToString:@"homeSegue"]){

@@ -7,7 +7,9 @@
 //
 
 #import "CGRestaurantFavoriteList.h"
+#import "CGNewRestaurantsListViewController.h"
 #import "CGMyRestaurantFavoriteListViewController.h"
+#import <RestKit/RestKit.h>
 
 @interface CGMyRestaurantFavoriteListViewController ()
 
@@ -19,6 +21,10 @@
 
 - (void)viewDidLoad
 {
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.tableView addSubview: self.activityView];
+    
     [super viewDidLoad];
 }
 
@@ -44,7 +50,6 @@
     static NSString *CellIdentifier = @"RestaurantFavListCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
-    
     CGRestaurantFavoriteList *favList = [self.restaurantFavoriteLists objectAtIndex:indexPath.row];
     cell.textLabel.text = favList.name;
     
@@ -55,6 +60,40 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    CGRestaurantFavoriteList *favList = [self.restaurantFavoriteLists objectAtIndex:indexPath.row];
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    [params setObject:favList.restaurantFavoriteListId forKey:@"id"];
+    
+    [self.activityView startAnimating];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantFavoriteLists"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                      [self performSegueWithIdentifier:@"restaurantFavoriteListRestaurantSegue" sender:self];
+                                                  }
+                                                  [self.activityView stopAnimating];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  
+                                                  [self.activityView stopAnimating];
+                                              }];
 }
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"restaurantFavoriteListRestaurantSegue"]){
+        CGNewRestaurantsListViewController *newRestaurantsController = [segue destinationViewController];
+        newRestaurantsController.restaurants = self.restaurants;
+    }
+}
+
+
 
 @end

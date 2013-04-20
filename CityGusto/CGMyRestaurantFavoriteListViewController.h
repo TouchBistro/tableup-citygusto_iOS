@@ -11,6 +11,10 @@
 @interface CGMyRestaurantFavoriteListViewController : UITableViewController
 
 @property (strong, nonatomic) NSMutableArray *restaurantFavoriteLists;
+@property (strong, nonatomic) NSMutableArray *restaurants;
+
+@property (strong, nonatomic) UIActivityIndicatorView *activityView;
+
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 
 @end
