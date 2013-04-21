@@ -7,6 +7,7 @@
 //
 
 #import "CGRestaurantParameter.h"
+#import "CGAppDelegate.h"
 #import <RestKit/RestKit.h>
 #import "CGLoginViewController.h"
 
@@ -20,6 +21,8 @@
 
 - (void)viewDidLoad
 {
+    self.fbLoginView.delegate = self;
+    
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: self.activityView];
@@ -45,6 +48,43 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+}
+
+- (void)loginViewShowingLoggedInUser:(FBLoginView *)loginView {
+}
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+    
+    if (user && user.id){
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+        [params setObject:user.id forKey:@"fbUid"];
+        
+        [self.activityView startAnimating];
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/facebook/login"
+                                               parameters:params
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          [CGRestaurantParameter shared].loggedInUser = [[mappingResult array] objectAtIndex:0];
+                                                          [self dismissViewControllerAnimated:YES completion:nil];
+                                                          [self.delegate loginSuccessful];
+                                                      }
+                                                      
+                                                      [self.activityView stopAnimating];
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                      
+                                                      [self.activityView stopAnimating];
+                                                  }];
+        
+    }
 }
 
 - (IBAction)login:(id)sender {
@@ -133,4 +173,7 @@
 
 
 
+- (IBAction)cancel:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 @end

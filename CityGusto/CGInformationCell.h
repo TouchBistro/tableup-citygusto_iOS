@@ -10,7 +10,10 @@
 
 @interface CGInformationCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UIView *headerView;
-@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
 @property (strong, nonatomic) IBOutlet UITextView *valueTextView;
+@property (strong, nonatomic) IBOutlet UITextView *headerTextView;
+@property (strong, nonatomic) IBOutlet UILabel *valueLabel;
+@property (strong, nonatomic) IBOutlet UIView *valueView;
 
+@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
 @end

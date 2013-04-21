@@ -380,47 +380,41 @@
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mwi-wo-X7f">
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfN-U7-nm0">
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fD2-Ki-osl">
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="GiD-45-jpR"/>
+                                                        <constraint firstAttribute="height" constant="21" id="uMc-s5-UKm"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
-                                                <constraint firstItem="wfN-U7-nm0" firstAttribute="centerY" secondItem="Mwi-wo-X7f" secondAttribute="centerY" type="default" id="4RE-0Q-MtT"/>
-                                                <constraint firstItem="wfN-U7-nm0" firstAttribute="trailing" secondItem="Mwi-wo-X7f" secondAttribute="trailing" type="default" id="lHY-jx-HIY"/>
-                                                <constraint firstItem="wfN-U7-nm0" firstAttribute="leading" secondItem="Mwi-wo-X7f" secondAttribute="leading" type="default" id="rz0-0Q-oX1"/>
+                                                <constraint firstItem="fD2-Ki-osl" firstAttribute="trailing" secondItem="Mwi-wo-X7f" secondAttribute="trailing" type="default" id="35m-sg-L89"/>
+                                                <constraint firstItem="fD2-Ki-osl" firstAttribute="top" secondItem="Mwi-wo-X7f" secondAttribute="top" type="default" id="40o-QD-L77"/>
+                                                <constraint firstItem="fD2-Ki-osl" firstAttribute="leading" secondItem="Mwi-wo-X7f" secondAttribute="leading" type="default" id="a1j-yK-cUG"/>
                                             </constraints>
                                         </view>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jrc-rT-hx5">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1G8-ZQ-TRT">
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="194" id="0rZ-QG-5PY"/>
-                                                <constraint firstAttribute="height" constant="43" id="XMy-vI-qMk"/>
-                                            </constraints>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstItem="Jrc-rT-hx5" firstAttribute="bottom" secondItem="Mwi-wo-X7f" secondAttribute="bottom" type="default" id="1gg-08-MHE"/>
+                                    <constraint firstAttribute="trailing" secondItem="1G8-ZQ-TRT" secondAttribute="trailing" constant="30" id="DUB-qa-qLw"/>
                                     <constraint firstItem="Mwi-wo-X7f" firstAttribute="centerY" secondItem="Mny-3d-rqn" secondAttribute="centerY" type="default" id="ENi-jn-TgJ"/>
-                                    <constraint firstItem="Jrc-rT-hx5" firstAttribute="leading" secondItem="Mny-3d-rqn" secondAttribute="leading" constant="116" id="JKO-Xj-LBs"/>
-                                    <constraint firstItem="Jrc-rT-hx5" firstAttribute="leading" secondItem="Mwi-wo-X7f" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="RyH-Fr-3Yt"/>
-                                    <constraint firstItem="Jrc-rT-hx5" firstAttribute="top" secondItem="Mwi-wo-X7f" secondAttribute="top" type="default" id="aA8-Vs-kRj"/>
+                                    <constraint firstItem="1G8-ZQ-TRT" firstAttribute="bottom" secondItem="Mwi-wo-X7f" secondAttribute="bottom" type="default" id="S5g-tD-krX"/>
+                                    <constraint firstItem="Mwi-wo-X7f" firstAttribute="top" secondItem="Mny-3d-rqn" secondAttribute="top" constant="1" id="Scu-Y5-3EX"/>
+                                    <constraint firstItem="1G8-ZQ-TRT" firstAttribute="top" secondItem="Mny-3d-rqn" secondAttribute="top" constant="2" id="fHf-xE-nrj"/>
+                                    <constraint firstItem="1G8-ZQ-TRT" firstAttribute="leading" secondItem="Mwi-wo-X7f" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="iDa-e1-jHF"/>
+                                    <constraint firstItem="1G8-ZQ-TRT" firstAttribute="leading" secondItem="Mny-3d-rqn" secondAttribute="leading" constant="116" id="t8q-uN-r9o"/>
                                     <constraint firstItem="Mwi-wo-X7f" firstAttribute="leading" secondItem="Mny-3d-rqn" secondAttribute="leading" constant="10" id="uxn-vd-B3q"/>
                                 </constraints>
                                 <connections>
-                                    <outlet property="headerLabel" destination="wfN-U7-nm0" id="tKM-za-2vC"/>
+                                    <outlet property="headerLabel" destination="fD2-Ki-osl" id="xFs-y1-Yft"/>
                                     <outlet property="headerView" destination="Mwi-wo-X7f" id="QpX-uw-VBN"/>
-                                    <outlet property="valueTextView" destination="Jrc-rT-hx5" id="Eyu-Fq-NEJ"/>
+                                    <outlet property="valueView" destination="1G8-ZQ-TRT" id="YqV-Bk-JiT"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="uiB-KN-t49">
@@ -1648,7 +1642,6 @@
                                             <constraint firstItem="v3j-Pp-kwm" firstAttribute="centerY" secondItem="9fl-0T-3uX" secondAttribute="centerY" type="default" id="d8X-cS-HTD"/>
                                             <constraint firstItem="QPM-P9-J0F" firstAttribute="leading" secondItem="2QM-vE-eSZ" secondAttribute="leading" type="default" id="ghf-rf-ra8"/>
                                             <constraint firstItem="v3j-Pp-kwm" firstAttribute="top" secondItem="2QM-vE-eSZ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="gi6-0w-V3o"/>
-                                            <constraint firstItem="QPM-P9-J0F" firstAttribute="leading" secondItem="9fl-0T-3uX" secondAttribute="leading" constant="25" id="yW1-6x-I19"/>
                                         </constraints>
                                     </view>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Kdn-u3-EN1">
@@ -1668,26 +1661,27 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnN-uL-g3G">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fnN-uL-g3G" customClass="FBLoginView">
                                         <color key="backgroundColor" white="0.69842039229999997" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="IYI-tV-NBV"/>
                                             <constraint firstAttribute="width" constant="160" id="l5O-DY-PgJ"/>
-                                            <constraint firstAttribute="height" constant="25" id="pWc-NJ-Prz"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="fnN-uL-g3G" firstAttribute="top" secondItem="US7-fM-ddg" secondAttribute="top" constant="49" id="0Sx-vJ-yaD"/>
                                     <constraint firstItem="9fl-0T-3uX" firstAttribute="trailing" secondItem="US7-fM-ddg" secondAttribute="trailing" type="default" id="26M-uP-Saf"/>
-                                    <constraint firstAttribute="bottom" secondItem="9fl-0T-3uX" secondAttribute="bottom" constant="113" id="A21-I7-HST"/>
                                     <constraint firstAttribute="trailing" secondItem="jBH-aM-oKO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="G6v-fv-Rhf"/>
+                                    <constraint firstAttribute="bottom" secondItem="9fl-0T-3uX" secondAttribute="bottom" constant="133" id="NNw-al-h4P"/>
+                                    <constraint firstItem="Kdn-u3-EN1" firstAttribute="top" secondItem="fnN-uL-g3G" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="NtM-Vk-XmD"/>
                                     <constraint firstItem="Kdn-u3-EN1" firstAttribute="leading" secondItem="US7-fM-ddg" secondAttribute="leading" type="default" id="R7G-tc-q5j"/>
+                                    <constraint firstItem="9fl-0T-3uX" firstAttribute="centerX" secondItem="US7-fM-ddg" secondAttribute="centerX" type="default" id="T7q-AV-hPG"/>
                                     <constraint firstItem="jBH-aM-oKO" firstAttribute="top" secondItem="US7-fM-ddg" secondAttribute="top" constant="16" id="UGF-oE-56J"/>
                                     <constraint firstItem="jBH-aM-oKO" firstAttribute="leading" secondItem="US7-fM-ddg" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Xf6-Qp-Unw"/>
-                                    <constraint firstItem="Kdn-u3-EN1" firstAttribute="top" secondItem="fnN-uL-g3G" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="aDP-KG-pX1"/>
+                                    <constraint firstItem="9fl-0T-3uX" firstAttribute="top" secondItem="Kdn-u3-EN1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="akz-hV-CZz"/>
                                     <constraint firstItem="fnN-uL-g3G" firstAttribute="centerX" secondItem="jBH-aM-oKO" secondAttribute="centerX" type="default" id="hWi-Ib-kZI"/>
                                     <constraint firstItem="Kdn-u3-EN1" firstAttribute="trailing" secondItem="US7-fM-ddg" secondAttribute="trailing" type="default" id="pu2-5O-Tps"/>
-                                    <constraint firstItem="9fl-0T-3uX" firstAttribute="top" secondItem="Kdn-u3-EN1" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="uQd-tc-xhT"/>
                                     <constraint firstItem="9fl-0T-3uX" firstAttribute="leading" secondItem="US7-fM-ddg" secondAttribute="leading" type="default" id="xxy-Uv-OFJ"/>
                                 </constraints>
                             </scrollView>
@@ -1700,9 +1694,16 @@
                             <constraint firstAttribute="bottom" secondItem="US7-fM-ddg" secondAttribute="bottom" constant="-113" id="xyB-qX-EnD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="VHP-sc-Bkt"/>
+                    <navigationItem key="navigationItem" id="VHP-sc-Bkt">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" id="ZU8-id-SoN">
+                            <connections>
+                                <action selector="cancel:" destination="mhn-vd-rPV" id="zfO-jb-Gs8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="emailTextField" destination="2QM-vE-eSZ" id="Bkj-Bu-zHa"/>
+                        <outlet property="fbLoginView" destination="fnN-uL-g3G" id="GXz-1l-iqx"/>
                         <outlet property="loginButton" destination="Iba-Ve-7Ir" id="JiV-mB-10S"/>
                         <outlet property="passwordTextField" destination="v3j-Pp-kwm" id="xPb-Sd-2bY"/>
                         <outlet property="scroller" destination="US7-fM-ddg" id="cee-cf-lui"/>
@@ -3086,8 +3087,11 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGInformationCell.h"/>
             <relationships>
                 <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerTextView" candidateClass="UITextView"/>
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="valueLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="valueTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="valueView" candidateClass="UIView"/>
             </relationships>
         </class>
         <class className="CGLocationViewController" superclassName="UITableViewController">
@@ -3099,8 +3103,10 @@
         <class className="CGLoginViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGLoginViewController.h"/>
             <relationships>
+                <relationship kind="action" name="cancel:"/>
                 <relationship kind="action" name="login:"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fbLoginView" candidateClass="FBLoginView"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
@@ -3230,6 +3236,12 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSelectRestaurantListViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancel:"/>
+            </relationships>
+        </class>
+        <class className="FBLoginView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBLoginView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
             </relationships>
         </class>
         <class className="NSLayoutConstraint" superclassName="NSObject">

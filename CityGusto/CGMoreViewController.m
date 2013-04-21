@@ -11,6 +11,7 @@
 #import "CGNewRestaurantsListViewController.h"
 #import "CGLoginViewController.h"
 #import "CGMyRestaurantFavoriteListViewController.h"
+#import "CGAppDelegate.h"
 #import <RestKit/RestKit.h>
 
 @interface CGMoreViewController ()
@@ -85,6 +86,11 @@
                                                           [self.activityView stopAnimating];
                                                       }];
         }else{
+//            CGAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+//            if (appDelegate.session.isOpen){
+                
+//            }
+            
             [self performSegueWithIdentifier:@"loginSegue" sender:self];
         }
     }

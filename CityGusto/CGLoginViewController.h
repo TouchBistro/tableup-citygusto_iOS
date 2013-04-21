@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @protocol CGLoginViewDelegate
 - (void) loginSuccessful;
 @end
 
-@interface CGLoginViewController : UIViewController <UITextFieldDelegate>{
+@interface CGLoginViewController : UIViewController <UITextFieldDelegate, FBLoginViewDelegate>{
     id <CGLoginViewDelegate> delegate;
 }
 
@@ -26,5 +27,9 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scroller;
 @property (strong, nonatomic) UIActivityIndicatorView *activityView;
+
+@property (strong, nonatomic) IBOutlet FBLoginView *fbLoginView;
+
+- (IBAction)cancel:(id)sender;
 
 @end
