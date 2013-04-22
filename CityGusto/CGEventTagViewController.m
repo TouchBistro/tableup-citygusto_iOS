@@ -53,6 +53,7 @@
     
     if (tag){
         cell.textLabel.text = tag.name;
+        cell.textLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:98.0f/255.0f blue:98.0f/255.0f alpha:1.0f];
         
         if ([CGRestaurantParameter shared].tags.count > 0){
             NSUInteger index = [[CGRestaurantParameter shared].tags indexOfObject:tag];

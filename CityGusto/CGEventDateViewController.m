@@ -61,6 +61,8 @@
     static NSString *CellIdentifier = @"TimeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
+    cell.textLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:98.0f/255.0f blue:98.0f/255.0f alpha:1.0f];
+    
     if (indexPath.row == 0){
         cell.textLabel.text = @"Pre-Dawn (12am - 5:59am)";
         NSUInteger index = [[CGRestaurantParameter shared].times indexOfObject:[NSNumber numberWithInt:1]];

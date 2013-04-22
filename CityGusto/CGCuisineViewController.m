@@ -57,6 +57,7 @@
     
     if (cuisine){
         cell.textLabel.text = [[[CGRestaurantParameter shared].cuisinesForSelectedLocation objectAtIndex:indexPath.row] name];
+        cell.textLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:98.0f/255.0f blue:98.0f/255.0f alpha:1.0f];
         
         if ([CGRestaurantParameter shared].cuisines.count > 0){
             NSUInteger index = [[CGRestaurantParameter shared].cuisines  indexOfObject:cuisine];

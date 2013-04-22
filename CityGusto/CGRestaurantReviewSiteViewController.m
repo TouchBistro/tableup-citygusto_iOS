@@ -50,6 +50,7 @@
     
     CGReviewLink *reviewLink = [self.selectedRestaurant.reviewLinks objectAtIndex:indexPath.row];
     cell.textLabel.text = reviewLink.text;
+    cell.textLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:98.0f/255.0f blue:98.0f/255.0f alpha:1.0f];
     
     return cell;
 }
