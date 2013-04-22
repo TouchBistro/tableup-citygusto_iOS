@@ -1818,9 +1818,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="bVW-5M-3ao" kind="relationship" relationship="viewControllers" id="xCu-n7-OcI"/>
-                        <segue destination="n3p-x2-JjD" kind="relationship" relationship="viewControllers" id="bAS-oW-LVg"/>
                         <segue destination="BHi-Zx-arw" kind="relationship" relationship="viewControllers" id="vfU-yK-9tr"/>
+                        <segue destination="n3p-x2-JjD" kind="relationship" relationship="viewControllers" id="bAS-oW-LVg"/>
+                        <segue destination="bVW-5M-3ao" kind="relationship" relationship="viewControllers" id="xCu-n7-OcI"/>
                         <segue destination="XGd-9a-h5x" kind="relationship" relationship="viewControllers" id="6dE-qc-hcR"/>
                     </connections>
                 </tabBarController>
@@ -1828,11 +1828,11 @@
             </objects>
             <point key="canvasLocation" x="162" y="235"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Food & Bars-->
         <scene sceneID="pGj-sj-KPS">
             <objects>
                 <navigationController id="bVW-5M-3ao" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rkc-pf-nkT"/>
+                    <tabBarItem key="tabBarItem" title="Food &amp; Bars" image="125-food.png" id="rkc-pf-nkT"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JQe-dx-gMC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2153,11 +2153,11 @@
             </objects>
             <point key="canvasLocation" x="1130" y="-1767"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Events-->
         <scene sceneID="Mcp-Iv-4Na">
             <objects>
                 <navigationController id="n3p-x2-JjD" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Lpz-qm-edo"/>
+                    <tabBarItem key="tabBarItem" title="Events" image="271-dramamasks.png" id="Lpz-qm-edo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="y3y-Gk-aJK">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2382,11 +2382,11 @@
             </objects>
             <point key="canvasLocation" x="1612" y="2070"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - Best of Lists-->
         <scene sceneID="dSS-hm-Yk0">
             <objects>
                 <navigationController id="BHi-Zx-arw" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="RTd-X0-9Pi"/>
+                    <tabBarItem key="tabBarItem" title="Best of Lists" image="85-trophy.png" id="RTd-X0-9Pi"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="O9E-Ef-1Sd">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -2970,11 +2970,11 @@
             </objects>
             <point key="canvasLocation" x="693" y="-3700"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Navigation Controller - More-->
         <scene sceneID="RKp-nr-Rbz">
             <objects>
                 <navigationController id="XGd-9a-h5x" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="6sL-0g-QVA"/>
+                    <tabBarItem key="tabBarItem" title="More" image="10-medical.png" id="6sL-0g-QVA"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8xh-wM-naz">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -3124,6 +3124,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="10-medical.png" width="22" height="22"/>
+        <image name="125-food.png" width="29" height="23"/>
+        <image name="271-dramamasks.png" width="37" height="23"/>
+        <image name="85-trophy.png" width="24" height="24"/>
         <image name="bg-list-320.png" width="320" height="150"/>
         <image name="buttonBackgroundGreen.png" width="560" height="72"/>
         <image name="buttonBackgroundGrey.png" width="560" height="72"/>
