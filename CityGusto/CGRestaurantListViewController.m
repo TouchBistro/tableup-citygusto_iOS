@@ -45,6 +45,12 @@
     
     [button addTarget:self action:@selector(viewMorePressed:)
      forControlEvents:UIControlEventTouchUpInside];
+    
+    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+    
+    UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
+    [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
+    
     [footerView addSubview:button];
     
     [self.tableView setTableFooterView:footerView];

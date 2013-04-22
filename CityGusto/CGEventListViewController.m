@@ -44,8 +44,13 @@
     [button setTitle:@"View More" forState:UIControlStateNormal];
     [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
     
+    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+    
     [button addTarget:self action:@selector(viewMorePressed:)
      forControlEvents:UIControlEventTouchUpInside];
+    
+    UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
+    [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
     [footerView addSubview:button];
     
     [self.tableView setTableFooterView:footerView];
