@@ -137,7 +137,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedRestaurant = [self.restaurants objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"homeSegue" sender:self];
+    [self performSegueWithIdentifier:@"newHomeSegue" sender:self];
 }
 
 
@@ -146,7 +146,7 @@
     if ([[segue identifier] isEqualToString:@"newMapSegue"]){
         CGRestaurantMapViewController *mapController = [segue destinationViewController];
         mapController.restaurants = self.restaurants;
-    }else if ([[segue identifier] isEqualToString:@"homeSegue"]){
+    }else if ([[segue identifier] isEqualToString:@"newHomeSegue"]){
         CGRestaurantHomeViewController *homeController = [segue destinationViewController];
         homeController.restaurant = self.selectedRestaurant;
     }

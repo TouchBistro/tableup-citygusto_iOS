@@ -38,7 +38,6 @@
     numberOfLikesLabel.text = [self.restaurant.numberOfLikes stringValue];
     numberOfDislikesLabel.text = [self.restaurant.numberOfDislikes stringValue];
     
-    
     NSString *topFive = @"Current Top 5 in ";
     if (self.restaurant.numberOfTopFiveLists){
         topFive = [topFive stringByAppendingString:[self.restaurant.numberOfTopFiveLists stringValue]];

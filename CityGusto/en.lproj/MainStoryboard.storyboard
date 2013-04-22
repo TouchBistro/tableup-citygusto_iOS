@@ -3117,6 +3117,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="PEQ-5f-E8I" kind="push" identifier="newHomeSegue" id="Bq8-j4-MBc"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7m3-5d-kmC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3410,9 +3413,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="8NP-31-OYH"/>
+        <segue reference="iew-l2-cJO"/>
         <segue reference="JyS-5L-Zpw"/>
-        <segue reference="NPS-qb-lnb"/>
-        <segue reference="Ygo-TM-eei"/>
+        <segue reference="UbO-gB-6Wh"/>
+        <segue reference="Bq8-j4-MBc"/>
     </inferredMetricsTieBreakers>
 </document>
