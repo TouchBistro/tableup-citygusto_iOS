@@ -293,7 +293,7 @@
         self.neighborhoodId = neighborhoodId_;
     }
     
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/cuisines"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/cuisines"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
@@ -314,7 +314,7 @@
                                                   NSLog(@"Hit error: %@", error);
                                               }];
     
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/categories"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/categories"
                                            parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
@@ -338,7 +338,7 @@
 }
 
 - (void) fetchFeatures{
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/features"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/features"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
@@ -359,7 +359,7 @@
 }
 
 - (void) fetchTags{
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/tags"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/tags"
                                            parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){

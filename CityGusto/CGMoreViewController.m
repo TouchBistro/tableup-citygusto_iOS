@@ -46,7 +46,7 @@
     
     if (indexPath.row == 1){
         [self.activityView startAnimating];
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/new/native/restaurants"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/new/native/restaurants"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -70,7 +70,7 @@
     }else if (indexPath.row == 0){
         if ([CGRestaurantParameter shared].loggedInUser){
             [self.activityView startAnimating];
-            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantFavoriteLists"
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantFavoriteLists"
                                                    parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                           if (mappingResult){
@@ -126,7 +126,7 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:[CGRestaurantParameter shared].loggedInUser.username forKey:@"username"];
     
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantFavoriteLists"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantFavoriteLists"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){

@@ -119,6 +119,7 @@
 		1BC8AC1A17255FAB00317873 /* 271-dramamasks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BC8AC1217255FAB00317873 /* 271-dramamasks@2x.png */; };
 		1BC8AC1B17255FAB00317873 /* 85-trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BC8AC1317255FAB00317873 /* 85-trophy.png */; };
 		1BC8AC1C17255FAB00317873 /* 85-trophy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BC8AC1417255FAB00317873 /* 85-trophy@2x.png */; };
+		1BC8AC1E172568AC00317873 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC8AC1D172568AB00317873 /* QuartzCore.framework */; };
 		1BE5E8E6170E3BAC00A84099 /* CGRestaurantListCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8E5170E3BAC00A84099 /* CGRestaurantListCategory.m */; };
 		1BE5E8EA170E3C6700A84099 /* CGRestaurantList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8E9170E3C6700A84099 /* CGRestaurantList.m */; };
 		1BE5E8ED170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8EC170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.m */; };
@@ -291,6 +292,7 @@
 		1BC8AC1217255FAB00317873 /* 271-dramamasks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "271-dramamasks@2x.png"; sourceTree = "<group>"; };
 		1BC8AC1317255FAB00317873 /* 85-trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "85-trophy.png"; sourceTree = "<group>"; };
 		1BC8AC1417255FAB00317873 /* 85-trophy@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "85-trophy@2x.png"; sourceTree = "<group>"; };
+		1BC8AC1D172568AB00317873 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1BE5E8E4170E3BAC00A84099 /* CGRestaurantListCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantListCategory.h; sourceTree = "<group>"; };
 		1BE5E8E5170E3BAC00A84099 /* CGRestaurantListCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantListCategory.m; sourceTree = "<group>"; };
 		1BE5E8E8170E3C6700A84099 /* CGRestaurantList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantList.h; sourceTree = "<group>"; };
@@ -334,6 +336,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1BC8AC1E172568AC00317873 /* QuartzCore.framework in Frameworks */,
 				1BA5C3D41722BEA500A38E7A /* Social.framework in Frameworks */,
 				1BA5C3D21722BEA000A38E7A /* Security.framework in Frameworks */,
 				1BA5C3D01722BE9900A38E7A /* libsqlite3.0.dylib in Frameworks */,
@@ -394,6 +397,7 @@
 		1BA6983916ECCEA400191786 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1BC8AC1D172568AB00317873 /* QuartzCore.framework */,
 				1BA5C3D31722BEA500A38E7A /* Social.framework */,
 				1BA5C3D11722BEA000A38E7A /* Security.framework */,
 				1BA5C3CF1722BE9900A38E7A /* libsqlite3.0.dylib */,

@@ -58,7 +58,7 @@
     
     if (cell){
         cell.nameLabel.text = restaurant.name;
-        cell.textLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:98.0f/255.0f blue:98.0f/255.0f alpha:1.0f];
+//        cell.textLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:98.0f/255.0f blue:98.0f/255.0f alpha:1.0f];
         
         NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL150x150];
         NSData *data = [NSData dataWithContentsOfURL:url];

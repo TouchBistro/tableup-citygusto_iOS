@@ -67,7 +67,7 @@
         [params setObject:user.id forKey:@"fbUid"];
         
         [self.activityView startAnimating];
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/facebook/login"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/facebook/login"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -123,7 +123,7 @@
     [params setObject:password forKey:@"password"];
     
     [self.activityView startAnimating];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/login"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/login"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){

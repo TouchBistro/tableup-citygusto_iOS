@@ -71,9 +71,9 @@
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:favList.restaurantFavoriteListId forKey:@"id"];
-    
+     
     [self.activityView startAnimating];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantFavoriteLists"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantFavoriteLists"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){

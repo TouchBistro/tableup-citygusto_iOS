@@ -84,7 +84,7 @@
 
 - (IBAction)search:(id)sender {
     [self.activityView startAnimating];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/events"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
                                            parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   [self.activityView stopAnimating];

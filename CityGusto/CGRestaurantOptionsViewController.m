@@ -162,7 +162,7 @@
     }
     
     [self.activityView startAnimating];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   [self.activityView stopAnimating];

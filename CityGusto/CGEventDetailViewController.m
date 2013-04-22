@@ -10,6 +10,7 @@
 #import "CGRestaurantHomeViewController.h"
 
 #import <RestKit/RestKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface CGEventDetailViewController ()
 
@@ -58,6 +59,20 @@
     self.neighborhoodLabel.text = self.event.venueNeighborhoodName;
     self.venueNameLabel.text = self.event.venueName;
     
+    CALayer *bottomBorder = [CALayer layer];
+    
+    bottomBorder.frame = CGRectMake(0.0f, self.venueView.frame.size.height - 1, self.venueView.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [UIColor blackColor].CGColor;//[UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    
+    [self.venueView.layer addSublayer:bottomBorder];
+    
+    CALayer *bottomDateBorder = [CALayer layer];
+    
+    bottomDateBorder.frame = CGRectMake(0.0f, self.dateView.frame.size.height - 1, self.dateView.frame.size.width, 1.0f);
+    bottomDateBorder.backgroundColor = [UIColor blackColor].CGColor;//[UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    
+    [self.dateView.layer addSublayer:bottomDateBorder];
+    
     [super viewDidLoad];
 }
 
@@ -79,7 +94,7 @@
         [params setObject:self.event.venueId forKey:@"id"];
         
         [self.activityView startAnimating];
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){

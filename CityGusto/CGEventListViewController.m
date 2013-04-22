@@ -62,7 +62,7 @@
     
     [self.activityView startAnimating];
     if (self.events.count == 0){
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/events"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
                                                parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){

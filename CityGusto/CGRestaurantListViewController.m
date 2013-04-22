@@ -61,7 +61,7 @@
     
     [self.activityView startAnimating];
     if (self.restaurants.count == 0){
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -163,13 +163,14 @@
         
         CALayer *bottomBorder = [CALayer layer];
         
-        bottomBorder.frame = CGRectMake(0.0f, 22.0f, cell.headerView.frame.size.width, 1.0f);
+        bottomBorder.frame = CGRectMake(0.0f, cell.headerView.frame.size.height - 1, cell.headerView.frame.size.width, 1.0f);
         bottomBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
         
         [cell.headerView.layer addSublayer:bottomBorder];
         
         cell.nameLabel.layer.shadowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f].CGColor;
         cell.nameLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        [cell.nameLabel.layer setMasksToBounds:YES];
         
         cell.nameLabel.layer.shadowRadius = 3.0;
         cell.nameLabel.layer.shadowOpacity = 0.5;
@@ -193,7 +194,7 @@
     
     [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 25];
     
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){

@@ -101,7 +101,7 @@
     self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
     
     [self.activityView startAnimating];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantListCategories"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
@@ -211,7 +211,7 @@
         [params setObject:self.currentRestaurantList.restaurantListId forKey:@"listId"];
         
         [self.activityView startAnimating];
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -292,7 +292,7 @@
     [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
     
     [self.activityView startAnimating];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantListCategories"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
