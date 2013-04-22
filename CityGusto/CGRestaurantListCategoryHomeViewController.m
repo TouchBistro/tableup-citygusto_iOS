@@ -60,8 +60,13 @@
 
 - (void)viewDidLoad
 {
-    self.carousel.type = iCarouselTypeCoverFlow2;
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+        
+    }
     
+    self.carousel.type = iCarouselTypeCoverFlow2;
     
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
@@ -330,8 +335,7 @@
     
     if (view == nil)
     {
-//        view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-        view = [[AsyncImageView alloc] init];
+        view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, 130.0f, 130.0f)];
         view.contentMode = UIViewContentModeScaleAspectFit;
     }
     
@@ -355,12 +359,16 @@
 }
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
-//    self.selectedChapter = index == 0 ? self.intro :[self.allExercises objectAtIndex:index - 1];
-//    [self performSegueWithIdentifier: @"videoSegue" sender: self];
+    CGRestaurantList *restaurantList = [self.currentCategory.restaurantLists objectAtIndex:index];
+    self.currentRestaurantList = restaurantList;
+    [self performSegueWithIdentifier:@"restaurantListListSegue" sender:self];
 }
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)aCarousel{
+    CGRestaurantList *restaurantList = [self.currentCategory.restaurantLists objectAtIndex:aCarousel.currentItemIndex];
     
+    self.currentRestaurantList = restaurantList;
+    [self showRestaurantListCategory];
 }
 
 @end

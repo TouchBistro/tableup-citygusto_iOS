@@ -13,7 +13,7 @@
 #import "CGRestaurantMapViewController.h"
 #import "CGRestaurantHomeViewController.h"
 #import "CGRestaurantOptionsViewController.h"
-
+#import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
 @interface CGRestaurantListViewController ()
@@ -28,6 +28,12 @@
 
 - (void)viewDidLoad
 {
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+        
+    }
+    
     [self setDataLoaded:NO];
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
@@ -42,7 +48,6 @@
     [footerView addSubview:button];
     
     [self.tableView setTableFooterView:footerView];
-    
     
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
@@ -145,6 +150,30 @@
         }else{
             [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars1.png"]];
         }
+        
+        //style
+        cell.headerView.backgroundColor = [UIColor colorWithRed:236.0f/255.0f green:236.0f/255.0f blue:236.0f/255.0f alpha:1.0f];
+        cell.nameLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:137.0f/255.0f blue:173.0f/255.0f alpha:1.0f];
+        
+        CALayer *bottomBorder = [CALayer layer];
+        
+        bottomBorder.frame = CGRectMake(0.0f, 22.0f, cell.headerView.frame.size.width, 1.0f);
+        bottomBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+        
+        [cell.headerView.layer addSublayer:bottomBorder];
+        
+        cell.nameLabel.layer.shadowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f].CGColor;
+        cell.nameLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        
+        cell.nameLabel.layer.shadowRadius = 3.0;
+        cell.nameLabel.layer.shadowOpacity = 0.5;
+        
+        [cell.primaryPhotoImage.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+        [cell.primaryPhotoImage.layer setBorderWidth:1.5f];
+        [cell.primaryPhotoImage.layer setShadowColor:[UIColor blackColor].CGColor];
+        [cell.primaryPhotoImage.layer setShadowOpacity:0.8];
+        [cell.primaryPhotoImage.layer setShadowRadius:3.0];
+        [cell.primaryPhotoImage.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
         
     }
     

@@ -19,5 +19,6 @@
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 
 - (void) viewMorePressed:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navBarItem;
 
 @end

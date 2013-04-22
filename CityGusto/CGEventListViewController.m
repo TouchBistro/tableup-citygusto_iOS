@@ -29,6 +29,12 @@
 
 - (void)viewDidLoad
 {
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+        
+    }
+    
     [self setDataLoaded:NO];
     
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];

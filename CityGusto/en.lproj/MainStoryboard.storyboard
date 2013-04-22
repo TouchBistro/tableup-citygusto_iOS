@@ -563,6 +563,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navBarItem" destination="MAh-sa-R3x" id="ia8-pw-baq"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="homeSegue" id="Aqm-km-h2h"/>
                     </connections>
                 </tableViewController>
@@ -3254,6 +3255,9 @@
         </class>
         <class className="CGRestaurantListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
+            </relationships>
         </class>
         <class className="CGRestaurantMapViewController" superclassName="UIViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantMapViewController.h"/>
@@ -3333,9 +3337,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Em6-Bi-MbD"/>
-        <segue reference="JyS-5L-Zpw"/>
         <segue reference="iew-l2-cJO"/>
-        <segue reference="Ygo-TM-eei"/>
+        <segue reference="JyS-5L-Zpw"/>
+        <segue reference="NzV-4r-3WK"/>
+        <segue reference="Aqm-km-h2h"/>
     </inferredMetricsTieBreakers>
 </document>

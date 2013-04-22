@@ -20,6 +20,13 @@
 
 - (void)viewDidLoad
 {
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+        
+    }
+    
+    self.carousel.type = iCarouselTypeCoverFlow2;
     [super viewDidLoad];
 }
 
@@ -46,10 +53,8 @@
         view.contentMode = UIViewContentModeScaleAspectFit;
     }
     
-    //cancel any previously loading images for this view
     [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:view];
     
-    //set image URL. AsyncImageView class will then dynamically load the image
     ((AsyncImageView *)view).imageURL = [NSURL URLWithString:photo.photoURL];
     
     return view;

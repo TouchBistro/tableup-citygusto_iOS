@@ -21,6 +21,12 @@
 
 - (void)viewDidLoad
 {
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+        
+    }
+    
     self.rows = [[NSMutableArray alloc] init];
     if (self.selectedRestaurant.about){
         [self.rows addObject:[[CGInformation alloc]initWithHeader:@"About" value:self.selectedRestaurant.about]];
