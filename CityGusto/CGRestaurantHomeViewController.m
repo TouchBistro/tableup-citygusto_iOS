@@ -11,6 +11,7 @@
 #import "CGRestaurantTopListViewController.h"
 #import "CGMoreInformationViewController.h"
 #import "CGRestaurantMapViewController.h"
+#import "CGRestaurantPhotoViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface CGRestaurantHomeViewController ()
@@ -110,8 +111,10 @@
         NSMutableArray *restaurants = [[NSMutableArray alloc]initWithObjects:self.restaurant, nil];
         [mapController.restaurants removeAllObjects];
         mapController.restaurants = restaurants;
+    }else if ([[segue identifier] isEqualToString:@"restaurantPhotosSegue"]){
+        CGRestaurantPhotoViewController *photoController = [segue destinationViewController];
+        photoController.photos = self.restaurant.photos;
     }
-    
 }
 
 - (IBAction)call:(id)sender {

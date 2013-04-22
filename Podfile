@@ -1,5 +1,6 @@
-platform :ios, '6.0' 
+platform :ios, '6.0'
 pod 'RestKit', '~> 0.20.0pre'
+pod 'iCarousel', '~>1.6.2'
 
 # Testing and Search are optional components
 pod 'RestKit/Testing', '~> 0.20.0pre'

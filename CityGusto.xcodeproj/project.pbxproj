@@ -41,6 +41,8 @@
 		1BA5C3D01722BE9900A38E7A /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA5C3CF1722BE9900A38E7A /* libsqlite3.0.dylib */; };
 		1BA5C3D21722BEA000A38E7A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA5C3D11722BEA000A38E7A /* Security.framework */; };
 		1BA5C3D41722BEA500A38E7A /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA5C3D31722BEA500A38E7A /* Social.framework */; };
+		1BA5C3F217247D9A00A38E7A /* CGRestaurantPhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3F117247D9A00A38E7A /* CGRestaurantPhotoViewController.m */; };
+		1BA5C3FB1724819C00A38E7A /* AsyncImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA5C3FA1724819C00A38E7A /* AsyncImageView.m */; };
 		1BA6983B16ECCEA400191786 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA6983A16ECCEA400191786 /* UIKit.framework */; };
 		1BA6983D16ECCEA400191786 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA6983C16ECCEA400191786 /* Foundation.framework */; };
 		1BA6983F16ECCEA400191786 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BA6983E16ECCEA400191786 /* CoreGraphics.framework */; };
@@ -169,6 +171,10 @@
 		1BA5C3CF1722BE9900A38E7A /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		1BA5C3D11722BEA000A38E7A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		1BA5C3D31722BEA500A38E7A /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		1BA5C3F017247D9900A38E7A /* CGRestaurantPhotoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantPhotoViewController.h; sourceTree = "<group>"; };
+		1BA5C3F117247D9A00A38E7A /* CGRestaurantPhotoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantPhotoViewController.m; sourceTree = "<group>"; };
+		1BA5C3F91724819C00A38E7A /* AsyncImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsyncImageView.h; sourceTree = "<group>"; };
+		1BA5C3FA1724819C00A38E7A /* AsyncImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsyncImageView.m; sourceTree = "<group>"; };
 		1BA6983616ECCEA400191786 /* CityGusto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CityGusto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BA6983A16ECCEA400191786 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		1BA6983C16ECCEA400191786 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -328,6 +334,15 @@
 			name = ActionSheetPicker;
 			sourceTree = "<group>";
 		};
+		1BA5C3F81724819C00A38E7A /* AsyncImageView */ = {
+			isa = PBXGroup;
+			children = (
+				1BA5C3F91724819C00A38E7A /* AsyncImageView.h */,
+				1BA5C3FA1724819C00A38E7A /* AsyncImageView.m */,
+			);
+			path = AsyncImageView;
+			sourceTree = "<group>";
+		};
 		1BA6982B16ECCEA400191786 = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +384,7 @@
 		1BA6984016ECCEA400191786 /* CityGusto */ = {
 			isa = PBXGroup;
 			children = (
+				1BA5C3F81724819C00A38E7A /* AsyncImageView */,
 				1BA08D3A17039ED90088FE9F /* ActionSheetPicker */,
 				1BA6986416ECD35200191786 /* Resources */,
 				1BA6986D16EF482400191786 /* Models */,
@@ -516,6 +532,8 @@
 				1BA5C3BF1721B41300A38E7A /* CGLoginViewController.m */,
 				1BA5C3C41721D11D00A38E7A /* CGMyRestaurantFavoriteListViewController.h */,
 				1BA5C3C51721D11D00A38E7A /* CGMyRestaurantFavoriteListViewController.m */,
+				1BA5C3F017247D9900A38E7A /* CGRestaurantPhotoViewController.h */,
+				1BA5C3F117247D9A00A38E7A /* CGRestaurantPhotoViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -752,6 +770,8 @@
 				1BA5C3C01721B41300A38E7A /* CGLoginViewController.m in Sources */,
 				1BA5C3C31721CFAE00A38E7A /* CGRestaurantFavoriteList.m in Sources */,
 				1BA5C3C61721D11E00A38E7A /* CGMyRestaurantFavoriteListViewController.m in Sources */,
+				1BA5C3F217247D9A00A38E7A /* CGRestaurantPhotoViewController.m in Sources */,
+				1BA5C3FB1724819C00A38E7A /* AsyncImageView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

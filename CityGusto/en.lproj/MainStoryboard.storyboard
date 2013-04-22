@@ -811,8 +811,28 @@
                                             <segue destination="WLE-7A-H0e" kind="push" identifier="topListSegue" id="MoC-k2-tBp"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="YOg-PZ-QM8" style="IBUITableViewCellStyleDefault" id="xJM-cm-cVz">
+                                        <rect key="frame" x="0.0" y="443" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Photos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YOg-PZ-QM8">
+                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="9jQ-10-IwJ" kind="push" identifier="restaurantPhotosSegue" id="zUE-AF-b2Q"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="5f1-69-2Ie" style="IBUITableViewCellStyleDefault" id="8I6-Pg-6Mf">
-                                        <rect key="frame" x="0.0" y="443" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="487" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="0.0" width="280" height="43"/>
@@ -1001,6 +1021,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8il-Ar-A33" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2114" y="889"/>
+        </scene>
+        <!--Restaurant Photo View Controller-->
+        <scene sceneID="ZNo-jM-8gg">
+            <objects>
+                <viewController id="9jQ-10-IwJ" customClass="CGRestaurantPhotoViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="OqT-Xr-xoZ">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akm-BO-2NC" customClass="iCarousel">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9jQ-10-IwJ" id="ivA-l9-7Wj"/>
+                                    <outlet property="delegate" destination="9jQ-10-IwJ" id="YFX-IS-6Nl"/>
+                                </connections>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="akm-BO-2NC" firstAttribute="leading" secondItem="OqT-Xr-xoZ" secondAttribute="leading" type="default" id="4yy-RM-dMp"/>
+                            <constraint firstItem="akm-BO-2NC" firstAttribute="trailing" secondItem="OqT-Xr-xoZ" secondAttribute="trailing" type="default" id="EEH-gw-xd8"/>
+                            <constraint firstAttribute="bottom" secondItem="akm-BO-2NC" secondAttribute="bottom" constant="37" id="WOF-Wi-fzy"/>
+                            <constraint firstItem="akm-BO-2NC" firstAttribute="top" secondItem="OqT-Xr-xoZ" secondAttribute="top" constant="38" id="fCQ-iZ-jI7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="bMq-rN-EaN"/>
+                    <connections>
+                        <outlet property="carousel" destination="akm-BO-2NC" id="C9L-yf-jED"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gey-FG-1i5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2777" y="1361"/>
         </scene>
         <!--Event Options View Controller-->
         <scene sceneID="6EG-6Y-O2G">
@@ -2120,12 +2173,23 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lYd-Ku-c7f">
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="bg-list-320.png" translatesAutoresizingMaskIntoConstraints="NO" id="KYg-BH-3bf"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wtq-lZ-Fa6" customClass="iCarousel">
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="YiM-wi-x3g" id="qtx-nX-GJD"/>
+                                            <outlet property="delegate" destination="YiM-wi-x3g" id="glj-Dc-pdv"/>
+                                        </connections>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstItem="Wtq-lZ-Fa6" firstAttribute="leading" secondItem="lYd-Ku-c7f" secondAttribute="leading" type="default" id="5YV-PC-DOv"/>
                                     <constraint firstItem="KYg-BH-3bf" firstAttribute="leading" secondItem="lYd-Ku-c7f" secondAttribute="leading" type="default" id="Fkt-bb-HI8"/>
                                     <constraint firstItem="KYg-BH-3bf" firstAttribute="top" secondItem="lYd-Ku-c7f" secondAttribute="top" type="default" id="LXM-WQ-eTS"/>
                                     <constraint firstItem="KYg-BH-3bf" firstAttribute="bottom" secondItem="lYd-Ku-c7f" secondAttribute="bottom" type="default" id="RBw-Ob-ekU"/>
+                                    <constraint firstItem="Wtq-lZ-Fa6" firstAttribute="trailing" secondItem="lYd-Ku-c7f" secondAttribute="trailing" type="default" id="hmH-z8-MWh"/>
+                                    <constraint firstItem="Wtq-lZ-Fa6" firstAttribute="bottom" secondItem="lYd-Ku-c7f" secondAttribute="bottom" type="default" id="lat-80-oUH"/>
+                                    <constraint firstItem="Wtq-lZ-Fa6" firstAttribute="top" secondItem="lYd-Ku-c7f" secondAttribute="top" type="default" id="ubJ-xi-nFd"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWk-vs-893">
@@ -2246,6 +2310,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="carousel" destination="Wtq-lZ-Fa6" id="qns-iZ-DKS"/>
                         <outlet property="footerView" destination="PFW-OF-T4y" id="vtr-s3-IBM"/>
                         <outlet property="headerLabel" destination="ukj-sQ-c9w" id="oCw-AU-CKY"/>
                         <outlet property="headerView" destination="I6C-ZH-uSn" id="8aL-a1-mTx"/>
@@ -3168,6 +3233,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListCategoryHomeViewController.h"/>
             <relationships>
                 <relationship kind="action" name="locationChange:"/>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
                 <relationship kind="outlet" name="footerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
@@ -3220,6 +3286,12 @@
                 <relationship kind="outlet" name="sortLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
+        <class className="CGRestaurantPhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantPhotoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+            </relationships>
+        </class>
         <class className="CGRestaurantReviewSiteViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantReviewSiteViewController.h"/>
         </class>
@@ -3247,6 +3319,13 @@
         <class className="NSLayoutConstraint" superclassName="NSObject">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
         </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
     </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -3254,9 +3333,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Em6-Bi-MbD"/>
         <segue reference="JyS-5L-Zpw"/>
-        <segue reference="UbO-gB-6Wh"/>
         <segue reference="iew-l2-cJO"/>
-        <segue reference="1Ra-4h-4jl"/>
+        <segue reference="Ygo-TM-eei"/>
     </inferredMetricsTieBreakers>
 </document>

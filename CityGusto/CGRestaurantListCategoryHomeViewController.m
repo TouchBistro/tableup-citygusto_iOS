@@ -14,7 +14,9 @@
 #import "CGRestaurantHomeViewController.h"
 #import "CGRestaurantListViewController.h"
 #import "CGSelectRestaurantListViewController.h"
+#import "CGPhoto.h"
 #import <RestKit/RestKit.h>
+#import "AsyncImageView.h"
 
 @interface CGRestaurantListCategoryHomeViewController ()
 
@@ -51,8 +53,16 @@
 
 @synthesize selectedRestaurant;
 
+- (void)awakeFromNib
+{
+    self.wrap = NO;
+}
+
 - (void)viewDidLoad
 {
+    self.carousel.type = iCarouselTypeCoverFlow2;
+    
+    
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: self.activityView];
@@ -83,6 +93,8 @@
     [singleFingerTapHeaderView1 setCancelsTouchesInView:NO];
     [self.headerView addGestureRecognizer:singleFingerTapHeaderView1];
     
+    self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
+    
     [self.activityView startAnimating];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantListCategories"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
@@ -99,6 +111,14 @@
                                                   }
                                                   
                                                   [self.activityView stopAnimating];
+                                                  
+                                                  for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
+                                                      NSInteger index = MAX(0, self.carousel.currentItemIndex);
+                                                      
+                                                      [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
+                                                      [self.carousel insertItemAtIndex:index animated:YES];
+                                                  }
+                                                  
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -111,6 +131,8 @@
                                                   
                                                   [self.activityView stopAnimating];
                                               }];
+    
+    
     [super viewDidLoad];
 }
 
@@ -293,4 +315,52 @@
                                                   [self.activityView stopAnimating];
                                               }];
 }
+
+#pragma mark -
+#pragma mark iCarousel methods
+
+- (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
+{
+    return [self.restaurantListPhotoUrls count];
+}
+
+- (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
+{
+    NSString *photoURL = [self.restaurantListPhotoUrls objectAtIndex:index];
+    
+    if (view == nil)
+    {
+//        view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
+        view = [[AsyncImageView alloc] init];
+        view.contentMode = UIViewContentModeScaleAspectFit;
+    }
+    
+    //cancel any previously loading images for this view
+    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:view];
+    
+    //set image URL. AsyncImageView class will then dynamically load the image
+    ((AsyncImageView *)view).imageURL = [NSURL URLWithString:photoURL];
+    
+    return view;
+}
+
+- (NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel
+{
+    return 0;
+}
+
+- (BOOL)carouselShouldWrap:(iCarousel *)carousel
+{
+    return self.wrap;
+}
+
+- (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index{
+//    self.selectedChapter = index == 0 ? self.intro :[self.allExercises objectAtIndex:index - 1];
+//    [self performSegueWithIdentifier: @"videoSegue" sender: self];
+}
+
+- (void)carouselDidEndScrollingAnimation:(iCarousel *)aCarousel{
+    
+}
+
 @end

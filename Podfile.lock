@@ -19,11 +19,13 @@ PODS:
 - RestKit/Support (0.20.0rc1)
 - RestKit/Testing (0.20.0rc1)
 - SOCKit (1.1)
+- iCarousel (1.6.3)
 
 DEPENDENCIES:
 - RestKit (~> 0.20.0pre)
 - RestKit/Search (~> 0.20.0pre)
 - RestKit/Testing (~> 0.20.0pre)
+- iCarousel (~> 1.6.2)
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
@@ -36,5 +38,6 @@ SPEC CHECKSUMS:
   RestKit/Support: 0382132969d823a872b377c1ab2e383f3c74a339
   RestKit/Testing: 0382132969d823a872b377c1ab2e383f3c74a339
   SOCKit: ed67aeeca4a697b63a933229e53f4670d5b9300f
+  iCarousel: 13e5f3f4df46460011d92a333015b1be99024c09
 
 COCOAPODS: 0.16.1

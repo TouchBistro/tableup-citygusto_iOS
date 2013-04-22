@@ -12,11 +12,13 @@
 #import "CGSelectRestaurantListViewController.h"
 #import "CGSelectRestaurantCategoryViewController.h"
 #import "CGLocationViewController.h"
+#import "iCarousel.h"
 #import <UIKit/UIKit.h>
 
-@interface CGRestaurantListCategoryHomeViewController : UIViewController <CGSelectRestaurantListViewViewDelegate, CGSelectRestaurantCategoryDelegate, CGLocationViewDelegate>
+@interface CGRestaurantListCategoryHomeViewController : UIViewController <CGSelectRestaurantListViewViewDelegate, CGSelectRestaurantCategoryDelegate, CGLocationViewDelegate, iCarouselDataSource, iCarouselDelegate>
 
 @property (nonatomic, strong) NSMutableArray *restaurantListCategories;
+@property (nonatomic, strong) NSMutableArray *restaurantListPhotoUrls;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UILabel *headerLabel;
 @property (strong, nonatomic) IBOutlet UIView *imageSliderView;
@@ -44,6 +46,10 @@
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 @property (strong, nonatomic) IBOutlet UIButton *locationButton;
+
+@property (nonatomic, retain) IBOutlet iCarousel *carousel;
+
+@property (nonatomic) BOOL wrap;
 
 - (IBAction)locationChange:(id)sender;
 
