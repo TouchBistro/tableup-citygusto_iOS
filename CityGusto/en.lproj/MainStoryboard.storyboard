@@ -2182,16 +2182,16 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6C-ZH-uSn">
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukj-sQ-c9w">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ukj-sQ-c9w">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="B66-gv-srf"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ukj-sQ-c9w" firstAttribute="trailing" secondItem="I6C-ZH-uSn" secondAttribute="trailing" type="default" id="MH3-qk-yNq"/>
                                     <constraint firstItem="ukj-sQ-c9w" firstAttribute="centerY" secondItem="I6C-ZH-uSn" secondAttribute="centerY" type="default" id="Unc-aH-hVc"/>
@@ -2200,12 +2200,12 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="155-z0-AOC">
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hU-tZ-z7x">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1hU-tZ-z7x">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="ZIX-NK-N7U"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" red="0.36470588235294116" green="0.53725490196078429" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -2240,16 +2240,16 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nWk-vs-893">
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehU-c2-hnN">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ehU-c2-hnN">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="vx2-U7-EtN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.38431372549019605" green="0.53725490196078429" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="ehU-c2-hnN" firstAttribute="centerY" secondItem="nWk-vs-893" secondAttribute="centerY" type="default" id="J0D-xk-5UH"/>
                                     <constraint firstItem="ehU-c2-hnN" firstAttribute="leading" secondItem="nWk-vs-893" secondAttribute="leading" type="default" id="LST-qE-0u8"/>
@@ -2258,16 +2258,16 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S49-PY-cfj">
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAy-9A-YNi">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAy-9A-YNi">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="3bD-dy-uyG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.38431372549019605" green="0.53725490196078429" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="TAy-9A-YNi" firstAttribute="leading" secondItem="S49-PY-cfj" secondAttribute="leading" type="default" id="Mrk-TD-jg3"/>
                                     <constraint firstItem="TAy-9A-YNi" firstAttribute="centerY" secondItem="S49-PY-cfj" secondAttribute="centerY" type="default" id="Tet-eZ-3Km"/>
@@ -2276,16 +2276,16 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SqJ-nf-vvq">
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIa-ZW-63P">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIa-ZW-63P">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="21" id="VQg-VB-iuL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.38431372549019605" green="0.53725490196078429" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="OIa-ZW-63P" firstAttribute="leading" secondItem="SqJ-nf-vvq" secondAttribute="leading" type="default" id="Ik0-C3-ciX"/>
                                     <constraint firstItem="OIa-ZW-63P" firstAttribute="trailing" secondItem="SqJ-nf-vvq" secondAttribute="trailing" type="default" id="YDm-z2-Kpz"/>
@@ -2319,7 +2319,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="S49-PY-cfj" firstAttribute="leading" secondItem="wzF-Jg-xOm" secondAttribute="leading" type="default" id="1GJ-Ep-ZHY"/>
                             <constraint firstItem="SqJ-nf-vvq" firstAttribute="top" secondItem="wzF-Jg-xOm" secondAttribute="top" constant="285" id="2C2-fB-zuA"/>
@@ -2331,6 +2331,7 @@
                             <constraint firstItem="SqJ-nf-vvq" firstAttribute="leading" secondItem="wzF-Jg-xOm" secondAttribute="leading" type="default" id="RO6-WX-M6S"/>
                             <constraint firstItem="PFW-OF-T4y" firstAttribute="trailing" secondItem="wzF-Jg-xOm" secondAttribute="trailing" type="default" id="T22-aE-05D"/>
                             <constraint firstItem="nWk-vs-893" firstAttribute="trailing" secondItem="wzF-Jg-xOm" secondAttribute="trailing" type="default" id="TRt-pJ-Oyt"/>
+                            <constraint firstAttribute="bottom" secondItem="nWk-vs-893" secondAttribute="bottom" constant="115" id="Tlf-st-57G"/>
                             <constraint firstItem="155-z0-AOC" firstAttribute="trailing" secondItem="wzF-Jg-xOm" secondAttribute="trailing" type="default" id="UDM-IY-Mr9"/>
                             <constraint firstAttribute="bottom" secondItem="155-z0-AOC" secondAttribute="bottom" constant="295" id="WCC-jN-Ckg"/>
                             <constraint firstItem="PFW-OF-T4y" firstAttribute="bottom" secondItem="wzF-Jg-xOm" secondAttribute="bottom" type="default" id="WTy-q9-scj"/>
@@ -2342,13 +2343,12 @@
                             <constraint firstAttribute="bottom" secondItem="I6C-ZH-uSn" secondAttribute="bottom" constant="332" id="dpe-Ja-dxp"/>
                             <constraint firstAttribute="bottom" secondItem="SqJ-nf-vvq" secondAttribute="bottom" constant="47" id="jnK-jt-77c"/>
                             <constraint firstItem="lYd-Ku-c7f" firstAttribute="leading" secondItem="wzF-Jg-xOm" secondAttribute="leading" type="default" id="k17-Wh-8e6"/>
+                            <constraint firstItem="S49-PY-cfj" firstAttribute="top" secondItem="wzF-Jg-xOm" secondAttribute="top" constant="251" id="kMw-zr-h4C"/>
                             <constraint firstAttribute="bottom" secondItem="lYd-Ku-c7f" secondAttribute="bottom" constant="150" id="rMR-X7-tOM"/>
                             <constraint firstItem="lYd-Ku-c7f" firstAttribute="top" secondItem="wzF-Jg-xOm" secondAttribute="top" constant="72" id="rz0-5n-UCh"/>
-                            <constraint firstItem="S49-PY-cfj" firstAttribute="top" secondItem="wzF-Jg-xOm" secondAttribute="top" constant="251" id="tTK-Ao-ulh"/>
                             <constraint firstItem="I6C-ZH-uSn" firstAttribute="leading" secondItem="wzF-Jg-xOm" secondAttribute="leading" type="default" id="uTs-e4-b0l"/>
                             <constraint firstItem="lYd-Ku-c7f" firstAttribute="trailing" secondItem="wzF-Jg-xOm" secondAttribute="trailing" type="default" id="vRC-zl-V6Y"/>
                             <constraint firstItem="PFW-OF-T4y" firstAttribute="top" secondItem="wzF-Jg-xOm" secondAttribute="top" constant="320" id="wOA-tG-Dxj"/>
-                            <constraint firstAttribute="bottom" secondItem="nWk-vs-893" secondAttribute="bottom" constant="115" id="xaS-lJ-1ur"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="Dgr-Jp-QcV">
@@ -3142,6 +3142,271 @@
         <image name="reviewdollars1.png" width="49" height="16"/>
         <image name="stars_0.png" width="80" height="15"/>
     </resources>
+    <classes>
+        <class className="CGCuisineViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGCuisineViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+            </relationships>
+        </class>
+        <class className="CGEventCategoryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventCategoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+            </relationships>
+        </class>
+        <class className="CGEventCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nextOccurrenceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CGEventDateViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventDateViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="changeDate:"/>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CGEventDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="call:"/>
+                <relationship kind="action" name="map:"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="dateView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="eventNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="neighborhoodLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="nextDateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="venueNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="venueView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CGEventListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventListViewController.h"/>
+        </class>
+        <class className="CGEventOptionsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventOptionsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="changeSort:"/>
+                <relationship kind="action" name="clearAll:"/>
+                <relationship kind="action" name="search:"/>
+                <relationship kind="outlet" name="categoriesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="clearAllButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="dateLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="locationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sortLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="tagButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="tagsButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="CGEventTagViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventTagViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+            </relationships>
+        </class>
+        <class className="CGFeatureViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGFeatureViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+            </relationships>
+        </class>
+        <class className="CGInformationCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGInformationCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="valueLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="valueTextView" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="valueView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CGLocationViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGLocationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+            </relationships>
+        </class>
+        <class className="CGLoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGLoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="login:"/>
+                <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="fbLoginView" candidateClass="FBLoginView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="passwordTextField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="CGMoreInformationViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGMoreInformationViewController.h"/>
+        </class>
+        <class className="CGMoreViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGMoreViewController.h"/>
+        </class>
+        <class className="CGMyRestaurantFavoriteListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGMyRestaurantFavoriteListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CGNewRestaurantsListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGNewRestaurantsListViewController.h"/>
+        </class>
+        <class className="CGRestaurantCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="priceImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="ratings" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="starImages" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="topFiveLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CGRestaurantHomeViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantHomeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="call:"/>
+                <relationship kind="action" name="map:"/>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="addressView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="callButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="infoView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="informationSectionView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="likeLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberOfDislikesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="numberOfLikesLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="ratingsView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="starImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="topFiveLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="topFiveView" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CGRestaurantListCategoryHomeViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListCategoryHomeViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="locationChange:"/>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+                <relationship kind="outlet" name="footerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="imageSliderView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="listNameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="listNameView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="locationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="restaurant1Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="restaurant1View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="restaurant2Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="restaurant2View" candidateClass="UIView"/>
+                <relationship kind="outlet" name="restaurant3Label" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="restaurant3View" candidateClass="UIView"/>
+            </relationships>
+        </class>
+        <class className="CGRestaurantListListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListListViewController.h"/>
+        </class>
+        <class className="CGRestaurantListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="navBarItem" candidateClass="UINavigationItem"/>
+            </relationships>
+        </class>
+        <class className="CGRestaurantMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantMapViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
+        <class className="CGRestaurantMenuViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantMenuViewController.h"/>
+        </class>
+        <class className="CGRestaurantOptionsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantOptionsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="changeSort:"/>
+                <relationship kind="action" name="clearAll:"/>
+                <relationship kind="action" name="locationChange:"/>
+                <relationship kind="action" name="search:"/>
+                <relationship kind="outlet" name="changeSortButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="clearAllButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="cuisinesButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="deliversSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="featureButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="kitchenSwitch" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="locationButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="scroller" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="searchButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="sortLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CGRestaurantPhotoViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantPhotoViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
+            </relationships>
+        </class>
+        <class className="CGRestaurantReviewSiteViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantReviewSiteViewController.h"/>
+        </class>
+        <class className="CGRestaurantTopListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantTopListViewController.h"/>
+        </class>
+        <class className="CGSelectRestaurantCategoryViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSelectRestaurantCategoryViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+            </relationships>
+        </class>
+        <class className="CGSelectRestaurantListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSelectRestaurantListViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+            </relationships>
+        </class>
+        <class className="FBLoginView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/FBLoginView.h"/>
+            <relationships>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="iCarousel" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iCarousel.h"/>
+            <relationships>
+                <relationship kind="outlet" name="dataSource"/>
+                <relationship kind="outlet" name="delegate"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -3151,6 +3416,6 @@
         <segue reference="iew-l2-cJO"/>
         <segue reference="JyS-5L-Zpw"/>
         <segue reference="UbO-gB-6Wh"/>
-        <segue reference="NPS-qb-lnb"/>
+        <segue reference="Em6-Bi-MbD"/>
     </inferredMetricsTieBreakers>
 </document>

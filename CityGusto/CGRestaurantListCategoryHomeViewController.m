@@ -15,8 +15,9 @@
 #import "CGRestaurantListViewController.h"
 #import "CGSelectRestaurantListViewController.h"
 #import "CGPhoto.h"
-#import <RestKit/RestKit.h>
 #import "AsyncImageView.h"
+#import <RestKit/RestKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface CGRestaurantListCategoryHomeViewController ()
 
@@ -58,16 +59,37 @@
     self.wrap = NO;
 }
 
+-(void)viewDidLayoutSubviews{
+    CALayer *bottomBorder = [CALayer layer];
+    bottomBorder.frame = CGRectMake(0.0f, self.restaurant1View.frame.size.height - 1, self.restaurant1View.frame.size.width, 1.0f);
+    bottomBorder.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
+    [self.restaurant1View.layer insertSublayer:bottomBorder atIndex:0];
+    
+    CALayer *bottomBorder2 = [CALayer layer];
+    bottomBorder2.frame = CGRectMake(0.0f, self.restaurant2View.frame.size.height - 1, self.restaurant2View.frame.size.width, 1.0f);
+    bottomBorder2.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
+    [self.restaurant2View.layer insertSublayer:bottomBorder2 atIndex:0];
+    
+    CALayer *bottomBorder3 = [CALayer layer];
+    bottomBorder3.frame = CGRectMake(0.0f, self.restaurant3View.frame.size.height - 1, self.restaurant3View.frame.size.width, 1.0f);
+    bottomBorder3.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
+    [self.restaurant3View.layer insertSublayer:bottomBorder3 atIndex:0];
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.headerView.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:137.0f/255.0f green:173.0f/255.0f blue:98.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:176.0f/255.0f green:200.0f/255.0f blue:150.0f/255.0f alpha:1.0f].CGColor, nil];
+    [self.headerView.layer insertSublayer:gradient atIndex:0];
+}
+
 - (void)viewDidLoad
 {
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
-        
     }
     
     self.carousel.type = iCarouselTypeCoverFlow2;
-    
+
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: self.activityView];
@@ -126,7 +148,6 @@
                                                       
                                                       count++;
                                                   }
-                                                  
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -153,7 +174,39 @@
         
         if (currentRestaurantList){
             self.listNameLabel.text = currentRestaurantList.name;
-            if (currentRestaurantList.restaurants.count > 0){
+            
+            if (0 < self.currentRestaurantList.restaurants.count){
+                if (currentRestaurantList.restaurants[0]){
+                    self.restaurant1 = currentRestaurantList.restaurants[0];
+                    NSString *listRestaurantText = @"1) ";
+                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant1.name];
+                    
+                    self.restaurant1Label.text = listRestaurantText;
+                }
+            }
+            
+            if (1 < self.currentRestaurantList.restaurants.count){
+                if (currentRestaurantList.restaurants[1]){
+                    self.restaurant2 = currentRestaurantList.restaurants[1];
+                    NSString *listRestaurantText = @"2) ";
+                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant2.name];
+                    
+                    self.restaurant2Label.text = listRestaurantText;
+                }
+            }
+            
+            if (2 < self.currentRestaurantList.restaurants.count){
+                if (currentRestaurantList.restaurants[2]){
+                    self.restaurant3 = currentRestaurantList.restaurants[2];
+                    
+                    NSString *listRestaurantText = @"3) ";
+                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant3.name];
+                    
+                    self.restaurant3Label.text = listRestaurantText;
+                }
+            }
+            
+/*            if (currentRestaurantList.restaurants.count > 0){
                 if (currentRestaurantList.restaurants[0]){
                     self.restaurant1 = currentRestaurantList.restaurants[0];
                     NSString *listRestaurantText = @"1) ";
@@ -179,6 +232,7 @@
                     self.restaurant3Label.text = listRestaurantText;
                 }
             }
+ */
         }
     }
 }
