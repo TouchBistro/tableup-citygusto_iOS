@@ -117,11 +117,14 @@
                                                   
                                                   [self.activityView stopAnimating];
                                                   
+                                                  NSUInteger count = 0;
                                                   for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
-                                                      NSInteger index = MAX(0, self.carousel.currentItemIndex);
+                                                      NSInteger index = MAX(0, count);
                                                       
                                                       [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
                                                       [self.carousel insertItemAtIndex:index animated:YES];
+                                                      
+                                                      count++;
                                                   }
                                                   
                                               }
@@ -297,9 +300,11 @@
 }
 
 
-- (void) updateRestaurantList:(CGRestaurantList *) restaurantList{
+- (void) updateRestaurantList:(CGRestaurantList *) restaurantList selectedIndex:(NSInteger)index{
     self.currentRestaurantList = restaurantList;
     [self showRestaurantListCategory];
+    
+    [self.carousel scrollToItemAtIndex:index animated:NO];
 }
 
 - (void) updateRestaurantCategory:(CGRestaurantListCategory *) restaurantCategory{
@@ -307,6 +312,18 @@
     if (self.currentCategory){
         self.currentRestaurantList = self.currentCategory.restaurantLists[0];
     }
+    
+    NSUInteger count = 0;
+    for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
+        NSInteger index = MAX(0, count);
+        
+        [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
+        [self.carousel insertItemAtIndex:index animated:YES];
+        
+        count++;
+    }
+    
+    [self.carousel reloadData];
     [self showRestaurantListCategory];
 }
 
@@ -318,6 +335,8 @@
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  [self.activityView stopAnimating];
+
                                                   if (mappingResult){
                                                       self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                       if (self.restaurantListCategories.count > 0){
@@ -325,11 +344,22 @@
                                                           if (currentCategory){
                                                               self.currentRestaurantList = self.currentCategory.restaurantLists[0];
                                                           }
+                                                          
+                                                          
+                                                          NSUInteger count = 0;
+                                                          for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
+                                                              NSInteger index = MAX(0, count);
+                                                              
+                                                              [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
+                                                              [self.carousel insertItemAtIndex:index animated:YES];
+                                                              
+                                                              count++;
+                                                          }
+                                                          
+                                                          [self.carousel reloadData];
                                                           [self showRestaurantListCategory];
                                                       }
                                                   }
-                                                  
-                                                  [self.activityView stopAnimating];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"

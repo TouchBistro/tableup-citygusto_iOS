@@ -67,7 +67,7 @@
 {
     CGRestaurantList *selectedList = [self.restaurantLists objectAtIndex:indexPath.row];
     if (selectedList){
-        [self.delegate updateRestaurantList:selectedList];
+        [self.delegate updateRestaurantList:selectedList selectedIndex:indexPath.row];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }

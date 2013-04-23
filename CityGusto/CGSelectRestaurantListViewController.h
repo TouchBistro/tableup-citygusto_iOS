@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @protocol CGSelectRestaurantListViewViewDelegate
-- (void) updateRestaurantList:(CGRestaurantList *) restaurantList;
+- (void) updateRestaurantList:(CGRestaurantList *) restaurantList selectedIndex:(NSInteger)index;
 @end
 
 @interface CGSelectRestaurantListViewController : UITableViewController{
