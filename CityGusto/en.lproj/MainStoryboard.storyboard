@@ -2530,6 +2530,7 @@
                     <connections>
                         <outlet property="headerLabel" destination="NF1-MV-PIF" id="fPS-pT-XsM"/>
                         <outlet property="headerView" destination="Li1-vl-H9r" id="B4j-eC-OyB"/>
+                        <outlet property="mapButtonItem" destination="BRQ-JW-5PK" id="KNQ-Dc-DfJ"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="listHomeSegue" id="1Ra-4h-4jl"/>
                     </connections>
                 </tableViewController>
@@ -3350,6 +3351,7 @@
             <relationships>
                 <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="mapButtonItem" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="CGRestaurantListViewController" superclassName="UITableViewController">

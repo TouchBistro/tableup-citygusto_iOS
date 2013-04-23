@@ -21,5 +21,6 @@
 
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UILabel *headerLabel;
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *mapButtonItem;
 
 @end
