@@ -2409,9 +2409,26 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="Li1-vl-H9r">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NF1-MV-PIF">
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="NF1-MV-PIF" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="hr5-SI-MR9"/>
+                                <constraint firstItem="NF1-MV-PIF" firstAttribute="centerY" secondItem="Li1-vl-H9r" secondAttribute="centerY" type="default" id="reS-6j-VWj"/>
+                                <constraint firstItem="NF1-MV-PIF" firstAttribute="leading" secondItem="Li1-vl-H9r" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="z7i-oV-QnD"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" restorationIdentifier="RestaurantCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantListCell" rowHeight="104" id="ldx-RY-wzL" customClass="CGRestaurantCell">
-                                <rect key="frame" x="0.0" y="22" width="320" height="104"/>
+                                <rect key="frame" x="0.0" y="57" width="320" height="104"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
@@ -2511,6 +2528,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="headerLabel" destination="NF1-MV-PIF" id="fPS-pT-XsM"/>
+                        <outlet property="headerView" destination="Li1-vl-H9r" id="B4j-eC-OyB"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="listHomeSegue" id="1Ra-4h-4jl"/>
                     </connections>
                 </tableViewController>
@@ -3328,6 +3347,10 @@
         </class>
         <class className="CGRestaurantListListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+            </relationships>
         </class>
         <class className="CGRestaurantListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListViewController.h"/>
@@ -3415,7 +3438,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="iew-l2-cJO"/>
         <segue reference="JyS-5L-Zpw"/>
-        <segue reference="UbO-gB-6Wh"/>
-        <segue reference="Em6-Bi-MbD"/>
+        <segue reference="PaO-af-0TP"/>
+        <segue reference="1Ra-4h-4jl"/>
     </inferredMetricsTieBreakers>
 </document>

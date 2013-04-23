@@ -10,6 +10,7 @@
 #import "CGRestaurantMapViewController.h"
 #import "CGRestaurantCell.h"
 #import "CGRestaurantListListViewController.h"
+#import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
 
 @interface CGRestaurantListListViewController ()
@@ -19,6 +20,17 @@
 @implementation CGRestaurantListListViewController
 
 @synthesize activityView;
+@synthesize restaurantList;
+
+-(void)viewDidLayoutSubviews{
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.headerView.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:137.0f/255.0f green:173.0f/255.0f blue:98.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:176.0f/255.0f green:200.0f/255.0f blue:150.0f/255.0f alpha:1.0f].CGColor, nil];
+    
+    [self.headerView.layer insertSublayer:gradient atIndex:0];
+    
+    self.headerLabel.text = self.restaurantList.name;
+}
 
 - (void)viewDidLoad
 {
@@ -38,7 +50,6 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
@@ -145,8 +156,29 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedRestaurant = [self.restaurants objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"listHomeSegue" sender:self];
+    CGRestaurant *restaurant = [self.restaurants objectAtIndex:indexPath.row];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:restaurant.restaurantId, @"id", nil];
+    
+    [self.activityView startAnimating];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
+                                                      
+                                                      [self.activityView stopAnimating];
+                                                      [self performSegueWithIdentifier:@"listHomeSegue" sender:self];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 

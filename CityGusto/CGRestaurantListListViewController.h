@@ -19,4 +19,7 @@
 @property (nonatomic, strong) CGRestaurantList *restaurantList;
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 
+@property (strong, nonatomic) IBOutlet UIView *headerView;
+@property (strong, nonatomic) IBOutlet UILabel *headerLabel;
+
 @end

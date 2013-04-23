@@ -12,7 +12,7 @@
 #import "CGRestaurant.h"
 #import "CGRestaurantListCategory.h"
 #import "CGRestaurantHomeViewController.h"
-#import "CGRestaurantListViewController.h"
+#import "CGRestaurantListListViewController.h"
 #import "CGSelectRestaurantListViewController.h"
 #import "CGPhoto.h"
 #import "AsyncImageView.h"
@@ -285,7 +285,7 @@
         CGRestaurantHomeViewController *homeController = [segue destinationViewController];
         homeController.restaurant = self.selectedRestaurant;
     }else if ([[segue identifier] isEqualToString:@"restaurantListListSegue"]){
-        CGRestaurantListViewController *listViewController = [segue destinationViewController];
+        CGRestaurantListListViewController *listViewController = [segue destinationViewController];
         
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
         [params setObject:self.currentRestaurantList.restaurantListId forKey:@"listId"];
@@ -298,6 +298,7 @@
                                                           
                                                           listViewController.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           [listViewController setDataLoaded:YES];
+                                                          listViewController.restaurantList = self.currentRestaurantList;
                                                           [listViewController.tableView reloadData];
                                                           
                                                           [self.activityView stopAnimating];
