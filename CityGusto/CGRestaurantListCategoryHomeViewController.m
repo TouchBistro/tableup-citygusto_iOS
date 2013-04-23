@@ -187,16 +187,39 @@
 }
 
 - (void)handleRestaurantViewTap:(UITapGestureRecognizer *)recognizer {
+    CGRestaurant *restaurant;
+    
     if (recognizer.view == self.restaurant1View){
-        selectedRestaurant = self.restaurant1;
+        restaurant = self.restaurant1;
     }else if (recognizer.view == self.restaurant2View){
-        selectedRestaurant = self.restaurant2;
+        restaurant = self.restaurant2;
     }else if (recognizer.view == self.restaurant3View){
-        selectedRestaurant = self.restaurant3;
+        restaurant = self.restaurant3;
     }
     
-    if (selectedRestaurant){
-        [self performSegueWithIdentifier:@"listRestaurantDetailSegue" sender:self];
+    if (restaurant){
+        NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:restaurant.restaurantId, @"id", nil];
+        
+        [self.activityView startAnimating];
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                               parameters:params
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
+                                                          [self.activityView stopAnimating];
+                                                          
+                                                          [self performSegueWithIdentifier:@"listRestaurantDetailSegue" sender:self];
+                                                      }
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                  }];
     }
 }
 

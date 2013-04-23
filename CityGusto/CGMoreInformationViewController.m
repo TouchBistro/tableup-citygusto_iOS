@@ -95,14 +95,14 @@
     
     CGInformation *info = [self.rows objectAtIndex:indexPath.row];
     
-    UILabel *valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 165, 180)];
+    UILabel *valueLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 194, 180)];
     valueLabel.text = info.value;
     valueLabel.lineBreakMode = NSLineBreakByWordWrapping;
     [valueLabel setFont:[UIFont systemFontOfSize:13]];
     [valueLabel setBackgroundColor:[UIColor clearColor]];
     
     CGSize size = [info.value sizeWithFont:[UIFont systemFontOfSize:13]
-                         constrainedToSize:CGSizeMake(194, 2000)
+                         constrainedToSize:CGSizeMake(194, 5000.0f)
                              lineBreakMode:NSLineBreakByWordWrapping];
     
     CGRect newFrame = valueLabel.frame;
@@ -121,7 +121,7 @@
     CGInformation *info = [self.rows objectAtIndex:indexPath.row];
     
     CGSize size = [info.value sizeWithFont:[UIFont systemFontOfSize:13]
-                         constrainedToSize:CGSizeMake(194, 2000)
+                         constrainedToSize:CGSizeMake(194, 5000.0f)
                              lineBreakMode:NSLineBreakByWordWrapping];
     
     return tableView.rowHeight + size.height;

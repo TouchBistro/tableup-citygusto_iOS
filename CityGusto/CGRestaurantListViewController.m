@@ -55,20 +55,19 @@
     
     [self.tableView setTableFooterView:footerView];
     
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
-    [self.tableView addSubview: activityView];
-    
-    [self.activityView startAnimating];
+    [self startSpinner];
     if (self.restaurants.count == 0){
+        NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
+        [params setObject:@"true" forKey:@"reduced"];
+        
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
-                                               parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                               parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
                                                           self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           [self setDataLoaded:YES];
                                                           [self.tableView reloadData];
-                                                          [self.activityView stopAnimating];
+                                                          [self stopSpinner];
                                                       }
                                                   }
                                                   failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -85,6 +84,19 @@
     }
     
     [super viewDidLoad];
+}
+
+- (void) startSpinner {
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityView.center = CGPointMake(self.tableView.frame.size.width / 2.0, self.tableView.frame.size.height / 2.0);
+    [self.tableView addSubview: activityView];
+    
+    [self.activityView startAnimating];
+}
+
+- (void) stopSpinner {
+    [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,7 +126,7 @@
     if (cell){
         cell.nameLabel.text = restaurant.name;
         
-        NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL150x150];
+        NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
         
@@ -190,12 +202,14 @@
 
 
 - (void) viewMorePressed:(id)sender{
-    [self.activityView startAnimating];
     
     [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 25];
+    NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
+    [params setObject:@"true" forKey:@"reduced"];
     
+    [self startSpinner];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
-                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                           parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
                                                       [self.restaurants addObjectsFromArray:[mappingResult array]];
@@ -203,7 +217,7 @@
                                                       [self setDataLoaded:YES];
                                                       [self.tableView reloadData];
                                                       
-                                                      [self.activityView startAnimating];
+                                                      [self stopSpinner];
                                                   }
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -223,8 +237,29 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedRestaurant = [self.restaurants objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"homeSegue" sender:self];
+    CGRestaurant *restaurant = [self.restaurants objectAtIndex:indexPath.row];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:restaurant.restaurantId, @"id", nil];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
+                                                      
+                                                      [self stopSpinner];
+                                                      [self performSegueWithIdentifier:@"homeSegue" sender:self];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 
