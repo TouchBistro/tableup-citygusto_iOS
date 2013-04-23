@@ -47,6 +47,32 @@
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.tableView addSubview: activityView];
     
+    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 85)];
+    
+    UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
+    [textView setFont:[UIFont italicSystemFontOfSize:11]];
+    textView.text = @"Best of Lists Are Based On User Voting.";
+    textView.textAlignment = NSTextAlignmentCenter;
+    textView.userInteractionEnabled = NO;
+    textView.scrollEnabled = NO;
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:CGRectMake(10, 35, 300, 44)];
+    [button setTitle:@"Vote" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    button.titleLabel.textColor = [UIColor whiteColor];
+    [button addTarget:self action:@selector(voteOnCityGusto:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+    
+    UIImage *voteButtonImage = [UIImage imageNamed:@"buttonBackgroundPink.png"];
+    [button setBackgroundImage:voteButtonImage forState:UIControlStateNormal];
+    
+    [footerView addSubview:textView];
+    [footerView addSubview:button];
+    
+    [self.tableView setTableFooterView:footerView];
+    
     [super viewDidLoad];
 }
 
@@ -201,6 +227,14 @@
     [self.restaurants addObjectsFromArray:newRestaurants];
     
     [self.tableView reloadData];
+}
+
+- (void) voteOnCityGusto:(id)sender{
+    NSString *urlString = @"http://citygusto.com/restaurantListVote/show/id?listId=";
+    urlString = [urlString stringByAppendingString:[self.restaurantList.restaurantListId stringValue]];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end
