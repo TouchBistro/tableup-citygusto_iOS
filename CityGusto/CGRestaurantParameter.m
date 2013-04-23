@@ -285,13 +285,8 @@
 }
 
 - (void) changeLocation:(NSNumber *)cityId_ neighborhoodId:(NSNumber *)neighborhoodId_{
-    if (cityId_){
-        self.cityId = cityId_;
-    }
-    
-    if (neighborhoodId_){
-        self.neighborhoodId = neighborhoodId_;
-    }
+    self.cityId = cityId_;
+    self.neighborhoodId = neighborhoodId_;
     
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/cuisines"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]

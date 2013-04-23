@@ -598,7 +598,7 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVl-IV-Avf">
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8a-bb-dMU">
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -3440,7 +3440,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="iew-l2-cJO"/>
         <segue reference="JyS-5L-Zpw"/>
-        <segue reference="PaO-af-0TP"/>
         <segue reference="1Ra-4h-4jl"/>
+        <segue reference="Ygo-TM-eei"/>
     </inferredMetricsTieBreakers>
 </document>

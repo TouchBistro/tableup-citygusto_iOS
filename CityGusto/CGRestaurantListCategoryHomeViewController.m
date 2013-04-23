@@ -139,6 +139,7 @@
                                                   
                                                   [self.activityView stopAnimating];
                                                   
+                                                  [self.restaurantListPhotoUrls removeAllObjects];
                                                   NSUInteger count = 0;
                                                   for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
                                                       NSInteger index = MAX(0, count);
@@ -166,6 +167,10 @@
 }
 
 -(void) showRestaurantListCategory{
+    self.restaurant1Label.text = @"";
+    self.restaurant2Label.text = @"";
+    self.restaurant3Label.text = @"";
+    
     if (currentCategory){
         self.headerLabel.text = currentCategory.name;
         if (self.currentRestaurantList == nil){
@@ -205,34 +210,6 @@
                     self.restaurant3Label.text = listRestaurantText;
                 }
             }
-            
-/*            if (currentRestaurantList.restaurants.count > 0){
-                if (currentRestaurantList.restaurants[0]){
-                    self.restaurant1 = currentRestaurantList.restaurants[0];
-                    NSString *listRestaurantText = @"1) ";
-                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant1.name];
-                    
-                    self.restaurant1Label.text = listRestaurantText;
-                }
-                
-                if (currentRestaurantList.restaurants[1]){
-                    self.restaurant2 = currentRestaurantList.restaurants[1];
-                    NSString *listRestaurantText = @"2) ";
-                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant2.name];
-                    
-                    self.restaurant2Label.text = listRestaurantText;
-                }
-                
-                if (currentRestaurantList.restaurants[2]){
-                    self.restaurant3 = currentRestaurantList.restaurants[2];
-                    
-                    NSString *listRestaurantText = @"3) ";
-                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant3.name];
-                    
-                    self.restaurant3Label.text = listRestaurantText;
-                }
-            }
- */
         }
     }
 }
@@ -368,6 +345,7 @@
         self.currentRestaurantList = self.currentCategory.restaurantLists[0];
     }
     
+    [self.restaurantListPhotoUrls removeAllObjects];
     NSUInteger count = 0;
     for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
         NSInteger index = MAX(0, count);
@@ -400,7 +378,7 @@
                                                               self.currentRestaurantList = self.currentCategory.restaurantLists[0];
                                                           }
                                                           
-                                                          
+                                                          [self.restaurantListPhotoUrls removeAllObjects];
                                                           NSUInteger count = 0;
                                                           for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
                                                               NSInteger index = MAX(0, count);

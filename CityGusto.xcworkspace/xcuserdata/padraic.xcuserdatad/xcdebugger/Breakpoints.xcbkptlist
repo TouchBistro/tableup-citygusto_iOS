@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388437222.846941"
+         timestampString = "388443134.381258"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "169"
-         endingLineNumber = "169"
+         startingLineNumber = "174"
+         endingLineNumber = "174"
          landmarkName = "-showRestaurantListCategory"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388437222.846941"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "247"
-         endingLineNumber = "247"
+         startingLineNumber = "224"
+         endingLineNumber = "224"
          landmarkName = "-handleRestaurantViewTap:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388437222.846941"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "299"
-         endingLineNumber = "299"
+         startingLineNumber = "276"
+         endingLineNumber = "276"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -99,11 +99,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388439254.956115"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "327"
-         endingLineNumber = "327"
+         startingLineNumber = "304"
+         endingLineNumber = "304"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388439254.956115"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "367"
-         endingLineNumber = "367"
+         startingLineNumber = "344"
+         endingLineNumber = "344"
          landmarkName = "-updateRestaurantCategory:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -138,11 +138,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388439254.956115"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "359"
-         endingLineNumber = "359"
+         startingLineNumber = "336"
+         endingLineNumber = "336"
          landmarkName = "-updateRestaurantList:selectedIndex:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388439254.956115"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "392"
-         endingLineNumber = "392"
+         startingLineNumber = "370"
+         endingLineNumber = "370"
          landmarkName = "-locationChanged"
          landmarkType = "5">
       </FileBreakpoint>
@@ -229,11 +229,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantParameter.m"
-         timestampString = "388077256.029165"
+         timestampString = "388442945.465569"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "320"
-         endingLineNumber = "320"
+         startingLineNumber = "315"
+         endingLineNumber = "315"
          landmarkName = "-changeLocation:neighborhoodId:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -528,11 +528,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388439254.956115"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "437"
-         endingLineNumber = "437"
+         startingLineNumber = "415"
+         endingLineNumber = "415"
          landmarkName = "-numberOfItemsInCarousel:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -554,11 +554,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388439254.956115"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "442"
-         endingLineNumber = "442"
+         startingLineNumber = "420"
+         endingLineNumber = "420"
          landmarkName = "-carousel:viewForItemAtIndex:reusingView:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -567,11 +567,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388439254.956115"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "476"
-         endingLineNumber = "476"
+         startingLineNumber = "454"
+         endingLineNumber = "454"
          landmarkName = "-carouselDidEndScrollingAnimation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -645,11 +645,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-         timestampString = "388439254.956115"
+         timestampString = "388443291.384169"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "358"
-         endingLineNumber = "358"
+         startingLineNumber = "335"
+         endingLineNumber = "335"
          landmarkName = "-updateRestaurantList:selectedIndex:"
          landmarkType = "5">
       </FileBreakpoint>
