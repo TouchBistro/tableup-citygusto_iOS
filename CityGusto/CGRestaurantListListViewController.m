@@ -61,9 +61,14 @@
     CGRestaurant *restaurant = [self.restaurants objectAtIndex:indexPath.row];
     
     if (cell){
-        cell.nameLabel.text = restaurant.name;
+        NSString *restaurantName = @"#";
+        restaurantName = [restaurantName stringByAppendingString:[@(indexPath.row + 1) stringValue]];
+        restaurantName = [restaurantName stringByAppendingString:@") "];
+        restaurantName = [restaurantName stringByAppendingString:restaurant.name];
         
-        NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL150x150];
+        cell.nameLabel.text = restaurantName;
+        
+        NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
         NSData *data = [NSData dataWithContentsOfURL:url];
         UIImage *image = [UIImage imageWithData:data];
         
