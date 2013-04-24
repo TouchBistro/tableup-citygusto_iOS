@@ -62,8 +62,11 @@
     
     [self.activityView startAnimating];
     if (self.events.count == 0){
+        NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
+        [params setObject:@"true" forKey:@"reduced"];
+        
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
-                                               parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
+                                               parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
                                                           self.events = [[NSMutableArray alloc] initWithArray:[mappingResult array]];

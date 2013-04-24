@@ -11,6 +11,7 @@
 #import "CGEventDateViewController.h"
 #import "ActionSheetPicker.h"
 #import <RestKit/RestKit.h>
+#import <QuartzCore/QuartzCore.h>
 
 @interface CGEventOptionsViewController ()
 
@@ -74,6 +75,11 @@
     self.scroller.delegate = self;
     [scroller setScrollEnabled:YES];
     [scroller setContentSize:CGSizeMake(320, 1300)];
+    
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.topView.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:137.0f/255.0f green:173.0f/255.0f blue:98.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:176.0f/255.0f green:200.0f/255.0f blue:150.0f/255.0f alpha:1.0f].CGColor, nil];
+    [self.topView.layer insertSublayer:gradient atIndex:0];
 }
 
 
@@ -84,8 +90,11 @@
 
 - (IBAction)search:(id)sender {
     [self.activityView startAnimating];
+    NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
+    [params setObject:@"true" forKey:@"reduced"];
+    
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
-                                           parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
+                                           parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   [self.activityView stopAnimating];
                                                   [self.delegate updateEvents:[mappingResult array]];

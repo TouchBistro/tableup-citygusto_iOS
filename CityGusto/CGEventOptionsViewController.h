@@ -37,6 +37,7 @@
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 
 - (IBAction)changeSort:(id)sender;
+@property (strong, nonatomic) IBOutlet UIView *topView;
 
 -(void)locationChanged;
 
