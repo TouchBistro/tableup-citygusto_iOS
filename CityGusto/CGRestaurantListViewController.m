@@ -60,7 +60,7 @@
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
         [params setObject:@"true" forKey:@"reduced"];
         
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -208,7 +208,7 @@
     [params setObject:@"true" forKey:@"reduced"];
     
     [self startSpinner];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
@@ -241,7 +241,7 @@
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:restaurant.restaurantId, @"id", nil];
     
     [self startSpinner];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){

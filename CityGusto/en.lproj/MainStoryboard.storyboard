@@ -379,7 +379,7 @@
             <objects>
                 <tableViewController id="gVH-JG-SJX" customClass="CGMoreInformationViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="Xko-lH-kLc">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
@@ -588,7 +588,7 @@
             <objects>
                 <tableViewController id="PEQ-5f-E8I" customClass="CGRestaurantHomeViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="NfM-r4-jnJ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableHeaderView" contentMode="scaleToFill" id="spl-dS-nhy">
@@ -883,7 +883,7 @@
                         <outlet property="addressLabel" destination="mhh-ad-v6d" id="2Sh-Kb-NDm"/>
                         <outlet property="callButton" destination="2qP-vU-v9v" id="fbi-eQ-6Cj"/>
                         <outlet property="cityLabel" destination="vEu-qx-ION" id="eUG-cM-WQj"/>
-                        <outlet property="headerView" destination="ZVl-IV-Avf" id="3J5-pc-482"/>
+                        <outlet property="headerView" destination="ZVl-IV-Avf" id="LeQ-Sx-09Y"/>
                         <outlet property="informationSectionView" destination="Oc1-QD-EsM" id="jov-Xy-7Gb"/>
                         <outlet property="likeLabel" destination="TCF-e7-oVS" id="BtK-EH-Khl"/>
                         <outlet property="mapButton" destination="7tE-Ni-CJB" id="VpZ-9Y-9LE"/>
@@ -893,6 +893,7 @@
                         <outlet property="ratingLabel" destination="jFa-wh-5uQ" id="WbO-HN-yuy"/>
                         <outlet property="ratingsView" destination="Yk7-Be-3rt" id="ao0-rI-Atc"/>
                         <outlet property="starImageView" destination="jgG-b4-0Wy" id="OhO-iZ-RbN"/>
+                        <outlet property="tableHeaderView" destination="spl-dS-nhy" id="pkR-FU-dEP"/>
                         <outlet property="topFiveLabel" destination="Xah-Za-Mbt" id="ccW-fM-5gZ"/>
                         <outlet property="topFiveView" destination="TTv-Eu-nNp" id="fXt-JJ-ULq"/>
                     </connections>
@@ -906,7 +907,7 @@
             <objects>
                 <tableViewController id="P4h-EQ-10m" customClass="CGRestaurantReviewSiteViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Myz-G6-g2l">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -943,7 +944,7 @@
             <objects>
                 <tableViewController id="AP3-iR-1oX" customClass="CGRestaurantMenuViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="eSa-me-qQZ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -980,7 +981,7 @@
             <objects>
                 <tableViewController id="WLE-7A-H0e" customClass="CGRestaurantTopListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="HeZ-9U-0Aa">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -1017,7 +1018,7 @@
             <objects>
                 <viewController id="19t-C9-hou" customClass="CGRestaurantMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FjG-ea-Xw2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yeB-p5-hx1"/>
@@ -1046,7 +1047,7 @@
             <objects>
                 <viewController id="9jQ-10-IwJ" customClass="CGRestaurantPhotoViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OqT-Xr-xoZ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="akm-BO-2NC" customClass="iCarousel">
@@ -3322,6 +3323,7 @@
                 <relationship kind="outlet" name="ratingsView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
                 <relationship kind="outlet" name="starImageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="tableHeaderView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="topFiveLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="topFiveView" candidateClass="UIView"/>
             </relationships>
@@ -3440,7 +3442,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="iew-l2-cJO"/>
         <segue reference="JyS-5L-Zpw"/>
-        <segue reference="1Ra-4h-4jl"/>
+        <segue reference="MXO-9X-nkW"/>
         <segue reference="Ygo-TM-eei"/>
     </inferredMetricsTieBreakers>
 </document>

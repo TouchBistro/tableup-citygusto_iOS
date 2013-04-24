@@ -33,5 +33,6 @@
 - (IBAction)map:(id)sender;
 @property (strong, nonatomic) IBOutlet UIImageView *starImageView;
 @property (strong, nonatomic) IBOutlet UILabel *ratingLabel;
+@property (strong, nonatomic) IBOutlet UIView *tableHeaderView;
 
 @end

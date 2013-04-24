@@ -92,13 +92,102 @@
     self.headerView.opaque = NO;
     self.headerView.backgroundColor = [UIColor clearColor];
     
-    CAGradientLayer *gradient = [CAGradientLayer layer];
-    gradient.frame = self.headerView.bounds;
-//    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:137.0f/255.0f green:173.0f/255.0f blue:98.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:176.0f/255.0f green:200.0f/255.0f blue:150.0f/255.0f alpha:1.0f].CGColor, nil];
-    
-    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor whiteColor] CGColor], (id)[[UIColor blackColor] CGColor], nil];
-    
-    [self.headerView.layer insertSublayer:gradient atIndex:0];
+    if (self.restaurant.twitterUserName || self.restaurant.facebookURL || self.restaurant.website){
+        
+        UIImage *greyImage = [UIImage imageNamed:@"buttonBackgroundGrey.png"];
+        UIView *footerView = [[UIView alloc] init];
+        
+        NSInteger height = 0;
+        if (self.restaurant.twitterUserName) {
+            height += 50;
+        }
+        
+        if (self.restaurant.facebookURL) {
+            height += 50;
+        }
+        
+        if (self.restaurant.website) {
+            height += 50;
+        }
+        
+        [footerView setFrame:CGRectMake(0, 0, 320, height)];
+        
+        if (self.restaurant.twitterUserName){
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [button setFrame:CGRectMake(20, 0, 280, 44)];
+            
+            [button setTitle:@"Twitter" forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+            
+            [button addTarget:self action:@selector(viewTwitter:)
+             forControlEvents:UIControlEventTouchUpInside];
+            
+            [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+            
+            [footerView addSubview:button];
+            
+        }
+        
+        if (self.restaurant.facebookURL){
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            
+            if (self.restaurant.twitterUserName){
+                [button setFrame:CGRectMake(20, 47, 280, 44)];
+            }else{
+                [button setFrame:CGRectMake(20, 0, 280, 44)];
+            }
+            
+            
+            [button setTitle:@"Facebook" forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+            
+            [button addTarget:self action:@selector(viewFacebook:)
+             forControlEvents:UIControlEventTouchUpInside];
+            
+            [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+            
+            [footerView addSubview:button];
+            [self.tableView setTableFooterView:footerView];
+        }
+        
+        if (self.restaurant.website){
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            
+            if (self.restaurant.twitterUserName){
+                if (self.restaurant.facebookURL) {
+                    [button setFrame:CGRectMake(20, 94, 280, 44)];
+                }else{
+                    [button setFrame:CGRectMake(20, 47, 280, 44)];
+                }
+            }else{
+                if (self.restaurant.facebookURL) {
+                    [button setFrame:CGRectMake(20, 47, 280, 44)];
+                }else{
+                    [button setFrame:CGRectMake(20, 0, 280, 44)];
+                }
+            }
+            
+            [button setFrame:CGRectMake(20, 0, 280, 44)];
+            
+            [button setTitle:@"Website" forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+            
+            [button addTarget:self action:@selector(viewWebsite:)
+             forControlEvents:UIControlEventTouchUpInside];
+            
+            [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+            
+            [footerView addSubview:button];
+            [self.tableView setTableFooterView:footerView];
+        }
+        
+        [self.tableView setTableFooterView:footerView];
+        
+        
+    }
     
     [super viewDidLoad];
 }
@@ -133,6 +222,23 @@
         photoController.photos = self.restaurant.photos;
     }
 }
+
+- (void) viewTwitter:(id)sender{
+    NSString *urlString = @"http://twitter.com/";
+    urlString = [urlString stringByAppendingString:self.restaurant.twitterUserName];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewFacebook:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.restaurant.facebookURL];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 
 - (IBAction)call:(id)sender {
 }

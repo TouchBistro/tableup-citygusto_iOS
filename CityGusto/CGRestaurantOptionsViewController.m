@@ -161,9 +161,12 @@
         params.deliveryFilter = NO;
     }
     
+    NSMutableDictionary *paramsDictionary = [[CGRestaurantParameter shared] buildParameterMap];
+    [paramsDictionary setObject:@"true" forKey:@"reduced"];
+    
     [self.activityView startAnimating];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
-                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                           parameters:paramsDictionary
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   [self.activityView stopAnimating];
                                                   [self.delegate updateRestaurants:[mappingResult array]];

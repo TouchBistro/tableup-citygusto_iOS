@@ -26,7 +26,17 @@
         
     }
     
-    self.carousel.type = iCarouselTypeCoverFlow2;
+    if (self.photos.count == 0){
+        UILabel *noPhotoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, 320, 60)];
+        noPhotoLabel.text = @"There are no photos for this restaurant.";
+        noPhotoLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:137.0f/255.0f blue:173.0f/255.0f alpha:1.0f];
+        noPhotoLabel.textAlignment = NSTextAlignmentCenter;
+        
+        [self.view addSubview:noPhotoLabel];
+    }else{
+        self.carousel.type = iCarouselTypeCoverFlow2;
+    }
+    
     [super viewDidLoad];
 }
 

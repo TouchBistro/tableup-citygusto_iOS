@@ -93,6 +93,7 @@
 @property (nonatomic, strong) NSString *featureNames;
 @property (nonatomic, strong) NSString *creditcardNames;
 @property (nonatomic, strong) NSString *cuisineNames;
+@property (nonatomic, strong) NSString *website;
 
 
 @property (nonatomic, strong) NSMutableArray *creditCards;
