@@ -10,12 +10,11 @@
 #import "CGEvent.h"
 #import <UIKit/UIKit.h>
 
-@interface CGEventDetailViewController : UIViewController
+@interface CGEventDetailViewController : UITableViewController
 
 @property (nonatomic, strong) CGEvent *event;
 @property (nonatomic, strong) CGRestaurant *restaurant;
 
-@property (strong, nonatomic) IBOutlet UIScrollView *scroller;
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UILabel *eventNameLabel;
 

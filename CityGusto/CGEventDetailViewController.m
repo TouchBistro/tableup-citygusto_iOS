@@ -19,7 +19,6 @@
 @implementation CGEventDetailViewController
 
 @synthesize event;
-@synthesize scroller;
 @synthesize headerView;
 @synthesize eventNameLabel;
 
@@ -42,7 +41,7 @@
         
     }
     
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: self.activityView];
     
@@ -55,25 +54,41 @@
     self.eventNameLabel.text = self.event.name;
     self.nextDateLabel.text = self.event.dateString;
     self.addressLabel.text = self.event.venueAddress1;
+    
+    NSString *cityText = self.event.venueCityName;
+    cityText = [cityText stringByAppendingString:@", "];
+    cityText = [cityText stringByAppendingString:self.event.venueState];
+    cityText = [cityText stringByAppendingString:@" "];
+    cityText = [cityText stringByAppendingString:self.event.venueZipcode];
+    
     self.cityLabel.text = self.event.venueCityName;
     self.neighborhoodLabel.text = self.event.venueNeighborhoodName;
     self.venueNameLabel.text = self.event.venueName;
     
+    [super viewDidLoad];
+}
+
+- (void)viewDidLayoutSubviews {
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.headerView.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:137.0f/255.0f green:173.0f/255.0f blue:98.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:176.0f/255.0f green:200.0f/255.0f blue:150.0f/255.0f alpha:1.0f].CGColor, nil];
+    
+    [self.headerView.layer insertSublayer:gradient atIndex:0];
+    
     CALayer *bottomBorder = [CALayer layer];
     
     bottomBorder.frame = CGRectMake(0.0f, self.venueView.frame.size.height - 1, self.venueView.frame.size.width, 1.0f);
-    bottomBorder.backgroundColor = [UIColor blackColor].CGColor;//[UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    bottomBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
     
     [self.venueView.layer addSublayer:bottomBorder];
     
     CALayer *bottomDateBorder = [CALayer layer];
     
     bottomDateBorder.frame = CGRectMake(0.0f, self.dateView.frame.size.height - 1, self.dateView.frame.size.width, 1.0f);
-    bottomDateBorder.backgroundColor = [UIColor blackColor].CGColor;//[UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    bottomDateBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
     
     [self.dateView.layer addSublayer:bottomDateBorder];
     
-    [super viewDidLoad];
 }
 
 - (void)didReceiveMemoryWarning
@@ -123,5 +138,7 @@
         homeController.restaurant = self.restaurant;
     }
 }
+
+
 
 @end

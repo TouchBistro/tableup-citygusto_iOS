@@ -56,11 +56,7 @@
     
     [self.tableView setTableFooterView:footerView];
     
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
-    [self.tableView addSubview: activityView];
-    
-    [self.activityView startAnimating];
+    [self startSpinner];
     if (self.events.count == 0){
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
         [params setObject:@"true" forKey:@"reduced"];
@@ -70,9 +66,14 @@
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
                                                           self.events = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                          if ([mappingResult array].count < 25){
+                                                              [self.tableView.tableFooterView removeFromSuperview];
+                                                          }
+                                                          
+                                                          
                                                           [self setDataLoaded:YES];
                                                           [self.tableView reloadData];
-                                                          [self.activityView stopAnimating];
+                                                          [self stopSpinner];
                                                       }
                                                   }
                                                   failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -180,6 +181,36 @@
 }
 
 -(void) viewMorePressed:(id)sender{
+    [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 25];
+    NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
+    [params setObject:@"true" forKey:@"reduced"];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [self.events addObjectsFromArray:[mappingResult array]];
+                                                      
+                                                      [self setDataLoaded:YES];
+                                                      [self.tableView reloadData];
+                                                      
+                                                      if ([mappingResult array].count < 25){
+                                                          [self.tableView.tableFooterView removeFromSuperview];
+                                                      }
+                                                      
+                                                      [self stopSpinner];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
     
 }
 
@@ -204,6 +235,19 @@
     [self.events addObjectsFromArray:newEvents];
     
     [self.tableView reloadData];
+}
+
+- (void) startSpinner {
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityView.center = CGPointMake(self.tableView.frame.size.width / 2.0, self.tableView.frame.size.height / 2.0);
+    [self.tableView addSubview: activityView];
+    
+    [self.activityView startAnimating];
+}
+
+- (void) stopSpinner {
+    [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
 }
 
 @end

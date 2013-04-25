@@ -46,8 +46,6 @@
 - (IBAction)locationChange:(id)sender;
 
 -(void)locationChanged;
-@property (strong, nonatomic) IBOutlet UIView *topView;
-
 @property (strong, nonatomic) IBOutlet UIScrollView *scroller;
 
 @end

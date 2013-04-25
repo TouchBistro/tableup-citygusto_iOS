@@ -36,6 +36,7 @@
     
     [self setDataLoaded:NO];
     
+    
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setFrame:CGRectMake(10, 3, 300, 44)];
@@ -65,6 +66,11 @@
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
                                                           self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                          
+                                                          if (self.restaurants.count < 25){
+                                                              [self.tableView.tableFooterView removeFromSuperview];
+                                                          }
+                                                          
                                                           [self setDataLoaded:YES];
                                                           [self.tableView reloadData];
                                                           [self stopSpinner];
@@ -216,6 +222,10 @@
                                                       
                                                       [self setDataLoaded:YES];
                                                       [self.tableView reloadData];
+                                                      
+                                                      if ([mappingResult array].count < 25){
+                                                          [self.tableView.tableFooterView removeFromSuperview];
+                                                      }
                                                       
                                                       [self stopSpinner];
                                                   }

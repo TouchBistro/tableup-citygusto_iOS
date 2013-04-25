@@ -13,4 +13,5 @@
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 @property (nonatomic, strong) NSMutableArray *rows;
+
 @end
