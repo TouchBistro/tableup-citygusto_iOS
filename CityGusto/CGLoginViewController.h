@@ -32,4 +32,6 @@
 
 - (IBAction)cancel:(id)sender;
 
+- (IBAction)userRegister:(id)sender;
+
 @end

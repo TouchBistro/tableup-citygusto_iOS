@@ -13,6 +13,7 @@
 #import "CGMyRestaurantFavoriteListViewController.h"
 #import "CGAppDelegate.h"
 #import <RestKit/RestKit.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface CGMoreViewController ()
 
@@ -26,6 +27,19 @@
         UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
+    }
+    
+    CGAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (!appDelegate.session.isOpen) {
+        appDelegate.session = [[FBSession alloc] init];
+        
+        if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                             FBSessionState status,
+                                                             NSError *error) {
+                FBSession.activeSession = session;
+            }];
+        }
     }
     
     [super viewDidLoad];
@@ -69,13 +83,16 @@
                                                   }];
     }else if (indexPath.row == 0){
         if ([CGRestaurantParameter shared].loggedInUser){
+            NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+            [params setObject:[CGRestaurantParameter shared].loggedInUser.username forKey:@"username"];
+            
             [self.activityView startAnimating];
             [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantFavoriteLists"
-                                                   parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                                   parameters:params
                                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                           if (mappingResult){
-                                                              self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
-                                                              [self performSegueWithIdentifier:@"newRestaurantsSegue" sender:self];
+                                                              self.restaurantFavoriteLists = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                              [self performSegueWithIdentifier:@"restaurantFavoriteListSegue" sender:self];
                                                           }
                                                           
                                                           [self.activityView stopAnimating];
@@ -92,12 +109,37 @@
                                                           [self.activityView stopAnimating];
                                                       }];
         }else{
-//            CGAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-//            if (appDelegate.session.isOpen){
-                
-//            }
-            
-            [self performSegueWithIdentifier:@"loginSegue" sender:self];
+            CGAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+            if (appDelegate.session.isOpen){
+                [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection,
+                                                   id<FBGraphUser> user,
+                                                   NSError *error) {
+                     if (!error) {
+                         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+                         [params setObject:user.id forKey:@"fbUid"];
+                         
+                         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/facebook/login"
+                                                                parameters:params
+                                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                                       if (mappingResult){
+                                                                           [CGRestaurantParameter shared].loggedInUser = [[mappingResult array] objectAtIndex:0];
+                                                                           [self loginSuccessful];
+                                                                       }
+                                                                   }
+                                                                   failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                                       message:@"There was an issue"
+                                                                                                                      delegate:nil
+                                                                                                             cancelButtonTitle:@"OK"
+                                                                                                             otherButtonTitles:nil];
+                                                                       [alert show];
+                                                                   }];
+                     }
+                 }];
+            }else{
+                //we need to log in
+                [self performSegueWithIdentifier:@"loginSegue" sender:self];
+            }
         }
     }
 }
@@ -113,8 +155,8 @@
         UINavigationController *navController = [segue destinationViewController];
         
         if (navController != nil){
-            CGLoginViewController *locationController = (CGLoginViewController *)navController.topViewController;
-            locationController.delegate = self;
+            CGLoginViewController *loginController = (CGLoginViewController *)navController.topViewController;
+            loginController.delegate = self;
         }
     }
 }
@@ -129,10 +171,13 @@
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantFavoriteLists"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
+                                                  
                                                   if (mappingResult){
                                                       self.restaurantFavoriteLists = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                       [self performSegueWithIdentifier:@"restaurantFavoriteListSegue" sender:self];
                                                   }
+                                                  
                                                   [self.activityView stopAnimating];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {

@@ -66,17 +66,13 @@
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         [params setObject:user.id forKey:@"fbUid"];
         
-        [self.activityView startAnimating];
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/facebook/login"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
                                                           [CGRestaurantParameter shared].loggedInUser = [[mappingResult array] objectAtIndex:0];
-                                                          [self dismissViewControllerAnimated:YES completion:nil];
                                                           [self.delegate loginSuccessful];
                                                       }
-                                                      
-                                                      [self.activityView stopAnimating];
                                                   }
                                                   failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -85,9 +81,6 @@
                                                                                             cancelButtonTitle:@"OK"
                                                                                             otherButtonTitles:nil];
                                                       [alert show];
-                                                      NSLog(@"Hit error: %@", error);
-                                                      
-                                                      [self.activityView stopAnimating];
                                                   }];
         
     }
@@ -128,7 +121,6 @@
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
                                                       [CGRestaurantParameter shared].loggedInUser = [[mappingResult array] objectAtIndex:0];
-                                                      [self dismissViewControllerAnimated:YES completion:nil];
                                                       [self.delegate loginSuccessful];
                                                   }
                                                   
@@ -182,4 +174,10 @@
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+- (IBAction)userRegister:(id)sender {
+    NSURL *url = [NSURL URLWithString:@"http://citygusto.com/login/auth"];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 @end
