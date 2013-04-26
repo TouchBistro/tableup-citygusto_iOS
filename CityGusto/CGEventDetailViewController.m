@@ -65,6 +65,31 @@
     self.neighborhoodLabel.text = self.event.eventVenueNeighborhoodName;
     self.venueNameLabel.text = self.event.eventVenueName;
     
+    self.numberOfLikesLabel.text = [self.event.numberOfLikes stringValue];
+    self.numberOfDislikesLabel.text = [self.event.numberOfDislikes stringValue];
+    
+    [self.ratingsView.layer setCornerRadius:5.0f];
+    [self.ratingsView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [self.ratingsView.layer setBorderWidth:0.5f];
+    
+    NSString *numberOfRatings = [self.event.numberOfRatings stringValue];
+    numberOfRatings = [numberOfRatings stringByAppendingString:@" Ratings"];
+    self.ratingLabel.text = numberOfRatings;
+    
+    if (self.event.numberOfStars == [NSNumber numberWithInt:1]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_1.png"]];
+    }else if (self.event.numberOfStars == [NSNumber numberWithInt:2]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_2.png"]];
+    }else if (self.event.numberOfStars == [NSNumber numberWithInt:3]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_3.png"]];
+    }else if (self.event.numberOfStars == [NSNumber numberWithInt:4]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_4.png"]];
+    }else if (self.event.numberOfStars == [NSNumber numberWithInt:5]) {
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_5.png"]];
+    }else{
+        [self.starImageView setImage:[UIImage imageNamed:@"stars_0.png"]];
+    }
+    
     [super viewDidLoad];
 }
 
@@ -95,6 +120,20 @@
     bottomCallBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
     
     [self.callView.layer addSublayer:bottomCallBorder];
+    
+    CALayer *bottomLikeBorder = [CALayer layer];
+    
+    bottomLikeBorder.frame = CGRectMake(0.0f, self.likeView.frame.size.height - 1, self.likeView.frame.size.width, 1.0f);
+    bottomLikeBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    
+    [self.likeView.layer addSublayer:bottomLikeBorder];
+    
+    CALayer *bottomVenueWebsiteBorder = [CALayer layer];
+    
+    bottomVenueWebsiteBorder.frame = CGRectMake(0.0f, self.venueWebsiteView.frame.size.height - 1, self.venueWebsiteView.frame.size.width, 1.0f);
+    bottomVenueWebsiteBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    
+    [self.venueWebsiteView.layer addSublayer:bottomVenueWebsiteBorder];
     
 }
 

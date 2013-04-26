@@ -281,11 +281,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGEventDetailViewController.m"
-         timestampString = "388683785.072287"
+         timestampString = "388685983.709164"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "123"
-         endingLineNumber = "123"
+         startingLineNumber = "162"
+         endingLineNumber = "162"
          landmarkName = "-handleVenueViewTap:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -294,11 +294,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGEventDetailViewController.m"
-         timestampString = "388683785.072287"
+         timestampString = "388685983.709164"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "143"
-         endingLineNumber = "143"
+         startingLineNumber = "182"
+         endingLineNumber = "182"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -307,11 +307,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGEventDetailViewController.m"
-         timestampString = "388683785.072287"
+         timestampString = "388685983.709164"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "119"
-         endingLineNumber = "119"
+         startingLineNumber = "158"
+         endingLineNumber = "158"
          landmarkName = "-handleVenueViewTap:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -320,11 +320,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGEventDetailViewController.m"
-         timestampString = "388683785.072287"
+         timestampString = "388685983.709164"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "122"
-         endingLineNumber = "122"
+         startingLineNumber = "161"
+         endingLineNumber = "161"
          landmarkName = "-handleVenueViewTap:"
          landmarkType = "5">
       </FileBreakpoint>

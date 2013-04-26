@@ -30,6 +30,19 @@
 @property (strong, nonatomic) UIActivityIndicatorView *activityView;
 @property (strong, nonatomic) IBOutlet UIView *callView;
 
+@property (strong, nonatomic) IBOutlet UILabel *likeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *numberOfLikesLabel;
+@property (strong, nonatomic) IBOutlet UILabel *numberOfDislikesLabel;
+@property (strong, nonatomic) IBOutlet UIView *ratingsView;
+@property (strong, nonatomic) IBOutlet UILabel *topFiveLabel;
+@property (strong, nonatomic) IBOutlet UIView *topFiveView;
+
+@property (strong, nonatomic) IBOutlet UIImageView *starImageView;
+@property (strong, nonatomic) IBOutlet UILabel *ratingLabel;
+
+@property (strong, nonatomic) IBOutlet UIView *likeView;
+@property (strong, nonatomic) IBOutlet UIView *venueWebsiteView;
+
 - (IBAction)map:(id)sender;
 - (IBAction)call:(id)sender;
 
