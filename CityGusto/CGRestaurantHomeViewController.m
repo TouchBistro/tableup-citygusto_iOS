@@ -241,5 +241,7 @@
 
 
 - (IBAction)call:(id)sender {
+    NSString *phoneNumber = [@"tel://" stringByAppendingString:self.restaurant.phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 @end

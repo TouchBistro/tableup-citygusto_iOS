@@ -61,7 +61,7 @@
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
         [params setObject:@"true" forKey:@"reduced"];
         
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/events"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -181,7 +181,7 @@
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:event.eventId, @"id", nil];
     
     [self startSpinner];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/events"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){

@@ -14,4 +14,6 @@
 @property (nonatomic, strong) NSMutableArray *restaurants;
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *mapButtonItem;
+
 @end

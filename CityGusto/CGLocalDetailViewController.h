@@ -19,6 +19,8 @@
 @property (strong, nonatomic) IBOutlet UILabel *cityLabel;
 @property (strong, nonatomic) IBOutlet UILabel *neighborhoodLabel;
 
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+
 - (IBAction)map:(id)sender;
 - (IBAction)call:(id)sender;
 - (IBAction)website:(id)sender;

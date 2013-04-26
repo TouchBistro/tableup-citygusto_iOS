@@ -25,6 +25,8 @@
 		1B54D47517077FE900E2F51A /* reviewdollars3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D47017077FE900E2F51A /* reviewdollars3.png */; };
 		1B54D47617077FE900E2F51A /* reviewdollars4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D47117077FE900E2F51A /* reviewdollars4.png */; };
 		1B54D47717077FE900E2F51A /* reviewdollars5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D47217077FE900E2F51A /* reviewdollars5.png */; };
+		1B97DD34172B30F1001063B5 /* CGLocalMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B97DD33172B30F1001063B5 /* CGLocalMapViewController.m */; };
+		1B97DD38172B31E7001063B5 /* CGLocalAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B97DD37172B31E7001063B5 /* CGLocalAnnotation.m */; };
 		1BA08D4017039EF00088FE9F /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D3D17039EF00088FE9F /* AbstractActionSheetPicker.m */; };
 		1BA08D4117039EF00088FE9F /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D3F17039EF00088FE9F /* ActionSheetStringPicker.m */; };
 		1BA08D451703BEAB0088FE9F /* CGLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D441703BEAB0088FE9F /* CGLocationViewController.m */; };
@@ -164,6 +166,10 @@
 		1B54D47017077FE900E2F51A /* reviewdollars3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reviewdollars3.png; sourceTree = "<group>"; };
 		1B54D47117077FE900E2F51A /* reviewdollars4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reviewdollars4.png; sourceTree = "<group>"; };
 		1B54D47217077FE900E2F51A /* reviewdollars5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reviewdollars5.png; sourceTree = "<group>"; };
+		1B97DD32172B30F1001063B5 /* CGLocalMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLocalMapViewController.h; sourceTree = "<group>"; };
+		1B97DD33172B30F1001063B5 /* CGLocalMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLocalMapViewController.m; sourceTree = "<group>"; };
+		1B97DD36172B31E7001063B5 /* CGLocalAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLocalAnnotation.h; sourceTree = "<group>"; };
+		1B97DD37172B31E7001063B5 /* CGLocalAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLocalAnnotation.m; sourceTree = "<group>"; };
 		1BA08D3C17039EF00088FE9F /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		1BA08D3D17039EF00088FE9F /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
 		1BA08D3E17039EF00088FE9F /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
@@ -507,6 +513,8 @@
 				1BA5C3C21721CFAE00A38E7A /* CGRestaurantFavoriteList.m */,
 				1BC8AC26172B1C5200317873 /* CGLocal.h */,
 				1BC8AC27172B1C5200317873 /* CGLocal.m */,
+				1B97DD36172B31E7001063B5 /* CGLocalAnnotation.h */,
+				1B97DD37172B31E7001063B5 /* CGLocalAnnotation.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -583,6 +591,8 @@
 				1BC8AC201729B85600317873 /* CGEventMoreInformationViewController.m */,
 				1BC8AC29172B207500317873 /* CGLocalDetailViewController.h */,
 				1BC8AC2A172B207800317873 /* CGLocalDetailViewController.m */,
+				1B97DD32172B30F1001063B5 /* CGLocalMapViewController.h */,
+				1B97DD33172B30F1001063B5 /* CGLocalMapViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -862,6 +872,8 @@
 				1BC8AC211729B85800317873 /* CGEventMoreInformationViewController.m in Sources */,
 				1BC8AC28172B1C5300317873 /* CGLocal.m in Sources */,
 				1BC8AC2B172B207B00317873 /* CGLocalDetailViewController.m in Sources */,
+				1B97DD34172B30F1001063B5 /* CGLocalMapViewController.m in Sources */,
+				1B97DD38172B31E7001063B5 /* CGLocalAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

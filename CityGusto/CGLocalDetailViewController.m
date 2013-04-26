@@ -29,6 +29,19 @@
     self.address1.text = self.local.address1;
     self.neighborhoodLabel.text = self.local.neighborhoodName;
     
+    NSURL *url = [NSURL URLWithString:self.local.primaryPhotoURL150x150];
+    NSData *data = [NSData dataWithContentsOfURL:url];
+    UIImage *image = [UIImage imageWithData:data];
+    
+    self.imageView.image = image;
+    
+    [self.imageView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    [self.imageView.layer setBorderWidth:1.5f];
+    [self.imageView.layer setShadowColor:[UIColor blackColor].CGColor];
+    [self.imageView.layer setShadowOpacity:0.8];
+    [self.imageView.layer setShadowRadius:3.0];
+    [self.imageView.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+    
     [super viewDidLoad];
 }
 
@@ -49,8 +62,12 @@
 }
 
 - (IBAction)call:(id)sender {
+    NSString *phoneNumber = [@"tel://" stringByAppendingString:self.local.phoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 
 - (IBAction)website:(id)sender {
+    NSURL *url = [NSURL URLWithString:self.local.website];
+    [[UIApplication sharedApplication] openURL:url];
 }
 @end

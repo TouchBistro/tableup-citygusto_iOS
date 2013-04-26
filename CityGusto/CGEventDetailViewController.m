@@ -149,6 +149,8 @@
 }
 
 - (IBAction)call:(id)sender {
+    NSString *phoneNumber = [@"tel://" stringByAppendingString:self.event.eventVenuePhoneNumber];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
 }
 
 - (void)handleVenueViewWebsiteTap:(UITapGestureRecognizer *)recognizer {
@@ -166,7 +168,7 @@
         
         if ([self.event.eventVenueType isEqualToString:@"local"]){
             [self startSpinner];
-            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/locals"
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/locals"
                                                    parameters:params
                                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                           if (mappingResult){
