@@ -53,7 +53,7 @@
     
     self.eventNameLabel.text = self.event.name;
     self.nextDateLabel.text = self.event.dateString;
-    self.addressLabel.text = self.event.venueAddress1;
+    self.addressLabel.text = self.event.eventVenueAddress;
     
     NSString *cityText = self.event.eventVenueCityName;
     cityText = [cityText stringByAppendingString:@", "];
@@ -88,6 +88,13 @@
     bottomDateBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
     
     [self.dateView.layer addSublayer:bottomDateBorder];
+    
+    CALayer *bottomCallBorder = [CALayer layer];
+    
+    bottomCallBorder.frame = CGRectMake(0.0f, self.callView.frame.size.height - 1, self.callView.frame.size.width, 1.0f);
+    bottomCallBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    
+    [self.callView.layer addSublayer:bottomCallBorder];
     
 }
 

@@ -28,6 +28,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *neighborhoodLabel;
 
 @property (strong, nonatomic) UIActivityIndicatorView *activityView;
+@property (strong, nonatomic) IBOutlet UIView *callView;
 
 - (IBAction)map:(id)sender;
 - (IBAction)call:(id)sender;
