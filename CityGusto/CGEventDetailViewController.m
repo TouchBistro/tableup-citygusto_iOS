@@ -9,6 +9,7 @@
 #import "CGEventDetailViewController.h"
 #import "CGRestaurantHomeViewController.h"
 #import "CGEventMoreInformationViewController.h"
+#import "CGLocalDetailViewController.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -41,15 +42,17 @@
         
     }
     
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
-    [self.view addSubview: self.activityView];
-    
     UITapGestureRecognizer *singleFingerTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                        action:@selector(handleVenueViewTap:)];
     
+    UITapGestureRecognizer *singleFingerTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                       action:@selector(handleVenueViewWebsiteTap:)];
+    
     [singleFingerTap1 setCancelsTouchesInView:NO];
     [self.venueView addGestureRecognizer:singleFingerTap1];
+    
+    [singleFingerTap2 setCancelsTouchesInView:NO];
+    [self.venueWebsiteView addGestureRecognizer:singleFingerTap2];
     
     self.eventNameLabel.text = self.event.name;
     self.nextDateLabel.text = self.event.dateString;
@@ -148,33 +151,65 @@
 - (IBAction)call:(id)sender {
 }
 
+- (void)handleVenueViewWebsiteTap:(UITapGestureRecognizer *)recognizer {
+    if (recognizer.view == self.venueWebsiteView){
+        NSURL *url = [NSURL URLWithString:self.event.eventVenueWebsite];
+        [[UIApplication sharedApplication] openURL:url];
+    }
+}
+
 - (void)handleVenueViewTap:(UITapGestureRecognizer *)recognizer {
     if (recognizer.view == self.venueView){
         
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         [params setObject:self.event.eventVenueId forKey:@"id"];
         
-        [self.activityView startAnimating];
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
-                                               parameters:params
-                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                      if (mappingResult){
-                                                          self.restaurant = [[mappingResult array] objectAtIndex:0];
+        if ([self.event.eventVenueType isEqualToString:@"local"]){
+            [self startSpinner];
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/locals"
+                                                   parameters:params
+                                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                          if (mappingResult){
+                                                              self.local = [[mappingResult array] objectAtIndex:0];
+                                                          }
+                                                          
+                                                          [self stopSpinner];
+                                                          [self performSegueWithIdentifier:@"eventLocalDetailSegue" sender:self];
                                                       }
-                                                      
-                                                      [self.activityView stopAnimating];
-                                                      [self performSegueWithIdentifier:@"eventToRestaurantSegue" sender:self];
-                                                  }
-                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                      message:@"There was an issue"
-                                                                                                     delegate:nil
-                                                                                            cancelButtonTitle:@"OK"
-                                                                                            otherButtonTitles:nil];
-                                                      [alert show];
-                                                      NSLog(@"Hit error: %@", error);
-                                                      [self.activityView stopAnimating];
-                                                  }];
+                                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                          message:@"There was an issue"
+                                                                                                         delegate:nil
+                                                                                                cancelButtonTitle:@"OK"
+                                                                                                otherButtonTitles:nil];
+                                                          [alert show];
+                                                          NSLog(@"Hit error: %@", error);
+                                                          [self stopSpinner];
+                                                      }];
+        }else{
+            [self startSpinner];
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                                   parameters:params
+                                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                          if (mappingResult){
+                                                              self.restaurant = [[mappingResult array] objectAtIndex:0];
+                                                          }
+                                                          
+                                                          [self stopSpinner];
+                                                          [self performSegueWithIdentifier:@"eventToRestaurantSegue" sender:self];
+                                                      }
+                                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                          message:@"There was an issue"
+                                                                                                         delegate:nil
+                                                                                                cancelButtonTitle:@"OK"
+                                                                                                otherButtonTitles:nil];
+                                                          [alert show];
+                                                          NSLog(@"Hit error: %@", error);
+                                                          [self stopSpinner];
+                                                      }];
+            
+        }
     }
 }
 
@@ -185,7 +220,23 @@
     }else if ([[segue identifier] isEqualToString:@"eventMoreInformationSegue"]){
         CGEventMoreInformationViewController *moreInformationController = [segue destinationViewController];
         moreInformationController.selectedEvent = self.event;
+    }else if ([[segue identifier] isEqualToString:@"eventLocalDetailSegue"]){
+        CGLocalDetailViewController *localDetailViewController = [segue destinationViewController];
+        localDetailViewController.local = self.local;
     }
+}
+
+- (void) startSpinner {
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityView.center = CGPointMake(self.tableView.frame.size.width / 2.0, self.tableView.frame.size.height / 2.0);
+    [self.tableView addSubview: activityView];
+    
+    [self.activityView startAnimating];
+}
+
+- (void) stopSpinner {
+    [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
 }
 
 

@@ -23,6 +23,7 @@
 #import "CGTag.h"
 #import "CGUser.h"
 #import "CGRestaurantFavoriteList.h"
+#import "CGLocal.h"
 #import <RestKit/RestKit.h>
 
 @implementation CGAppDelegate
@@ -237,7 +238,34 @@
      , @"occurrenceString"
      , @"citygustoURL"
      , @"occurrences"
-     ]];    
+     ]];
+    
+    RKObjectMapping *localMapping = [RKObjectMapping mappingForClass:[CGLocal class]];
+    [localMapping addAttributeMappingsFromDictionary:@{ @"id": @"localId" }];
+    [localMapping addAttributeMappingsFromArray:@[ @"name"
+     , @"website"
+     , @"primaryPhotoURL"
+     , @"primaryPhotoURL150x150"
+     , @"address1"
+     , @"address2"
+     , @"cityName"
+     , @"neighborhoodName"
+     , @"state"
+     , @"zipcode"
+     , @"phoneNumber"
+     , @"encodedAddress"
+     , @"about"
+     , @"delivers"
+     , @"deliveryInfo"
+     , @"parkingInfo"
+     , @"twitterUserName"
+     , @"facebookURL"
+     , @"latitude"
+     , @"venueName"
+     , @"longitude"
+     , @"citygustoURL"
+     , @"categoryNames"
+     ]];
     
     RKObjectMapping *categoryMapping = [RKObjectMapping mappingForClass:[CGCategory class]];
     [categoryMapping addAttributeMappingsFromArray:@[ @"name", @"categoryId" ]];
@@ -282,6 +310,11 @@
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:restaurantFavoriteListMapping
                                                                                  pathPattern:nil
                                                                                      keyPath:@"restaurantFavoriteLists"
+                                                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:localMapping
+                                                                                 pathPattern:nil
+                                                                                     keyPath:@"locals"
                                                                                  statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
     
     //set default parameters

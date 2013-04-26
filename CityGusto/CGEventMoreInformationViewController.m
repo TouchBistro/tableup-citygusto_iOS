@@ -45,6 +45,46 @@
         [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Occurrences" value:self.selectedEvent.occurrenceString]];
     }
     
+    if (self.selectedEvent.eventWebsiteName1){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
+    if (self.selectedEvent.eventWebsiteName2){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
+    if (self.selectedEvent.eventWebsiteName3){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
+    if (self.selectedEvent.eventWebsiteName4){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
+    if (self.selectedEvent.eventWebsiteName5){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
+    if (self.selectedEvent.eventWebsiteName6){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
+    if (self.selectedEvent.eventWebsiteName7){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
+    if (self.selectedEvent.eventWebsiteName8){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
+    if (self.selectedEvent.eventWebsiteName9){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
+    if (self.selectedEvent.eventWebsiteName10){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Event Website" value:self.selectedEvent.occurrenceString]];
+    }
+    
     [super viewDidLoad];
 }
 

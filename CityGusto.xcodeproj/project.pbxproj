@@ -121,6 +121,8 @@
 		1BC8AC1C17255FAB00317873 /* 85-trophy@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BC8AC1417255FAB00317873 /* 85-trophy@2x.png */; };
 		1BC8AC1E172568AC00317873 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BC8AC1D172568AB00317873 /* QuartzCore.framework */; };
 		1BC8AC211729B85800317873 /* CGEventMoreInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC8AC201729B85600317873 /* CGEventMoreInformationViewController.m */; };
+		1BC8AC28172B1C5300317873 /* CGLocal.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC8AC27172B1C5200317873 /* CGLocal.m */; };
+		1BC8AC2B172B207B00317873 /* CGLocalDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BC8AC2A172B207800317873 /* CGLocalDetailViewController.m */; };
 		1BE5E8E6170E3BAC00A84099 /* CGRestaurantListCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8E5170E3BAC00A84099 /* CGRestaurantListCategory.m */; };
 		1BE5E8EA170E3C6700A84099 /* CGRestaurantList.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8E9170E3C6700A84099 /* CGRestaurantList.m */; };
 		1BE5E8ED170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BE5E8EC170E443F00A84099 /* CGRestaurantListCategoryHomeViewController.m */; };
@@ -296,6 +298,10 @@
 		1BC8AC1D172568AB00317873 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		1BC8AC1F1729B85400317873 /* CGEventMoreInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEventMoreInformationViewController.h; sourceTree = "<group>"; };
 		1BC8AC201729B85600317873 /* CGEventMoreInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEventMoreInformationViewController.m; sourceTree = "<group>"; };
+		1BC8AC26172B1C5200317873 /* CGLocal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLocal.h; sourceTree = "<group>"; };
+		1BC8AC27172B1C5200317873 /* CGLocal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLocal.m; sourceTree = "<group>"; };
+		1BC8AC29172B207500317873 /* CGLocalDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLocalDetailViewController.h; sourceTree = "<group>"; };
+		1BC8AC2A172B207800317873 /* CGLocalDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLocalDetailViewController.m; sourceTree = "<group>"; };
 		1BE5E8E4170E3BAC00A84099 /* CGRestaurantListCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantListCategory.h; sourceTree = "<group>"; };
 		1BE5E8E5170E3BAC00A84099 /* CGRestaurantListCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantListCategory.m; sourceTree = "<group>"; };
 		1BE5E8E8170E3C6700A84099 /* CGRestaurantList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantList.h; sourceTree = "<group>"; };
@@ -499,6 +505,8 @@
 				1BA5C3BB1721950A00A38E7A /* CGUser.m */,
 				1BA5C3C11721CFAE00A38E7A /* CGRestaurantFavoriteList.h */,
 				1BA5C3C21721CFAE00A38E7A /* CGRestaurantFavoriteList.m */,
+				1BC8AC26172B1C5200317873 /* CGLocal.h */,
+				1BC8AC27172B1C5200317873 /* CGLocal.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -573,6 +581,8 @@
 				1BA5C3F117247D9A00A38E7A /* CGRestaurantPhotoViewController.m */,
 				1BC8AC1F1729B85400317873 /* CGEventMoreInformationViewController.h */,
 				1BC8AC201729B85600317873 /* CGEventMoreInformationViewController.m */,
+				1BC8AC29172B207500317873 /* CGLocalDetailViewController.h */,
+				1BC8AC2A172B207800317873 /* CGLocalDetailViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -850,6 +860,8 @@
 				1BA5C3F217247D9A00A38E7A /* CGRestaurantPhotoViewController.m in Sources */,
 				1BA5C3FB1724819C00A38E7A /* AsyncImageView.m in Sources */,
 				1BC8AC211729B85800317873 /* CGEventMoreInformationViewController.m in Sources */,
+				1BC8AC28172B1C5300317873 /* CGLocal.m in Sources */,
+				1BC8AC2B172B207B00317873 /* CGLocalDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

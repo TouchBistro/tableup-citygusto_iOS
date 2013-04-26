@@ -8,12 +8,14 @@
 
 #import "CGRestaurant.h"
 #import "CGEvent.h"
+#import "CGLocal.h"
 #import <UIKit/UIKit.h>
 
 @interface CGEventDetailViewController : UITableViewController
 
 @property (nonatomic, strong) CGEvent *event;
 @property (nonatomic, strong) CGRestaurant *restaurant;
+@property (nonatomic, strong) CGLocal *local;
 
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UILabel *eventNameLabel;
