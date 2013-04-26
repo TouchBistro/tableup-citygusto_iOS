@@ -29,35 +29,21 @@
         [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Description" value:self.selectedEvent.description]];
     }
     
-/*    if (self.selectedRestaurant.cuisineNames){
-        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Cuisines" value:self.selectedRestaurant.cuisineNames]];
+    if (self.selectedEvent.eventCategoryString){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Categories" value:self.selectedEvent.eventCategoryString]];
     }
     
-    if (self.selectedRestaurant.featureNames){
-        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Features" value:self.selectedRestaurant.featureNames]];
+    if (self.selectedEvent.eventTagString){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Tags" value:self.selectedEvent.eventTagString]];
     }
     
-    if (self.selectedRestaurant.price){
-        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Price" value:self.selectedRestaurant.price]];
+    if (self.selectedEvent.price){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Price" value:self.selectedEvent.price]];
     }
     
-    if (self.selectedRestaurant.ambianceNames){
-        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Ambiance" value:self.selectedRestaurant.ambianceNames]];
+    if (self.selectedEvent.occurrenceString){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Occurrences" value:self.selectedEvent.occurrenceString]];
     }
-    
-    if (self.selectedRestaurant.parkingInfo){
-        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Parking" value:self.selectedRestaurant.parkingInfo]];
-    }
-    
-    if (self.selectedRestaurant.delivers){
-        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Delivers" value:self.selectedRestaurant.delivers]];
-    }
-    
-    if (self.selectedRestaurant.creditcardNames){
-        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Credit Card Names" value:self.selectedRestaurant.creditcardNames]];
-    }
- 
-*/
     
     [super viewDidLoad];
 }
@@ -116,56 +102,14 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CGInformation *info = [self.rows objectAtIndex:indexPath.row];
+    
+    CGSize size = [info.value sizeWithFont:[UIFont systemFontOfSize:13]
+                         constrainedToSize:CGSizeMake(194, 5000.0f)
+                             lineBreakMode:NSLineBreakByWordWrapping];
+    
+    return tableView.rowHeight + size.height;
 }
 
 @end

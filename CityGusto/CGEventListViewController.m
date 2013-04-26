@@ -61,7 +61,7 @@
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
         [params setObject:@"true" forKey:@"reduced"];
         
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/events"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -176,8 +176,30 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedEvent = [self.events objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"eventDetailSegue" sender:self];
+//    self.selectedEvent = [self.events objectAtIndex:indexPath.row];
+    CGEvent *event = [self.events objectAtIndex:indexPath.row];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:event.eventId, @"id", nil];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/events"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.selectedEvent = [[mappingResult array] objectAtIndex:0];
+                                                      
+                                                      [self stopSpinner];
+                                                      [self performSegueWithIdentifier:@"eventDetailSegue" sender:self];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 -(void) viewMorePressed:(id)sender{

@@ -268,11 +268,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGEventListViewController.m"
-         timestampString = "388609893.883209"
+         timestampString = "388612181.443776"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "234"
-         endingLineNumber = "234"
+         startingLineNumber = "256"
+         endingLineNumber = "256"
          landmarkName = "-updateEvents:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -515,11 +515,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGAppDelegate.m"
-         timestampString = "388510115.289935"
+         timestampString = "388613242.669433"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "226"
-         endingLineNumber = "226"
+         startingLineNumber = "288"
+         endingLineNumber = "288"
          landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -716,6 +716,45 @@
          startingLineNumber = "46"
          endingLineNumber = "46"
          landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CityGusto/CGEventMoreInformationViewController.m"
+         timestampString = "388612044.690746"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "27"
+         endingLineNumber = "27"
+         landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CityGusto/CGEventListViewController.m"
+         timestampString = "388612173.751488"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "187"
+         endingLineNumber = "187"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CityGusto/CGEventListViewController.m"
+         timestampString = "388678254.185147"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "248"
+         endingLineNumber = "248"
+         landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

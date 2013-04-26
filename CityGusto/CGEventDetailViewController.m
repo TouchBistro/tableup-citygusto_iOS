@@ -8,7 +8,7 @@
 
 #import "CGEventDetailViewController.h"
 #import "CGRestaurantHomeViewController.h"
-
+#import "CGEventMoreInformationViewController.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -55,15 +55,15 @@
     self.nextDateLabel.text = self.event.dateString;
     self.addressLabel.text = self.event.venueAddress1;
     
-    NSString *cityText = self.event.venueCityName;
+    NSString *cityText = self.event.eventVenueCityName;
     cityText = [cityText stringByAppendingString:@", "];
-    cityText = [cityText stringByAppendingString:self.event.venueState];
+    cityText = [cityText stringByAppendingString:self.event.eventVenueState];
     cityText = [cityText stringByAppendingString:@" "];
-    cityText = [cityText stringByAppendingString:self.event.venueZipcode];
+    cityText = [cityText stringByAppendingString:self.event.eventVenueZipcode];
     
-    self.cityLabel.text = self.event.venueCityName;
-    self.neighborhoodLabel.text = self.event.venueNeighborhoodName;
-    self.venueNameLabel.text = self.event.venueName;
+    self.cityLabel.text = cityText;
+    self.neighborhoodLabel.text = self.event.eventVenueNeighborhoodName;
+    self.venueNameLabel.text = self.event.eventVenueName;
     
     [super viewDidLoad];
 }
@@ -106,7 +106,7 @@
     if (recognizer.view == self.venueView){
         
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-        [params setObject:self.event.venueId forKey:@"id"];
+        [params setObject:self.event.eventVenueId forKey:@"id"];
         
         [self.activityView startAnimating];
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
@@ -136,6 +136,9 @@
     if ([[segue identifier] isEqualToString:@"eventToRestaurantSegue"]){
         CGRestaurantHomeViewController *homeController = [segue destinationViewController];
         homeController.restaurant = self.restaurant;
+    }else if ([[segue identifier] isEqualToString:@"eventMoreInformationSegue"]){
+        CGEventMoreInformationViewController *moreInformationController = [segue destinationViewController];
+        moreInformationController.selectedEvent = self.event;
     }
 }
 

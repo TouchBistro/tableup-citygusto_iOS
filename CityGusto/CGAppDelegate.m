@@ -34,8 +34,8 @@
     RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelInfo);
     
-//    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8080"];
-    NSURL *baseURL = [NSURL URLWithString:@"http://citygusto.com"];
+    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8080"];
+//    NSURL *baseURL = [NSURL URLWithString:@"http://citygusto.com"];
     AFHTTPClient* client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
     [client setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
     
@@ -175,7 +175,69 @@
      , @"startTime"
      , @"endTime"
      , @"distance"
-     ]];
+     , @"eventWebsiteDescription1"
+     , @"eventWebsiteName1"
+     , @"eventWebsiteDescription2"
+     , @"eventWebsiteName2"
+     , @"eventWebsiteDescription3"
+     , @"eventWebsiteName3"
+     , @"eventWebsiteDescription4"
+     , @"eventWebsiteName4"
+     , @"eventWebsiteDescription5"
+     , @"eventWebsiteName5"
+     , @"eventWebsiteDescription6"
+     , @"eventWebsiteName6"
+     , @"eventWebsiteDescription7"
+     , @"eventWebsiteName7"
+     , @"eventWebsiteDescription8"
+     , @"eventWebsiteName8"
+     , @"eventWebsiteDescription9"
+     , @"eventWebsiteName9"
+     , @"eventWebsiteDescription10"
+     , @"eventWebsiteName10"     
+     , @"eventContactName1"
+     , @"eventContactPhone1"
+     , @"eventContactEmail1"
+     , @"eventContactName2"
+     , @"eventContactPhone2"
+     , @"eventContactEmail2"
+     , @"eventContactName3"
+     , @"eventContactPhone3"
+     , @"eventContactEmail3"     
+     , @"eventVenueId"
+     , @"eventVenueName"
+     , @"eventVenueAddress"
+     , @"eventVenueType"
+     , @"eventVenueCityName"
+     , @"eventVenueNeighborhoodName"
+     , @"eventVenueState"
+     , @"eventVenueZipcode"
+     , @"eventVenuePhoneNumber"
+     , @"eventVenueWebsite"
+     , @"eventVenuePrimaryPhotoURL"
+     , @"eventVenueEncodedAddress"
+     , @"price"
+     , @"ageRange"
+     , @"eventCategoryString"
+     , @"eventTagString"
+     , @"ticketDate"
+     , @"ticketTime"
+     , @"ticketInfo"
+     , @"facebookURL"
+     , @"twitterUserName"
+     , @"numberOfLikes"
+     , @"numberOfDislikes"
+     , @"percentageLike"
+     , @"numberOfStars"
+     , @"numberOfTopFiveLists"
+     , @"numberOfRatings"
+     , @"nextOccurrenceDate"
+     , @"nextOccurrenceStartTime"
+     , @"nextOccurrenceEndTime"
+     , @"occurrenceString"
+     , @"citygustoURL"
+     , @"occurrences"
+     ]];    
     
     RKObjectMapping *categoryMapping = [RKObjectMapping mappingForClass:[CGCategory class]];
     [categoryMapping addAttributeMappingsFromArray:@[ @"name", @"categoryId" ]];
