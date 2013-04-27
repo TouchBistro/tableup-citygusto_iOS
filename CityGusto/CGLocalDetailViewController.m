@@ -29,7 +29,7 @@
     self.address1.text = self.local.address1;
     self.neighborhoodLabel.text = self.local.neighborhoodName;
     
-    NSURL *url = [NSURL URLWithString:self.local.primaryPhotoURL150x150];
+    NSURL *url = [NSURL URLWithString:self.local.primaryPhotoURL];
     NSData *data = [NSData dataWithContentsOfURL:url];
     UIImage *image = [UIImage imageWithData:data];
     
