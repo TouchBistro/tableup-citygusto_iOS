@@ -16,6 +16,7 @@
 #import "CGSelectRestaurantListViewController.h"
 #import "CGPhoto.h"
 #import "AsyncImageView.h"
+#import <CoreLocation/CoreLocation.h>
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -122,6 +123,87 @@
     
     self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
     
+    self.locationManager.delegate = self;
+    self.locationManager = [[CLLocationManager alloc] init];
+    self.locationManager.distanceFilter = kCLDistanceFilterNone;
+    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    [self.locationManager startUpdatingLocation];
+    
+        
+    
+    [super viewDidLoad];
+}
+
+-(void) showRestaurantListCategory{
+    self.restaurant1Label.text = @"";
+    self.restaurant2Label.text = @"";
+    self.restaurant3Label.text = @"";
+    
+    if (currentCategory){
+        self.headerLabel.text = currentCategory.name;
+        if (self.currentRestaurantList == nil){
+            self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+        }
+        
+        if (currentRestaurantList){
+            self.listNameLabel.text = currentRestaurantList.name;
+            
+            if (0 < self.currentRestaurantList.restaurants.count){
+                if (currentRestaurantList.restaurants[0]){
+                    self.restaurant1 = currentRestaurantList.restaurants[0];
+                    NSString *listRestaurantText = @"1) ";
+                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant1.name];
+                    
+                    if (self.restaurant1.distance){
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" - "];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:[self.restaurant1.distance stringValue]];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" Miles"];
+                    }
+                    
+                    self.restaurant1Label.text = listRestaurantText;
+                }
+            }
+            
+            if (1 < self.currentRestaurantList.restaurants.count){
+                if (currentRestaurantList.restaurants[1]){
+                    self.restaurant2 = currentRestaurantList.restaurants[1];
+                    
+                    NSString *listRestaurantText = @"2) ";
+                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant2.name];
+                    
+                    if (self.restaurant2.distance){
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" - "];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:[self.restaurant2.distance stringValue]];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" Miles"];
+                    }
+                    
+                    self.restaurant2Label.text = listRestaurantText;
+                }
+            }
+            
+            if (2 < self.currentRestaurantList.restaurants.count){
+                if (currentRestaurantList.restaurants[2]){
+                    self.restaurant3 = currentRestaurantList.restaurants[2];
+                    
+                    NSString *listRestaurantText = @"3) ";
+                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant3.name];
+                    
+                    if (self.restaurant3.distance){
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" - "];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:[self.restaurant3.distance stringValue]];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" Miles"];
+                    }
+                    
+                    self.restaurant3Label.text = listRestaurantText;
+                }
+            }
+        }
+    }
+}
+
+-(void) viewDidAppear:(BOOL)animated{
+    [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
+    
     [self.activityView startAnimating];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
@@ -161,57 +243,7 @@
                                                   
                                                   [self.activityView stopAnimating];
                                               }];
-    
-    
-    [super viewDidLoad];
-}
 
--(void) showRestaurantListCategory{
-    self.restaurant1Label.text = @"";
-    self.restaurant2Label.text = @"";
-    self.restaurant3Label.text = @"";
-    
-    if (currentCategory){
-        self.headerLabel.text = currentCategory.name;
-        if (self.currentRestaurantList == nil){
-            self.currentRestaurantList = self.currentCategory.restaurantLists[0];
-        }
-        
-        if (currentRestaurantList){
-            self.listNameLabel.text = currentRestaurantList.name;
-            
-            if (0 < self.currentRestaurantList.restaurants.count){
-                if (currentRestaurantList.restaurants[0]){
-                    self.restaurant1 = currentRestaurantList.restaurants[0];
-                    NSString *listRestaurantText = @"1) ";
-                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant1.name];
-                    
-                    self.restaurant1Label.text = listRestaurantText;
-                }
-            }
-            
-            if (1 < self.currentRestaurantList.restaurants.count){
-                if (currentRestaurantList.restaurants[1]){
-                    self.restaurant2 = currentRestaurantList.restaurants[1];
-                    NSString *listRestaurantText = @"2) ";
-                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant2.name];
-                    
-                    self.restaurant2Label.text = listRestaurantText;
-                }
-            }
-            
-            if (2 < self.currentRestaurantList.restaurants.count){
-                if (currentRestaurantList.restaurants[2]){
-                    self.restaurant3 = currentRestaurantList.restaurants[2];
-                    
-                    NSString *listRestaurantText = @"3) ";
-                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant3.name];
-                    
-                    self.restaurant3Label.text = listRestaurantText;
-                }
-            }
-        }
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -455,6 +487,22 @@
     
     self.currentRestaurantList = restaurantList;
     [self showRestaurantListCategory];
+}
+
+
+-(void) locationManager: (CLLocationManager *)manager didUpdateToLocation: (CLLocation *) newLocation
+           fromLocation: (CLLocation *) oldLocation{
+    CGRestaurantParameter *params = [CGRestaurantParameter shared];
+    
+    params.useCurrentLocation = YES;
+    params.lat = [NSNumber numberWithDouble:self.locationManager.location.coordinate.latitude];
+    params.lon = [NSNumber numberWithDouble:self.locationManager.location.coordinate.longitude];
+    
+    [self.locationManager stopUpdatingLocation];
+}
+
+- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    [self.locationManager stopUpdatingLocation];
 }
 
 @end

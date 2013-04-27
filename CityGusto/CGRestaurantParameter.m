@@ -119,7 +119,9 @@
 - (NSMutableDictionary *) buildParameterMap{
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
-    [params setObject:cityId forKey:@"cityId"];
+    if (cityId){
+        [params setObject:cityId forKey:@"cityId"];
+    }
     
     if (neighborhoodId){
         [params setObject:neighborhoodId forKey:@"neighborhoodId"];
@@ -177,16 +179,15 @@
         [params setObject:sortOrder forKey:@"sortOrder"];
     }
     
-    if (lat){
-        [params setObject:lat forKey:@"lat"];
+    if (self.useCurrentLocation){
+        if (lat){
+            [params setObject:lat forKey:@"lat"];
+        }
+        
+        if (lon){
+            [params setObject:lon forKey:@"long"];
+        }
     }
-    
-    if (lon){
-        [params setObject:lon forKey:@"lon"];
-    }
-    
-    
-    [params setObject:cityId forKey:@"cityId"];
     
     return params;
 }
@@ -194,7 +195,9 @@
 - (NSMutableDictionary *) buildEventParameterMap{
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
-    [params setObject:cityId forKey:@"cityId"];
+    if (cityId){
+        [params setObject:cityId forKey:@"cityId"];
+    }
     
     if (neighborhoodId){
         [params setObject:neighborhoodId forKey:@"neighborhoodId"];
@@ -238,12 +241,14 @@
         [params setObject:eventSortOrder forKey:@"sortOrder"];
     }
     
-    if (lat){
-        [params setObject:lat forKey:@"lat"];
-    }
-    
-    if (lon){
-        [params setObject:lon forKey:@"long"];
+    if (self.useCurrentLocation){
+        if (lat){
+            [params setObject:lat forKey:@"lat"];
+        }
+        
+        if (lon){
+            [params setObject:lon forKey:@"long"];
+        }
     }
     
     if (date){
@@ -284,10 +289,7 @@
     return locationName;
 }
 
-- (void) changeLocation:(NSNumber *)cityId_ neighborhoodId:(NSNumber *)neighborhoodId_{
-    self.cityId = cityId_;
-    self.neighborhoodId = neighborhoodId_;
-    
+- (void) changeLocation {
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/cuisines"
                                            parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {

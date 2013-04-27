@@ -130,7 +130,14 @@
     CGRestaurant *restaurant = [self.restaurants objectAtIndex:indexPath.row];
     
     if (cell){
-        cell.nameLabel.text = restaurant.name;
+        NSString *name = restaurant.name;
+        if (restaurant.distance){
+            name = [name stringByAppendingString:@" - "];
+            name = [name stringByAppendingString:[restaurant.distance stringValue]];
+            name = [name stringByAppendingString:@" Miles"];
+        }
+        
+        cell.nameLabel.text = name;
         
         NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
         NSData *data = [NSData dataWithContentsOfURL:url];

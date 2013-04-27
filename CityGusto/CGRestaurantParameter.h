@@ -65,7 +65,9 @@
 - (NSString *) getNeighborhoodName;
 - (NSString *) getLocationName;
 
-- (void) changeLocation:(NSNumber *)cityId neighborhoodId:(NSNumber *)neighborhoodId;
+//- (void) changeLocation:(NSNumber *)cityId neighborhoodId:(NSNumber *)neighborhoodId;
+- (void) changeLocation;
+
 - (void) fetchFeatures;
 - (void) fetchTags;
 

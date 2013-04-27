@@ -25,6 +25,7 @@
 #import "CGRestaurantFavoriteList.h"
 #import "CGLocal.h"
 #import <RestKit/RestKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @implementation CGAppDelegate
 
@@ -130,6 +131,7 @@
      , @"creditcardNames"
      , @"cuisineNames"
      , @"website"
+     , @"distance"
      ]];
     
     
@@ -332,8 +334,13 @@
     [params.times addObject:[NSNumber numberWithInt:3]];
     [params.times addObject:[NSNumber numberWithInt:4]];
     
+//    params.useCurrentLocation = true;
+//    params.lon = [NSNumber numberWithDouble:-71.06966];
+//    params.lat = [NSNumber numberWithDouble:42.35657];
     
-    [params changeLocation:[[NSNumber alloc] initWithInt:4] neighborhoodId:nil];
+    params.cityId = [NSNumber numberWithInt:4];
+    params.neighborhoodId = nil;
+    [params changeLocation];
     
     UIImage *image = [[UIImage imageNamed:@"headerButton.png"] resizableImageWithCapInsets:UIEdgeInsetsMake(0, 16, 0, 16)];
     [[UIBarButtonItem appearance] setBackButtonBackgroundImage:image forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
@@ -376,5 +383,6 @@
     
     return [FBSession.activeSession handleOpenURL:url];
 }
+
 
 @end
