@@ -227,10 +227,12 @@
                                                       NSInteger index = MAX(0, count);
                                                       
                                                       [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
-                                                      [self.carousel insertItemAtIndex:index animated:YES];
+//                                                      [self.carousel insertItemAtIndex:index animated:YES];
                                                       
                                                       count++;
                                                   }
+                                                  
+                                                  [self.carousel reloadData];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -383,7 +385,7 @@
         NSInteger index = MAX(0, count);
         
         [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
-        [self.carousel insertItemAtIndex:index animated:YES];
+//        [self.carousel insertItemAtIndex:index animated:YES];
         
         count++;
     }
@@ -405,8 +407,8 @@
                                                   if (mappingResult){
                                                       self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                       if (self.restaurantListCategories.count > 0){
-                                                          currentCategory = self.restaurantListCategories[0];
-                                                          if (currentCategory){
+                                                          self.currentCategory = self.restaurantListCategories[0];
+                                                          if (self.currentCategory){
                                                               self.currentRestaurantList = self.currentCategory.restaurantLists[0];
                                                           }
                                                           
@@ -416,7 +418,7 @@
                                                               NSInteger index = MAX(0, count);
                                                               
                                                               [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
-                                                              [self.carousel insertItemAtIndex:index animated:YES];
+//                                                              [self.carousel insertItemAtIndex:index animated:YES];
                                                               
                                                               count++;
                                                           }
@@ -483,6 +485,9 @@
 }
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)aCarousel{
+    NSInteger index = aCarousel.currentItemIndex;
+    NSInteger size = self.currentCategory.restaurantLists.count;
+    
     CGRestaurantList *restaurantList = [self.currentCategory.restaurantLists objectAtIndex:aCarousel.currentItemIndex];
     
     self.currentRestaurantList = restaurantList;
