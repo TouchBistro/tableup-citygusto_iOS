@@ -28,6 +28,18 @@
 - (void)viewDidLoad
 {
     self.mapView.delegate = self;
+    
+/*    CLLocationCoordinate2D zoomLocation;
+    zoomLocation.latitude = 42.3583;
+    zoomLocation.longitude= -71.0603;
+    
+    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5 * METERS_PER_MILE, 0.5 * METERS_PER_MILE);
+    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
+    
+    [self.mapView setCenterCoordinate:zoomLocation animated:YES];
+    
+//    [self.mapView setRegion:adjustedRegion animated:YES];
+  */  
     [super viewDidLoad];
 }
 
@@ -37,16 +49,6 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    //boston center
-    CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 42.3583;
-    zoomLocation.longitude= -71.0603;
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5 * METERS_PER_MILE, 0.5 * METERS_PER_MILE);
-    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
-    
-    [self.mapView setRegion:adjustedRegion animated:YES];
-    
     for (CGRestaurant *restaurant in restaurants) {
         CLLocation *location = [[CLLocation alloc] initWithLatitude:[restaurant.latitude doubleValue] longitude:[restaurant.longitude doubleValue]];
         
@@ -55,6 +57,15 @@
         annotation.restaurant = restaurant;
         [self.mapView addAnnotation:annotation];
     }
+    
+    MKMapRect zoomRect = MKMapRectNull;
+    for (id <MKAnnotation> annotation in mapView.annotations)
+    {
+        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+    }
+    [mapView setVisibleMapRect:zoomRect animated:YES];
 
 }
 
