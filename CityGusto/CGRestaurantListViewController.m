@@ -37,7 +37,7 @@
     [self setDataLoaded:NO];
     
     
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
+    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setFrame:CGRectMake(10, 3, 300, 44)];
     
@@ -52,9 +52,9 @@
     UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
     [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
     
-    [footerView addSubview:button];
+    [self.footerView addSubview:button];
     
-    [self.tableView setTableFooterView:footerView];
+    [self.tableView setTableFooterView:self.footerView];
     
     [self startSpinner];
     if (self.restaurants.count == 0){
@@ -68,7 +68,9 @@
                                                           self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           
                                                           if (self.restaurants.count < 25){
-                                                              [self.tableView.tableFooterView removeFromSuperview];
+                                                              self.tableView.tableFooterView = nil;
+                                                          }else{
+                                                              [self.tableView setTableFooterView:self.footerView];
                                                           }
                                                           
                                                           [self setDataLoaded:YES];
@@ -231,7 +233,9 @@
                                                       [self.tableView reloadData];
                                                       
                                                       if ([mappingResult array].count < 25){
-                                                          [self.tableView.tableFooterView removeFromSuperview];
+                                                          self.tableView.tableFooterView = nil;
+                                                      }else{
+                                                          [self.tableView setTableFooterView:self.footerView];
                                                       }
                                                       
                                                       [self stopSpinner];
@@ -301,6 +305,12 @@
 - (void) updateRestaurants:(NSArray *)newRestaurants{
     [self.restaurants removeAllObjects];
     [self.restaurants addObjectsFromArray:newRestaurants];
+    
+    if (self.restaurants.count < 25){
+        self.tableView.tableFooterView = nil;
+    }else{
+        [self.tableView setTableFooterView:self.footerView];
+    }
     
     [self.tableView reloadData];
 }

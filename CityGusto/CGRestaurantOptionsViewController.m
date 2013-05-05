@@ -57,15 +57,15 @@
     
     if (params){
         if (params.sortOrder){
-            if (params.sortOrder == @"distance"){
+            if ([params.sortOrder isEqualToString:@"distance"]){
                 sortLabel.text = @"Distance";
-            }else if (params.sortOrder == @"az"){
+            }else if ([params.sortOrder isEqualToString:@"az"]){
                 sortLabel.text = @"Name Asc";
-            }else if (params.sortOrder == @"za"){
+            }else if ([params.sortOrder isEqualToString:@"za"]){
                 sortLabel.text = @"Name Desc";
-            }else if (params.sortOrder == @"rating-h"){
+            }else if ([params.sortOrder isEqualToString: @"rating-h"]){
                 sortLabel.text = @"Rating";
-            }else if (params.sortOrder == @"price-h"){
+            }else if ([params.sortOrder isEqualToString:@"price-h"]){
                 sortLabel.text = @"Price";
             }
         }else{

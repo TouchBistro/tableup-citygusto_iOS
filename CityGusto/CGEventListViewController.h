@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
 @property (nonatomic, strong) CGEvent *selectedEvent;
+@property (nonatomic, strong) UIView *footerView;
 
 - (void) viewMorePressed:(id)sender;
 

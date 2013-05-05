@@ -38,7 +38,7 @@
     
     [self setDataLoaded:NO];
     
-    UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
+    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setFrame:CGRectMake(10, 3, 300, 44)];
     
@@ -52,9 +52,9 @@
     
     UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
     [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
-    [footerView addSubview:button];
+    [self.footerView addSubview:button];
     
-    [self.tableView setTableFooterView:footerView];
+    [self.tableView setTableFooterView:self.footerView];
     
     [self startSpinner];
     if (self.events.count == 0){
@@ -66,8 +66,11 @@
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
                                                           self.events = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                          
                                                           if ([mappingResult array].count < 25){
-                                                              [self.tableView.tableFooterView removeFromSuperview];
+                                                              self.tableView.tableFooterView = nil;
+                                                          }else{
+                                                              [self.tableView setTableFooterView:self.footerView];
                                                           }
                                                           
                                                           
@@ -203,12 +206,12 @@
 }
 
 -(void) viewMorePressed:(id)sender{
-    [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 25];
+    [CGRestaurantParameter shared].eventOffset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].eventOffset intValue] + 25];
     NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
     [params setObject:@"true" forKey:@"reduced"];
     
     [self startSpinner];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
@@ -218,8 +221,11 @@
                                                       [self.tableView reloadData];
                                                       
                                                       if ([mappingResult array].count < 25){
-                                                          [self.tableView.tableFooterView removeFromSuperview];
+                                                          self.tableView.tableFooterView = nil;
+                                                      }else{
+                                                          [self.tableView setTableFooterView:self.footerView];
                                                       }
+                                                      
                                                       
                                                       [self stopSpinner];
                                                   }
@@ -255,6 +261,12 @@
 -(void)updateEvents:(NSArray *)newEvents{
     [self.events removeAllObjects];
     [self.events addObjectsFromArray:newEvents];
+    
+    if ([self.events count] < 25){
+        self.tableView.tableFooterView = nil;
+    }else{
+        [self.tableView setTableFooterView:self.footerView];
+    }
     
     [self.tableView reloadData];
 }

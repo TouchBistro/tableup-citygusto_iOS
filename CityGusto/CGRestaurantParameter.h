@@ -51,6 +51,7 @@
 @property (nonatomic, strong) NSMutableArray *tags;
 @property (nonatomic, strong) NSMutableArray *categoriesForSelectedLocation;
 @property (nonatomic, strong) NSMutableArray *tagsForSelectedLocationAndCategories;
+@property (nonatomic, strong) NSNumber *eventOffset;
 
 @property (nonatomic, strong) CGUser *loggedInUser;
 

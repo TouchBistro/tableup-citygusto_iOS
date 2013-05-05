@@ -45,15 +45,15 @@
     
     if (params){
         if (params.eventSortOrder){
-            if (params.eventSortOrder == @"distance"){
+            if ([params.eventSortOrder isEqualToString:@"distance"]){
                 sortLabel.text = @"Distance";
-            }else if (params.eventSortOrder == @"az"){
+            }else if ([params.eventSortOrder isEqualToString:@"az"]){
                 sortLabel.text = @"Name Asc";
-            }else if (params.eventSortOrder == @"za"){
+            }else if ([params.eventSortOrder isEqualToString:@"za"]){
                 sortLabel.text = @"Name Desc";
-            }else if (params.eventSortOrder == @"rating-h"){
+            }else if ([params.eventSortOrder isEqualToString:@"rating-h"]){
                 sortLabel.text = @"Rating";
-            }else if (params.eventSortOrder == @"price-h"){
+            }else if ([params.eventSortOrder isEqualToString: @"price-h"]){
                 sortLabel.text = @"Price";
             }
         }else{
@@ -91,6 +91,8 @@
 
 - (IBAction)search:(id)sender {
     [self.activityView startAnimating];
+    [CGRestaurantParameter shared].eventOffset = 0;
+    
     NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
     [params setObject:@"true" forKey:@"reduced"];
     

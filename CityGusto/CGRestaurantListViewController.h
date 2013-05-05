@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 
+@property (nonatomic, strong) UIView *footerView;
+
 - (void) viewMorePressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navBarItem;
 

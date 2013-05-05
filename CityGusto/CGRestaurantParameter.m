@@ -17,6 +17,7 @@
 
 @synthesize max;
 @synthesize offset;
+@synthesize eventOffset;
 @synthesize cityId;
 @synthesize neighborhoodId;
 
@@ -209,8 +210,8 @@
         [params setObject:@"25" forKey:@"max"];
     }
     
-    if (offset){
-        [params setObject:offset forKey:@"offset"];
+    if (eventOffset){
+        [params setObject:eventOffset forKey:@"offset"];
     }else{
         [params setObject:@"0" forKey:@"offset"];
     }

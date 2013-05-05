@@ -323,6 +323,8 @@
     CGRestaurantParameter *params = [CGRestaurantParameter shared];
     params.max = [[NSNumber alloc] initWithInt:25];
     params.offset = [[NSNumber alloc] initWithInt:0];
+    params.eventOffset = [[NSNumber alloc] initWithInt:0];
+    
     
     params.deliveryFilter = NO;
     params.kitchenOpenFilter = NO;
