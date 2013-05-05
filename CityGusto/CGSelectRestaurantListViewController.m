@@ -6,8 +6,11 @@
 //  Copyright (c) 2013 CityGusto. All rights reserved.
 //
 
+#import "CGRestaurantListListViewController.h"
 #import "CGRestaurantList.h"
 #import "CGSelectRestaurantListViewController.h"
+#import "CGRestaurantParameter.h"
+#import <RestKit/RestKit.h>
 
 @interface CGSelectRestaurantListViewController ()
 
@@ -24,6 +27,10 @@
         UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
     }
+    
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.view addSubview: self.activityView];
     
     [super viewDidLoad];
 }
@@ -64,14 +71,53 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    CGRestaurantList *selectedList = [self.restaurantLists objectAtIndex:indexPath.row];
-    if (selectedList){
-        [self.delegate updateRestaurantList:selectedList selectedIndex:indexPath.row];
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+//    CGRestaurantList *selectedList = [self.restaurantLists objectAtIndex:indexPath.row];
+//    if (selectedList){
+//        [self.delegate updateRestaurantList:selectedList selectedIndex:indexPath.row];
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+    self.currentRestaurantList = [self.restaurantLists objectAtIndex:indexPath.row];;
+    NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
+    [params setObject:self.currentRestaurantList.restaurantListId forKey:@"listId"];
+    
+    [self.activityView startAnimating];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+
+                                                      [self performSegueWithIdentifier:@"selectListRestaurantListSegue" sender:self];
+                                                  }
+                                                  [self.activityView stopAnimating];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                                  
+                                                  [self.activityView stopAnimating];
+                                              }];
+    
+    
 }
 
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"selectListRestaurantListSegue"]){
+        CGRestaurantListListViewController *listViewController = [segue destinationViewController];
+        listViewController.restaurants = self.restaurants;
+        listViewController.restaurantList = self.currentRestaurantList;
+
+        
+        
+    }
 }
 @end

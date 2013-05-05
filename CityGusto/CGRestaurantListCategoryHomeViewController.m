@@ -367,10 +367,13 @@
 
 
 - (void) updateRestaurantList:(CGRestaurantList *) restaurantList selectedIndex:(NSInteger)index{
-    self.currentRestaurantList = restaurantList;
-    [self showRestaurantListCategory];
+    //self.currentRestaurantList = restaurantList;
+    //[self showRestaurantListCategory];
     
-    [self.carousel scrollToItemAtIndex:index animated:NO];
+    //[self.carousel scrollToItemAtIndex:index animated:NO];
+    
+    self.currentRestaurantList = restaurantList;
+    [self performSegueWithIdentifier:@"restaurantListListSegue" sender:self];
 }
 
 - (void) updateRestaurantCategory:(CGRestaurantListCategory *) restaurantCategory{
@@ -485,9 +488,6 @@
 }
 
 - (void)carouselDidEndScrollingAnimation:(iCarousel *)aCarousel{
-    NSInteger index = aCarousel.currentItemIndex;
-    NSInteger size = self.currentCategory.restaurantLists.count;
-    
     CGRestaurantList *restaurantList = [self.currentCategory.restaurantLists objectAtIndex:aCarousel.currentItemIndex];
     
     self.currentRestaurantList = restaurantList;
