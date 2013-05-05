@@ -984,7 +984,7 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
                                     <connections>
-                                        <segue destination="19t-C9-hou" kind="push" identifier="mapFromHomeSegue" id="Ygo-TM-eei"/>
+                                        <action selector="map:" destination="PEQ-5f-E8I" eventType="touchUpInside" id="Ucc-hq-Ema"/>
                                     </connections>
                                 </button>
                                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhh-ad-v6d">
@@ -3722,6 +3722,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGLoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="login:"/>
                 <relationship kind="action" name="userRegister:"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
