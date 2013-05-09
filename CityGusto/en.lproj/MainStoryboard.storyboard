@@ -1292,7 +1292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8il-Ar-A33" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2114" y="889"/>
+            <point key="canvasLocation" x="1666" y="449"/>
         </scene>
         <!--Restaurant Photo View Controller-->
         <scene sceneID="ZNo-jM-8gg">
@@ -1788,6 +1788,11 @@
                         <barButtonItem key="leftBarButtonItem" title="Filter" id="hml-Xm-rMb">
                             <connections>
                                 <segue destination="eub-Co-0G1" kind="modal" identifier="eventOptionsSegue" id="VAz-EH-63G"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="11D-3f-oQa">
+                            <connections>
+                                <segue destination="xOK-m1-FmK" kind="push" id="1xg-Mi-QDy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3291,6 +3296,30 @@
             </objects>
             <point key="canvasLocation" x="1219" y="-3700"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="goD-Fo-n58">
+            <objects>
+                <viewController id="xOK-m1-FmK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FRl-p7-upS">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ewz-T0-kUG"/>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ewz-T0-kUG" firstAttribute="top" secondItem="FRl-p7-upS" secondAttribute="top" type="default" id="N0k-kS-Gsi"/>
+                            <constraint firstItem="ewz-T0-kUG" firstAttribute="trailing" secondItem="FRl-p7-upS" secondAttribute="trailing" type="default" id="Yku-x6-akf"/>
+                            <constraint firstItem="ewz-T0-kUG" firstAttribute="bottom" secondItem="FRl-p7-upS" secondAttribute="bottom" type="default" id="bY9-3P-WCQ"/>
+                            <constraint firstItem="ewz-T0-kUG" firstAttribute="leading" secondItem="FRl-p7-upS" secondAttribute="leading" type="default" id="fRK-Ps-UPr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="j9b-oZ-IFW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3mE-Zo-s8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-7" y="-3007"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="m7z-C1-jiZ">
             <objects>
@@ -3722,7 +3751,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGLoginViewController.h"/>
             <relationships>
                 <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="dismissKeyboard:"/>
                 <relationship kind="action" name="login:"/>
                 <relationship kind="action" name="userRegister:"/>
                 <relationship kind="outlet" name="emailTextField" candidateClass="UITextField"/>
@@ -3900,10 +3928,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Em6-Bi-MbD"/>
-        <segue reference="1vc-0c-EuF"/>
-        <segue reference="UbO-gB-6Wh"/>
         <segue reference="iew-l2-cJO"/>
         <segue reference="dle-eJ-xA0"/>
+        <segue reference="1vc-0c-EuF"/>
+        <segue reference="UbO-gB-6Wh"/>
+        <segue reference="MXO-9X-nkW"/>
     </inferredMetricsTieBreakers>
 </document>
