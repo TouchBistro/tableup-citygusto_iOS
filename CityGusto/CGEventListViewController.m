@@ -13,7 +13,7 @@
 #import "CGEvent.h"
 #import "CGEventOptionsViewController.h"
 #import "CGEventDetailViewController.h"
-#import "CGRestaurantMapViewController.h"
+#import "CGEventMapViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
@@ -254,11 +254,10 @@
     }else if ([[segue identifier] isEqualToString:@"eventDetailSegue"]){
         CGEventDetailViewController *detailController = [segue destinationViewController];
         detailController.event = self.selectedEvent;
-    }else if ([[segue identifier] isEqualToString:@"mapSegue"]){
-        CGRestaurantMapViewController *mapController = [segue destinationViewController];
+    }else if ([[segue identifier] isEqualToString:@"mapEventSegue"]){
+        CGEventMapViewController *mapController = [segue destinationViewController];
+        mapController.events = self.events;
     }
-    
-    
 }
 
 -(void)updateEvents:(NSArray *)newEvents{

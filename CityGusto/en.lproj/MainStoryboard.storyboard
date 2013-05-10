@@ -1792,7 +1792,7 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Map" id="11D-3f-oQa">
                             <connections>
-                                <segue destination="xOK-m1-FmK" kind="push" id="1xg-Mi-QDy"/>
+                                <segue destination="xOK-m1-FmK" kind="push" identifier="mapEventSegue" id="1xg-Mi-QDy"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -3296,10 +3296,10 @@
             </objects>
             <point key="canvasLocation" x="1219" y="-3700"/>
         </scene>
-        <!--View Controller-->
+        <!--Event Map View Controller-->
         <scene sceneID="goD-Fo-n58">
             <objects>
-                <viewController id="xOK-m1-FmK" sceneMemberID="viewController">
+                <viewController id="xOK-m1-FmK" customClass="CGEventMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FRl-p7-upS">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -3315,6 +3315,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="j9b-oZ-IFW"/>
+                    <connections>
+                        <outlet property="mapView" destination="ewz-T0-kUG" id="smM-pH-b37"/>
+                        <segue destination="2hf-AF-Ai5" kind="push" identifier="mapEventHomeSegue" id="ziQ-Qk-TXW"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3mE-Zo-s8s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3674,6 +3678,12 @@
         <class className="CGEventListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventListViewController.h"/>
         </class>
+        <class className="CGEventMapViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventMapViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapView" candidateClass="MKMapView"/>
+            </relationships>
+        </class>
         <class className="CGEventMoreInformationViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventMoreInformationViewController.h"/>
         </class>
@@ -3928,10 +3938,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="NzV-4r-3WK"/>
+        <segue reference="Aqm-km-h2h"/>
+        <segue reference="1vc-0c-EuF"/>
+        <segue reference="ziQ-Qk-TXW"/>
         <segue reference="iew-l2-cJO"/>
         <segue reference="dle-eJ-xA0"/>
-        <segue reference="1vc-0c-EuF"/>
-        <segue reference="UbO-gB-6Wh"/>
-        <segue reference="MXO-9X-nkW"/>
     </inferredMetricsTieBreakers>
 </document>

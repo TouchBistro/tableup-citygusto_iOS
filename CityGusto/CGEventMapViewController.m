@@ -9,6 +9,7 @@
 #import "CGEvent.h"
 #import "CGAnnotation.h"
 #import "CGEventAnnotation.h"
+#import "CGEventDetailViewController.h"
 #import "CGEventMapViewController.h"
 
 @interface CGEventMapViewController ()
@@ -17,9 +18,11 @@
 
 @implementation CGEventMapViewController
 
+@synthesize events;
 
 - (void)viewDidLoad
 {
+    self.mapView.delegate = self;
     [super viewDidLoad];
 }
 
@@ -57,7 +60,7 @@
     MKPinAnnotationView *mapPin = nil;
     if(annotation != map.userLocation)
     {
-        static NSString *defaultPinID = @"defaultPin";
+        static NSString *defaultPinID = @"defaultEventPin";
         mapPin = (MKPinAnnotationView *)[map dequeueReusableAnnotationViewWithIdentifier:defaultPinID];
         if (mapPin == nil )
         {
@@ -66,7 +69,7 @@
             mapPin.canShowCallout = YES;
             
             UIButton *disclosureButton = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-            [disclosureButton addTarget:self action:@selector(showRestaurantHome:) forControlEvents:UIControlEventTouchUpInside];
+            [disclosureButton addTarget:self action:@selector(showEventHome:) forControlEvents:UIControlEventTouchUpInside];
             
             mapPin.rightCalloutAccessoryView = disclosureButton;
             
@@ -78,7 +81,7 @@
     return mapPin;
 }
 
--(void) showRestaurantHome:(UIButton *) sender {
+-(void) showEventHome:(UIButton *) sender {
     CGEventAnnotation *annotation = [[self.mapView selectedAnnotations] objectAtIndex:0];
     self.seletedEvent = annotation.event;
     [self performSegueWithIdentifier:@"mapEventHomeSegue" sender:self];
@@ -86,8 +89,8 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"mapEventHomeSegue"]){
-//        CGRestaurantHomeViewController *homeController = [segue destinationViewController];
-//        homeController.restaurant = self.selectedRestaurant;
+        CGEventDetailViewController *detailController = [segue destinationViewController];
+        detailController.event = self.seletedEvent;
     }
 }
 

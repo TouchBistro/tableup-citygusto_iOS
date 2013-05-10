@@ -89,6 +89,8 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
     }
     
+    self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
+    
     self.carousel.type = iCarouselTypeCoverFlow2;
 
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
