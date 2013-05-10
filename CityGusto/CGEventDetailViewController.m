@@ -12,6 +12,7 @@
 #import "CGLocalDetailViewController.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
+#import <MapKit/MapKit.h>
 
 @interface CGEventDetailViewController ()
 
@@ -145,7 +146,19 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)map:(id)sender {
+- (IBAction)map:(id)sender{
+    Class mapItemClass = [MKMapItem class];
+    if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+    {
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([self.event.venueLatitude doubleValue], [self.event.venueLongitude doubleValue]);
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
+                                                       addressDictionary:nil];
+        
+        MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+        [mapItem setName:self.restaurant.name];
+        // Pass the map item to the Maps app
+        [mapItem openInMapsWithLaunchOptions:nil];
+    }
 }
 
 - (IBAction)call:(id)sender {

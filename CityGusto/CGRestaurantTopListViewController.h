@@ -7,10 +7,16 @@
 //
 
 #import "CGRestaurant.h"
+#import "CGTopListPosition.h"
 #import <UIKit/UIKit.h>
 
 @interface CGRestaurantTopListViewController : UITableViewController
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
+@property (nonatomic, strong) CGTopListPosition *selectedTopList;
+
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
+
+@property (nonatomic, strong) NSMutableArray *restaurants;
 
 @end

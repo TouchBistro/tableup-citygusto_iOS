@@ -7,7 +7,11 @@
 //
 
 #import "CGTopListPosition.h"
+#import "CGRestaurantList.h"
+#import "CGRestaurantParameter.h"
 #import "CGRestaurantTopListViewController.h"
+#import "CGRestaurantListListViewController.h"
+#import <RestKit/RestKit.h>
 
 @interface CGRestaurantTopListViewController ()
 
@@ -83,56 +87,68 @@
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    CGTopListPosition *toplist = [self.selectedRestaurant.restaurantListPositions objectAtIndex:indexPath.row];
+    self.selectedTopList = toplist;
+    
+    NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
+    [params setObject:toplist.listId forKey:@"listId"];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                      
+                                                      [self.activityView stopAnimating];
+                                                      [self performSegueWithIdentifier:@"topRestaurantListToListSegue" sender:self];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                                  
+                                                  [self.activityView stopAnimating];
+                                              }];
+
+    
+    
+    
+}
+
+- (void) startSpinner {
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityView.center = CGPointMake(self.tableView.frame.size.width / 2.0, self.tableView.frame.size.height / 2.0);
+    [self.tableView addSubview: self.activityView];
+    
+    [self.activityView startAnimating];
+}
+
+- (void) stopSpinner {
+    [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"topRestaurantListToListSegue"]){
+        CGRestaurantListListViewController *listViewController = [segue destinationViewController];
+        listViewController.restaurants = self.restaurants;
+        [listViewController setDataLoaded:YES];
+        listViewController.restaurantList = [[CGRestaurantList alloc] init];
+        listViewController.restaurantList.name = self.selectedTopList.listName;
+        listViewController.restaurantList.restaurantListId = self.selectedTopList.listId;
+        [listViewController.tableView reloadData];
+    }
+
 }
 
 @end
