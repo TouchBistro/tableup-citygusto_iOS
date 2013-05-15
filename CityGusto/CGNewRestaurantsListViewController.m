@@ -12,6 +12,7 @@
 #import "CGRestaurantMapViewController.h"
 #import "CGRestaurantHomeViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <RestKit/RestKit.h>
 
 @interface CGNewRestaurantsListViewController ()
 
@@ -139,8 +140,29 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    self.selectedRestaurant = [self.restaurants objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"newHomeSegue" sender:self];
+    CGRestaurant *restaurant = [self.restaurants objectAtIndex:indexPath.row];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:restaurant.restaurantId, @"id", nil];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
+                                                      
+                                                      [self stopSpinner];
+                                                      [self performSegueWithIdentifier:@"newHomeSegue" sender:self];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 
@@ -153,6 +175,19 @@
         CGRestaurantHomeViewController *homeController = [segue destinationViewController];
         homeController.restaurant = self.selectedRestaurant;
     }
+}
+
+- (void) startSpinner {
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityView.center = CGPointMake(self.tableView.frame.size.width / 2.0, self.tableView.frame.size.height / 2.0);
+    [self.tableView addSubview: self.activityView];
+    
+    [self.activityView startAnimating];
+}
+
+- (void) stopSpinner {
+    [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
 }
 
 @end

@@ -16,4 +16,6 @@
 
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *mapButtonItem;
 
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
+
 @end

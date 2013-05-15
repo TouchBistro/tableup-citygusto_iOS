@@ -125,8 +125,11 @@
     
     self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
     
-    self.locationManager.delegate = self;
+    
+    
     self.locationManager = [[CLLocationManager alloc] init];
+    [self.locationManager setDelegate:self];
+        
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
     [self.locationManager startUpdatingLocation];
@@ -496,17 +499,18 @@
     [self showRestaurantListCategory];
 }
 
-
--(void) locationManager: (CLLocationManager *)manager didUpdateToLocation: (CLLocation *) newLocation
-           fromLocation: (CLLocation *) oldLocation{
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    CLLocation *location = [locations objectAtIndex:0];
+    
     CGRestaurantParameter *params = [CGRestaurantParameter shared];
     
     params.useCurrentLocation = YES;
-    params.lat = [NSNumber numberWithDouble:self.locationManager.location.coordinate.latitude];
-    params.lon = [NSNumber numberWithDouble:self.locationManager.location.coordinate.longitude];
+    params.lat = [NSNumber numberWithDouble:location.coordinate.latitude];
+    params.lon = [NSNumber numberWithDouble:location.coordinate.longitude];
     
     [self.locationManager stopUpdatingLocation];
 }
+
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     [self.locationManager stopUpdatingLocation];
