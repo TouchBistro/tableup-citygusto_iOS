@@ -671,11 +671,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGEventDetailViewController.m"
-         timestampString = "390323752.117397"
+         timestampString = "390325569.979759"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "190"
-         endingLineNumber = "190"
+         startingLineNumber = "392"
+         endingLineNumber = "392"
          landmarkName = "-handleVenueViewTap:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -866,11 +866,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGEventDetailViewController.m"
-         timestampString = "390323752.117397"
+         timestampString = "390325569.979759"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "160"
-         endingLineNumber = "160"
+         startingLineNumber = "362"
+         endingLineNumber = "362"
          landmarkName = "-map:"
          landmarkType = "5">
       </FileBreakpoint>

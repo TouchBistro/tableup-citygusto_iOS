@@ -94,6 +94,208 @@
         [self.starImageView setImage:[UIImage imageNamed:@"stars_0.png"]];
     }
     
+    //calculate the footer height
+    //once we find a null website name then we stop calculating
+    NSInteger height = 0;
+    if (self.event.eventWebsiteName1) {
+        height += 50;
+        if (self.event.eventWebsiteName2) {
+            height += 50;
+            if (self.event.eventWebsiteName3) {
+                height += 50;
+                if (self.event.eventWebsiteName4) {
+                    height += 50;
+                    if (self.event.eventWebsiteName5) {
+                        height += 50;
+                        if (self.event.eventWebsiteName6) {
+                            height += 50;
+                            if (self.event.eventWebsiteName7) {
+                                height += 50;
+                                if (self.event.eventWebsiteName8) {
+                                    height += 50;
+                                    if (self.event.eventWebsiteName9) {
+                                        height += 50;
+                                        if (self.event.eventWebsiteName10) {
+                                            height += 50;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    UIView *footerView = [[UIView alloc] init];
+    [footerView setFrame:CGRectMake(0, 0, 320, height)];
+    
+    
+    if (self.event.eventWebsiteName1) {
+        UIImage *greyImage = [UIImage imageNamed:@"buttonBackgroundGrey.png"];
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button setFrame:CGRectMake(20, 0, 280, 44)];
+        
+        [button setTitle:self.event.eventWebsiteDescription1 forState:UIControlStateNormal];
+        [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+        
+        [button addTarget:self action:@selector(viewEventWebsite1:)
+         forControlEvents:UIControlEventTouchUpInside];
+        
+        [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+        [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+        
+        [footerView addSubview:button];
+        
+        if (self.event.eventWebsiteName2) {
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [button setFrame:CGRectMake(20, 0, 280, 44)];
+            
+            [button setTitle:self.event.eventWebsiteDescription2 forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+            
+            [button addTarget:self action:@selector(viewEventWebsite2:)
+             forControlEvents:UIControlEventTouchUpInside];
+            
+            [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+            
+            [footerView addSubview:button];
+            
+            if (self.event.eventWebsiteName3) {
+                UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                [button setFrame:CGRectMake(20, 0, 280, 44)];
+                
+                [button setTitle:self.event.eventWebsiteDescription3 forState:UIControlStateNormal];
+                [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+                
+                [button addTarget:self action:@selector(viewEventWebsite3:)
+                 forControlEvents:UIControlEventTouchUpInside];
+                
+                [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+                [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                
+                [footerView addSubview:button];
+                
+                if (self.event.eventWebsiteName4) {
+                    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                    [button setFrame:CGRectMake(20, 0, 280, 44)];
+                    
+                    [button setTitle:self.event.eventWebsiteDescription4 forState:UIControlStateNormal];
+                    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+                    
+                    [button addTarget:self action:@selector(viewEventWebsite4:)
+                     forControlEvents:UIControlEventTouchUpInside];
+                    
+                    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+                    [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                    
+                    [footerView addSubview:button];
+                    
+                    if (self.event.eventWebsiteName5) {
+                        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                        [button setFrame:CGRectMake(20, 0, 280, 44)];
+                        
+                        [button setTitle:self.event.eventWebsiteDescription5 forState:UIControlStateNormal];
+                        [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+                        
+                        [button addTarget:self action:@selector(viewEventWebsite5:)
+                         forControlEvents:UIControlEventTouchUpInside];
+                        
+                        [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+                        [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                        
+                        [footerView addSubview:button];
+                        
+                        if (self.event.eventWebsiteName6) {
+                            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                            [button setFrame:CGRectMake(20, 0, 280, 44)];
+                            
+                            [button setTitle:self.event.eventWebsiteDescription6 forState:UIControlStateNormal];
+                            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+                            
+                            [button addTarget:self action:@selector(viewEventWebsite6:)
+                             forControlEvents:UIControlEventTouchUpInside];
+                            
+                            [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+                            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                            
+                            [footerView addSubview:button];
+                            
+                            if (self.event.eventWebsiteName7) {
+                                UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                                [button setFrame:CGRectMake(20, 0, 280, 44)];
+                                
+                                [button setTitle:self.event.eventWebsiteDescription7 forState:UIControlStateNormal];
+                                [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+                                
+                                [button addTarget:self action:@selector(viewEventWebsite7:)
+                                 forControlEvents:UIControlEventTouchUpInside];
+                                
+                                [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+                                [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                                
+                                [footerView addSubview:button];
+                                
+                                if (self.event.eventWebsiteName8) {
+                                    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                                    [button setFrame:CGRectMake(20, 0, 280, 44)];
+                                    
+                                    [button setTitle:self.event.eventWebsiteDescription8 forState:UIControlStateNormal];
+                                    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+                                    
+                                    [button addTarget:self action:@selector(viewEventWebsite8:)
+                                     forControlEvents:UIControlEventTouchUpInside];
+                                    
+                                    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+                                    [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                                    
+                                    [footerView addSubview:button];
+                                    
+                                    if (self.event.eventWebsiteName9) {
+                                        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                                        [button setFrame:CGRectMake(20, 0, 280, 44)];
+                                        
+                                        [button setTitle:self.event.eventWebsiteDescription9 forState:UIControlStateNormal];
+                                        [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+                                        
+                                        [button addTarget:self action:@selector(viewEventWebsite9:)
+                                         forControlEvents:UIControlEventTouchUpInside];
+                                        
+                                        [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+                                        [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                                        
+                                        [footerView addSubview:button];
+                                        
+                                        if (self.event.eventWebsiteName10) {
+                                            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+                                            [button setFrame:CGRectMake(20, 0, 280, 44)];
+                                            
+                                            [button setTitle:self.event.eventWebsiteDescription10 forState:UIControlStateNormal];
+                                            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+                                            
+                                            [button addTarget:self action:@selector(viewEventWebsite10:)
+                                             forControlEvents:UIControlEventTouchUpInside];
+                                            
+                                            [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+                                            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                                            
+                                            [footerView addSubview:button];
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    [self.tableView setTableFooterView:footerView];
+    
     [super viewDidLoad];
 }
 
@@ -260,6 +462,86 @@
 - (void) stopSpinner {
     [self.activityView stopAnimating];
     [self.activityView removeFromSuperview];
+}
+
+- (void) viewEventWebsite1:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName1];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewEventWebsite2:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName2];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewEventWebsite3:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName3];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewEventWebsite4:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName4];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewEventWebsite5:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName5];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewEventWebsite6:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName6];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewEventWebsite7:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName7];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewEventWebsite8:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName8];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewEventWebsite9:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName9];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewEventWebsite10:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventWebsiteName10];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
 }
 
 @end
