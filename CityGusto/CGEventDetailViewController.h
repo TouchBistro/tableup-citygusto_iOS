@@ -45,6 +45,8 @@
 @property (strong, nonatomic) IBOutlet UIView *likeView;
 @property (strong, nonatomic) IBOutlet UIView *venueWebsiteView;
 
+- (IBAction)viewVenueWebsite:(id)sender;
+
 - (IBAction)map:(id)sender;
 - (IBAction)call:(id)sender;
 

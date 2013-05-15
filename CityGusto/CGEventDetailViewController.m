@@ -146,6 +146,14 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)viewVenueWebsite:(id)sender {
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.event.eventVenueWebsite];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 - (IBAction)map:(id)sender{
     Class mapItemClass = [MKMapItem class];
     if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
@@ -253,7 +261,5 @@
     [self.activityView stopAnimating];
     [self.activityView removeFromSuperview];
 }
-
-
 
 @end

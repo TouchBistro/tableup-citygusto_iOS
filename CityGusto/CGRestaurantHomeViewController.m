@@ -239,6 +239,14 @@
     [[UIApplication sharedApplication] openURL:url];
 }
 
+- (void) viewWebsite:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.restaurant.website];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 
 - (IBAction)call:(id)sender {
     NSString *phoneNumber = [@"tel://" stringByAppendingString:self.restaurant.phoneNumber];
