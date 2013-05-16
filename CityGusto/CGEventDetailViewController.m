@@ -302,7 +302,7 @@
 - (void)viewDidLayoutSubviews {
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.headerView.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:137.0f/255.0f green:173.0f/255.0f blue:98.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:176.0f/255.0f green:200.0f/255.0f blue:150.0f/255.0f alpha:1.0f].CGColor, nil];
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:158.0f/255.0f green:157.0f/255.0f blue:157.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:197.0f/255.0f green:196.0f/255.0f blue:196.0f/255.0f alpha:1.0f].CGColor, nil];
     
     [self.headerView.layer insertSublayer:gradient atIndex:0];
     
