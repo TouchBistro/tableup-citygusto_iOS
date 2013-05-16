@@ -25,6 +25,7 @@
 		1B54D47517077FE900E2F51A /* reviewdollars3.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D47017077FE900E2F51A /* reviewdollars3.png */; };
 		1B54D47617077FE900E2F51A /* reviewdollars4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D47117077FE900E2F51A /* reviewdollars4.png */; };
 		1B54D47717077FE900E2F51A /* reviewdollars5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D47217077FE900E2F51A /* reviewdollars5.png */; };
+		1B7B96D91745188A0023EB6A /* buttonBackgroundBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7B96D81745188A0023EB6A /* buttonBackgroundBlue.png */; };
 		1B97DD34172B30F1001063B5 /* CGLocalMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B97DD33172B30F1001063B5 /* CGLocalMapViewController.m */; };
 		1B97DD38172B31E7001063B5 /* CGLocalAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B97DD37172B31E7001063B5 /* CGLocalAnnotation.m */; };
 		1BA08D4017039EF00088FE9F /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D3D17039EF00088FE9F /* AbstractActionSheetPicker.m */; };
@@ -168,6 +169,7 @@
 		1B54D47017077FE900E2F51A /* reviewdollars3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reviewdollars3.png; sourceTree = "<group>"; };
 		1B54D47117077FE900E2F51A /* reviewdollars4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reviewdollars4.png; sourceTree = "<group>"; };
 		1B54D47217077FE900E2F51A /* reviewdollars5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reviewdollars5.png; sourceTree = "<group>"; };
+		1B7B96D81745188A0023EB6A /* buttonBackgroundBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBackgroundBlue.png; sourceTree = "<group>"; };
 		1B97DD32172B30F1001063B5 /* CGLocalMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLocalMapViewController.h; sourceTree = "<group>"; };
 		1B97DD33172B30F1001063B5 /* CGLocalMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLocalMapViewController.m; sourceTree = "<group>"; };
 		1B97DD36172B31E7001063B5 /* CGLocalAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLocalAnnotation.h; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 				1B54D46E17077FE900E2F51A /* reviewdollars1.png */,
 				1B54D46F17077FE900E2F51A /* reviewdollars2.png */,
 				1B54D47017077FE900E2F51A /* reviewdollars3.png */,
+				1B7B96D81745188A0023EB6A /* buttonBackgroundBlue.png */,
 				1B54D47117077FE900E2F51A /* reviewdollars4.png */,
 				1B54D47217077FE900E2F51A /* reviewdollars5.png */,
 				1B54D45717077FDF00E2F51A /* stars_0.png */,
@@ -799,6 +802,7 @@
 				1BC8AC1A17255FAB00317873 /* 271-dramamasks@2x.png in Resources */,
 				1BC8AC1B17255FAB00317873 /* 85-trophy.png in Resources */,
 				1BC8AC1C17255FAB00317873 /* 85-trophy@2x.png in Resources */,
+				1B7B96D91745188A0023EB6A /* buttonBackgroundBlue.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

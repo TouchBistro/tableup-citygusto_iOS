@@ -209,48 +209,47 @@
 -(void) viewDidAppear:(BOOL)animated{
     [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
     
-    [self.activityView startAnimating];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
-                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
-                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  if (mappingResult){
-                                                      self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
-                                                      if (self.restaurantListCategories.count > 0){
-                                                          currentCategory = self.restaurantListCategories[0];
-                                                          if (currentCategory){
-                                                              self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+    if (self.currentCategory == nil){
+        [self.activityView startAnimating];
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
+                                               parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                          if (self.restaurantListCategories.count > 0){
+                                                              currentCategory = self.restaurantListCategories[0];
+                                                              if (currentCategory){
+                                                                  self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+                                                              }
+                                                              [self showRestaurantListCategory];
                                                           }
-                                                          [self showRestaurantListCategory];
                                                       }
-                                                  }
-                                                  
-                                                  [self.activityView stopAnimating];
-                                                  
-                                                  [self.restaurantListPhotoUrls removeAllObjects];
-                                                  NSUInteger count = 0;
-                                                  for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
-                                                      NSInteger index = MAX(0, count);
                                                       
-                                                      [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
-//                                                      [self.carousel insertItemAtIndex:index animated:YES];
+                                                      [self.activityView stopAnimating];
                                                       
-                                                      count++;
+                                                      [self.restaurantListPhotoUrls removeAllObjects];
+                                                      NSUInteger count = 0;
+                                                      for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
+                                                          NSInteger index = MAX(0, count);
+                                                          
+                                                          [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
+                                                          count++;
+                                                      }
+                                                      
+                                                      [self.carousel reloadData];
                                                   }
-                                                  
-                                                  [self.carousel reloadData];
-                                              }
-                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                  message:@"There was an issue"
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"OK"
-                                                                                        otherButtonTitles:nil];
-                                                  [alert show];
-                                                  NSLog(@"Hit error: %@", error);
-                                                  
-                                                  [self.activityView stopAnimating];
-                                              }];
-
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                      
+                                                      [self.activityView stopAnimating];
+                                                  }];
+    }
 }
 
 - (void)didReceiveMemoryWarning
