@@ -56,7 +56,7 @@
     [self.venueWebsiteView addGestureRecognizer:singleFingerTap2];
     
     self.eventNameLabel.text = self.event.name;
-    self.nextDateLabel.text = self.event.dateString;
+    self.nextDateLabel.text = self.event.nextOccurrenceDate;
     self.addressLabel.text = self.event.eventVenueAddress;
     
     NSString *cityText = self.event.eventVenueCityName;

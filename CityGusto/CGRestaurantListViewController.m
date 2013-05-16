@@ -61,6 +61,8 @@
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
         [params setObject:@"true" forKey:@"reduced"];
         
+        [CGRestaurantParameter shared].offset = 0;
+        
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {

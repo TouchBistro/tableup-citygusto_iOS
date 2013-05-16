@@ -60,8 +60,14 @@
     
     if (indexPath.row == 1){
         [self.activityView startAnimating];
+        
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+        [params setObject:[[NSNumber alloc] initWithInt:0] forKey:@"offset"];
+        [params setObject:[[NSNumber alloc] initWithInt:25] forKey:@"max"];
+        [params setObject:@"true" forKey:@"reduced"];
+        
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/new/native/restaurants"
-                                               parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                               parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
                                                           self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];

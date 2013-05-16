@@ -11,6 +11,7 @@
 #import "CGRestaurantCell.h"
 #import "CGRestaurantMapViewController.h"
 #import "CGRestaurantHomeViewController.h"
+#import "CGRestaurantParameter.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
@@ -33,6 +34,27 @@
     
     UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
     [self.mapButtonItem setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
+    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:CGRectMake(10, 3, 300, 44)];
+    
+    [button setTitle:@"View More" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    
+    [button addTarget:self action:@selector(viewMorePressed:)
+     forControlEvents:UIControlEventTouchUpInside];
+    
+    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+    
+    UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
+    [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
+    
+    [self.footerView addSubview:button];
+    
+    [self.tableView setTableFooterView:self.footerView];
+    
+    self.offset = 0;
     
     [super viewDidLoad];
 }
@@ -190,6 +212,46 @@
 - (void) stopSpinner {
     [self.activityView stopAnimating];
     [self.activityView removeFromSuperview];
+}
+
+- (void) viewMorePressed:(id)sender{
+    
+    [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 25];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    self.offset += 25;
+    [params setObject:[[NSNumber alloc] initWithInt:self.offset] forKey:@"offset"];
+    [params setObject:[[NSNumber alloc] initWithInt:25] forKey:@"max"];
+    [params setObject:@"true" forKey:@"reduced"];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [self.restaurants addObjectsFromArray:[mappingResult array]];
+                                                      
+                                                      [self setDataLoaded:YES];
+                                                      [self.tableView reloadData];
+                                                      
+                                                      if ([mappingResult array].count < 25){
+                                                          self.tableView.tableFooterView = nil;
+                                                      }else{
+                                                          [self.tableView setTableFooterView:self.footerView];
+                                                      }
+                                                      
+                                                      [self stopSpinner];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 @end

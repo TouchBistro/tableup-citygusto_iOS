@@ -17,5 +17,10 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *mapButtonItem;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+@property (nonatomic, strong) UIView *footerView;
+
+@property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
+
+@property (nonatomic, assign) NSInteger offset;
 
 @end
