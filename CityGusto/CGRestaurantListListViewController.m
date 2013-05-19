@@ -50,17 +50,21 @@
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 85)];
     
     UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, 320, 30)];
-    [textView setFont:[UIFont italicSystemFontOfSize:11]];
+    [textView setFont:[UIFont boldSystemFontOfSize:11]];
     textView.text = @"Best of Lists Are Based On User Voting.";
+    textView.textColor = [UIColor colorWithRed:99.0f/255.0f green:98.0f/255.0f blue:98.0f/255.0f alpha:1.0f];
+    textView.backgroundColor = [UIColor clearColor];
     textView.textAlignment = NSTextAlignmentCenter;
     textView.userInteractionEnabled = NO;
     textView.scrollEnabled = NO;
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setFrame:CGRectMake(10, 35, 300, 44)];
-    [button setTitle:@"Vote" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    [button setTitle:@"Vote For This List" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
     button.titleLabel.textColor = [UIColor whiteColor];
+    button.titleLabel.shadowColor = [UIColor blackColor];
+	button.titleLabel.shadowOffset = CGSizeMake(1, 1);
     [button addTarget:self action:@selector(voteOnCityGusto:)
      forControlEvents:UIControlEventTouchUpInside];
     [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];

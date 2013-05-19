@@ -54,6 +54,9 @@
     if (feature){
         cell.textLabel.text = [[[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines objectAtIndex:indexPath.row] name];
         cell.textLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:98.0f/255.0f blue:98.0f/255.0f alpha:1.0f];
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:14.0];
+    	cell.textLabel.shadowColor = [UIColor whiteColor];
+		cell.textLabel.shadowOffset = CGSizeMake(1, 1);
         
         if ([CGRestaurantParameter shared].features.count > 0){
             NSUInteger index = [[CGRestaurantParameter shared].features indexOfObject:feature];
