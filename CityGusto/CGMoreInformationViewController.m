@@ -57,7 +57,7 @@
     }
     
     if (self.selectedRestaurant.creditcardNames){
-        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Credit Card Names" value:self.selectedRestaurant.creditcardNames]];
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Credit Cards" value:self.selectedRestaurant.creditcardNames]];
     }
     
     [super viewDidLoad];

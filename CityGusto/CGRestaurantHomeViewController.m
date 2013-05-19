@@ -35,7 +35,7 @@
 -(void)viewDidLayoutSubviews{
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.headerView.bounds;
-    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:158.0f/255.0f green:157.0f/255.0f blue:157.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:197.0f/255.0f green:196.0f/255.0f blue:196.0f/255.0f alpha:1.0f].CGColor, nil];
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:173.0f/255.0f green:98.0f/255.0f blue:137.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:200.0f/255.0f green:150.0f/255.0f blue:176.0f/255.0f alpha:1.0f].CGColor, nil];
     [self.headerView.layer insertSublayer:gradient atIndex:0];
 }
 
@@ -45,7 +45,7 @@
     numberOfLikesLabel.text = [self.restaurant.numberOfLikes stringValue];
     numberOfDislikesLabel.text = [self.restaurant.numberOfDislikes stringValue];
     
-    NSString *topFive = @"Current Top 5 in ";
+    NSString *topFive = @"Currently Top 5 in ";
     if (self.restaurant.numberOfTopFiveLists){
         topFive = [topFive stringByAppendingString:[self.restaurant.numberOfTopFiveLists stringValue]];
         topFive = [topFive stringByAppendingString:@" Lists"];
@@ -94,7 +94,7 @@
     
     if (self.restaurant.twitterUserName || self.restaurant.facebookURL || self.restaurant.website){
         
-        UIImage *greyImage = [UIImage imageNamed:@"buttonBackgroundGrey.png"];
+        UIImage *blueImage = [UIImage imageNamed:@"buttonBackgroundBlue.png"];
         UIView *footerView = [[UIView alloc] init];
         
         NSInteger height = 0;
@@ -123,7 +123,7 @@
              forControlEvents:UIControlEventTouchUpInside];
             
             [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+            [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
             
             [footerView addSubview:button];
             
@@ -146,7 +146,7 @@
              forControlEvents:UIControlEventTouchUpInside];
             
             [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+            [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
             
             [footerView addSubview:button];
             [self.tableView setTableFooterView:footerView];
@@ -178,7 +178,7 @@
              forControlEvents:UIControlEventTouchUpInside];
             
             [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+            [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
             
             [footerView addSubview:button];
             [self.tableView setTableFooterView:footerView];
