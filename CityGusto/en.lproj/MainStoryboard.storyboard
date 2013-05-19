@@ -78,7 +78,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="qL4-tl-Lhc"/>
                                         </constraints>
-                                        <color key="textColor" red="0.6784313917" green="0.38431376220000002" blue="0.53725492949999998" alpha="1" colorSpace="deviceRGB"/>
+                                        <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
                                         <fontDescription key="fontDescription" type="italicSystem" pointSize="10"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
@@ -161,8 +161,8 @@
                                             <constraint firstAttribute="height" constant="44" id="mDq-MZ-FSf"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Clear Cuisines &amp; Feature" backgroundImage="buttonBackgroundPink.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Clear Cuisines &amp; Features" backgroundImage="buttonBackgroundLightGrey.png">
+                                            <color key="titleColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <state key="highlighted">
@@ -194,7 +194,7 @@
                                             <constraint firstAttribute="width" constant="278" id="orj-CR-mpH"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                        <state key="normal" title="Current Location" backgroundImage="buttonBackgroundLightGrey.png">
+                                        <state key="normal" title="Current Location" backgroundImage="buttonBackgroundPink.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -1550,7 +1550,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Changing Location Will Clear All Categories And Tags" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eZK-Uo-heS">
-                                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="23" id="68D-eS-xIt"/>
                                                 </constraints>
@@ -1602,8 +1602,8 @@
                                                     <constraint firstAttribute="height" constant="44" id="a9e-7A-4h8"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Clear All Filters" backgroundImage="buttonBackgroundPink.png">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                <state key="normal" title="Clear Categories &amp; Tags" backgroundImage="buttonBackgroundLightGrey.png">
+                                                    <color key="titleColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
                                                 <state key="highlighted">
@@ -1634,7 +1634,7 @@
                                                     <constraint firstAttribute="height" constant="44" id="c0I-5n-mon"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <state key="normal" title="Change Location" backgroundImage="buttonBackgroundLightGrey.png">
+                                                <state key="normal" title="Change Location" backgroundImage="buttonBackgroundPink.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -3311,7 +3311,7 @@
                                         <constraint firstAttribute="height" constant="44" id="etC-LW-Auz"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                    <state key="normal" title="Change" backgroundImage="buttonBackgroundPink.png">
+                                    <state key="normal" title="Change" backgroundImage="buttonBackgroundGreen.png">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                     </state>
@@ -4135,11 +4135,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ewr-Nt-WZf"/>
         <segue reference="JyS-5L-Zpw"/>
         <segue reference="Bq8-j4-MBc"/>
         <segue reference="UbO-gB-6Wh"/>
+        <segue reference="Ewr-Nt-WZf"/>
+        <segue reference="8NP-31-OYH"/>
         <segue reference="NQz-2H-uJM"/>
-        <segue reference="iew-l2-cJO"/>
     </inferredMetricsTieBreakers>
 </document>
