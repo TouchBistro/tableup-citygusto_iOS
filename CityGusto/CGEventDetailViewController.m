@@ -133,7 +133,7 @@
     
     
     if (self.event.eventWebsiteName1) {
-        UIImage *greyImage = [UIImage imageNamed:@"buttonBackgroundGrey.png"];
+        UIImage *blueImage = [UIImage imageNamed:@"buttonBackgroundBlue.png"];
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setFrame:CGRectMake(20, 0, 280, 44)];
@@ -145,7 +145,7 @@
          forControlEvents:UIControlEventTouchUpInside];
         
         [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-        [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+        [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
         
         [footerView addSubview:button];
         
@@ -160,7 +160,7 @@
              forControlEvents:UIControlEventTouchUpInside];
             
             [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+            [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
             
             [footerView addSubview:button];
             
@@ -175,7 +175,7 @@
                  forControlEvents:UIControlEventTouchUpInside];
                 
                 [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-                [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
                 
                 [footerView addSubview:button];
                 
@@ -190,7 +190,7 @@
                      forControlEvents:UIControlEventTouchUpInside];
                     
                     [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-                    [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                    [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
                     
                     [footerView addSubview:button];
                     
@@ -205,7 +205,7 @@
                          forControlEvents:UIControlEventTouchUpInside];
                         
                         [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-                        [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                        [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
                         
                         [footerView addSubview:button];
                         
@@ -220,7 +220,7 @@
                              forControlEvents:UIControlEventTouchUpInside];
                             
                             [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-                            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                            [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
                             
                             [footerView addSubview:button];
                             
@@ -235,7 +235,7 @@
                                  forControlEvents:UIControlEventTouchUpInside];
                                 
                                 [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-                                [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                                [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
                                 
                                 [footerView addSubview:button];
                                 
@@ -250,7 +250,7 @@
                                      forControlEvents:UIControlEventTouchUpInside];
                                     
                                     [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-                                    [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                                    [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
                                     
                                     [footerView addSubview:button];
                                     
@@ -265,7 +265,7 @@
                                          forControlEvents:UIControlEventTouchUpInside];
                                         
                                         [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-                                        [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                                        [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
                                         
                                         [footerView addSubview:button];
                                         
@@ -280,7 +280,7 @@
                                              forControlEvents:UIControlEventTouchUpInside];
                                             
                                             [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-                                            [button setBackgroundImage:greyImage forState:UIBarMetricsDefault];
+                                            [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
                                             
                                             [footerView addSubview:button];
                                         }

@@ -44,7 +44,7 @@
     [button setFrame:CGRectMake(10, 3, 300, 44)];
     
     [button setTitle:@"View More" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:18]];
+    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
     
     [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
     

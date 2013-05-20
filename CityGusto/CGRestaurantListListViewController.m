@@ -61,7 +61,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setFrame:CGRectMake(10, 35, 300, 44)];
     [button setTitle:@"Vote For This List" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:16]];
+    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
     button.titleLabel.textColor = [UIColor whiteColor];
     button.titleLabel.shadowColor = [UIColor blackColor];
 	button.titleLabel.shadowOffset = CGSizeMake(1, 1);
