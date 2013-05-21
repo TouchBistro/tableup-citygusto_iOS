@@ -171,6 +171,10 @@
         [cell.primaryPhotoImage.layer setShadowOpacity:0.8];
         [cell.primaryPhotoImage.layer setShadowRadius:3.0];
         [cell.primaryPhotoImage.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+    	
+    	// New line
+        [cell.primaryPhotoImage.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.primaryPhotoImage.bounds].CGPath];
+        
     }
     
     return cell;
