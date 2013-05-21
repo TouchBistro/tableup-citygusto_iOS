@@ -57,6 +57,23 @@
     
     [self.tableView setTableFooterView:self.footerView];
     
+    self.noResultsView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,320)];
+    self.noResultsView.backgroundColor = [UIColor whiteColor];
+    
+    UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,320)];
+    matchesLabel.font = [UIFont boldSystemFontOfSize:18];
+    matchesLabel.numberOfLines = 0;
+    matchesLabel.shadowColor = [UIColor lightTextColor];
+    matchesLabel.textColor = [UIColor darkGrayColor];
+    matchesLabel.shadowOffset = CGSizeMake(0, 1);
+//    matchesLabel.backgroundColor = [UIColor clearColor];
+    matchesLabel.textAlignment =  NSTextAlignmentCenter;
+    matchesLabel.text = @"Your search returned no results.  Try clearing filters.";
+    
+    self.noResultsView.hidden = YES;
+    [self.noResultsView addSubview:matchesLabel];
+    [self.tableView insertSubview:self.noResultsView aboveSubview:self.tableView];
+
     [self startSpinner];
     if (self.events.count == 0){
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
@@ -74,11 +91,12 @@
                                                               [self.tableView setTableFooterView:self.footerView];
                                                           }
                                                           
-                                                          
                                                           [self setDataLoaded:YES];
-                                                          [self.tableView reloadData];
                                                           [self stopSpinner];
                                                       }
+                                                      
+                                                      self.resultsEmpty = self.events.count == 0 ? YES : NO;
+                                                      [self.tableView reloadData];
                                                   }
                                                   failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -109,6 +127,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.resultsEmpty){
+        self.noResultsView.hidden = NO;
+    }else{
+        self.noResultsView.hidden = YES;
+    }
+    
     return self.events.count;
 }
 
@@ -116,14 +140,16 @@
 {
     static NSString *CellIdentifier = @"EventCell";
     CGEventCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    CGEvent *event = [self.events objectAtIndex:indexPath.row];
+    
     
     cell.nameLabel.text = @"";
     cell.venueLabel.text = @"";
     cell.timeLabel.text = @"";
     cell.nextOccurrenceLabel.text = @"";
     
-    if (event){
+    if (self.isResultsEmpty == NO){
+        CGEvent *event = [self.events objectAtIndex:indexPath.row];
+        
         cell.nameLabel.text = event.name;
         
         NSURL *url = [NSURL URLWithString:event.venuePhotoURL];
@@ -148,10 +174,6 @@
             cell.nextOccurrenceLabel.text = event.dateString;
         }
         
-        //style
-//        cell.headerView.backgroundColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f];
-//        cell.nameLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:137.0f/255.0f blue:173.0f/255.0f alpha:1.0f];
-        
         CALayer *bottomBorder = [CALayer layer];
         
         bottomBorder.frame = CGRectMake(0.0f, 22.0f, cell.headerView.frame.size.width, 1.0f);
@@ -171,10 +193,9 @@
         [cell.primaryPhotoImage.layer setShadowOpacity:0.8];
         [cell.primaryPhotoImage.layer setShadowRadius:3.0];
         [cell.primaryPhotoImage.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
-    	
-    	// New line
-        [cell.primaryPhotoImage.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.primaryPhotoImage.bounds].CGPath];
         
+        // New line
+        [cell.primaryPhotoImage.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.primaryPhotoImage.bounds].CGPath];
     }
     
     return cell;
@@ -273,6 +294,8 @@
     }else{
         [self.tableView setTableFooterView:self.footerView];
     }
+    
+    self.resultsEmpty = self.events.count == 0 ? YES : NO;
     
     [self.tableView reloadData];
 }

@@ -826,6 +826,11 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stars_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="rdI-q9-Bzl"/>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="reviewdollars1.png" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-Tl-G4J"/>
+                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brZ-Sg-cxJ">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -835,13 +840,16 @@
                                     <constraint firstItem="TBy-IE-ATC" firstAttribute="trailing" secondItem="JET-Z7-w5T" secondAttribute="trailing" type="default" id="AcK-df-xiM"/>
                                     <constraint firstAttribute="bottom" secondItem="VXb-0H-7bm" secondAttribute="bottom" constant="15" id="Acy-aq-Bm1"/>
                                     <constraint firstAttribute="trailing" secondItem="VXb-0H-7bm" secondAttribute="trailing" constant="20" type="default" id="D1z-Rd-oBh"/>
+                                    <constraint firstItem="brZ-Sg-cxJ" firstAttribute="bottom" secondItem="rdI-q9-Bzl" secondAttribute="bottom" type="default" id="DBG-kc-hLD"/>
                                     <constraint firstItem="Zzg-fx-eRz" firstAttribute="top" secondItem="TBy-IE-ATC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="KiR-a0-gug"/>
                                     <constraint firstItem="rdI-q9-Bzl" firstAttribute="centerY" secondItem="EOA-P9-vx1" secondAttribute="centerY" type="default" id="M6C-A9-Is8"/>
                                     <constraint firstItem="EOA-P9-vx1" firstAttribute="top" secondItem="TBy-IE-ATC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="T4l-S1-Gma"/>
+                                    <constraint firstItem="brZ-Sg-cxJ" firstAttribute="trailing" secondItem="JET-Z7-w5T" secondAttribute="trailing" type="default" id="bxY-ek-0xQ"/>
                                     <constraint firstItem="EUd-Tl-G4J" firstAttribute="leading" secondItem="EOA-P9-vx1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="czz-dy-RAi"/>
                                     <constraint firstItem="TBy-IE-ATC" firstAttribute="top" secondItem="JET-Z7-w5T" secondAttribute="top" type="default" id="ieo-4s-sIy"/>
                                     <constraint firstItem="0kZ-Yc-Vgf" firstAttribute="centerY" secondItem="rdI-q9-Bzl" secondAttribute="centerY" type="default" id="nmz-XF-Tef"/>
                                     <constraint firstItem="TBy-IE-ATC" firstAttribute="leading" secondItem="JET-Z7-w5T" secondAttribute="leading" type="default" id="sHs-4v-PXP"/>
+                                    <constraint firstItem="brZ-Sg-cxJ" firstAttribute="leading" secondItem="JET-Z7-w5T" secondAttribute="leading" type="default" id="shH-dt-s9s"/>
                                     <constraint firstItem="rdI-q9-Bzl" firstAttribute="leading" secondItem="EOA-P9-vx1" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="u86-y3-y2e"/>
                                     <constraint firstAttribute="trailing" secondItem="Zzg-fx-eRz" secondAttribute="trailing" constant="6" id="vHR-mZ-gdE"/>
                                     <constraint firstItem="EUd-Tl-G4J" firstAttribute="top" secondItem="TBy-IE-ATC" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="vgY-FZ-XbJ"/>
@@ -850,6 +858,7 @@
                                 <connections>
                                     <outlet property="headerView" destination="TBy-IE-ATC" id="Y0h-VR-rdZ"/>
                                     <outlet property="nameLabel" destination="zk0-H9-283" id="oxu-lS-Gup"/>
+                                    <outlet property="noResultsLabel" destination="brZ-Sg-cxJ" id="c9j-7a-qgZ"/>
                                     <outlet property="priceImageView" destination="EUd-Tl-G4J" id="14E-kH-doV"/>
                                     <outlet property="primaryPhotoImage" destination="EOA-P9-vx1" id="iOX-8Q-Wvt"/>
                                     <outlet property="ratings" destination="0kZ-Yc-Vgf" id="l9i-69-Vr6"/>
@@ -1361,7 +1370,7 @@
             <objects>
                 <viewController id="19t-C9-hou" customClass="CGRestaurantMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FjG-ea-Xw2">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="yeB-p5-hx1"/>
@@ -1870,6 +1879,11 @@
                                                 <constraint firstAttribute="height" constant="32" id="vrD-FN-SGD"/>
                                             </constraints>
                                         </imageView>
+                                        <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDd-0n-pWz">
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
@@ -1887,6 +1901,9 @@
                                     <constraint firstAttribute="bottom" secondItem="Jsr-VA-RXg" secondAttribute="bottom" constant="15" id="WaE-Ho-fm5"/>
                                     <constraint firstItem="Hjg-Y1-YHx" firstAttribute="top" secondItem="h4f-kF-r5C" secondAttribute="top" constant="30" id="Waa-8D-XV9"/>
                                     <constraint firstAttribute="bottom" secondItem="JvF-2B-GR3" secondAttribute="bottom" constant="83" id="ao7-jI-xzJ"/>
+                                    <constraint firstItem="ZDd-0n-pWz" firstAttribute="leading" secondItem="h4f-kF-r5C" secondAttribute="leading" type="default" id="byz-5r-uP6"/>
+                                    <constraint firstItem="ZDd-0n-pWz" firstAttribute="top" secondItem="h4f-kF-r5C" secondAttribute="top" constant="35" id="dVU-o3-aUa"/>
+                                    <constraint firstItem="ZDd-0n-pWz" firstAttribute="trailing" secondItem="h4f-kF-r5C" secondAttribute="trailing" type="default" id="dzK-hL-43V"/>
                                     <constraint firstItem="Hjg-Y1-YHx" firstAttribute="leading" secondItem="h4f-kF-r5C" secondAttribute="leading" constant="12" id="fCU-vR-7P1"/>
                                     <constraint firstItem="Jsr-VA-RXg" firstAttribute="leading" secondItem="Hjg-Y1-YHx" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="fO0-Ax-nOK"/>
                                     <constraint firstItem="JvF-2B-GR3" firstAttribute="top" secondItem="h4f-kF-r5C" secondAttribute="top" type="default" id="fx7-ES-bKO"/>
@@ -1896,6 +1913,7 @@
                                     <outlet property="headerView" destination="JvF-2B-GR3" id="HIy-Vv-qHZ"/>
                                     <outlet property="nameLabel" destination="HyF-Jd-qtG" id="GP7-ve-bXg"/>
                                     <outlet property="nextOccurrenceLabel" destination="1T3-Aq-dKp" id="J4O-LK-8de"/>
+                                    <outlet property="noResultsLabel" destination="ZDd-0n-pWz" id="USV-C3-c3l"/>
                                     <outlet property="primaryPhotoImage" destination="Hjg-Y1-YHx" id="pWw-iW-bQ6"/>
                                     <outlet property="timeLabel" destination="Jsr-VA-RXg" id="oaw-rc-96b"/>
                                     <outlet property="venueLabel" destination="msx-84-8yv" id="7Lr-XQ-q7w"/>
@@ -3824,6 +3842,7 @@
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nextOccurrenceLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="noResultsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
@@ -3983,6 +4002,7 @@
             <relationships>
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="noResultsLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="priceImageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="ratings" candidateClass="UILabel"/>
@@ -4128,11 +4148,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="1Ra-4h-4jl"/>
-        <segue reference="lTX-NO-xF1"/>
-        <segue reference="PaO-af-0TP"/>
-        <segue reference="Ewr-Nt-WZf"/>
-        <segue reference="Mm5-eq-2Yi"/>
+        <segue reference="Aqm-km-h2h"/>
         <segue reference="JyS-5L-Zpw"/>
+        <segue reference="Ewr-Nt-WZf"/>
+        <segue reference="NzV-4r-3WK"/>
+        <segue reference="Mm5-eq-2Yi"/>
+        <segue reference="lTX-NO-xF1"/>
     </inferredMetricsTieBreakers>
 </document>

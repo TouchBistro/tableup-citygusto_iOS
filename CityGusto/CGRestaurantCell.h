@@ -17,5 +17,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *ratings;
 @property (strong, nonatomic) IBOutlet UIImageView *starImages;
 @property (strong, nonatomic) IBOutlet UIImageView *priceImageView;
+@property (strong, nonatomic) IBOutlet UILabel *noResultsLabel;
 
 @end

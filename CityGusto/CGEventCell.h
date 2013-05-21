@@ -16,5 +16,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *venueLabel;
 @property (strong, nonatomic) IBOutlet UILabel *nextOccurrenceLabel;
 @property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *noResultsLabel;
 
 @end

@@ -19,6 +19,10 @@
 @property (nonatomic, strong) CGEvent *selectedEvent;
 @property (nonatomic, strong) UIView *footerView;
 
+@property (nonatomic, assign, getter=isResultsEmpty) BOOL resultsEmpty;
+
 - (void) viewMorePressed:(id)sender;
+
+@property (strong, nonatomic) UIView *noResultsView;
 
 @end
