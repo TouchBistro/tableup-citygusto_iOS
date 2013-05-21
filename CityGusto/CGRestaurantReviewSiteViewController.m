@@ -70,14 +70,13 @@
 }
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     CGReviewLink *reviewLink = [self.selectedRestaurant.reviewLinks objectAtIndex:indexPath.row];
     
     if (reviewLink){
         NSString *urlString = @"http://";
-        urlString = [urlString stringByAppendingString:reviewLink.link];
+    	urlString = [urlString stringByAppendingString:reviewLink.link];
         
         NSURL *url = [NSURL URLWithString:urlString];
         [[UIApplication sharedApplication] openURL:url];
