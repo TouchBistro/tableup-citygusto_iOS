@@ -116,7 +116,10 @@
     CGReviewLink *reviewLink = [self.selectedRestaurant.reviewLinks objectAtIndex:indexPath.row];
     
     if (reviewLink){
-        NSURL *url = [NSURL URLWithString:reviewLink.link];
+        NSString *urlString = @"http://";
+    	urlString = [urlString stringByAppendingString:reviewLink.link];
+        
+        NSURL *url = [NSURL URLWithString:urlString];
         [[UIApplication sharedApplication] openURL:url];
     }
 }
