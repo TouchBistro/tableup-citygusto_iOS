@@ -15,6 +15,8 @@
 
 @implementation CGRestaurantReviewSiteViewController
 
+@synthesize selectedRestaurant;
+
 - (void)viewDidLoad
 {
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
@@ -109,16 +111,14 @@
 */
 
 #pragma mark - Table view delegate
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    CGReviewLink *reviewLink = [self.selectedRestaurant.reviewLinks objectAtIndex:indexPath.row];
+    
+    if (reviewLink){
+        NSURL *url = [NSURL URLWithString:reviewLink.link];
+        [[UIApplication sharedApplication] openURL:url];
+    }
 }
 
 @end
