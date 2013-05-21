@@ -28,8 +28,27 @@
     gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:173.0f/255.0f green:98.0f/255.0f blue:137.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:200.0f/255.0f green:150.0f/255.0f blue:176.0f/255.0f alpha:1.0f].CGColor, nil];
     
     [self.headerView.layer insertSublayer:gradient atIndex:0];
+        
+}
+
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
     
-    self.headerLabel.text = self.restaurantList.name;
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 7, 280, 21)];
+    [label setFont:[UIFont boldSystemFontOfSize:17]];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [UIColor clearColor];
+    
+    label.text = self.restaurantList.name;
+    label.textColor = [UIColor whiteColor];
+    [self.headerView addSubview:label];
+    
+    return self.headerView;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 35.0;
 }
 
 - (void)viewDidLoad
@@ -244,6 +263,10 @@
     
     NSURL *url = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:url];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 104.0;
 }
 
 @end

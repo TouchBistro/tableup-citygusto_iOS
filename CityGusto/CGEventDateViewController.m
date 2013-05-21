@@ -149,7 +149,16 @@
 }
 
 - (IBAction)done:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([[CGRestaurantParameter shared].times count] > 0){
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Time Range"
+                                                        message:@"At least 1 time range must be selected."
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 
 }
 

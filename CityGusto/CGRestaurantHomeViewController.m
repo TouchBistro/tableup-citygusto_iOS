@@ -112,7 +112,7 @@
         
         [footerView setFrame:CGRectMake(0, 0, 320, height)];
         
-        if (self.restaurant.twitterUserName){
+        if (self.restaurant.twitterUserName && [self.restaurant.twitterUserName length] > 0){
             UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [button setFrame:CGRectMake(20, 0, 280, 44)];
             
@@ -129,7 +129,7 @@
             
         }
         
-        if (self.restaurant.facebookURL){
+        if (self.restaurant.facebookURL && [self.restaurant.facebookURL length] > 0){
             UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             
             if (self.restaurant.twitterUserName){
@@ -152,7 +152,7 @@
             [self.tableView setTableFooterView:footerView];
         }
         
-        if (self.restaurant.website){
+        if (self.restaurant.website && [self.restaurant.website length] > 0){
             UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             
             if (self.restaurant.twitterUserName){
@@ -168,8 +168,6 @@
                     [button setFrame:CGRectMake(20, 0, 280, 44)];
                 }
             }
-            
-            [button setFrame:CGRectMake(20, 0, 280, 44)];
             
             [button setTitle:@"Website" forState:UIControlStateNormal];
             [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
