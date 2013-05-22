@@ -33,6 +33,7 @@
 @synthesize access_token;
 
 @synthesize cuisines;
+@synthesize foodTruckCuisines;
 @synthesize features;
 
 @synthesize categories;
@@ -64,6 +65,9 @@
         
         _sharedObject.cuisines = [[NSMutableArray alloc] init];
         _sharedObject.features = [[NSMutableArray alloc] init];
+        
+        _sharedObject.foodTruckCuisines = [[NSMutableArray alloc] init];
+        _sharedObject.foodTruckCuisinesForSelectedLocation = [[NSMutableArray alloc] init];
         
         _sharedObject.categories = [[NSMutableArray alloc] init];
         _sharedObject.tags = [[NSMutableArray alloc] init];
@@ -303,6 +307,18 @@
             [params setObject:lon forKey:@"long"];
         }
     }
+    
+    if (self.foodTruckCuisines.count > 0){
+        NSString *cuisineString = [[NSString alloc] init];
+        
+        for (CGCuisine *cuisine in self.foodTruckCuisines) {
+            cuisineString = [cuisineString stringByAppendingString:cuisine.cuisineId];
+            cuisineString = [cuisineString stringByAppendingString:@","];
+        }
+        
+        [params setObject:cuisineString forKey:@"cuisines"];
+    }
+    
     return params;
 }
 
@@ -339,6 +355,24 @@
                                                       
                                                       [self.cuisinesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"cuisines"]];
                                                       [self.featuresForSelectedLocationAndCuisines addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"features"]];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
+    
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks/cuisines"
+                                           parameters:[[CGRestaurantParameter shared] buildFoodTruckParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [self.foodTruckCuisinesForSelectedLocation removeAllObjects];
+                                                      [self.foodTruckCuisinesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"cuisines"]];
                                                   }
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {

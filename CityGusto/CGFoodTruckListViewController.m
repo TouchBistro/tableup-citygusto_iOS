@@ -11,6 +11,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CGRestaurantHomeViewController.h"
 #import "CGRestaurantMapViewController.h"
+#import "CGFoodTruckOptionsViewController.h"
 #import "CGRestaurantParameter.h"
 #import <RestKit/RestKit.h>
 
@@ -73,7 +74,7 @@
         
         [CGRestaurantParameter shared].offset = 0;
         
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/foodtrucks"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -219,7 +220,7 @@
     [params setObject:@"true" forKey:@"reduced"];
     
     [self startSpinner];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/foodtrucks"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
@@ -259,7 +260,7 @@
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:restaurant.restaurantId, @"id", nil];
     
     [self startSpinner];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/foodtrucks"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
@@ -290,17 +291,29 @@
    else if ([[segue identifier] isEqualToString:@"foodTruckHomeSegue"]){
         CGRestaurantHomeViewController *homeController = [segue destinationViewController];
         homeController.restaurant = self.selectedFoodTruck;
-    }
-   
-   /* else if ([[segue identifier] isEqualToString:@"optionSegue"]){
+    }else if ([[segue identifier] isEqualToString:@"foodTruckOptionsSegue"]){
         UINavigationController *navController = [segue destinationViewController];
         
         if (navController != nil){
-            CGRestaurantOptionsViewController *optionsController = (CGRestaurantOptionsViewController *)navController.topViewController;
+            CGFoodTruckOptionsViewController *optionsController = (CGFoodTruckOptionsViewController *)navController.topViewController;
             optionsController.delegate = self;
         }
     }
- */
+}
+
+- (void) updateFoodTrucks:(NSArray *)newFoodTrucks{
+    [self.foodTrucks removeAllObjects];
+    [self.foodTrucks addObjectsFromArray:newFoodTrucks];
+    
+    if (self.foodTrucks.count < 25){
+        self.tableView.tableFooterView = nil;
+    }else{
+        [self.tableView setTableFooterView:self.footerView];
+    }
+    
+    self.resultsEmpty = self.foodTrucks.count == 0 ? YES : NO;
+    
+    [self.tableView reloadData];
 }
 
 @end

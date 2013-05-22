@@ -27,6 +27,7 @@
 
 @property (nonatomic, assign, getter=isDeliveryFilter) BOOL deliveryFilter;
 @property (nonatomic, assign, getter=isKitchenOpenFilter) BOOL kitchenOpenFilter;
+@property (nonatomic, assign, getter=isFoodTruckOpenFilter) BOOL foodTruckOpenFilter;
 
 @property (nonatomic, assign, getter=isUsingCurrentLocation) BOOL useCurrentLocation;
 
@@ -36,11 +37,15 @@
 @property (nonatomic, strong) NSMutableArray *cuisines;
 @property (nonatomic, strong) NSMutableArray *features;
 
+@property (nonatomic, strong) NSMutableArray *foodTruckCuisines;
+
 //@property (nonatomic, strong) NSMutableArray *allCuisines;
 //@property (nonatomic, strong) NSMutableArray *allFeatures;
 
 @property (nonatomic, strong) NSMutableArray *cuisinesForSelectedLocation;
 @property (nonatomic, strong) NSMutableArray *featuresForSelectedLocationAndCuisines;
+
+@property (nonatomic, strong) NSMutableArray *foodTruckCuisinesForSelectedLocation;
 
 @property (nonatomic, strong) NSMutableDictionary *cities;
 @property (nonatomic, strong) NSMutableDictionary *neighborhoods;

@@ -111,6 +111,9 @@
 		1BADA1F517010E1E002CE800 /* CGRestaurantMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADA1F417010E1E002CE800 /* CGRestaurantMapViewController.m */; };
 		1BADA1FA170113C3002CE800 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BADA1F9170113C2002CE800 /* MapKit.framework */; };
 		1BADA1FC170113D4002CE800 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BADA1FB170113D4002CE800 /* CoreLocation.framework */; };
+		1BBBB286174D542B009E84D2 /* CGFoodTruckOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBBB285174D542B009E84D2 /* CGFoodTruckOptionsViewController.m */; };
+		1BBBB289174D8532009E84D2 /* CGFoodTruckCuisineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBBB288174D8532009E84D2 /* CGFoodTruckCuisineViewController.m */; };
+		1BBBB28B174D89E1009E84D2 /* CityGusto App Icon - 60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBBB28A174D89E1009E84D2 /* CityGusto App Icon - 60x60.png */; };
 		1BBF71E61704874300489EE4 /* CGRestaurantHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF71E51704874300489EE4 /* CGRestaurantHomeViewController.m */; };
 		1BBF71EA1704E2AD00489EE4 /* CGRestaurantMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF71E91704E2AD00489EE4 /* CGRestaurantMenuViewController.m */; };
 		1BBF71ED1704EE4D00489EE4 /* CGRestaurantReviewSiteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBF71EC1704EE4D00489EE4 /* CGRestaurantReviewSiteViewController.m */; };
@@ -302,6 +305,11 @@
 		1BADA1F417010E1E002CE800 /* CGRestaurantMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantMapViewController.m; sourceTree = "<group>"; };
 		1BADA1F9170113C2002CE800 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1BADA1FB170113D4002CE800 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1BBBB284174D542B009E84D2 /* CGFoodTruckOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFoodTruckOptionsViewController.h; sourceTree = "<group>"; };
+		1BBBB285174D542B009E84D2 /* CGFoodTruckOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFoodTruckOptionsViewController.m; sourceTree = "<group>"; };
+		1BBBB287174D8532009E84D2 /* CGFoodTruckCuisineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFoodTruckCuisineViewController.h; sourceTree = "<group>"; };
+		1BBBB288174D8532009E84D2 /* CGFoodTruckCuisineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFoodTruckCuisineViewController.m; sourceTree = "<group>"; };
+		1BBBB28A174D89E1009E84D2 /* CityGusto App Icon - 60x60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CityGusto App Icon - 60x60.png"; sourceTree = "<group>"; };
 		1BBF71E41704874300489EE4 /* CGRestaurantHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantHomeViewController.h; sourceTree = "<group>"; };
 		1BBF71E51704874300489EE4 /* CGRestaurantHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantHomeViewController.m; sourceTree = "<group>"; };
 		1BBF71E81704E2AD00489EE4 /* CGRestaurantMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantMenuViewController.h; sourceTree = "<group>"; };
@@ -646,6 +654,10 @@
 				1B980276174C4BF40050D51E /* CGRestaurantListFavoriteViewController.m */,
 				1B98027B174D11E40050D51E /* CGFoodTruckListViewController.h */,
 				1B98027C174D11E60050D51E /* CGFoodTruckListViewController.m */,
+				1BBBB284174D542B009E84D2 /* CGFoodTruckOptionsViewController.h */,
+				1BBBB285174D542B009E84D2 /* CGFoodTruckOptionsViewController.m */,
+				1BBBB287174D8532009E84D2 /* CGFoodTruckCuisineViewController.h */,
+				1BBBB288174D8532009E84D2 /* CGFoodTruckCuisineViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -653,6 +665,7 @@
 		1BA698AF16EF821000191786 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1BBBB28A174D89E1009E84D2 /* CityGusto App Icon - 60x60.png */,
 				1BC8AC0C17255FAB00317873 /* tabs */,
 				1BC8AC041724ED0400317873 /* buttonBackgroundGreen.png */,
 				1BC8AC051724ED0400317873 /* buttonBackgroundGrey.png */,
@@ -855,6 +868,7 @@
 				1B980282174D41170050D51E /* FoodTrucksIcon.png in Resources */,
 				1B980285174D4A530050D51E /* foodTruck.png in Resources */,
 				1B980286174D4A530050D51E /* foodTruck@2x.png in Resources */,
+				1BBBB28B174D89E1009E84D2 /* CityGusto App Icon - 60x60.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -946,6 +960,8 @@
 				1B98027A174D09B00050D51E /* CGFoodTruck.m in Sources */,
 				1B98027D174D11E70050D51E /* CGFoodTruckListViewController.m in Sources */,
 				1B980280174D13AD0050D51E /* CGFoodTruckCell.m in Sources */,
+				1BBBB286174D542B009E84D2 /* CGFoodTruckOptionsViewController.m in Sources */,
+				1BBBB289174D8532009E84D2 /* CGFoodTruckCuisineViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

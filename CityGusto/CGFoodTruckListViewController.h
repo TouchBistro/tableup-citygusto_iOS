@@ -6,10 +6,11 @@
 //  Copyright (c) 2013 CityGusto. All rights reserved.
 //
 
+#import "CGFoodTruckOptionsViewController.h"
 #import "CGRestaurant.h"
 #import <UIKit/UIKit.h>
 
-@interface CGFoodTruckListViewController : UITableViewController
+@interface CGFoodTruckListViewController : UITableViewController <CGFoodTrucksOptionsViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *foodTrucks;
 
