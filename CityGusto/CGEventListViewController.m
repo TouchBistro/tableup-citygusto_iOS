@@ -57,7 +57,7 @@
     
     [self.tableView setTableFooterView:self.footerView];
     
-    self.noResultsView = [[UIView alloc] initWithFrame:CGRectMake(0,0,320,320)];
+    self.noResultsView = [[UIView alloc] initWithFrame:self.tableView.frame];
     self.noResultsView.backgroundColor = [UIColor whiteColor];
     
     UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,320)];

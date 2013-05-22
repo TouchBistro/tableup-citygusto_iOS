@@ -39,6 +39,8 @@
     self.emailTextField.delegate = self;
     self.passwordTextField.delegate = self;
     
+    self.loginButton.titleLabel.text = @"Login";
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWasShown:)
                                                  name:UIKeyboardDidShowNotification
@@ -152,8 +154,9 @@
     // Step 3: Scroll the target text field into view.
     CGRect aRect = self.view.frame;
     aRect.size.height -= keyboardSize.height;
-    if (!CGRectContainsPoint(aRect, self.loginButton.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, self.loginButton.frame.origin.y - (keyboardSize.height-68));
+    
+    if (!CGRectContainsPoint(aRect, self.registerButton.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, self.registerButton.frame.origin.y - (keyboardSize.height-68));
         [self.scroller setContentOffset:scrollPoint animated:YES];
     }
 }

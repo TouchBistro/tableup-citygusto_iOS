@@ -33,5 +33,6 @@
 - (IBAction)cancel:(id)sender;
 
 - (IBAction)userRegister:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *registerButton;
 
 @end
