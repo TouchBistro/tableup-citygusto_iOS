@@ -55,6 +55,22 @@
     
     [self.tableView setTableFooterView:self.footerView];
     
+    self.noResultsView = [[UIView alloc] initWithFrame:self.tableView.frame];
+    self.noResultsView.backgroundColor = [UIColor whiteColor];
+    
+    UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,320)];
+    matchesLabel.font = [UIFont boldSystemFontOfSize:18];
+    matchesLabel.numberOfLines = 0;
+    matchesLabel.shadowColor = [UIColor lightTextColor];
+    matchesLabel.textColor = [UIColor darkGrayColor];
+    matchesLabel.shadowOffset = CGSizeMake(0, 1);
+    matchesLabel.textAlignment =  NSTextAlignmentCenter;
+    matchesLabel.text = @"Your search returned no results.  Try clearing filters.";
+    
+    self.noResultsView.hidden = YES;
+    [self.noResultsView addSubview:matchesLabel];
+    [self.tableView insertSubview:self.noResultsView aboveSubview:self.tableView];
+    
     [self startSpinner];
     if (self.restaurants.count == 0){
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
@@ -123,6 +139,12 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.resultsEmpty){
+        self.noResultsView.hidden = NO;
+    }else{
+        self.noResultsView.hidden = YES;
+    }
+    
     return self.restaurants.count;
 }
 
@@ -312,6 +334,8 @@
     }else{
         [self.tableView setTableFooterView:self.footerView];
     }
+    
+    self.resultsEmpty = self.restaurants.count == 0 ? YES : NO; 
     
     [self.tableView reloadData];
 }

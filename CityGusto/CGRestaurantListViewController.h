@@ -14,7 +14,10 @@
 
 @property (nonatomic, strong) NSMutableArray *restaurants;
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
+
 @property (nonatomic, assign, getter=isResultsEmpty) BOOL resultsEmpty;
+@property (strong, nonatomic) UIView *noResultsView;
+
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
