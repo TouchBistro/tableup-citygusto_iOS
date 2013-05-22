@@ -267,6 +267,45 @@
     return params;
 }
 
+- (NSMutableDictionary *) buildFoodTruckParameterMap{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    if (cityId){
+        [params setObject:cityId forKey:@"cityId"];
+    }
+    
+    if (neighborhoodId){
+        [params setObject:neighborhoodId forKey:@"neighborhoodId"];
+    }
+    
+    if (max){
+        [params setObject:max forKey:@"max"];
+    }else{
+        [params setObject:@"25" forKey:@"max"];
+    }
+    
+    if (self.foodTruckOffset){
+        [params setObject:self.foodTruckOffset forKey:@"offset"];
+    }else{
+        [params setObject:@"0" forKey:@"offset"];
+    }
+    
+    if (self.foodTruckSortOrder){
+        [params setObject:self.foodTruckSortOrder forKey:@"sortOrder"];
+    }
+    
+    if (self.useCurrentLocation){
+        if (lat){
+            [params setObject:lat forKey:@"lat"];
+        }
+        
+        if (lon){
+            [params setObject:lon forKey:@"long"];
+        }
+    }
+    return params;
+}
+
 - (NSString *) getCityName{
     return [self.cities objectForKey:[self.cityId stringValue]];
 }

@@ -1392,7 +1392,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8il-Ar-A33" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1666" y="449"/>
+            <point key="canvasLocation" x="1996" y="645"/>
         </scene>
         <!--Restaurant Photo View Controller-->
         <scene sceneID="ZNo-jM-8gg">
@@ -2490,7 +2490,17 @@
                             <outlet property="delegate" destination="hty-4g-u9T" id="cxM-ny-rRg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ZoW-LT-Ouh"/>
+                    <navigationItem key="navigationItem" id="ZoW-LT-Ouh">
+                        <barButtonItem key="leftBarButtonItem" title="Filter" id="nYQ-fn-rGC"/>
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="Q3x-wc-jSC">
+                            <connections>
+                                <segue destination="19t-C9-hou" kind="push" identifier="mapFoodTruckSegue" id="XQ9-pZ-kPV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="PEQ-5f-E8I" kind="push" identifier="foodTruckHomeSegue" id="oqS-Px-sIW"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CqE-rM-PyD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -4033,7 +4043,7 @@
         <scene sceneID="END-bn-ccl">
             <objects>
                 <navigationController id="qba-be-BKe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Food Trucks" id="QBD-kF-OeY"/>
+                    <tabBarItem key="tabBarItem" title="Food Trucks" image="foodTruck.png" id="QBD-kF-OeY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="CJD-ps-Lxu">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -4059,6 +4069,7 @@
         <image name="buttonBackgroundGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundPink.png" width="560" height="72"/>
+        <image name="foodTruck.png" width="44" height="22"/>
         <image name="ico-list-arrow-alt.png" width="20" height="30"/>
         <image name="ico-ratings-dislike.png" width="16" height="16"/>
         <image name="ico-ratings-like.png" width="16" height="16"/>
@@ -4415,8 +4426,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="NzV-4r-3WK"/>
-        <segue reference="Aqm-km-h2h"/>
+        <segue reference="oqS-Px-sIW"/>
+        <segue reference="XQ9-pZ-kPV"/>
         <segue reference="lTX-NO-xF1"/>
         <segue reference="Mm5-eq-2Yi"/>
         <segue reference="Ewr-Nt-WZf"/>

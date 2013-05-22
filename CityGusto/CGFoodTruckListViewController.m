@@ -68,7 +68,7 @@
     
     [self startSpinner];
     if (self.foodTrucks.count == 0){
-        NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
+        NSMutableDictionary *params = [[CGRestaurantParameter shared] buildFoodTruckParameterMap];
         [params setObject:@"true" forKey:@"reduced"];
         
         [CGRestaurantParameter shared].offset = 0;
@@ -214,12 +214,12 @@
 
 - (void) viewMorePressed:(id)sender{
     
-    [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 25];
-    NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
+    [CGRestaurantParameter shared].foodTruckOffset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 25];
+    NSMutableDictionary *params = [[CGRestaurantParameter shared] buildFoodTruckParameterMap];
     [params setObject:@"true" forKey:@"reduced"];
     
     [self startSpinner];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks"
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/foodtrucks"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
@@ -255,13 +255,52 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    CGRestaurant *restaurant = [self.foodTrucks objectAtIndex:indexPath.row];
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:restaurant.restaurantId, @"id", nil];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/foodtrucks"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.selectedFoodTruck = [[mappingResult array] objectAtIndex:0];
+                                                      
+                                                      [self stopSpinner];
+                                                      [self performSegueWithIdentifier:@"foodTruckHomeSegue" sender:self];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
+
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"mapFoodTruckSegue"]){
+        CGRestaurantMapViewController *mapController = [segue destinationViewController];
+        mapController.restaurants = self.foodTrucks;
+    }
+    
+   else if ([[segue identifier] isEqualToString:@"foodTruckHomeSegue"]){
+        CGRestaurantHomeViewController *homeController = [segue destinationViewController];
+        homeController.restaurant = self.selectedFoodTruck;
+    }
+   
+   /* else if ([[segue identifier] isEqualToString:@"optionSegue"]){
+        UINavigationController *navController = [segue destinationViewController];
+        
+        if (navController != nil){
+            CGRestaurantOptionsViewController *optionsController = (CGRestaurantOptionsViewController *)navController.topViewController;
+            optionsController.delegate = self;
+        }
+    }
+ */
 }
 
 @end

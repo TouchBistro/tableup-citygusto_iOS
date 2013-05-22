@@ -75,6 +75,7 @@
 @property (nonatomic, strong) NSNumber *distance;
 
 @property (nonatomic, assign, getter=isOpen) BOOL open;
+@property (nonatomic, assign, getter=isFoodTruck) BOOL foodTruck;
 
 @property (nonatomic, strong) NSNumber *numberOfReviews;
 @property (nonatomic, strong) NSNumber *numberOfRatings;
