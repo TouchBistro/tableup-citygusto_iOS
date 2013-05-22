@@ -134,91 +134,83 @@
     CGRestaurant *restaurant = [self.restaurants objectAtIndex:indexPath.row];
     
     if (cell){
-        cell.noResultsLabel.hidden = YES;
-        if (self.isResultsEmpty){
-            if (indexPath.row == 2){
-                cell.noResultsLabel.hidden = NO;
-                cell.noResultsLabel.text = @"Your search returned no results.  Try clearing filters.";
-            }
-        }else{
-            NSString *name = restaurant.name;
-            if (restaurant.distance){
-                name = [name stringByAppendingString:@" - "];
-                name = [name stringByAppendingString:[restaurant.distance stringValue]];
-                name = [name stringByAppendingString:@" Miles"];
-            }
-            
-            cell.nameLabel.text = name;
-            
-            NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
-            NSData *data = [NSData dataWithContentsOfURL:url];
-            UIImage *image = [UIImage imageWithData:data];
-            
-            cell.primaryPhotoImage.image = image;
-            
-            NSString *topList = @"Currently in Top 5 of ";
-            topList = [topList stringByAppendingString:[restaurant.numberOfTopFiveLists stringValue]];
-            topList = [topList stringByAppendingString:@" Lists"];
-            
-            NSString *numberOfRatings = [restaurant.numberOfRatings stringValue];
-            numberOfRatings = [numberOfRatings stringByAppendingString:@" Ratings"];
-            
-            cell.ratings.text = numberOfRatings;
-            
-            if (restaurant.numberOfStars == [NSNumber numberWithInt:1]) {
-                [cell.starImages setImage:[UIImage imageNamed:@"stars_1.png"]];
-            }else if (restaurant.numberOfStars == [NSNumber numberWithInt:2]) {
-                [cell.starImages setImage:[UIImage imageNamed:@"stars_2.png"]];
-            }else if (restaurant.numberOfStars == [NSNumber numberWithInt:3]) {
-                [cell.starImages setImage:[UIImage imageNamed:@"stars_3.png"]];
-            }else if (restaurant.numberOfStars == [NSNumber numberWithInt:4]) {
-                [cell.starImages setImage:[UIImage imageNamed:@"stars_4.png"]];
-            }else if (restaurant.numberOfStars == [NSNumber numberWithInt:5]) {
-                [cell.starImages setImage:[UIImage imageNamed:@"stars_5.png"]];
-            }else{
-                [cell.starImages setImage:[UIImage imageNamed:@"stars_0.png"]];
-            }
-            
-            if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:1]){
-                [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars1.png"]];
-            }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:2]){
-                [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars2.png"]];
-            }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:3]){
-                [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars3.png"]];
-            }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:4]){
-                [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars4.png"]];
-            }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:5]){
-                [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars5.png"]];
-            }else{
-                [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars1.png"]];
-            }
-            
-            CALayer *bottomBorder = [CALayer layer];
-            
-            bottomBorder.frame = CGRectMake(0.0f, cell.headerView.frame.size.height - 1, cell.headerView.frame.size.width, 1.0f);
-            bottomBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
-            
-            [cell.headerView.layer addSublayer:bottomBorder];
-            
-            cell.nameLabel.layer.shadowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f].CGColor;
-            cell.nameLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
-            [cell.nameLabel.layer setMasksToBounds:YES];
-            
-            cell.nameLabel.layer.shadowRadius = 3.0;
-            cell.nameLabel.layer.shadowOpacity = 0.5;
-            
-            cell.topFiveLabel.text = topList;
-            
-            [cell.primaryPhotoImage.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-            [cell.primaryPhotoImage.layer setBorderWidth:1.5f];
-            [cell.primaryPhotoImage.layer setShadowColor:[UIColor blackColor].CGColor];
-            [cell.primaryPhotoImage.layer setShadowOpacity:0.8];
-            [cell.primaryPhotoImage.layer setShadowRadius:3.0];
-            [cell.primaryPhotoImage.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
-            
-            // New line
-            [cell.primaryPhotoImage.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.primaryPhotoImage.bounds].CGPath];
+        NSString *name = restaurant.name;
+        if (restaurant.distance){
+            name = [name stringByAppendingString:@" - "];
+            name = [name stringByAppendingString:[restaurant.distance stringValue]];
+            name = [name stringByAppendingString:@" Miles"];
         }
+        
+        cell.nameLabel.text = name;
+        
+        NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
+        NSData *data = [NSData dataWithContentsOfURL:url];
+        UIImage *image = [UIImage imageWithData:data];
+        
+        cell.primaryPhotoImage.image = image;
+        
+        NSString *topList = @"Currently in Top 5 of ";
+        topList = [topList stringByAppendingString:[restaurant.numberOfTopFiveLists stringValue]];
+        topList = [topList stringByAppendingString:@" Lists"];
+        
+        NSString *numberOfRatings = [restaurant.numberOfRatings stringValue];
+        numberOfRatings = [numberOfRatings stringByAppendingString:@" Ratings"];
+        
+        cell.ratings.text = numberOfRatings;
+        
+        if (restaurant.numberOfStars == [NSNumber numberWithInt:1]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_1.png"]];
+        }else if (restaurant.numberOfStars == [NSNumber numberWithInt:2]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_2.png"]];
+        }else if (restaurant.numberOfStars == [NSNumber numberWithInt:3]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_3.png"]];
+        }else if (restaurant.numberOfStars == [NSNumber numberWithInt:4]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_4.png"]];
+        }else if (restaurant.numberOfStars == [NSNumber numberWithInt:5]) {
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_5.png"]];
+        }else{
+            [cell.starImages setImage:[UIImage imageNamed:@"stars_0.png"]];
+        }
+        
+        if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:1]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars1.png"]];
+        }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:2]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars2.png"]];
+        }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:3]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars3.png"]];
+        }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:4]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars4.png"]];
+        }else if (restaurant.numberOfDollarSigns == [NSNumber numberWithInt:5]){
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars5.png"]];
+        }else{
+            [cell.priceImageView setImage:[UIImage imageNamed:@"reviewdollars1.png"]];
+        }
+        
+        CALayer *bottomBorder = [CALayer layer];
+        
+        bottomBorder.frame = CGRectMake(0.0f, cell.headerView.frame.size.height - 1, cell.headerView.frame.size.width, 1.0f);
+        bottomBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+        
+        [cell.headerView.layer addSublayer:bottomBorder];
+        
+        cell.nameLabel.layer.shadowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f].CGColor;
+        cell.nameLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        [cell.nameLabel.layer setMasksToBounds:YES];
+        
+        cell.nameLabel.layer.shadowRadius = 3.0;
+        cell.nameLabel.layer.shadowOpacity = 0.5;
+        
+        cell.topFiveLabel.text = topList;
+        
+        [cell.primaryPhotoImage.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+        [cell.primaryPhotoImage.layer setBorderWidth:1.5f];
+        [cell.primaryPhotoImage.layer setShadowColor:[UIColor blackColor].CGColor];
+        [cell.primaryPhotoImage.layer setShadowOpacity:0.8];
+        [cell.primaryPhotoImage.layer setShadowRadius:3.0];
+        [cell.primaryPhotoImage.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+        
+        // New line
+        [cell.primaryPhotoImage.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.primaryPhotoImage.bounds].CGPath];
     }
     
     return cell;

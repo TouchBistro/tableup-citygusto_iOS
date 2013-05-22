@@ -2086,12 +2086,137 @@
                     <navigationItem key="navigationItem" id="jmm-5g-m00"/>
                     <connections>
                         <outlet property="headerView" destination="18I-eS-Jxk" id="yAd-6M-2oR"/>
-                        <segue destination="Yi3-hm-8PJ" kind="push" identifier="restaurantFavoriteListRestaurantSegue" id="JyS-5L-Zpw"/>
+                        <segue destination="RWa-A2-pzJ" kind="push" identifier="restaurantFavoriteListRestaurantSegue" id="5n7-YX-ka0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OmG-3E-9DH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-173" y="1665"/>
+        </scene>
+        <!--Restaurant List Favorite View Controller-->
+        <scene sceneID="xdM-UC-7Qa">
+            <objects>
+                <tableViewController id="RWa-A2-pzJ" customClass="CGRestaurantListFavoriteViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" id="QWA-SP-Yxn">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.92941182850000004" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="RestaurantCell" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RestaurantFavoriteCell" rowHeight="104" id="lOD-Ww-B4g" customClass="CGRestaurantCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="104"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yda-Hy-y4W">
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ded-or-9Wm">
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="282" id="D21-mK-sgP"/>
+                                                        <constraint firstAttribute="height" constant="21" id="m8d-Jo-hKy"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="ded-or-9Wm" firstAttribute="leading" secondItem="Yda-Hy-y4W" secondAttribute="leading" constant="12" id="6Y2-Tg-WJf"/>
+                                                <constraint firstItem="ded-or-9Wm" firstAttribute="top" secondItem="Yda-Hy-y4W" secondAttribute="top" type="default" id="vqd-C0-Ffg"/>
+                                            </constraints>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5NV-sD-gRb">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="LDV-VR-SWe"/>
+                                                <constraint firstAttribute="height" constant="60" id="bbG-hO-NTj"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Currently in Top 5 of 0 Lists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQA-Ie-eFg">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="kJE-n7-wfs"/>
+                                                <constraint firstAttribute="width" constant="220" id="tPy-vO-GWo"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ico-list-arrow-alt.png" translatesAutoresizingMaskIntoConstraints="NO" id="Amb-Ba-WjD">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="Vrv-gh-KA9"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ratings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7hF-qJ-bJg">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="lmN-NA-F4y"/>
+                                                <constraint firstAttribute="width" constant="63" id="t6U-hR-TVb"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stars_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="esC-xN-wku"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="reviewdollars1.png" translatesAutoresizingMaskIntoConstraints="NO" id="tAz-ND-tNT"/>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="tAz-ND-tNT" firstAttribute="leading" secondItem="5NV-sD-gRb" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="20N-pT-CP8"/>
+                                    <constraint firstItem="tAz-ND-tNT" firstAttribute="top" secondItem="Yda-Hy-y4W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="20Y-Q8-lvF"/>
+                                    <constraint firstAttribute="trailing" secondItem="RQA-Ie-eFg" secondAttribute="trailing" constant="20" type="default" id="7yl-mP-LTW"/>
+                                    <constraint firstItem="esC-xN-wku" firstAttribute="leading" secondItem="5NV-sD-gRb" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Fe4-lc-eMV"/>
+                                    <constraint firstItem="5NV-sD-gRb" firstAttribute="top" secondItem="Yda-Hy-y4W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Ifj-pv-6xb"/>
+                                    <constraint firstItem="5NV-sD-gRb" firstAttribute="top" secondItem="lOD-Ww-B4g" secondAttribute="top" constant="30" id="JZM-Sl-sDa"/>
+                                    <constraint firstAttribute="trailing" secondItem="Amb-Ba-WjD" secondAttribute="trailing" constant="6" id="N6i-xV-FUn"/>
+                                    <constraint firstItem="Yda-Hy-y4W" firstAttribute="trailing" secondItem="lOD-Ww-B4g" secondAttribute="trailing" type="default" id="PKM-eN-xtL"/>
+                                    <constraint firstItem="RQA-Ie-eFg" firstAttribute="leading" secondItem="5NV-sD-gRb" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="cNf-HR-zC0"/>
+                                    <constraint firstItem="esC-xN-wku" firstAttribute="centerY" secondItem="5NV-sD-gRb" secondAttribute="centerY" type="default" id="hy8-ds-rwB"/>
+                                    <constraint firstItem="7hF-qJ-bJg" firstAttribute="centerY" secondItem="esC-xN-wku" secondAttribute="centerY" type="default" id="j28-zs-CDW"/>
+                                    <constraint firstItem="Yda-Hy-y4W" firstAttribute="top" secondItem="lOD-Ww-B4g" secondAttribute="top" type="default" id="lCi-qz-tXw"/>
+                                    <constraint firstItem="7hF-qJ-bJg" firstAttribute="leading" secondItem="esC-xN-wku" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="oGy-Me-HZ4"/>
+                                    <constraint firstItem="Yda-Hy-y4W" firstAttribute="leading" secondItem="lOD-Ww-B4g" secondAttribute="leading" type="default" id="q0b-UR-61X"/>
+                                    <constraint firstItem="RQA-Ie-eFg" firstAttribute="bottom" secondItem="5NV-sD-gRb" secondAttribute="bottom" type="default" id="qMh-Qq-4kb"/>
+                                    <constraint firstItem="Amb-Ba-WjD" firstAttribute="top" secondItem="Yda-Hy-y4W" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="xle-E4-Qs6"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="headerView" destination="Yda-Hy-y4W" id="Oy9-gW-W1h"/>
+                                    <outlet property="nameLabel" destination="ded-or-9Wm" id="pSy-Cy-Iy6"/>
+                                    <outlet property="priceImageView" destination="tAz-ND-tNT" id="gXR-89-SSL"/>
+                                    <outlet property="primaryPhotoImage" destination="5NV-sD-gRb" id="Xd5-db-hsu"/>
+                                    <outlet property="ratings" destination="7hF-qJ-bJg" id="kSM-fJ-6IW"/>
+                                    <outlet property="starImages" destination="esC-xN-wku" id="BY2-se-jAN"/>
+                                    <outlet property="topFiveLabel" destination="RQA-Ie-eFg" id="1rm-ot-ueN"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="RWa-A2-pzJ" id="rda-i0-L2s"/>
+                            <outlet property="delegate" destination="RWa-A2-pzJ" id="aYD-vD-bln"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="gQP-eL-8ZA">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="Xtg-nB-aqp">
+                            <connections>
+                                <segue destination="19t-C9-hou" kind="push" identifier="favoriteMapSegue" id="t9l-YZ-Qad"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="mapHeaderButton" destination="Xtg-nB-aqp" id="TTd-Vm-CxO"/>
+                        <segue destination="PEQ-5f-E8I" kind="push" identifier="favoriteHomeSegue" id="sfZ-Ej-y15"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kU6-4U-MkL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="387" y="1665"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="8SC-SF-NZz">
@@ -4058,6 +4183,12 @@
                 <relationship kind="outlet" name="restaurant3View" candidateClass="UIView"/>
             </relationships>
         </class>
+        <class className="CGRestaurantListFavoriteViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListFavoriteViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapHeaderButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
         <class className="CGRestaurantListListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListListViewController.h"/>
             <relationships>
@@ -4150,11 +4281,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Aqm-km-h2h"/>
-        <segue reference="JyS-5L-Zpw"/>
-        <segue reference="Ewr-Nt-WZf"/>
-        <segue reference="NzV-4r-3WK"/>
+        <segue reference="sfZ-Ej-y15"/>
         <segue reference="Mm5-eq-2Yi"/>
+        <segue reference="Ewr-Nt-WZf"/>
+        <segue reference="t9l-YZ-Qad"/>
         <segue reference="lTX-NO-xF1"/>
     </inferredMetricsTieBreakers>
 </document>

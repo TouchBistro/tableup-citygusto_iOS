@@ -9,6 +9,7 @@
 #import "CGRestaurantFavoriteList.h"
 #import "CGNewRestaurantsListViewController.h"
 #import "CGMyRestaurantFavoriteListViewController.h"
+#import "CGRestaurantListFavoriteViewController.h"
 #import <RestKit/RestKit.h>
 
 @interface CGMyRestaurantFavoriteListViewController ()
@@ -96,11 +97,9 @@
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([[segue identifier] isEqualToString:@"restaurantFavoriteListRestaurantSegue"]){
-        CGNewRestaurantsListViewController *newRestaurantsController = [segue destinationViewController];
-        newRestaurantsController.restaurants = self.restaurants;
+        CGRestaurantListFavoriteViewController *favoriteViewController = [segue destinationViewController];
+        favoriteViewController.restaurants = self.restaurants;
     }
 }
-
-
 
 @end
