@@ -335,7 +335,7 @@
         [self.tableView setTableFooterView:self.footerView];
     }
     
-    self.resultsEmpty = self.restaurants.count == 0 ? YES : NO; 
+    self.resultsEmpty = self.restaurants.count == 0 ? YES : NO;
     
     [self.tableView reloadData];
 }
