@@ -29,6 +29,10 @@
 		1B97DD34172B30F1001063B5 /* CGLocalMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B97DD33172B30F1001063B5 /* CGLocalMapViewController.m */; };
 		1B97DD38172B31E7001063B5 /* CGLocalAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B97DD37172B31E7001063B5 /* CGLocalAnnotation.m */; };
 		1B980277174C4BF50050D51E /* CGRestaurantListFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B980276174C4BF40050D51E /* CGRestaurantListFavoriteViewController.m */; };
+		1B98027A174D09B00050D51E /* CGFoodTruck.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B980279174D09B00050D51E /* CGFoodTruck.m */; };
+		1B98027D174D11E70050D51E /* CGFoodTruckListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B98027C174D11E60050D51E /* CGFoodTruckListViewController.m */; };
+		1B980280174D13AD0050D51E /* CGFoodTruckCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B98027F174D13AD0050D51E /* CGFoodTruckCell.m */; };
+		1B980282174D41170050D51E /* FoodTrucksIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B980281174D41170050D51E /* FoodTrucksIcon.png */; };
 		1BA08D4017039EF00088FE9F /* AbstractActionSheetPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D3D17039EF00088FE9F /* AbstractActionSheetPicker.m */; };
 		1BA08D4117039EF00088FE9F /* ActionSheetStringPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D3F17039EF00088FE9F /* ActionSheetStringPicker.m */; };
 		1BA08D451703BEAB0088FE9F /* CGLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA08D441703BEAB0088FE9F /* CGLocationViewController.m */; };
@@ -182,6 +186,13 @@
 		1B97DD37172B31E7001063B5 /* CGLocalAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLocalAnnotation.m; sourceTree = "<group>"; };
 		1B980275174C4BF30050D51E /* CGRestaurantListFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurantListFavoriteViewController.h; sourceTree = "<group>"; };
 		1B980276174C4BF40050D51E /* CGRestaurantListFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantListFavoriteViewController.m; sourceTree = "<group>"; };
+		1B980278174D09B00050D51E /* CGFoodTruck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFoodTruck.h; sourceTree = "<group>"; };
+		1B980279174D09B00050D51E /* CGFoodTruck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFoodTruck.m; sourceTree = "<group>"; };
+		1B98027B174D11E40050D51E /* CGFoodTruckListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFoodTruckListViewController.h; sourceTree = "<group>"; };
+		1B98027C174D11E60050D51E /* CGFoodTruckListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFoodTruckListViewController.m; sourceTree = "<group>"; };
+		1B98027E174D13AD0050D51E /* CGFoodTruckCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFoodTruckCell.h; sourceTree = "<group>"; };
+		1B98027F174D13AD0050D51E /* CGFoodTruckCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFoodTruckCell.m; sourceTree = "<group>"; };
+		1B980281174D41170050D51E /* FoodTrucksIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FoodTrucksIcon.png; sourceTree = "<group>"; };
 		1BA08D3C17039EF00088FE9F /* AbstractActionSheetPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractActionSheetPicker.h; sourceTree = "<group>"; };
 		1BA08D3D17039EF00088FE9F /* AbstractActionSheetPicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractActionSheetPicker.m; sourceTree = "<group>"; };
 		1BA08D3E17039EF00088FE9F /* ActionSheetStringPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionSheetStringPicker.h; sourceTree = "<group>"; };
@@ -543,6 +554,8 @@
 				1B97DD37172B31E7001063B5 /* CGLocalAnnotation.m */,
 				1BE34FC4173B2F0100883DA8 /* CGEventAnnotation.h */,
 				1BE34FC5173B2F0100883DA8 /* CGEventAnnotation.m */,
+				1B980278174D09B00050D51E /* CGFoodTruck.h */,
+				1B980279174D09B00050D51E /* CGFoodTruck.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -556,6 +569,8 @@
 				1BBF71F51704F7FC00489EE4 /* CGInformationCell.m */,
 				1BE5E912171829ED00A84099 /* CGEventCell.h */,
 				1BE5E913171829ED00A84099 /* CGEventCell.m */,
+				1B98027E174D13AD0050D51E /* CGFoodTruckCell.h */,
+				1B98027F174D13AD0050D51E /* CGFoodTruckCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -625,6 +640,8 @@
 				1BE34FC2173B2E0000883DA8 /* CGEventMapViewController.m */,
 				1B980275174C4BF30050D51E /* CGRestaurantListFavoriteViewController.h */,
 				1B980276174C4BF40050D51E /* CGRestaurantListFavoriteViewController.m */,
+				1B98027B174D11E40050D51E /* CGFoodTruckListViewController.h */,
+				1B98027C174D11E60050D51E /* CGFoodTruckListViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -692,6 +709,7 @@
 		1BC8AC0C17255FAB00317873 /* tabs */ = {
 			isa = PBXGroup;
 			children = (
+				1B980281174D41170050D51E /* FoodTrucksIcon.png */,
 				1BC8AC0D17255FAB00317873 /* 10-medical.png */,
 				1BC8AC0E17255FAB00317873 /* 10-medical@2x.png */,
 				1BC8AC0F17255FAB00317873 /* 125-food.png */,
@@ -828,6 +846,7 @@
 				1BA50CAE174877E000E38874 /* Default.png in Resources */,
 				1BA50CB0174877F200E38874 /* Default@2x.png in Resources */,
 				1BA50CB21748787B00E38874 /* Default-568h@2x.png in Resources */,
+				1B980282174D41170050D51E /* FoodTrucksIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -916,6 +935,9 @@
 				1BE34FC3173B2E0100883DA8 /* CGEventMapViewController.m in Sources */,
 				1BE34FC6173B2F0100883DA8 /* CGEventAnnotation.m in Sources */,
 				1B980277174C4BF50050D51E /* CGRestaurantListFavoriteViewController.m in Sources */,
+				1B98027A174D09B00050D51E /* CGFoodTruck.m in Sources */,
+				1B98027D174D11E70050D51E /* CGFoodTruckListViewController.m in Sources */,
+				1B980280174D13AD0050D51E /* CGFoodTruckCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

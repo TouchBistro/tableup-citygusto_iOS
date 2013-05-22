@@ -284,7 +284,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kKu-47-iNw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1072" y="-500"/>
+            <point key="canvasLocation" x="1598" y="-500"/>
         </scene>
         <!--Location View Controller-->
         <scene sceneID="Fiy-hD-684">
@@ -681,7 +681,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Is9-Gd-Ztx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2777" y="-209"/>
+            <point key="canvasLocation" x="3303" y="-209"/>
         </scene>
         <!--Event More Information View Controller-->
         <scene sceneID="rmO-PZ-zyn">
@@ -891,7 +891,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Jc-wV-Nd4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1062" y="235"/>
+            <point key="canvasLocation" x="1588" y="235"/>
         </scene>
         <!--Restaurant Home View Controller-->
         <scene sceneID="Si3-WU-Ahv">
@@ -1240,7 +1240,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6O-iN-m1c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2085" y="-189"/>
+            <point key="canvasLocation" x="2611" y="-189"/>
         </scene>
         <!--Restaurant Review Site View Controller-->
         <scene sceneID="KNc-gH-0iH">
@@ -1280,7 +1280,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ft-eI-xZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2777" y="400"/>
+            <point key="canvasLocation" x="3303" y="400"/>
         </scene>
         <!--Restaurant Menu View Controller-->
         <scene sceneID="OBr-lQ-eHs">
@@ -2371,6 +2371,131 @@
             </objects>
             <point key="canvasLocation" x="-173" y="2285"/>
         </scene>
+        <!--Food Truck List View Controller-->
+        <scene sceneID="1g9-Ca-lXJ">
+            <objects>
+                <tableViewController id="hty-4g-u9T" customClass="CGFoodTruckListViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="104" sectionHeaderHeight="22" sectionFooterHeight="22" id="UPp-SG-WSB">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.92941182850000004" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" restorationIdentifier="FoodTruckCell" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="FoodTruckCell" rowHeight="104" id="i6I-ln-ZDt" customClass="CGFoodTruckCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="104"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="103"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TMu-8j-D5b">
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2na-DG-olE">
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="DGR-Tx-BA9"/>
+                                                        <constraint firstAttribute="width" constant="281" id="L9F-4C-uML"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                                            <constraints>
+                                                <constraint firstItem="2na-DG-olE" firstAttribute="top" secondItem="TMu-8j-D5b" secondAttribute="top" type="default" id="xRz-rc-T0J"/>
+                                                <constraint firstItem="2na-DG-olE" firstAttribute="leading" secondItem="TMu-8j-D5b" secondAttribute="leading" constant="13" id="zvs-a8-2Zl"/>
+                                            </constraints>
+                                        </view>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWP-Sg-bsu">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="60" id="cLe-hi-36e"/>
+                                                <constraint firstAttribute="height" constant="60" id="lrg-YF-ivs"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Currently in Top 5 of 0 Lists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K6k-kl-TsA">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="sx0-Y9-V9z"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="12345 5th St." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uQx-i3-hth">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="220" id="1mI-EB-4kv"/>
+                                                <constraint firstAttribute="height" constant="21" id="Txg-Nm-Xm1"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ico-list-arrow-alt.png" translatesAutoresizingMaskIntoConstraints="NO" id="1q7-Lz-HYr">
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="32" id="0xp-wz-uzh"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Ratings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gb7-UT-O8Z">
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="63" id="Gr2-6s-ONk"/>
+                                                <constraint firstAttribute="height" constant="21" id="Krs-Dx-Up7"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="stars_0.png" translatesAutoresizingMaskIntoConstraints="NO" id="O7y-3b-WYW"/>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="gWP-Sg-bsu" firstAttribute="top" secondItem="TMu-8j-D5b" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="5nB-9Z-pOr"/>
+                                    <constraint firstAttribute="trailing" secondItem="K6k-kl-TsA" secondAttribute="trailing" constant="20" type="default" id="6zf-yB-tvg"/>
+                                    <constraint firstItem="TMu-8j-D5b" firstAttribute="top" secondItem="i6I-ln-ZDt" secondAttribute="top" type="default" id="Agb-E4-8K9"/>
+                                    <constraint firstItem="uQx-i3-hth" firstAttribute="leading" secondItem="gWP-Sg-bsu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="Gz7-0s-2RP"/>
+                                    <constraint firstAttribute="trailing" secondItem="uQx-i3-hth" secondAttribute="trailing" constant="20" type="default" id="I8w-bM-m1P"/>
+                                    <constraint firstAttribute="bottom" secondItem="K6k-kl-TsA" secondAttribute="bottom" constant="15" id="KC1-bU-iEw"/>
+                                    <constraint firstItem="gWP-Sg-bsu" firstAttribute="top" secondItem="i6I-ln-ZDt" secondAttribute="top" constant="30" id="OQh-1L-UFB"/>
+                                    <constraint firstAttribute="trailing" secondItem="1q7-Lz-HYr" secondAttribute="trailing" constant="6" id="RZ1-7K-bOH"/>
+                                    <constraint firstItem="1q7-Lz-HYr" firstAttribute="top" secondItem="TMu-8j-D5b" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="TWO-ow-lOQ"/>
+                                    <constraint firstItem="TMu-8j-D5b" firstAttribute="leading" secondItem="i6I-ln-ZDt" secondAttribute="leading" type="default" id="WzF-Ny-zpq"/>
+                                    <constraint firstItem="O7y-3b-WYW" firstAttribute="leading" secondItem="gWP-Sg-bsu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="gvq-0F-1fJ"/>
+                                    <constraint firstItem="gb7-UT-O8Z" firstAttribute="centerY" secondItem="O7y-3b-WYW" secondAttribute="centerY" type="default" id="kbV-RA-v3z"/>
+                                    <constraint firstItem="TMu-8j-D5b" firstAttribute="trailing" secondItem="i6I-ln-ZDt" secondAttribute="trailing" type="default" id="pPL-lD-MAf"/>
+                                    <constraint firstItem="uQx-i3-hth" firstAttribute="top" secondItem="TMu-8j-D5b" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="sTR-1d-tJ8"/>
+                                    <constraint firstItem="O7y-3b-WYW" firstAttribute="centerY" secondItem="gWP-Sg-bsu" secondAttribute="centerY" type="default" id="vPv-KC-JFo"/>
+                                    <constraint firstItem="gb7-UT-O8Z" firstAttribute="leading" secondItem="O7y-3b-WYW" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="xmr-xw-TWv"/>
+                                    <constraint firstItem="K6k-kl-TsA" firstAttribute="leading" secondItem="gWP-Sg-bsu" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="yZF-QF-Rbm"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="addressLabel" destination="uQx-i3-hth" id="3l4-SE-41i"/>
+                                    <outlet property="headerView" destination="TMu-8j-D5b" id="h5E-tf-pBe"/>
+                                    <outlet property="nameLabel" destination="2na-DG-olE" id="FLt-AQ-kzr"/>
+                                    <outlet property="primaryPhotoImage" destination="gWP-Sg-bsu" id="zOF-Wc-5jo"/>
+                                    <outlet property="ratings" destination="gb7-UT-O8Z" id="jpW-Gd-nsA"/>
+                                    <outlet property="starImages" destination="O7y-3b-WYW" id="Zqe-xr-3Bv"/>
+                                    <outlet property="topFiveLabel" destination="K6k-kl-TsA" id="VF7-ZV-70K"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="hty-4g-u9T" id="byI-Vu-yHC"/>
+                            <outlet property="delegate" destination="hty-4g-u9T" id="cxM-ny-rRg"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZoW-LT-Ouh"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CqE-rM-PyD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-17" y="-127"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="mUL-Ky-edS">
             <objects>
@@ -2386,12 +2511,13 @@
                         <segue destination="BHi-Zx-arw" kind="relationship" relationship="viewControllers" id="vfU-yK-9tr"/>
                         <segue destination="n3p-x2-JjD" kind="relationship" relationship="viewControllers" id="bAS-oW-LVg"/>
                         <segue destination="bVW-5M-3ao" kind="relationship" relationship="viewControllers" id="xCu-n7-OcI"/>
+                        <segue destination="qba-be-BKe" kind="relationship" relationship="viewControllers" id="OQ3-RO-ZSo"/>
                         <segue destination="XGd-9a-h5x" kind="relationship" relationship="viewControllers" id="6dE-qc-hcR"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Sz-JJ-TJ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="235"/>
+            <point key="canvasLocation" x="688" y="235"/>
         </scene>
         <!--Navigation Controller - Food & Bars-->
         <scene sceneID="pGj-sj-KPS">
@@ -2410,7 +2536,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0fu-xm-LUN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="600" y="235"/>
+            <point key="canvasLocation" x="1126" y="235"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WOC-vH-ZqH">
@@ -2429,7 +2555,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKy-aH-H2Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="582" y="-500"/>
+            <point key="canvasLocation" x="1108" y="-500"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uxw-Iy-xRj">
@@ -3903,6 +4029,25 @@
             </objects>
             <point key="canvasLocation" x="-173" y="1011"/>
         </scene>
+        <!--Navigation Controller - Food Trucks-->
+        <scene sceneID="END-bn-ccl">
+            <objects>
+                <navigationController id="qba-be-BKe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Food Trucks" id="QBD-kF-OeY"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="CJD-ps-Lxu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hty-4g-u9T" kind="relationship" relationship="rootViewController" id="nb2-VS-q62"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZBj-9S-B8O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-543" y="-127"/>
+        </scene>
     </scenes>
     <resources>
         <image name="10-medical.png" width="22" height="22"/>
@@ -4023,6 +4168,24 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGFeatureViewController.h"/>
             <relationships>
                 <relationship kind="action" name="done:"/>
+            </relationships>
+        </class>
+        <class className="CGFoodTruckCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGFoodTruckCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="addressLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="ratings" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="starImages" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="topFiveLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CGFoodTruckListViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGFoodTruckListViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapHeaderButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="CGInformationCell" superclassName="UITableViewCell">
@@ -4252,10 +4415,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="t9l-YZ-Qad"/>
+        <segue reference="NzV-4r-3WK"/>
+        <segue reference="Aqm-km-h2h"/>
+        <segue reference="lTX-NO-xF1"/>
         <segue reference="Mm5-eq-2Yi"/>
         <segue reference="Ewr-Nt-WZf"/>
-        <segue reference="LJ8-fa-mpH"/>
-        <segue reference="lTX-NO-xF1"/>
     </inferredMetricsTieBreakers>
 </document>
