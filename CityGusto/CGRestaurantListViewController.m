@@ -94,6 +94,14 @@
                                                           self.resultsEmpty = self.restaurants.count == 0 ? YES : NO;
                                                           [self.tableView reloadData];
                                                           [self stopSpinner];
+                                                          
+                                                          for (CGRestaurant *restaurant in self.restaurants) {
+                                                              NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
+                                                              NSData *data = [NSData dataWithContentsOfURL:url];
+                                                              UIImage *image = [UIImage imageWithData:data];
+                                                              
+                                                              restaurant.image = image;
+                                                          }
                                                       }
                                                   }
                                                   failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -165,11 +173,7 @@
         
         cell.nameLabel.text = name;
         
-        NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
-        
-        cell.primaryPhotoImage.image = image;
+        cell.primaryPhotoImage.image = restaurant.image;
         
         NSString *topList = @"Currently in Top 5 of ";
         topList = [topList stringByAppendingString:[restaurant.numberOfTopFiveLists stringValue]];
@@ -259,6 +263,14 @@
                                                           self.tableView.tableFooterView = nil;
                                                       }else{
                                                           [self.tableView setTableFooterView:self.footerView];
+                                                      }
+                                                      
+                                                      for (CGRestaurant *restaurant in self.restaurants) {
+                                                          NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
+                                                          NSData *data = [NSData dataWithContentsOfURL:url];
+                                                          UIImage *image = [UIImage imageWithData:data];
+                                                          
+                                                          restaurant.image = image;
                                                       }
                                                       
                                                       [self stopSpinner];

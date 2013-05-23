@@ -4382,6 +4382,9 @@
         <image name="stars_0.png" width="80" height="15"/>
     </resources>
     <classes>
+        <class className="AsyncImageView" superclassName="UIImageView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AsyncImageView.h"/>
+        </class>
         <class className="CGCuisineViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGCuisineViewController.h"/>
             <relationships>
@@ -4401,7 +4404,7 @@
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="nextOccurrenceLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="noResultsLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="primaryPhotoImage" candidateClass="AsyncImageView"/>
                 <relationship kind="outlet" name="timeLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="venueLabel" candidateClass="UILabel"/>
             </relationships>
