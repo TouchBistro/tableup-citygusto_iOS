@@ -7,10 +7,11 @@
 //
 
 #import "CGEventOptionsViewController.h"
+#import "MHLazyTableImages.h"
 #import "CGEvent.h"
 #import <UIKit/UIKit.h>
 
-@interface CGEventListViewController : UITableViewController<CGEventOptionsViewDelegate>
+@interface CGEventListViewController : UITableViewController <CGEventOptionsViewDelegate, MHLazyTableImagesDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *events;
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
