@@ -350,6 +350,7 @@
     self.resultsEmpty = self.restaurants.count == 0 ? YES : NO;
     
     [self.tableView reloadData];
+    [self.tableView setContentOffset:CGPointZero animated:NO];
 }
 
 #pragma mark - UIScrollViewDelegate

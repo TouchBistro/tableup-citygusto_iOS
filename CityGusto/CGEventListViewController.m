@@ -309,6 +309,7 @@
     self.resultsEmpty = self.events.count == 0 ? YES : NO;
     
     [self.tableView reloadData];
+    [self.tableView setContentOffset:CGPointZero animated:NO];
 }
 
 - (void) startSpinner {
