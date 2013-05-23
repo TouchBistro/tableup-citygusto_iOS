@@ -7,10 +7,11 @@
 //
 
 #import "CGFoodTruckOptionsViewController.h"
+#import "MHLazyTableImages.h"
 #import "CGRestaurant.h"
 #import <UIKit/UIKit.h>
 
-@interface CGFoodTruckListViewController : UITableViewController <CGFoodTrucksOptionsViewDelegate>
+@interface CGFoodTruckListViewController : UITableViewController <CGFoodTrucksOptionsViewDelegate, MHLazyTableImagesDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *foodTrucks;
 
