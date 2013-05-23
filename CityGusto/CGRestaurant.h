@@ -70,6 +70,8 @@
 @property (nonatomic, strong) NSString *twitterUserName;
 @property (nonatomic, strong) NSString *facebookURL;
 
+@property (nonatomic, strong) NSString *hoursString;
+
 @property (nonatomic, strong) NSNumber *latitude;
 @property (nonatomic, strong) NSNumber *longitude;
 @property (nonatomic, strong) NSNumber *distance;

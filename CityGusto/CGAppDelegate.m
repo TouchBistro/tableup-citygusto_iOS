@@ -132,6 +132,7 @@
      , @"cuisineNames"
      , @"website"
      , @"distance"
+     , @"hoursString"
      ]];
     
     

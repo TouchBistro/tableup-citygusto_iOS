@@ -60,6 +60,10 @@
         [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Credit Cards" value:self.selectedRestaurant.creditcardNames]];
     }
     
+    if (self.selectedRestaurant.hoursString){
+        [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Hours" value:self.selectedRestaurant.hoursString]];
+    }
+    
     [super viewDidLoad];
 }
 
