@@ -6,9 +6,10 @@
 //  Copyright (c) 2013 CityGusto. All rights reserved.
 //
 
+#import "MHLazyTableImages.h"
 #import <UIKit/UIKit.h>
 
-@interface CGFoodTruckCell : UITableViewCell
+@interface CGFoodTruckCell : UITableViewCell <MHLazyTableImageCell>
 
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;

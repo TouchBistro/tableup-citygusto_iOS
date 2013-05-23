@@ -26,4 +26,8 @@
     // Configure the view for the selected state
 }
 
+- (void)lazyTableImages:(MHLazyTableImages*)lazyTableImages didLoadLazyImage:(UIImage *)image{
+    self.primaryPhotoImage.image = image;
+}
+
 @end

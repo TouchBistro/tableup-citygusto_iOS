@@ -15,4 +15,8 @@
     [super setSelected:selected animated:animated];
 }
 
+- (void)lazyTableImages:(MHLazyTableImages*)lazyTableImages didLoadLazyImage:(UIImage *)image{
+    self.primaryPhotoImage.image = image;
+}
+
 @end
