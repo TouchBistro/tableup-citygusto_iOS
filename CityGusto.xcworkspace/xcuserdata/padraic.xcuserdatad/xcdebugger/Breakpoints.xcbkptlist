@@ -47,11 +47,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListViewController.m"
-         timestampString = "390959660.280281"
+         timestampString = "391006788.137398"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "161"
-         endingLineNumber = "161"
+         startingLineNumber = "171"
+         endingLineNumber = "171"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -60,13 +60,13 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListViewController.m"
-         timestampString = "390959790.142637"
+         timestampString = "391006788.137398"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "322"
-         endingLineNumber = "322"
-         landmarkName = "@implementation CGRestaurantListViewController"
-         landmarkType = "3">
+         startingLineNumber = "334"
+         endingLineNumber = "334"
+         landmarkName = "-prepareForSegue:sender:"
+         landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
          shouldBeEnabled = "No"
@@ -476,11 +476,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListViewController.m"
-         timestampString = "390959790.142637"
+         timestampString = "391006788.137398"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "301"
-         endingLineNumber = "301"
+         startingLineNumber = "313"
+         endingLineNumber = "313"
          landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -489,11 +489,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListViewController.m"
-         timestampString = "390959790.142637"
+         timestampString = "391006788.137398"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "325"
-         endingLineNumber = "325"
+         startingLineNumber = "337"
+         endingLineNumber = "337"
          landmarkName = "-prepareForSegue:sender:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1061,11 +1061,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantListViewController.m"
-         timestampString = "390839532.467995"
+         timestampString = "391006788.137398"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "38"
-         endingLineNumber = "38"
+         startingLineNumber = "48"
+         endingLineNumber = "48"
          landmarkName = "-viewDidLoad"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1314,6 +1314,19 @@
          startingLineNumber = "161"
          endingLineNumber = "161"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CityGusto/CGRestaurantCell.m"
+         timestampString = "391009079.18325"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "25"
+         endingLineNumber = "25"
+         landmarkName = "-lazyTableImages:didLoadLazyImage:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

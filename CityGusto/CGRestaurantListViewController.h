@@ -8,9 +8,10 @@
 
 #import "CGRestaurant.h"
 #import "CGRestaurantOptionsViewController.h"
+#import "MHLazyTableImages.h"
 #import <UIKit/UIKit.h>
 
-@interface CGRestaurantListViewController : UITableViewController <CGRestaurantOptionsViewDelegate>
+@interface CGRestaurantListViewController : UITableViewController <CGRestaurantOptionsViewDelegate, MHLazyTableImagesDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *restaurants;
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;

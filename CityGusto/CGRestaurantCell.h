@@ -5,10 +5,10 @@
 //  Created by Padraic Doyle on 3/12/13.
 //  Copyright (c) 2013 CityGusto. All rights reserved.
 //
-
+#import "MHLazyTableImages.h"
 #import <UIKit/UIKit.h>
 
-@interface CGRestaurantCell : UITableViewCell
+@interface CGRestaurantCell : UITableViewCell <MHLazyTableImageCell>
 
 @property (strong, nonatomic) IBOutlet UIView *headerView;
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;

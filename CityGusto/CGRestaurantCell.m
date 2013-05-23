@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 CityGusto. All rights reserved.
 //
 
+#import "MHLazyTableImages.h"
 #import "CGRestaurantCell.h"
 
 @implementation CGRestaurantCell
@@ -18,6 +19,10 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
 {
     [super setSelected:selected animated:animated];
+}
+
+- (void)lazyTableImages:(MHLazyTableImages*)lazyTableImages didLoadLazyImage:(UIImage *)image{
+    self.primaryPhotoImage.image = image;
 }
 
 @end
