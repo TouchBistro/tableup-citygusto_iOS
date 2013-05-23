@@ -14,15 +14,19 @@
 #import "CGEventOptionsViewController.h"
 #import "CGEventDetailViewController.h"
 #import "CGEventMapViewController.h"
+#import "MHLazyTableImages.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
+#define AppIconHeight    60.0f
 
 @interface CGEventListViewController ()
 
 @end
 
-@implementation CGEventListViewController
+@implementation CGEventListViewController{
+    MHLazyTableImages *_lazyImages;
+}
 
 @synthesize events;
 @synthesize selectedEvent;
@@ -36,6 +40,11 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
     }
+    
+    _lazyImages = [[MHLazyTableImages alloc] init];
+    _lazyImages.placeholderImage = [UIImage imageNamed:@"CityGusto App Icon - 60x60.png"];
+    _lazyImages.delegate = self;
+    _lazyImages.tableView = self.tableView;
     
     [self setDataLoaded:NO];
     
@@ -152,11 +161,13 @@
         
         cell.nameLabel.text = event.name;
         
-        NSURL *url = [NSURL URLWithString:event.venuePhotoURL];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
+        //NSURL *url = [NSURL URLWithString:event.venuePhotoURL];
+        //NSData *data = [NSData dataWithContentsOfURL:url];
+        //UIImage *image = [UIImage imageWithData:data];
         
-        cell.primaryPhotoImage.image = image;
+        //cell.primaryPhotoImage.image = image;
+        
+        [_lazyImages addLazyImageForCell:cell withIndexPath:indexPath];
         
         cell.venueLabel.text = event.venueName;
         
@@ -195,7 +206,7 @@
         [cell.primaryPhotoImage.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
         
         // New line
-        [cell.primaryPhotoImage.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.primaryPhotoImage.bounds].CGPath];
+        //[cell.primaryPhotoImage.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.primaryPhotoImage.bounds].CGPath];
     }
     
     return cell;
@@ -311,6 +322,44 @@
 - (void) stopSpinner {
     [self.activityView stopAnimating];
     [self.activityView removeFromSuperview];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
+{
+	[_lazyImages scrollViewDidEndDragging:scrollView willDecelerate:decelerate];
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+	[_lazyImages scrollViewDidEndDecelerating:scrollView];
+}
+
+#pragma mark - MHLazyTableImagesDelegate
+
+- (NSURL *)lazyTableImages:(MHLazyTableImages *)lazyTableImages lazyImageURLForIndexPath:(NSIndexPath *)indexPath
+{
+    CGEvent *event = [self.events objectAtIndex:indexPath.row];
+	return [NSURL URLWithString:event.venuePhotoURL];
+}
+
+- (UIImage *)lazyTableImages:(MHLazyTableImages *)lazyTableImages postProcessLazyImage:(UIImage *)image forIndexPath:(NSIndexPath *)indexPath
+{
+    if (image.size.width != AppIconHeight && image.size.height != AppIconHeight)
+ 		return [self scaleImage:image toSize:CGSizeMake(AppIconHeight, AppIconHeight)];
+    else
+        return image;
+}
+
+- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)size
+{
+	UIGraphicsBeginImageContextWithOptions(size, YES, 0.0f);
+	CGRect imageRect = CGRectMake(0.0f, 0.0f, size.width, size.height);
+	[image drawInRect:imageRect];
+	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	return newImage;
 }
 
 @end
