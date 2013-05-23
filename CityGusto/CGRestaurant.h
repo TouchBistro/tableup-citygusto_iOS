@@ -107,6 +107,4 @@
 @property (nonatomic, strong) NSMutableArray *restaurantListPositions;
 @property (nonatomic, strong) NSMutableArray *reviewLinks;
 
-@property (nonatomic, strong) UIImage *image;
-
 @end
