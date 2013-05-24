@@ -59,7 +59,7 @@
     
     if (view == nil)
     {
-        view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
+        view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, 275.0f, 275.0f)];
         view.contentMode = UIViewContentModeScaleAspectFit;
     }
     
