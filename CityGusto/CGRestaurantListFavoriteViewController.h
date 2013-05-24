@@ -7,9 +7,10 @@
 //
 
 #import "CGRestaurant.h"
+#import "MHLazyTableImages.h"
 #import <UIKit/UIKit.h>
 
-@interface CGRestaurantListFavoriteViewController : UITableViewController
+@interface CGRestaurantListFavoriteViewController : UITableViewController <MHLazyTableImagesDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *restaurants;
 

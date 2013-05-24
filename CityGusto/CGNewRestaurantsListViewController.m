@@ -10,16 +10,21 @@
 #import "CGRestaurant.h"
 #import "CGRestaurantCell.h"
 #import "CGRestaurantMapViewController.h"
+#import "MHLazyTableImages.h"
 #import "CGRestaurantHomeViewController.h"
 #import "CGRestaurantParameter.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
+#define AppIconHeight    60.0f
+
 @interface CGNewRestaurantsListViewController ()
 
 @end
 
-@implementation CGNewRestaurantsListViewController
+@implementation CGNewRestaurantsListViewController{
+    MHLazyTableImages *_lazyImages;
+}
 
 @synthesize restaurants;
 @synthesize selectedRestaurant;
@@ -31,6 +36,11 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
     }
+    
+    _lazyImages = [[MHLazyTableImages alloc] init];
+    _lazyImages.placeholderImage = [UIImage imageNamed:@"CityGusto App Icon - 60x60.png"];
+    _lazyImages.delegate = self;
+    _lazyImages.tableView = self.tableView;
     
     UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
     [self.mapButtonItem setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
@@ -86,11 +96,13 @@
         cell.nameLabel.text = restaurant.name;
 //        cell.textLabel.textColor = [UIColor colorWithRed:98.0f/255.0f green:98.0f/255.0f blue:98.0f/255.0f alpha:1.0f];
         
-        NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
-        NSData *data = [NSData dataWithContentsOfURL:url];
-        UIImage *image = [UIImage imageWithData:data];
+        //NSURL *url = [NSURL URLWithString:restaurant.primaryPhotoURL];
+        //NSData *data = [NSData dataWithContentsOfURL:url];
+        //UIImage *image = [UIImage imageWithData:data];
         
-        cell.primaryPhotoImage.image = image;
+        //cell.primaryPhotoImage.image = image;
+        
+        [_lazyImages addLazyImageForCell:cell withIndexPath:indexPath];
         
         NSString *topList = @"Currently in Top 5 of ";
         topList = [topList stringByAppendingString:[restaurant.numberOfTopFiveLists stringValue]];
@@ -161,7 +173,7 @@
         [cell.primaryPhotoImage.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
         
     	// New line
-        [cell.primaryPhotoImage.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.primaryPhotoImage.bounds].CGPath];
+        //[cell.primaryPhotoImage.layer setShadowPath:[UIBezierPath bezierPathWithRect:cell.primaryPhotoImage.bounds].CGPath];
         
     }
     
@@ -260,6 +272,32 @@
                                                   [alert show];
                                                   NSLog(@"Hit error: %@", error);
                                               }];
+}
+
+#pragma mark - MHLazyTableImagesDelegate
+
+- (NSURL *)lazyTableImages:(MHLazyTableImages *)lazyTableImages lazyImageURLForIndexPath:(NSIndexPath *)indexPath
+{
+    CGRestaurant *restaurant = [self.restaurants objectAtIndex:indexPath.row];
+	return [NSURL URLWithString:restaurant.primaryPhotoURL];
+}
+
+- (UIImage *)lazyTableImages:(MHLazyTableImages *)lazyTableImages postProcessLazyImage:(UIImage *)image forIndexPath:(NSIndexPath *)indexPath
+{
+    if (image.size.width != AppIconHeight && image.size.height != AppIconHeight)
+ 		return [self scaleImage:image toSize:CGSizeMake(AppIconHeight, AppIconHeight)];
+    else
+        return image;
+}
+
+- (UIImage *)scaleImage:(UIImage *)image toSize:(CGSize)size
+{
+	UIGraphicsBeginImageContextWithOptions(size, YES, 0.0f);
+	CGRect imageRect = CGRectMake(0.0f, 0.0f, size.width, size.height);
+	[image drawInRect:imageRect];
+	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
+	UIGraphicsEndImageContext();
+	return newImage;
 }
 
 @end
