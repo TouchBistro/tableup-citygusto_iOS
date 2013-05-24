@@ -203,7 +203,7 @@
         cell.nameLabel.layer.shadowRadius = 3.0;
         cell.nameLabel.layer.shadowOpacity = 0.5;
         
-        [cell.primaryPhotoImage.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+        [cell.primaryPhotoImage.layer setBorderColor:[UIColor whiteColor].CGColor];
         [cell.primaryPhotoImage.layer setBorderWidth:1.5f];
         [cell.primaryPhotoImage.layer setShadowColor:[UIColor blackColor].CGColor];
         [cell.primaryPhotoImage.layer setShadowOpacity:0.8];
