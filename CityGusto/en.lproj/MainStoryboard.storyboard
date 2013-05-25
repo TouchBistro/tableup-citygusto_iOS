@@ -1771,19 +1771,19 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="1kd-K7-vWX" firstAttribute="trailing" secondItem="HN7-jW-Ftc" secondAttribute="trailing" type="default" id="3TM-ff-lYg"/>
-                                    <constraint firstAttribute="bottom" secondItem="soi-GU-cbK" secondAttribute="bottom" constant="571" id="8h7-Kv-q0R"/>
-                                    <constraint firstItem="soi-GU-cbK" firstAttribute="centerX" secondItem="HN7-jW-Ftc" secondAttribute="centerX" type="default" id="ILC-uz-f05"/>
+                                    <constraint firstItem="lYy-vs-Ei7" firstAttribute="top" secondItem="HN7-jW-Ftc" secondAttribute="top" type="default" id="FXx-mm-kxw"/>
+                                    <constraint firstItem="1kd-K7-vWX" firstAttribute="top" secondItem="HN7-jW-Ftc" secondAttribute="top" constant="80" id="JIy-Vj-7eI"/>
                                     <constraint firstItem="lYy-vs-Ei7" firstAttribute="leading" secondItem="HN7-jW-Ftc" secondAttribute="leading" type="default" id="T4p-YM-3b9"/>
-                                    <constraint firstItem="lYy-vs-Ei7" firstAttribute="top" secondItem="HN7-jW-Ftc" secondAttribute="top" type="default" id="Yw4-vb-sKB"/>
                                     <constraint firstItem="EGj-Xg-vWy" firstAttribute="trailing" secondItem="HN7-jW-Ftc" secondAttribute="trailing" type="default" id="a7y-vY-m1e"/>
                                     <constraint firstItem="soi-GU-cbK" firstAttribute="trailing" secondItem="HN7-jW-Ftc" secondAttribute="trailing" type="default" id="bCv-Wh-nzL"/>
                                     <constraint firstItem="1kd-K7-vWX" firstAttribute="leading" secondItem="HN7-jW-Ftc" secondAttribute="leading" type="default" id="cox-ep-W49"/>
-                                    <constraint firstItem="EGj-Xg-vWy" firstAttribute="top" secondItem="HN7-jW-Ftc" secondAttribute="top" constant="30" id="dKs-rw-K0r"/>
-                                    <constraint firstItem="1kd-K7-vWX" firstAttribute="top" secondItem="HN7-jW-Ftc" secondAttribute="top" constant="80" id="f0S-gZ-q77"/>
                                     <constraint firstItem="lYy-vs-Ei7" firstAttribute="trailing" secondItem="HN7-jW-Ftc" secondAttribute="trailing" type="default" id="g4a-Tq-XBC"/>
                                     <constraint firstItem="soi-GU-cbK" firstAttribute="leading" secondItem="HN7-jW-Ftc" secondAttribute="leading" type="default" id="iDG-9Z-vE7"/>
+                                    <constraint firstAttribute="bottom" secondItem="soi-GU-cbK" secondAttribute="bottom" constant="970" id="j30-j0-M54"/>
+                                    <constraint firstItem="EGj-Xg-vWy" firstAttribute="top" secondItem="HN7-jW-Ftc" secondAttribute="top" constant="30" id="ond-Bf-9PB"/>
+                                    <constraint firstItem="soi-GU-cbK" firstAttribute="top" secondItem="HN7-jW-Ftc" secondAttribute="top" constant="130" id="pk8-DT-NyM"/>
                                     <constraint firstItem="EGj-Xg-vWy" firstAttribute="leading" secondItem="HN7-jW-Ftc" secondAttribute="leading" type="default" id="v3y-CA-7wO"/>
-                                    <constraint firstItem="soi-GU-cbK" firstAttribute="top" secondItem="HN7-jW-Ftc" secondAttribute="top" constant="129" id="zj7-Vi-sfm"/>
+                                    <constraint firstItem="EGj-Xg-vWy" firstAttribute="centerX" secondItem="HN7-jW-Ftc" secondAttribute="centerX" type="default" id="yry-8w-xcB"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1791,8 +1791,8 @@
                         <constraints>
                             <constraint firstItem="HN7-jW-Ftc" firstAttribute="leading" secondItem="ah2-wS-wpO" secondAttribute="leading" type="default" id="3bR-tZ-61c"/>
                             <constraint firstItem="HN7-jW-Ftc" firstAttribute="trailing" secondItem="ah2-wS-wpO" secondAttribute="trailing" type="default" id="BNw-Qw-EHg"/>
+                            <constraint firstAttribute="bottom" secondItem="HN7-jW-Ftc" secondAttribute="bottom" constant="-984" id="MuE-su-OfD"/>
                             <constraint firstItem="HN7-jW-Ftc" firstAttribute="top" secondItem="ah2-wS-wpO" secondAttribute="top" type="default" id="hui-th-Btf"/>
-                            <constraint firstAttribute="bottom" secondItem="HN7-jW-Ftc" secondAttribute="bottom" constant="-584" id="ixa-jE-6be"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5hb-xA-zo9">
