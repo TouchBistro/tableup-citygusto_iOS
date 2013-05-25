@@ -26,6 +26,8 @@
 		1B54D47617077FE900E2F51A /* reviewdollars4.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D47117077FE900E2F51A /* reviewdollars4.png */; };
 		1B54D47717077FE900E2F51A /* reviewdollars5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D47217077FE900E2F51A /* reviewdollars5.png */; };
 		1B7B96D91745188A0023EB6A /* buttonBackgroundBlue.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B7B96D81745188A0023EB6A /* buttonBackgroundBlue.png */; };
+		1B85E31A17506A880028042D /* buttonBackgroundLightGreySM.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B85E31917506A880028042D /* buttonBackgroundLightGreySM.png */; };
+		1B85E31D17506A910028042D /* buttonBackgroundGreySM.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B85E31C17506A910028042D /* buttonBackgroundGreySM.png */; };
 		1B97DD34172B30F1001063B5 /* CGLocalMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B97DD33172B30F1001063B5 /* CGLocalMapViewController.m */; };
 		1B97DD38172B31E7001063B5 /* CGLocalAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B97DD37172B31E7001063B5 /* CGLocalAnnotation.m */; };
 		1B980277174C4BF50050D51E /* CGRestaurantListFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B980276174C4BF40050D51E /* CGRestaurantListFavoriteViewController.m */; };
@@ -187,6 +189,8 @@
 		1B54D47117077FE900E2F51A /* reviewdollars4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reviewdollars4.png; sourceTree = "<group>"; };
 		1B54D47217077FE900E2F51A /* reviewdollars5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reviewdollars5.png; sourceTree = "<group>"; };
 		1B7B96D81745188A0023EB6A /* buttonBackgroundBlue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBackgroundBlue.png; sourceTree = "<group>"; };
+		1B85E31917506A880028042D /* buttonBackgroundLightGreySM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBackgroundLightGreySM.png; sourceTree = "<group>"; };
+		1B85E31C17506A910028042D /* buttonBackgroundGreySM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBackgroundGreySM.png; sourceTree = "<group>"; };
 		1B97DD32172B30F1001063B5 /* CGLocalMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLocalMapViewController.h; sourceTree = "<group>"; };
 		1B97DD33172B30F1001063B5 /* CGLocalMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGLocalMapViewController.m; sourceTree = "<group>"; };
 		1B97DD36172B31E7001063B5 /* CGLocalAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGLocalAnnotation.h; sourceTree = "<group>"; };
@@ -672,6 +676,8 @@
 		1BA698AF16EF821000191786 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1B85E31C17506A910028042D /* buttonBackgroundGreySM.png */,
+				1B85E31917506A880028042D /* buttonBackgroundLightGreySM.png */,
 				1BBBB28A174D89E1009E84D2 /* CityGusto App Icon - 60x60.png */,
 				1BC8AC0C17255FAB00317873 /* tabs */,
 				1BC8AC041724ED0400317873 /* buttonBackgroundGreen.png */,
@@ -887,6 +893,8 @@
 				1B980285174D4A530050D51E /* foodTruck.png in Resources */,
 				1B980286174D4A530050D51E /* foodTruck@2x.png in Resources */,
 				1BBBB28B174D89E1009E84D2 /* CityGusto App Icon - 60x60.png in Resources */,
+				1B85E31A17506A880028042D /* buttonBackgroundLightGreySM.png in Resources */,
+				1B85E31D17506A910028042D /* buttonBackgroundGreySM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
