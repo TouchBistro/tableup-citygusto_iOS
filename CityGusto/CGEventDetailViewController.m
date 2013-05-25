@@ -72,9 +72,9 @@
     self.numberOfLikesLabel.text = [self.event.numberOfLikes stringValue];
     self.numberOfDislikesLabel.text = [self.event.numberOfDislikes stringValue];
     
-    [self.ratingsView.layer setCornerRadius:5.0f];
-    [self.ratingsView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [self.ratingsView.layer setBorderWidth:0.5f];
+    //[self.ratingsView.layer setCornerRadius:5.0f];
+    //[self.ratingsView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    //[self.ratingsView.layer setBorderWidth:0.5f];
     
     NSString *numberOfRatings = [self.event.numberOfRatings stringValue];
     numberOfRatings = [numberOfRatings stringByAppendingString:@" Ratings"];
@@ -313,33 +313,33 @@
     
     [self.venueView.layer addSublayer:bottomBorder];
     
-    CALayer *bottomDateBorder = [CALayer layer];
+    //CALayer *bottomDateBorder = [CALayer layer];
     
-    bottomDateBorder.frame = CGRectMake(0.0f, self.dateView.frame.size.height - 1, self.dateView.frame.size.width, 1.0f);
-    bottomDateBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    //bottomDateBorder.frame = CGRectMake(0.0f, self.dateView.frame.size.height - 1, self.dateView.frame.size.width, 1.0f);
+    //bottomDateBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
     
-    [self.dateView.layer addSublayer:bottomDateBorder];
+    //[self.dateView.layer addSublayer:bottomDateBorder];
     
-    CALayer *bottomCallBorder = [CALayer layer];
+    //CALayer *bottomCallBorder = [CALayer layer];
     
-    bottomCallBorder.frame = CGRectMake(0.0f, self.callView.frame.size.height - 1, self.callView.frame.size.width, 1.0f);
-    bottomCallBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    //bottomCallBorder.frame = CGRectMake(0.0f, self.callView.frame.size.height - 1, self.callView.frame.size.width, 1.0f);
+    //bottomCallBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
     
-    [self.callView.layer addSublayer:bottomCallBorder];
+    //[self.callView.layer addSublayer:bottomCallBorder];
     
-    CALayer *bottomLikeBorder = [CALayer layer];
+    //CALayer *bottomLikeBorder = [CALayer layer];
     
-    bottomLikeBorder.frame = CGRectMake(0.0f, self.likeView.frame.size.height - 1, self.likeView.frame.size.width, 1.0f);
-    bottomLikeBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    //bottomLikeBorder.frame = CGRectMake(0.0f, self.likeView.frame.size.height - 1, self.likeView.frame.size.width, 1.0f);
+    //bottomLikeBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
     
-    [self.likeView.layer addSublayer:bottomLikeBorder];
+    //[self.likeView.layer addSublayer:bottomLikeBorder];
     
-    CALayer *bottomVenueWebsiteBorder = [CALayer layer];
+    //CALayer *bottomVenueWebsiteBorder = [CALayer layer];
     
-    bottomVenueWebsiteBorder.frame = CGRectMake(0.0f, self.venueWebsiteView.frame.size.height - 1, self.venueWebsiteView.frame.size.width, 1.0f);
-    bottomVenueWebsiteBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
+    //bottomVenueWebsiteBorder.frame = CGRectMake(0.0f, self.venueWebsiteView.frame.size.height - 1, self.venueWebsiteView.frame.size.width, 1.0f);
+    //bottomVenueWebsiteBorder.backgroundColor = [UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor;
     
-    [self.venueWebsiteView.layer addSublayer:bottomVenueWebsiteBorder];
+    //[self.venueWebsiteView.layer addSublayer:bottomVenueWebsiteBorder];
     
 }
 
