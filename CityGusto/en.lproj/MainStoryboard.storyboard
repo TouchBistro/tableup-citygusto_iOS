@@ -1424,7 +1424,7 @@
             <objects>
                 <viewController id="19t-C9-hou" customClass="CGRestaurantMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FjG-ea-Xw2">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yeB-p5-hx1"/>
@@ -3044,9 +3044,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="9WE-zy-LJh" secondAttribute="trailing" constant="22" id="69e-qc-j1f"/>
                                     <constraint firstItem="9WE-zy-LJh" firstAttribute="centerY" secondItem="ukj-sQ-c9w" secondAttribute="centerY" type="default" id="7Ee-Sl-KPB"/>
                                     <constraint firstItem="ukj-sQ-c9w" firstAttribute="trailing" secondItem="I6C-ZH-uSn" secondAttribute="trailing" type="default" id="MH3-qk-yNq"/>
-                                    <constraint firstAttribute="trailing" secondItem="9WE-zy-LJh" secondAttribute="trailing" constant="9" id="Xb0-kY-QWw"/>
                                     <constraint firstItem="ukj-sQ-c9w" firstAttribute="leading" secondItem="I6C-ZH-uSn" secondAttribute="leading" type="default" id="cVd-fk-AN6"/>
                                     <constraint firstItem="9WE-zy-LJh" firstAttribute="centerY" secondItem="I6C-ZH-uSn" secondAttribute="centerY" type="default" id="h0I-JG-q43"/>
                                 </constraints>
@@ -3261,7 +3261,7 @@
             <objects>
                 <tableViewController id="am7-Sl-lRs" customClass="CGRestaurantListListViewController" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" id="0NK-YL-UiO">
-                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92941182850000004" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
                         <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
@@ -4710,10 +4710,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="dle-eJ-xA0"/>
-        <segue reference="8NP-31-OYH"/>
-        <segue reference="ziQ-Qk-TXW"/>
-        <segue reference="LJ8-fa-mpH"/>
+        <segue reference="Em6-Bi-MbD"/>
+        <segue reference="iew-l2-cJO"/>
+        <segue reference="NQz-2H-uJM"/>
         <segue reference="PaO-af-0TP"/>
+        <segue reference="ziQ-Qk-TXW"/>
     </inferredMetricsTieBreakers>
 </document>
