@@ -66,9 +66,6 @@
 		1BA6984516ECCEA400191786 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1BA6984316ECCEA400191786 /* InfoPlist.strings */; };
 		1BA6984716ECCEA400191786 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6984616ECCEA400191786 /* main.m */; };
 		1BA6984B16ECCEA400191786 /* CGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6984A16ECCEA400191786 /* CGAppDelegate.m */; };
-		1BA6984D16ECCEA400191786 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA6984C16ECCEA400191786 /* Default.png */; };
-		1BA6984F16ECCEA400191786 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA6984E16ECCEA400191786 /* Default@2x.png */; };
-		1BA6985116ECCEA400191786 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BA6985016ECCEA400191786 /* Default-568h@2x.png */; };
 		1BA6985416ECCEA400191786 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1BA6985216ECCEA400191786 /* MainStoryboard.storyboard */; };
 		1BA6987216EF486B00191786 /* CGRestaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6987116EF486B00191786 /* CGRestaurant.m */; };
 		1BA6988216EF4FF100191786 /* CGCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BA6988116EF4FF100191786 /* CGCreditCard.m */; };
@@ -251,9 +248,6 @@
 		1BA6984816ECCEA400191786 /* CityGusto-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CityGusto-Prefix.pch"; sourceTree = "<group>"; };
 		1BA6984916ECCEA400191786 /* CGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGAppDelegate.h; sourceTree = "<group>"; };
 		1BA6984A16ECCEA400191786 /* CGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGAppDelegate.m; sourceTree = "<group>"; };
-		1BA6984C16ECCEA400191786 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		1BA6984E16ECCEA400191786 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		1BA6985016ECCEA400191786 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		1BA6985316ECCEA400191786 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		1BA6987016EF486B00191786 /* CGRestaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGRestaurant.h; sourceTree = "<group>"; };
 		1BA6987116EF486B00191786 /* CGRestaurant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurant.m; sourceTree = "<group>"; };
@@ -514,9 +508,6 @@
 				1BA6984316ECCEA400191786 /* InfoPlist.strings */,
 				1BA6984616ECCEA400191786 /* main.m */,
 				1BA6984816ECCEA400191786 /* CityGusto-Prefix.pch */,
-				1BA6984C16ECCEA400191786 /* Default.png */,
-				1BA6984E16ECCEA400191786 /* Default@2x.png */,
-				1BA6985016ECCEA400191786 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -819,9 +810,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				1BA6984516ECCEA400191786 /* InfoPlist.strings in Resources */,
-				1BA6984D16ECCEA400191786 /* Default.png in Resources */,
-				1BA6984F16ECCEA400191786 /* Default@2x.png in Resources */,
-				1BA6985116ECCEA400191786 /* Default-568h@2x.png in Resources */,
 				1BA6985416ECCEA400191786 /* MainStoryboard.storyboard in Resources */,
 				1BA698CC16EF826500191786 /* 23-location-arrow-blue.png in Resources */,
 				1BA698CD16EF826500191786 /* 23-location-arrow-blue@2x.png in Resources */,
