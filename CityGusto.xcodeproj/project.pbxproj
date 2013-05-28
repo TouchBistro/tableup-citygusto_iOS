@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1B1B081B1703121300FF0372 /* CGCuisineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1B081A1703121300FF0372 /* CGCuisineViewController.m */; };
 		1B1B0833170326DD00FF0372 /* CGFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1B0832170326DD00FF0372 /* CGFeatureViewController.m */; };
+		1B2854CA17542042004885FF /* buttonBackgroundGreenSM.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2854C917542042004885FF /* buttonBackgroundGreenSM.png */; };
 		1B54D46217077FDF00E2F51A /* stars_0.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D45717077FDF00E2F51A /* stars_0.png */; };
 		1B54D46317077FDF00E2F51A /* stars_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D45817077FDF00E2F51A /* stars_5.png */; };
 		1B54D46417077FDF00E2F51A /* stars_4_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B54D45917077FDF00E2F51A /* stars_4_5.png */; };
@@ -169,6 +170,7 @@
 		1B1B081A1703121300FF0372 /* CGCuisineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCuisineViewController.m; sourceTree = "<group>"; };
 		1B1B0831170326DD00FF0372 /* CGFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFeatureViewController.h; sourceTree = "<group>"; };
 		1B1B0832170326DD00FF0372 /* CGFeatureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFeatureViewController.m; sourceTree = "<group>"; };
+		1B2854C917542042004885FF /* buttonBackgroundGreenSM.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buttonBackgroundGreenSM.png; sourceTree = "<group>"; };
 		1B54D45717077FDF00E2F51A /* stars_0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_0.png; sourceTree = "<group>"; };
 		1B54D45817077FDF00E2F51A /* stars_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_5.png; sourceTree = "<group>"; };
 		1B54D45917077FDF00E2F51A /* stars_4_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stars_4_5.png; sourceTree = "<group>"; };
@@ -667,6 +669,7 @@
 		1BA698AF16EF821000191786 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				1B2854C917542042004885FF /* buttonBackgroundGreenSM.png */,
 				1B85E31C17506A910028042D /* buttonBackgroundGreySM.png */,
 				1B85E31917506A880028042D /* buttonBackgroundLightGreySM.png */,
 				1BBBB28A174D89E1009E84D2 /* CityGusto App Icon - 60x60.png */,
@@ -883,6 +886,7 @@
 				1BBBB28B174D89E1009E84D2 /* CityGusto App Icon - 60x60.png in Resources */,
 				1B85E31A17506A880028042D /* buttonBackgroundLightGreySM.png in Resources */,
 				1B85E31D17506A910028042D /* buttonBackgroundGreySM.png in Resources */,
+				1B2854CA17542042004885FF /* buttonBackgroundGreenSM.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1056,6 +1060,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B7108018E0D4E1499AB8B8E /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1072,6 +1078,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B7108018E0D4E1499AB8B8E /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
