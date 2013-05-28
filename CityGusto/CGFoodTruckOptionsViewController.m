@@ -160,5 +160,16 @@
                                               }];
 }
 
+- (IBAction)clearAll:(id)sender{
+    [[CGRestaurantParameter shared].foodTruckCuisines removeAllObjects];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Cleared"
+                                                    message:@"Cuisines cleared."
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+    [alert show];
+}
+
 
 @end
