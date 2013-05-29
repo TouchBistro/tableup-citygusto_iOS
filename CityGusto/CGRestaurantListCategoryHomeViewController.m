@@ -503,6 +503,8 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [self.locationManager stopUpdatingLocation];
+    
     CLLocation *location = [locations objectAtIndex:0];
     
     CGRestaurantParameter *params = [CGRestaurantParameter shared];
@@ -511,7 +513,7 @@
     params.lat = [NSNumber numberWithDouble:location.coordinate.latitude];
     params.lon = [NSNumber numberWithDouble:location.coordinate.longitude];
     
-    [self.locationManager stopUpdatingLocation];
+    [self locationChanged];
 }
 
 
