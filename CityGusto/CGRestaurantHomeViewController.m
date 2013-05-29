@@ -55,13 +55,13 @@
     
     topFiveLabel.text = topFive;
     
-    [topFiveView.layer setCornerRadius:5.0f];
-    [topFiveView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [topFiveView.layer setBorderWidth:0.5f];
+    //[topFiveView.layer setCornerRadius:5.0f];
+    //[topFiveView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    //[topFiveView.layer setBorderWidth:0.5f];
     
-    [ratingsView.layer setCornerRadius:5.0f];
-    [ratingsView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
-    [ratingsView.layer setBorderWidth:0.5f];
+    //[ratingsView.layer setCornerRadius:5.0f];
+    //[ratingsView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
+    //[ratingsView.layer setBorderWidth:0.5f];
     
     self.addressLabel.text = self.restaurant.address1;
     NSString *cityText = self.restaurant.cityName;
