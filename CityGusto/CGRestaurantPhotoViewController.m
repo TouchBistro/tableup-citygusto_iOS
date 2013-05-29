@@ -35,6 +35,8 @@
         [self.view addSubview:noPhotoLabel];
     }else{
         self.carousel.type = iCarouselTypeCoverFlow2;
+    	self.carousel.decelerationRate = 0.95f;
+		self.carousel.scrollSpeed = 0.5f;
     }
     
     [super viewDidLoad];

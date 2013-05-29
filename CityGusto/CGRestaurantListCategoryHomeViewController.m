@@ -92,7 +92,7 @@
     self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
     
     self.carousel.type = iCarouselTypeCoverFlow2;
-	self.carousel.decelerationRate = 0.5f;
+	self.carousel.decelerationRate = 0.95f;
 	self.carousel.scrollSpeed = 0.5f;
     
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
