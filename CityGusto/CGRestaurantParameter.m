@@ -308,6 +308,12 @@
         }
     }
     
+    if (self.foodTruckOpenFilter){
+        [params setObject:@"true" forKey:@"foodTruckOpenFilter"];
+    }else{
+        [params setObject:@"false" forKey:@"foodTruckOpenFilter"];
+    }
+    
     if (self.foodTruckCuisines.count > 0){
         NSString *cuisineString = [[NSString alloc] init];
         
