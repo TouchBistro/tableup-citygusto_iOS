@@ -19,6 +19,9 @@
 @implementation CGLocalMapViewController
 
 - (void)viewWillAppear:(BOOL)animated {
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     //boston center
     CLLocationCoordinate2D zoomLocation;
     zoomLocation.latitude = 42.3583;

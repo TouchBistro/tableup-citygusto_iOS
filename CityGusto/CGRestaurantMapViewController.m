@@ -28,18 +28,6 @@
 - (void)viewDidLoad
 {
     self.mapView.delegate = self;
-    
-/*    CLLocationCoordinate2D zoomLocation;
-    zoomLocation.latitude = 42.3583;
-    zoomLocation.longitude= -71.0603;
-    
-    MKCoordinateRegion viewRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, 0.5 * METERS_PER_MILE, 0.5 * METERS_PER_MILE);
-    MKCoordinateRegion adjustedRegion = [self.mapView regionThatFits:viewRegion];
-    
-    [self.mapView setCenterCoordinate:zoomLocation animated:YES];
-    
-//    [self.mapView setRegion:adjustedRegion animated:YES];
-  */  
     [super viewDidLoad];
 }
 
@@ -49,6 +37,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     for (CGRestaurant *restaurant in restaurants) {
         CLLocation *location = [[CLLocation alloc] initWithLatitude:[restaurant.latitude doubleValue] longitude:[restaurant.longitude doubleValue]];
         
@@ -66,8 +57,8 @@
         zoomRect = MKMapRectUnion(zoomRect, pointRect);
     }
     [mapView setVisibleMapRect:zoomRect animated:YES];
-
 }
+
 
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

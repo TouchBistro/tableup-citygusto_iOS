@@ -343,6 +343,7 @@
 //    params.lon = [NSNumber numberWithDouble:-71.06966];
 //    params.lat = [NSNumber numberWithDouble:42.35657];
     
+//    params.cityId = [NSNumber numberWithInt:4];
     params.cityId = [NSNumber numberWithInt:2];
     params.neighborhoodId = nil;
     [params changeLocation];

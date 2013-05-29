@@ -11,6 +11,7 @@
 #import "CGEventAnnotation.h"
 #import "CGEventDetailViewController.h"
 #import "CGEventMapViewController.h"
+#import <RestKit/RestKit.h>
 
 @interface CGEventMapViewController ()
 
@@ -20,10 +21,13 @@
 
 @synthesize events;
 
+#define METERS_PER_MILE 1609.344
+
 - (void)viewDidLoad
 {
-    self.mapView.delegate = self;
     [super viewDidLoad];
+    self.mapView.delegate = self;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -32,6 +36,10 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
+
+}
+
+- (void)viewDidAppear:(BOOL)animated {
     for (CGEvent *event in self.events) {
         CLLocation *location = [[CLLocation alloc] initWithLatitude:[event.venueLatitude doubleValue] longitude:[event.venueLongitude doubleValue]];
         
@@ -43,12 +51,14 @@
     
     MKMapRect zoomRect = MKMapRectNull;
     for (id <MKAnnotation> annotation in self.mapView.annotations){
-        MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
-        MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
-        zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        if (![annotation isKindOfClass:[MKUserLocation class]] ) {
+            MKMapPoint annotationPoint = MKMapPointForCoordinate(annotation.coordinate);
+            MKMapRect pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0.1, 0.1);
+            zoomRect = MKMapRectUnion(zoomRect, pointRect);
+        }
     }
-    [self.mapView setVisibleMapRect:zoomRect animated:YES];
     
+    [self.mapView setVisibleMapRect:zoomRect animated:YES];
 }
 
 - (IBAction)cancel:(id)sender {
@@ -83,8 +93,29 @@
 
 -(void) showEventHome:(UIButton *) sender {
     CGEventAnnotation *annotation = [[self.mapView selectedAnnotations] objectAtIndex:0];
-    self.seletedEvent = annotation.event;
-    [self performSegueWithIdentifier:@"mapEventHomeSegue" sender:self];
+    CGEvent *event = annotation.event;
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:event.eventId, @"id", nil];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.seletedEvent = [[mappingResult array] objectAtIndex:0];
+                                                      
+                                                      [self stopSpinner];
+                                                      [self performSegueWithIdentifier:@"mapEventHomeSegue" sender:self];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -92,6 +123,51 @@
         CGEventDetailViewController *detailController = [segue destinationViewController];
         detailController.event = self.seletedEvent;
     }
+}
+
+- (void) startSpinner {
+    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
+    [self.view addSubview:self.activityView];
+    
+    [self.activityView startAnimating];
+}
+
+- (void) stopSpinner {
+    [self.activityView stopAnimating];
+    [self.activityView removeFromSuperview];
+}
+
+-(void)zoomToFitMapAnnotations:(MKMapView*)aMapView
+{
+    if([aMapView.annotations count] == 0)
+        return;
+    
+    CLLocationCoordinate2D topLeftCoord;
+    topLeftCoord.latitude = -90;
+    topLeftCoord.longitude = 180;
+    
+    CLLocationCoordinate2D bottomRightCoord;
+    bottomRightCoord.latitude = 90;
+    bottomRightCoord.longitude = -180;
+    
+    for(id <MKAnnotation> annotation in self.mapView.annotations)
+    {
+        topLeftCoord.longitude = fmin(topLeftCoord.longitude, annotation.coordinate.longitude);
+        topLeftCoord.latitude = fmax(topLeftCoord.latitude, annotation.coordinate.latitude);
+        
+        bottomRightCoord.longitude = fmax(bottomRightCoord.longitude, annotation.coordinate.longitude);
+        bottomRightCoord.latitude = fmin(bottomRightCoord.latitude, annotation.coordinate.latitude);
+    }
+    
+    MKCoordinateRegion region;
+    region.center.latitude = topLeftCoord.latitude - (topLeftCoord.latitude - bottomRightCoord.latitude) * 0.5;
+    region.center.longitude = topLeftCoord.longitude + (bottomRightCoord.longitude - topLeftCoord.longitude) * 0.5;
+    region.span.latitudeDelta = fabs(topLeftCoord.latitude - bottomRightCoord.latitude) * 1.1; // Add a little extra space on the sides
+    region.span.longitudeDelta = fabs(bottomRightCoord.longitude - topLeftCoord.longitude) * 1.1; // Add a little extra space on the sides
+    
+    region = [aMapView regionThatFits:region];
+    [self.mapView setRegion:region animated:YES];
 }
 
 @end

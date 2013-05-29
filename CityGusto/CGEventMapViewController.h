@@ -16,4 +16,6 @@
 
 @property (nonatomic, strong) CGEvent *seletedEvent;
 
+@property (nonatomic, strong) UIActivityIndicatorView *activityView;
+
 @end
