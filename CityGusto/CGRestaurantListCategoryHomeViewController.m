@@ -127,16 +127,13 @@
     
     self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
     
-    
-    
     self.locationManager = [[CLLocationManager alloc] init];
     [self.locationManager setDelegate:self];
+    
+    self.locationLoad = NO;
         
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    [self.locationManager startUpdatingLocation];
-    
-        
     
     [super viewDidLoad];
 }
@@ -216,6 +213,8 @@
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      [self.locationManager startUpdatingLocation];
+                                                      
                                                       if (mappingResult){
                                                           self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           if (self.restaurantListCategories.count > 0){
@@ -513,7 +512,11 @@
     params.lat = [NSNumber numberWithDouble:location.coordinate.latitude];
     params.lon = [NSNumber numberWithDouble:location.coordinate.longitude];
     
-    [self locationChanged];
+    if (self.locationLoad == NO){
+        self.locationLoad = YES;
+        [params changeLocation];
+        [self locationChanged];
+    }    
 }
 
 

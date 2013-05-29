@@ -51,6 +51,7 @@
 @property (nonatomic, retain) IBOutlet iCarousel *carousel;
 
 @property (nonatomic) BOOL wrap;
+@property (nonatomic) BOOL locationLoad;
 
 - (IBAction)locationChange:(id)sender;
 
