@@ -117,7 +117,7 @@
             [button setFrame:CGRectMake(20, 0, 280, 44)];
             
             [button setTitle:@"Twitter" forState:UIControlStateNormal];
-            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
             
             [button addTarget:self action:@selector(viewTwitter:)
              forControlEvents:UIControlEventTouchUpInside];
@@ -140,7 +140,7 @@
             
             
             [button setTitle:@"Facebook" forState:UIControlStateNormal];
-            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
             
             [button addTarget:self action:@selector(viewFacebook:)
              forControlEvents:UIControlEventTouchUpInside];
@@ -170,7 +170,7 @@
             }
             
             [button setTitle:@"Website" forState:UIControlStateNormal];
-            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
             
             [button addTarget:self action:@selector(viewWebsite:)
              forControlEvents:UIControlEventTouchUpInside];

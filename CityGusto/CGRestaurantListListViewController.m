@@ -40,7 +40,7 @@
     self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
     
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 7, 280, 21)];
-    [label setFont:[UIFont boldSystemFontOfSize:17]];
+    [label setFont:[UIFont boldSystemFontOfSize:14]];
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     
@@ -90,7 +90,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setFrame:CGRectMake(10, 35, 300, 44)];
     [button setTitle:@"Vote For This List" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
     button.titleLabel.textColor = [UIColor whiteColor];
     button.titleLabel.shadowColor = [UIColor blackColor];
 	button.titleLabel.shadowOffset = CGSizeMake(1, 1);
