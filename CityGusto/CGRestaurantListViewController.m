@@ -157,6 +157,27 @@
         
         [CGRestaurantParameter shared].offset = 0;
         
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/cuisines"
+                                               parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          [[CGRestaurantParameter shared].cuisinesForSelectedLocation removeAllObjects];
+                                                          [[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines removeAllObjects];
+                                                          
+                                                          [[CGRestaurantParameter shared].cuisinesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"cuisines"]];
+                                                          [[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"features"]];
+                                                      }
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                  }];
+        
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {

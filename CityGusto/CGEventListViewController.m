@@ -155,6 +155,27 @@
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
         [params setObject:@"true" forKey:@"reduced"];
         
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/categories"
+                                               parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          [[CGRestaurantParameter shared].categoriesForSelectedLocation removeAllObjects];
+                                                          [[CGRestaurantParameter shared].tagsForSelectedLocationAndCategories removeAllObjects];
+                                                          
+                                                          [[CGRestaurantParameter shared].categoriesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"categories"]];
+                                                          [[CGRestaurantParameter shared].tagsForSelectedLocationAndCategories addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"tags"]];
+                                                      }
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                  }];
+        
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
