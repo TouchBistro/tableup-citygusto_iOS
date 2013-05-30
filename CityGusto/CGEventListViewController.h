@@ -26,4 +26,10 @@
 
 @property (strong, nonatomic) UIView *noResultsView;
 
+@property (nonatomic, assign) BOOL locationChanged;
+
+-(void) startSpinner;
+-(void) stopSpinner;
+
+
 @end

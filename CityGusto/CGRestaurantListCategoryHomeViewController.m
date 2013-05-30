@@ -16,6 +16,7 @@
 #import "CGSelectRestaurantListViewController.h"
 #import "CGPhoto.h"
 #import "AsyncImageView.h"
+#import "CGAppDelegate.h"
 #import <CoreLocation/CoreLocation.h>
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
@@ -89,6 +90,9 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swithLocationChanged) name:locationChangedNotification object:nil];
+    self.locationChangedFlag = NO;
+    
     self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
     
     self.carousel.type = iCarouselTypeCoverFlow2;
@@ -134,6 +138,50 @@
         
     self.locationManager.distanceFilter = kCLDistanceFilterNone;
     self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    
+    if (self.currentCategory == nil){
+        [self.activityView startAnimating];
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
+                                               parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      [self.locationManager startUpdatingLocation];
+                                                      
+                                                      if (mappingResult){
+                                                          self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                          if (self.restaurantListCategories.count > 0){
+                                                              currentCategory = self.restaurantListCategories[0];
+                                                              if (currentCategory){
+                                                                  self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+                                                              }
+                                                              [self showRestaurantListCategory];
+                                                          }
+                                                      }
+                                                      
+                                                      [self.activityView stopAnimating];
+                                                      
+                                                      [self.restaurantListPhotoUrls removeAllObjects];
+                                                      NSUInteger count = 0;
+                                                      for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
+                                                          NSInteger index = MAX(0, count);
+                                                          
+                                                          [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
+                                                          count++;
+                                                      }
+                                                      
+                                                      [self.carousel reloadData];
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                      
+                                                      [self.activityView stopAnimating];
+                                                  }];
+    }
     
     [super viewDidLoad];
 }
@@ -208,13 +256,12 @@
 -(void) viewDidAppear:(BOOL)animated{
     [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
     
-    if (self.currentCategory == nil){
+    if (self.locationChangedFlag == YES){
+        self.locationChangedFlag = NO;
         [self.activityView startAnimating];
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                      [self.locationManager startUpdatingLocation];
-                                                      
                                                       if (mappingResult){
                                                           self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           if (self.restaurantListCategories.count > 0){
@@ -414,6 +461,7 @@
                                                   [self.activityView stopAnimating];
 
                                                   if (mappingResult){
+                                                      self.locationChangedFlag = NO;
                                                       self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                       if (self.restaurantListCategories.count > 0){
                                                           self.currentCategory = self.restaurantListCategories[0];
@@ -522,6 +570,10 @@
 
 - (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     [self.locationManager stopUpdatingLocation];
+}
+
+-(void) swithLocationChanged{
+    self.locationChangedFlag = YES;
 }
 
 @end

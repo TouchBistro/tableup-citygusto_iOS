@@ -11,6 +11,7 @@
 #import "CGRestaurantParameter.h"
 #import "CGCategory.h"
 #import "CGTag.h"
+#import "CGAppDelegate.h"
 #import <RestKit/RestKit.h>
 
 @implementation CGRestaurantParameter
@@ -352,66 +353,7 @@
 }
 
 - (void) changeLocation {
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/cuisines"
-                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
-                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  if (mappingResult){
-                                                      [self.cuisinesForSelectedLocation removeAllObjects];
-                                                      [self.featuresForSelectedLocationAndCuisines removeAllObjects];
-                                                      
-                                                      [self.cuisinesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"cuisines"]];
-                                                      [self.featuresForSelectedLocationAndCuisines addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"features"]];
-                                                  }
-                                              }
-                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                  message:@"There was an issue"
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"OK"
-                                                                                        otherButtonTitles:nil];
-                                                  [alert show];
-                                                  NSLog(@"Hit error: %@", error);
-                                              }];
-    
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks/cuisines"
-                                           parameters:[[CGRestaurantParameter shared] buildFoodTruckParameterMap]
-                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  if (mappingResult){
-                                                      [self.foodTruckCuisinesForSelectedLocation removeAllObjects];
-                                                      [self.foodTruckCuisinesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"cuisines"]];
-                                                  }
-                                              }
-                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                  message:@"There was an issue"
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"OK"
-                                                                                        otherButtonTitles:nil];
-                                                  [alert show];
-                                                  NSLog(@"Hit error: %@", error);
-                                              }];
-    
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/categories"
-                                           parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
-                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  if (mappingResult){
-                                                      [self.categoriesForSelectedLocation removeAllObjects];
-                                                      [self.tagsForSelectedLocationAndCategories removeAllObjects];
-                                                      
-                                                      [self.categoriesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"categories"]];
-                                                      [self.tagsForSelectedLocationAndCategories addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"tags"]];
-                                                  }
-                                              }
-                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                  message:@"There was an issue"
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"OK"
-                                                                                        otherButtonTitles:nil];
-                                                  [alert show];
-                                                  NSLog(@"Hit error: %@", error);
-                                              }];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:locationChangedNotification object:self];
 }
 
 - (void) fetchFeatures{

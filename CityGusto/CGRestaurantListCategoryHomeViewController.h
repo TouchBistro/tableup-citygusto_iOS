@@ -57,5 +57,7 @@
 
 @property (strong, nonatomic) CLLocationManager *locationManager;
 
+@property (nonatomic, assign) BOOL locationChangedFlag;
+
 
 @end

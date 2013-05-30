@@ -27,6 +27,8 @@
 @property (nonatomic, assign, getter=isResultsEmpty) BOOL resultsEmpty;
 @property (strong, nonatomic) UIView *noResultsView;
 
+@property (assign, nonatomic) BOOL locationChanged;
+
 - (void) viewMorePressed:(id)sender;
 
 @end

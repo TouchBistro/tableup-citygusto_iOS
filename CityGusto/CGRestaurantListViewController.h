@@ -28,4 +28,7 @@
 - (void) viewMorePressed:(id)sender;
 @property (strong, nonatomic) IBOutlet UINavigationItem *navBarItem;
 
+
+@property (nonatomic, assign) BOOL locationChanged;
+
 @end

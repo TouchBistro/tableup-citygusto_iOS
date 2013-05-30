@@ -15,6 +15,7 @@
 #import "CGEventDetailViewController.h"
 #import "CGEventMapViewController.h"
 #import "MHLazyTableImages.h"
+#import "CGAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
@@ -33,6 +34,70 @@
 @synthesize dataLoaded;
 @synthesize activityView;
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    if (self.locationChanged){
+        self.locationChanged = NO;
+        
+        [self startSpinner];
+        
+        NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
+        [params setObject:@"true" forKey:@"reduced"];
+        
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/categories"
+                                               parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          [[CGRestaurantParameter shared].categoriesForSelectedLocation removeAllObjects];
+                                                          [[CGRestaurantParameter shared].tagsForSelectedLocationAndCategories removeAllObjects];
+                                                          
+                                                          [[CGRestaurantParameter shared].categoriesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"categories"]];
+                                                          [[CGRestaurantParameter shared].tagsForSelectedLocationAndCategories addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"tags"]];
+                                                      }
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                  }];
+        
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
+                                               parameters:params
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          self.events = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                          
+                                                          if ([mappingResult array].count < 25){
+                                                              self.tableView.tableFooterView = nil;
+                                                          }else{
+                                                              [self.tableView setTableFooterView:self.footerView];
+                                                          }
+                                                          
+                                                          [self setDataLoaded:YES];
+                                                          [self stopSpinner];
+                                                      }
+                                                      
+                                                      self.resultsEmpty = self.events.count == 0 ? YES : NO;
+                                                      [self.tableView reloadData];
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                      [self.activityView stopAnimating];
+                                                  }];
+    }
+}
+
 - (void)viewDidLoad
 {
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
@@ -40,6 +105,8 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swithLocationChanged) name:locationChangedNotification object:nil];
     
     _lazyImages = [[MHLazyTableImages alloc] init];
     _lazyImages.placeholderImage = [UIImage imageNamed:@"CityGusto App Icon - 60x60.png"];
@@ -366,6 +433,10 @@
 	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 	return newImage;
+}
+
+-(void) swithLocationChanged{
+    self.locationChanged = YES;
 }
 
 @end

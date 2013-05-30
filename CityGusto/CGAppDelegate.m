@@ -27,6 +27,8 @@
 #import <RestKit/RestKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+NSString *locationChangedNotification = @"locationChangedNotification";
+
 @implementation CGAppDelegate
 
 @synthesize session = _session;

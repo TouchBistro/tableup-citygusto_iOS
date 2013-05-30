@@ -14,6 +14,7 @@
 #import "MHLazyTableImages.h"
 #import "CGFoodTruckOptionsViewController.h"
 #import "CGRestaurantParameter.h"
+#import "CGAppDelegate.h"
 #import <RestKit/RestKit.h>
 
 #define AppIconHeight    60.0f
@@ -26,6 +27,67 @@
     MHLazyTableImages *_lazyImages;
 }
 
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:YES];
+    
+    if (self.locationChanged){
+        self.locationChanged = NO;
+        
+        [self startSpinner];
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks/cuisines"
+                                               parameters:[[CGRestaurantParameter shared] buildFoodTruckParameterMap]
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          [[CGRestaurantParameter shared].foodTruckCuisinesForSelectedLocation removeAllObjects];
+                                                          [[CGRestaurantParameter shared].foodTruckCuisinesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"cuisines"]];
+                                                      }
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                  }];
+        
+        NSMutableDictionary *params = [[CGRestaurantParameter shared] buildFoodTruckParameterMap];
+        [params setObject:@"true" forKey:@"reduced"];
+        
+        [CGRestaurantParameter shared].offset = 0;
+        
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks"
+                                               parameters:params
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          self.foodTrucks = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                          
+                                                          if (self.foodTrucks.count < 25){
+                                                              self.tableView.tableFooterView = nil;
+                                                          }else{
+                                                              [self.tableView setTableFooterView:self.footerView];
+                                                          }
+                                                          
+                                                          [self setDataLoaded:YES];
+                                                          self.resultsEmpty = self.foodTrucks.count == 0 ? YES : NO;
+                                                          [self.tableView reloadData];
+                                                          [self stopSpinner];
+                                                      }
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                      [self.activityView stopAnimating];
+                                                  }];
+    }
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -34,6 +96,9 @@
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swithLocationChanged) name:locationChangedNotification object:nil];
+    self.locationChanged = NO;
     
     _lazyImages = [[MHLazyTableImages alloc] init];
     _lazyImages.placeholderImage = [UIImage imageNamed:@"CityGusto App Icon - 60x60.png"];
@@ -370,6 +435,10 @@
 	UIImage *newImage = UIGraphicsGetImageFromCurrentImageContext();
 	UIGraphicsEndImageContext();
 	return newImage;
+}
+
+-(void) swithLocationChanged{
+    self.locationChanged = YES;
 }
 
 @end
