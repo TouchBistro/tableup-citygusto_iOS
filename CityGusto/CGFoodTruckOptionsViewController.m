@@ -118,7 +118,7 @@
         if (navController != nil){
             CGLocationViewController *locationController = (CGLocationViewController *)navController.topViewController;
             locationController.delegate = self;
-        }
+        }    
     }
 }
 
