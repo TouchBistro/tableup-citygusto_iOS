@@ -8,6 +8,7 @@
 
 #import "CGLocalDetailViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import <MapKit/MapKit.h>
 
 @interface CGLocalDetailViewController ()
 
@@ -58,7 +59,20 @@
     [super didReceiveMemoryWarning];
 }
 
-- (IBAction)map:(id)sender {
+- (IBAction)map:(id)sender{
+    Class mapItemClass = [MKMapItem class];
+    if (mapItemClass && [mapItemClass respondsToSelector:@selector(openMapsWithItems:launchOptions:)])
+    {
+        // Create an MKMapItem to pass to the Maps app
+        CLLocationCoordinate2D coordinate = CLLocationCoordinate2DMake([self.local.latitude doubleValue], [self.local.longitude doubleValue]);
+        MKPlacemark *placemark = [[MKPlacemark alloc] initWithCoordinate:coordinate
+                                                       addressDictionary:nil];
+        
+        MKMapItem *mapItem = [[MKMapItem alloc] initWithPlacemark:placemark];
+        [mapItem setName:self.local.name];
+        // Pass the map item to the Maps app
+        [mapItem openInMapsWithLaunchOptions:nil];
+    }
 }
 
 - (IBAction)call:(id)sender {

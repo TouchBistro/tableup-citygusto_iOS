@@ -383,8 +383,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="map:" destination="Kw5-NK-vw9" eventType="touchUpInside" id="L1M-E6-5eS"/>
-                                    <segue destination="CDh-CR-pzx" kind="push" identifier="localMapSegue" id="NMf-9C-tTB"/>
+                                    <action selector="map:" destination="Kw5-NK-vw9" eventType="touchUpInside" id="iW6-8R-N2w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxW-Gz-Pcc">
@@ -537,7 +536,7 @@
             <objects>
                 <viewController id="CDh-CR-pzx" customClass="CGLocalMapViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7un-GK-o7z">
-                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SER-lJ-Ta9"/>
