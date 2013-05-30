@@ -212,6 +212,11 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    if (self.resultsEmpty){
+        self.noResultsView.hidden = NO;
+    }else{
+        self.noResultsView.hidden = YES;
+    }
     return self.foodTrucks.count;
 }
 
