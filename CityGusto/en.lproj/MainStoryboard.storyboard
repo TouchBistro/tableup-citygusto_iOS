@@ -57,7 +57,7 @@
                                             <constraint firstAttribute="width" constant="87" id="ifQ-PW-oQ8"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="1" height="1"/>
@@ -4082,10 +4082,11 @@
                                         <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <size key="shadowOffset" width="1" height="1"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Changing Location Will Clear All Cuisines" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s6F-gC-paw">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="s6F-gC-paw">
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="D29-ZH-n7b"/>
+                                            <constraint firstAttribute="height" constant="45" id="hvy-7i-kw1"/>
                                         </constraints>
+                                        <string key="text">Select Current Location to see your distance from each food truck.  All food trucks in Greater Boston load, regardless of location selected.</string>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
                                         <color key="textColor" red="0.6784313917" green="0.38431376220000002" blue="0.53725492949999998" alpha="1" colorSpace="deviceRGB"/>
                                         <color key="highlightedColor" red="0.6784313917" green="0.38431376220000002" blue="0.53725492949999998" alpha="1" colorSpace="deviceRGB"/>
@@ -4198,11 +4199,10 @@
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstItem="N0A-Xf-cJ6" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="80" id="0za-ef-Sn8"/>
-                                    <constraint firstAttribute="bottom" secondItem="vSZ-rv-W5f" secondAttribute="bottom" constant="109" id="1pz-KJ-iYG"/>
                                     <constraint firstItem="zYP-SU-JDj" firstAttribute="leading" secondItem="vSZ-rv-W5f" secondAttribute="leading" type="default" id="2iX-UT-t6i"/>
+                                    <constraint firstItem="vSZ-rv-W5f" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="355" id="3hq-1f-puK"/>
                                     <constraint firstItem="c3q-7H-XRV" firstAttribute="baseline" secondItem="BJj-Vg-b3g" secondAttribute="baseline" type="default" id="4Fe-fh-bkb"/>
-                                    <constraint firstItem="zYP-SU-JDj" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="281" id="4LO-q3-iKg"/>
-                                    <constraint firstItem="zYP-SU-JDj" firstAttribute="centerX" secondItem="s6F-gC-paw" secondAttribute="centerX" type="default" id="54I-k2-zsh"/>
+                                    <constraint firstAttribute="bottom" secondItem="vSZ-rv-W5f" secondAttribute="bottom" constant="101" id="8GH-5F-fU6"/>
                                     <constraint firstItem="2Lo-Rf-kT0" firstAttribute="top" secondItem="N0A-Xf-cJ6" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="AOd-E0-XQu"/>
                                     <constraint firstItem="rO5-Xl-aoR" firstAttribute="trailing" secondItem="8gb-5v-rby" secondAttribute="trailing" type="default" id="CJ7-Qj-2xZ"/>
                                     <constraint firstItem="rEg-Q9-zI7" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="198" id="CLO-xc-cOu"/>
@@ -4212,18 +4212,19 @@
                                     <constraint firstItem="2Lo-Rf-kT0" firstAttribute="leading" secondItem="8gb-5v-rby" secondAttribute="leading" constant="71" id="JVz-r1-5Bl"/>
                                     <constraint firstAttribute="trailing" secondItem="BJj-Vg-b3g" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Kgp-Iw-GQ7"/>
                                     <constraint firstItem="N0A-Xf-cJ6" firstAttribute="trailing" secondItem="1sp-P3-HEy" secondAttribute="trailing" type="default" id="Lvj-9U-dMs"/>
+                                    <constraint firstItem="s6F-gC-paw" firstAttribute="centerX" secondItem="zYP-SU-JDj" secondAttribute="centerX" type="default" id="Nan-65-rcQ"/>
+                                    <constraint firstItem="zYP-SU-JDj" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="298" id="R4A-Pk-q10"/>
                                     <constraint firstItem="rEg-Q9-zI7" firstAttribute="trailing" secondItem="zYP-SU-JDj" secondAttribute="trailing" type="default" id="RVb-AS-LsR"/>
                                     <constraint firstItem="rO5-Xl-aoR" firstAttribute="leading" secondItem="8gb-5v-rby" secondAttribute="leading" type="default" id="Uvh-5V-us9"/>
                                     <constraint firstItem="1sp-P3-HEy" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="41" id="Wha-Qz-yVF"/>
                                     <constraint firstItem="c3q-7H-XRV" firstAttribute="leading" secondItem="8gb-5v-rby" secondAttribute="leading" constant="109" id="Xbj-a0-e7b"/>
-                                    <constraint firstItem="vSZ-rv-W5f" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="347" id="ZXv-nn-Ecl"/>
+                                    <constraint firstItem="s6F-gC-paw" firstAttribute="centerX" secondItem="8gb-5v-rby" secondAttribute="centerX" type="default" id="ZFD-YR-gum"/>
                                     <constraint firstItem="Cql-Vw-WRa" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="147" id="dOo-S8-OBO"/>
-                                    <constraint firstItem="s6F-gC-paw" firstAttribute="centerX" secondItem="8gb-5v-rby" secondAttribute="centerX" type="default" id="dkN-L4-QLX"/>
                                     <constraint firstItem="s6F-gC-paw" firstAttribute="leading" secondItem="8gb-5v-rby" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="dpJ-AQ-dVd"/>
                                     <constraint firstItem="Cql-Vw-WRa" firstAttribute="leading" secondItem="8gb-5v-rby" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="eRY-cV-exM"/>
                                     <constraint firstAttribute="trailing" secondItem="s6F-gC-paw" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="g1Z-RH-6N5"/>
+                                    <constraint firstItem="s6F-gC-paw" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="252" id="hxf-Z8-AKu"/>
                                     <constraint firstItem="vSZ-rv-W5f" firstAttribute="trailing" secondItem="zYP-SU-JDj" secondAttribute="trailing" type="default" id="k83-Uo-l38"/>
-                                    <constraint firstItem="s6F-gC-paw" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="255" id="kX7-Dh-tCD"/>
                                     <constraint firstItem="N0A-Xf-cJ6" firstAttribute="leading" secondItem="1sp-P3-HEy" secondAttribute="leading" type="default" id="l1H-Gi-XMe"/>
                                     <constraint firstItem="c3q-7H-XRV" firstAttribute="bottom" secondItem="1sp-P3-HEy" secondAttribute="bottom" type="default" id="oRw-DH-gGL"/>
                                     <constraint firstItem="BJj-Vg-b3g" firstAttribute="top" secondItem="8gb-5v-rby" secondAttribute="top" constant="30" id="pZZ-uB-BsU"/>
@@ -4718,10 +4719,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Mm5-eq-2Yi"/>
         <segue reference="Ewr-Nt-WZf"/>
         <segue reference="LJ8-fa-mpH"/>
         <segue reference="lTX-NO-xF1"/>
         <segue reference="PaO-af-0TP"/>
-        <segue reference="iew-l2-cJO"/>
     </inferredMetricsTieBreakers>
 </document>
