@@ -72,7 +72,7 @@
                                                       if (mappingResult){
                                                           self.events = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           
-                                                          if ([mappingResult array].count < 25){
+                                                          if ([mappingResult array].count < 20){
                                                               self.tableView.tableFooterView = nil;
                                                           }else{
                                                               [self.tableView setTableFooterView:self.footerView];
@@ -182,7 +182,7 @@
                                                       if (mappingResult){
                                                           self.events = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           
-                                                          if ([mappingResult array].count < 25){
+                                                          if ([mappingResult array].count < 20){
                                                               self.tableView.tableFooterView = nil;
                                                           }else{
                                                               [self.tableView setTableFooterView:self.footerView];
@@ -336,7 +336,7 @@
 }
 
 -(void) viewMorePressed:(id)sender{
-    [CGRestaurantParameter shared].eventOffset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].eventOffset intValue] + 25];
+    [CGRestaurantParameter shared].eventOffset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].eventOffset intValue] + 20];
     NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
     [params setObject:@"true" forKey:@"reduced"];
     
@@ -350,7 +350,7 @@
                                                       [self setDataLoaded:YES];
                                                       [self.tableView reloadData];
                                                       
-                                                      if ([mappingResult array].count < 25){
+                                                      if ([mappingResult array].count < 20){
                                                           self.tableView.tableFooterView = nil;
                                                       }else{
                                                           [self.tableView setTableFooterView:self.footerView];
@@ -393,7 +393,7 @@
     [self.events removeAllObjects];
     [self.events addObjectsFromArray:newEvents];
     
-    if ([self.events count] < 25){
+    if ([self.events count] < 20){
         self.tableView.tableFooterView = nil;
     }else{
         [self.tableView setTableFooterView:self.footerView];

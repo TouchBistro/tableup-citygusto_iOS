@@ -70,7 +70,7 @@
                                                       if (mappingResult){
                                                           self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           
-                                                          if (self.restaurants.count < 25){
+                                                          if (self.restaurants.count < 20){
                                                               self.tableView.tableFooterView = nil;
                                                           }else{
                                                               [self.tableView setTableFooterView:self.footerView];
@@ -143,6 +143,7 @@
     matchesLabel.shadowColor = [UIColor lightTextColor];
     matchesLabel.textColor = [UIColor darkGrayColor];
     matchesLabel.shadowOffset = CGSizeMake(0, 1);
+    matchesLabel.backgroundColor = [UIColor colorWithRed:238.0f/255.0f green:238.0f/255.0f blue:238.0f/255.0f alpha:1.0f];
     matchesLabel.textAlignment =  NSTextAlignmentCenter;
     matchesLabel.text = @"Your search returned no results.  Try clearing filters.";
     
@@ -184,7 +185,7 @@
                                                       if (mappingResult){
                                                           self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           
-                                                          if (self.restaurants.count < 25){
+                                                          if (self.restaurants.count < 20){
                                                               self.tableView.tableFooterView = nil;
                                                           }else{
                                                               [self.tableView setTableFooterView:self.footerView];
@@ -348,7 +349,7 @@
 
 - (void) viewMorePressed:(id)sender{
     
-    [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 25];
+    [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 20];
     NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
     [params setObject:@"true" forKey:@"reduced"];
     
@@ -362,7 +363,7 @@
                                                       [self setDataLoaded:YES];
                                                       [self.tableView reloadData];
                                                       
-                                                      if ([mappingResult array].count < 25){
+                                                      if ([mappingResult array].count < 20){
                                                           self.tableView.tableFooterView = nil;
                                                       }else{
                                                           [self.tableView setTableFooterView:self.footerView];
@@ -436,7 +437,7 @@
     [self.restaurants removeAllObjects];
     [self.restaurants addObjectsFromArray:newRestaurants];
     
-    if (self.restaurants.count < 25){
+    if (self.restaurants.count < 20){
         self.tableView.tableFooterView = nil;
     }else{
         [self.tableView setTableFooterView:self.footerView];

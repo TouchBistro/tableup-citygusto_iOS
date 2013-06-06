@@ -324,7 +324,7 @@ NSString *locationChangedNotification = @"locationChangedNotification";
     
     //set default parameters
     CGRestaurantParameter *params = [CGRestaurantParameter shared];
-    params.max = [[NSNumber alloc] initWithInt:25];
+    params.max = [[NSNumber alloc] initWithInt:20];
     params.offset = [[NSNumber alloc] initWithInt:0];
     params.eventOffset = [[NSNumber alloc] initWithInt:0];
     

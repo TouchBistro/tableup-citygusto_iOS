@@ -236,12 +236,12 @@
 
 - (void) viewMorePressed:(id)sender{
     
-    [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 25];
+    [CGRestaurantParameter shared].offset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 20];
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
-    self.offset += 25;
+    self.offset += 20;
     [params setObject:[[NSNumber alloc] initWithInt:self.offset] forKey:@"offset"];
-    [params setObject:[[NSNumber alloc] initWithInt:25] forKey:@"max"];
+    [params setObject:[[NSNumber alloc] initWithInt:20] forKey:@"max"];
     [params setObject:@"true" forKey:@"reduced"];
     
     [self startSpinner];
@@ -254,7 +254,7 @@
                                                       [self setDataLoaded:YES];
                                                       [self.tableView reloadData];
                                                       
-                                                      if ([mappingResult array].count < 25){
+                                                      if ([mappingResult array].count < 20){
                                                           self.tableView.tableFooterView = nil;
                                                       }else{
                                                           [self.tableView setTableFooterView:self.footerView];

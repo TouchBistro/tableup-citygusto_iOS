@@ -136,7 +136,7 @@
     if (max){
         [params setObject:max forKey:@"max"];
     }else{
-        [params setObject:@"25" forKey:@"max"];
+        [params setObject:@"20" forKey:@"max"];
     }
     
     if (offset){
@@ -212,7 +212,7 @@
     if (max){
         [params setObject:max forKey:@"max"];
     }else{
-        [params setObject:@"25" forKey:@"max"];
+        [params setObject:@"20" forKey:@"max"];
     }
     
     if (eventOffset){
@@ -286,7 +286,7 @@
     if (max){
         [params setObject:max forKey:@"max"];
     }else{
-        [params setObject:@"25" forKey:@"max"];
+        [params setObject:@"20" forKey:@"max"];
     }
     
     if (self.foodTruckOffset){

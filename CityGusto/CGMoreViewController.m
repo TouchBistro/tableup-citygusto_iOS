@@ -63,7 +63,7 @@
         
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         [params setObject:[[NSNumber alloc] initWithInt:0] forKey:@"offset"];
-        [params setObject:[[NSNumber alloc] initWithInt:25] forKey:@"max"];
+        [params setObject:[[NSNumber alloc] initWithInt:20] forKey:@"max"];
         [params setObject:@"true" forKey:@"reduced"];
         
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/new/native/restaurants"
