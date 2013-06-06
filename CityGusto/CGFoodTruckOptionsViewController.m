@@ -60,8 +60,6 @@
                 sortLabel.text = @"Name Desc";
             }else if ([params.foodTruckSortOrder isEqualToString: @"rating-h"]){
                 sortLabel.text = @"Rating";
-            }else if ([params.foodTruckSortOrder isEqualToString:@"price-h"]){
-                sortLabel.text = @"Price";
             }
         }else{
             sortLabel.text = @"Distance";
