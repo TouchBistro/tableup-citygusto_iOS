@@ -11,6 +11,7 @@
 #import "MHLazyTableImages.h"
 #import "CGRestaurantCell.h"
 #import "CGRestaurantListListViewController.h"
+#import "MBProgressHud.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -233,14 +234,14 @@
     CGRestaurant *restaurant = [self.restaurants objectAtIndex:indexPath.row];
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:restaurant.restaurantId, @"id", nil];
     
-    [self.activityView startAnimating];
+    [self startSpinner];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                   if (mappingResult){
                                                       self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
                                                       
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                       [self performSegueWithIdentifier:@"listHomeSegue" sender:self];
                                                   }
                                               }
@@ -252,6 +253,8 @@
                                                                                         otherButtonTitles:nil];
                                                   [alert show];
                                                   NSLog(@"Hit error: %@", error);
+                                                  
+                                                  [self stopSpinner];
                                               }];
 }
 
@@ -323,5 +326,17 @@
 	UIGraphicsEndImageContext();
 	return newImage;
 }
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
 
 @end

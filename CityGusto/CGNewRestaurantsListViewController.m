@@ -13,6 +13,7 @@
 #import "MHLazyTableImages.h"
 #import "CGRestaurantHomeViewController.h"
 #import "CGRestaurantParameter.h"
+#import "MBProgressHud.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
@@ -222,16 +223,13 @@
 }
 
 - (void) startSpinner {
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityView.center = CGPointMake(self.tableView.frame.size.width / 2.0, self.tableView.frame.size.height / 2.0);
-    [self.tableView addSubview: self.activityView];
-    
-    [self.activityView startAnimating];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
 }
 
 - (void) stopSpinner {
-    [self.activityView stopAnimating];
-    [self.activityView removeFromSuperview];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void) viewMorePressed:(id)sender{

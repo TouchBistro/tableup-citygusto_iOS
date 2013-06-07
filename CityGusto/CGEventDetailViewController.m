@@ -10,6 +10,7 @@
 #import "CGRestaurantHomeViewController.h"
 #import "CGEventMoreInformationViewController.h"
 #import "CGLocalDetailViewController.h"
+#import "MBProgressHUD.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import <MapKit/MapKit.h>
@@ -452,16 +453,13 @@
 }
 
 - (void) startSpinner {
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityView.center = CGPointMake(self.tableView.frame.size.width / 2.0, self.tableView.frame.size.height / 2.0);
-    [self.tableView addSubview: activityView];
-    
-    [self.activityView startAnimating];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
 }
 
 - (void) stopSpinner {
-    [self.activityView stopAnimating];
-    [self.activityView removeFromSuperview];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void) viewEventWebsite1:(id)sender{

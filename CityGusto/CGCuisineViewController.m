@@ -10,6 +10,7 @@
 #import "CGCuisineViewController.h"
 #import "CGCuisine.h"
 #import "CGFeature.h"
+#import "MBProgressHUD.h"
 #import <RestKit/RestKit.h>
 
 @interface CGCuisineViewController ()
@@ -95,7 +96,40 @@
 }
 
 - (IBAction)done:(id)sender {
-    [[CGRestaurantParameter shared] fetchFeatures];
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [[CGRestaurantParameter shared] fetchFeatures];
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/features"
+                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines removeAllObjects];
+                                                      [[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"features"]];
+                                                  }
+                                                  [self dismissViewControllerAnimated:YES completion:nil];
+                                                  [self stopSpinner];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                                  
+                                                  [self stopSpinner];
+                                                  [self dismissViewControllerAnimated:YES completion:nil];
+                                              }];
+    
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.tableView animated:YES];
 }
 @end

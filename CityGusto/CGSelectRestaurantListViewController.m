@@ -10,6 +10,7 @@
 #import "CGRestaurantList.h"
 #import "CGSelectRestaurantListViewController.h"
 #import "CGRestaurantParameter.h"
+#import "MBProgressHud.h"
 #import <RestKit/RestKit.h>
 
 @interface CGSelectRestaurantListViewController ()
@@ -80,7 +81,7 @@
     NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
     [params setObject:self.currentRestaurantList.restaurantListId forKey:@"listId"];
     
-    [self.activityView startAnimating];
+    [self startSpinner];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
@@ -89,7 +90,7 @@
 
                                                       [self performSegueWithIdentifier:@"selectListRestaurantListSegue" sender:self];
                                                   }
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -100,7 +101,7 @@
                                                   [alert show];
                                                   NSLog(@"Hit error: %@", error);
                                                   
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                               }];
     
     
@@ -119,5 +120,15 @@
         
         
     }
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 @end

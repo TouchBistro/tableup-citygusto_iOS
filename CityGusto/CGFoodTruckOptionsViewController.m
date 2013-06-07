@@ -9,6 +9,7 @@
 #import "ActionSheetPicker.h"
 #import "CGFoodTruckOptionsViewController.h"
 #import "CGRestaurantParameter.h"
+#import "MBProgressHud.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
@@ -155,16 +156,18 @@
     NSMutableDictionary *paramsDictionary = [[CGRestaurantParameter shared] buildFoodTruckParameterMap];
     [paramsDictionary setObject:@"true" forKey:@"reduced"];
     
-    [self.activityView startAnimating];
+    [self startSpinner];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks"
                                            parameters:paramsDictionary
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
+
                                                   [self.delegate updateFoodTrucks:[mappingResult array]];
                                                   [self dismissViewControllerAnimated:YES completion:nil];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
+
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                                                   message:@"There was an issue"
                                                                                                  delegate:nil
@@ -185,6 +188,18 @@
                                           otherButtonTitles:nil];
     [alert show];
 }
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+
 
 
 @end

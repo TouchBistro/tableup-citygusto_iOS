@@ -10,6 +10,7 @@
 #import "CGNewRestaurantsListViewController.h"
 #import "CGMyRestaurantFavoriteListViewController.h"
 #import "CGRestaurantListFavoriteViewController.h"
+#import "MBProgressHud.h"
 #import <RestKit/RestKit.h>
 
 @interface CGMyRestaurantFavoriteListViewController ()
@@ -73,7 +74,7 @@
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:favList.restaurantFavoriteListId forKey:@"id"];
      
-    [self.activityView startAnimating];
+    [self startSpinner];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantFavoriteLists"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
@@ -81,7 +82,7 @@
                                                       self.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                       [self performSegueWithIdentifier:@"restaurantFavoriteListRestaurantSegue" sender:self];
                                                   }
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -91,7 +92,7 @@
                                                                                         otherButtonTitles:nil];
                                                   [alert show];
                                                   
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                               }];
 }
 
@@ -100,6 +101,16 @@
         CGRestaurantListFavoriteViewController *favoriteViewController = [segue destinationViewController];
         favoriteViewController.restaurants = self.restaurants;
     }
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end

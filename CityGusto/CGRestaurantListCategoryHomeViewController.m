@@ -17,6 +17,7 @@
 #import "CGPhoto.h"
 #import "AsyncImageView.h"
 #import "CGAppDelegate.h"
+#import "MBProgressHud.h"
 #import <CoreLocation/CoreLocation.h>
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
@@ -132,7 +133,7 @@
     self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
     
     if (self.currentCategory == nil){
-        [self.activityView startAnimating];
+        [self startSpinner];
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
@@ -149,7 +150,7 @@
                                                           }
                                                       }
                                                       
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                       
                                                       [self.restaurantListPhotoUrls removeAllObjects];
                                                       NSUInteger count = 0;
@@ -171,7 +172,7 @@
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
                                                       
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                   }];
     }
     
@@ -255,8 +256,9 @@
     
     if (self.locationChangedFlag == YES){
         self.locationChangedFlag = NO;
-        [self.activityView startAnimating];
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
+    }
+//        [self startSpinner];
+/*        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -270,7 +272,7 @@
                                                           }
                                                       }
                                                       
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                       
                                                       [self.restaurantListPhotoUrls removeAllObjects];
                                                       NSUInteger count = 0;
@@ -292,9 +294,10 @@
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
                                                       
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                   }];
     }
+ */
 }
 
 - (void)didReceiveMemoryWarning
@@ -317,13 +320,13 @@
     if (restaurant){
         NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:restaurant.restaurantId, @"id", nil];
         
-        [self.activityView startAnimating];
+        [self startSpinner];
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
                                                           self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
-                                                          [self.activityView stopAnimating];
+                                                          [self stopSpinner];
                                                           
                                                           [self performSegueWithIdentifier:@"listRestaurantDetailSegue" sender:self];
                                                       }
@@ -336,6 +339,7 @@
                                                                                             otherButtonTitles:nil];
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
+                                                      [self stopSpinner];
                                                   }];
     }
 }
@@ -350,7 +354,7 @@
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
         [params setObject:self.currentRestaurantList.restaurantListId forKey:@"listId"];
         
-        [self.activityView startAnimating];
+        [self startSpinner];
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
@@ -361,7 +365,7 @@
                                                           listViewController.restaurantList = self.currentRestaurantList;
                                                           [listViewController.tableView reloadData];
                                                           
-                                                          [self.activityView stopAnimating];
+                                                          [self stopSpinner];
                                                       }
                                                   }
                                                   failure:^(RKObjectRequestOperation *operation, NSError *error) {
@@ -373,7 +377,7 @@
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
                                                       
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                   }];
         
     }else if ([[segue identifier] isEqualToString:@"selectListSegue"]){
@@ -449,51 +453,7 @@
 
 
 - (void)locationChanged{
-    [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
-    
-    [self.activityView startAnimating];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
-                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
-                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  [self.activityView stopAnimating];
-
-                                                  if (mappingResult){
-                                                      self.locationChangedFlag = NO;
-                                                      self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
-                                                      if (self.restaurantListCategories.count > 0){
-                                                          self.currentCategory = self.restaurantListCategories[0];
-                                                          if (self.currentCategory){
-                                                              self.currentRestaurantList = self.currentCategory.restaurantLists[0];
-                                                          }
-                                                          
-                                                          [self.restaurantListPhotoUrls removeAllObjects];
-                                                          NSUInteger count = 0;
-                                                          for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
-                                                              NSInteger index = MAX(0, count);
-                                                              
-                                                              [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
-//                                                              [self.carousel insertItemAtIndex:index animated:YES];
-                                                              
-                                                              count++;
-                                                          }
-                                                          
-                                                          [self.carousel reloadData];
-                                                          [self showRestaurantListCategory];
-                                                          [self.carousel scrollToItemAtIndex:0 animated:NO];
-                                                      }
-                                                  }
-                                              }
-                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                  message:@"There was an issue"
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"OK"
-                                                                                        otherButtonTitles:nil];
-                                                  [alert show];
-                                                  NSLog(@"Hit error: %@", error);
-                                                  
-                                                  [self.activityView stopAnimating];
-                                              }];
+    self.locationChangedFlag = YES;
 }
 
 #pragma mark -
@@ -548,7 +508,61 @@
 
 -(void) swithLocationChanged{
     self.locationChangedFlag = YES;
-    [self locationChanged];
+    [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
+                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  [self stopSpinner];
+                                                  
+                                                  if (mappingResult){
+                                                      self.locationChangedFlag = NO;
+                                                      self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                      if (self.restaurantListCategories.count > 0){
+                                                          self.currentCategory = self.restaurantListCategories[0];
+                                                          if (self.currentCategory){
+                                                              self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+                                                          }
+                                                          
+                                                          [self.restaurantListPhotoUrls removeAllObjects];
+                                                          NSUInteger count = 0;
+                                                          for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
+                                                              NSInteger index = MAX(0, count);
+                                                              
+                                                              [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
+                                                              //                                                              [self.carousel insertItemAtIndex:index animated:YES];
+                                                              
+                                                              count++;
+                                                          }
+                                                          
+                                                          [self.carousel reloadData];
+                                                          [self showRestaurantListCategory];
+                                                          [self.carousel scrollToItemAtIndex:0 animated:NO];
+                                                      }
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                                  
+                                                  [self stopSpinner];
+                                              }];
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end

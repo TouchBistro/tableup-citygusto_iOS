@@ -15,6 +15,7 @@
 #import "CGEventDetailViewController.h"
 #import "CGEventMapViewController.h"
 #import "MHLazyTableImages.h"
+#import "MBProgressHud.h"
 #import "CGAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
@@ -93,7 +94,7 @@
                                                                                             otherButtonTitles:nil];
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                   }];
     }
 }
@@ -203,7 +204,7 @@
                                                                                             otherButtonTitles:nil];
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                   }];
         
     }
@@ -406,16 +407,13 @@
 }
 
 - (void) startSpinner {
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityView.center = CGPointMake(self.tableView.frame.size.width / 2.0, self.tableView.frame.size.height / 2.0);
-    [self.tableView addSubview: activityView];
-    
-    [self.activityView startAnimating];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
 }
 
 - (void) stopSpinner {
-    [self.activityView stopAnimating];
-    [self.activityView removeFromSuperview];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 #pragma mark - UIScrollViewDelegate

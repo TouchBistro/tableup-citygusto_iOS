@@ -11,6 +11,7 @@
 #import "CGEventDateViewController.h"
 #import "ActionSheetPicker.h"
 #import <RestKit/RestKit.h>
+#import "MBProgressHud.h"
 #import <QuartzCore/QuartzCore.h>
 
 @interface CGEventOptionsViewController ()
@@ -90,7 +91,7 @@
 }
 
 - (IBAction)search:(id)sender {
-    [self.activityView startAnimating];
+    [self startSpinner];
     [CGRestaurantParameter shared].eventOffset = 0;
     
     NSMutableDictionary *params = [[CGRestaurantParameter shared] buildEventParameterMap];
@@ -99,12 +100,12 @@
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                                   [self.delegate updateEvents:[mappingResult array]];
                                                   [self dismissViewControllerAnimated:YES completion:nil];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                                                   message:@"There was an issue"
                                                                                                  delegate:nil
@@ -206,6 +207,16 @@
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     self.dateLabel.text = [dateFormatter stringFromDate:newDate];
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end

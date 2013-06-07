@@ -15,6 +15,7 @@
 #import "CGFoodTruckOptionsViewController.h"
 #import "CGRestaurantParameter.h"
 #import "CGAppDelegate.h"
+#import "MBProgressHud.h"
 #import <RestKit/RestKit.h>
 
 #define AppIconHeight    60.0f
@@ -83,7 +84,7 @@
                                                                                             otherButtonTitles:nil];
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                   }];
     }
 }
@@ -194,7 +195,7 @@
                                                                                             otherButtonTitles:nil];
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                   }];
     }
 }
@@ -311,16 +312,13 @@
 }
 
 - (void) startSpinner {
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityView.center = CGPointMake(self.tableView.frame.size.width / 2.0, self.tableView.frame.size.height / 2.0);
-    [self.tableView addSubview:self.activityView];
-    
-    [self.activityView startAnimating];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
 }
 
 - (void) stopSpinner {
-    [self.activityView stopAnimating];
-    [self.activityView removeFromSuperview];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 - (void) viewMorePressed:(id)sender{

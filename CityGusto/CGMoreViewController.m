@@ -12,6 +12,7 @@
 #import "CGLoginViewController.h"
 #import "CGMyRestaurantFavoriteListViewController.h"
 #import "CGAppDelegate.h"
+#import "MBProgressHud.h"
 #import <RestKit/RestKit.h>
 #import <FacebookSDK/FacebookSDK.h>
 
@@ -59,7 +60,7 @@
     [self.view addSubview: self.activityView];
     
     if (indexPath.row == 1){
-        [self.activityView startAnimating];
+        [self startSpinner];
         
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         [params setObject:[[NSNumber alloc] initWithInt:0] forKey:@"offset"];
@@ -74,7 +75,7 @@
                                                           [self performSegueWithIdentifier:@"newRestaurantsSegue" sender:self];
                                                       }
                                                       
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                   }
                                                   failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -85,14 +86,14 @@
                                                       [alert show];
                                                       NSLog(@"Hit error: %@", error);
                                                       
-                                                      [self.activityView stopAnimating];
+                                                      [self stopSpinner];
                                                   }];
     }else if (indexPath.row == 0){
         if ([CGRestaurantParameter shared].loggedInUser){
             NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
             [params setObject:[CGRestaurantParameter shared].loggedInUser.username forKey:@"username"];
             
-            [self.activityView startAnimating];
+            [self startSpinner];
             [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantFavoriteLists"
                                                    parameters:params
                                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
@@ -100,8 +101,7 @@
                                                               self.restaurantFavoriteLists = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                               [self performSegueWithIdentifier:@"restaurantFavoriteListSegue" sender:self];
                                                           }
-                                                          
-                                                          [self.activityView stopAnimating];
+                                                          [self stopSpinner];
                                                       }
                                                       failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                           UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -112,7 +112,7 @@
                                                           [alert show];
                                                           NSLog(@"Hit error: %@", error);
                                                           
-                                                          [self.activityView stopAnimating];
+                                                          [self stopSpinner];
                                                       }];
         }else{
             CGAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
@@ -169,7 +169,7 @@
 
 
 -(void) loginSuccessful{
-    [self.activityView startAnimating];
+    [self startSpinner];
     
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     [params setObject:[CGRestaurantParameter shared].loggedInUser.username forKey:@"username"];
@@ -184,7 +184,7 @@
                                                       [self performSegueWithIdentifier:@"restaurantFavoriteListSegue" sender:self];
                                                   }
                                                   
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -194,8 +194,18 @@
                                                                                         otherButtonTitles:nil];
                                                   [alert show];
                                                   
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                               }];
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end

@@ -11,6 +11,7 @@
 #import "CGEventAnnotation.h"
 #import "CGEventDetailViewController.h"
 #import "CGEventMapViewController.h"
+#import "MBProgressHud.h"
 #import <RestKit/RestKit.h>
 
 @interface CGEventMapViewController ()
@@ -126,16 +127,13 @@
 }
 
 - (void) startSpinner {
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
-    [self.view addSubview:self.activityView];
-    
-    [self.activityView startAnimating];
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
 }
 
 - (void) stopSpinner {
-    [self.activityView stopAnimating];
-    [self.activityView removeFromSuperview];
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 -(void)zoomToFitMapAnnotations:(MKMapView*)aMapView

@@ -8,6 +8,7 @@
 
 #import "CGRestaurantParameter.h"
 #import "CGAppDelegate.h"
+#import "MBProgressHud.h"
 #import <RestKit/RestKit.h>
 #import "CGLoginViewController.h"
 
@@ -28,10 +29,6 @@
     }
     
     self.fbLoginView.delegate = self;
-    
-    self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
-    self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
-    [self.view addSubview: self.activityView];
     
     [self.scroller setScrollEnabled:YES];
     [self.scroller setContentSize:CGSizeMake(320, 800)];
@@ -117,7 +114,7 @@
     [params setObject:username forKey:@"username"];
     [params setObject:password forKey:@"password"];
     
-    [self.activityView startAnimating];
+    [self startSpinner];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/login"
                                            parameters:params
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
@@ -125,8 +122,7 @@
                                                       [CGRestaurantParameter shared].loggedInUser = [[mappingResult array] objectAtIndex:0];
                                                       [self.delegate loginSuccessful];
                                                   }
-                                                  
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -137,7 +133,7 @@
                                                   [alert show];
                                                   NSLog(@"Hit error: %@", error);
                                                   
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                               }];
     
 }
@@ -181,6 +177,16 @@
 - (IBAction)userRegister:(id)sender {
     NSURL *url = [NSURL URLWithString:@"http://citygusto.com/login/auth"];
     [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end

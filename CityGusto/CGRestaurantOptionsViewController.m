@@ -11,6 +11,7 @@
 #import "CGCuisineViewController.h"
 #import "ActionSheetPicker.h"
 #import "CGLocationViewController.h"
+#import "MBProgressHUD.h"
 #import <QuartzCore/QuartzCore.h>
 #import <RestKit/RestKit.h>
 
@@ -180,16 +181,16 @@
     NSMutableDictionary *paramsDictionary = [[CGRestaurantParameter shared] buildParameterMap];
     [paramsDictionary setObject:@"true" forKey:@"reduced"];
     
-    [self.activityView startAnimating];
+    [self startSpinner];
     [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                            parameters:paramsDictionary
                                               success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                                   [self.delegate updateRestaurants:[mappingResult array]];
                                                   [self dismissViewControllerAnimated:YES completion:nil];
                                               }
                                               failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  [self.activityView stopAnimating];
+                                                  [self stopSpinner];
                                                   UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                                                   message:@"There was an issue"
                                                                                                  delegate:nil
@@ -197,6 +198,8 @@
                                                                                         otherButtonTitles:nil];
                                                   [alert show];
                                                   NSLog(@"Hit error: %@", error);
+                                                  
+                                                  [self stopSpinner];
                                               }];
 }
 
@@ -233,6 +236,16 @@
                                                   [alert show];
                                                   NSLog(@"Hit error: %@", error);
                                               }];
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading...";
+    hud.userInteractionEnabled = NO;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end
