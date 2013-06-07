@@ -183,6 +183,10 @@
     self.restaurant2Label.text = @"";
     self.restaurant3Label.text = @"";
     
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:2];
+    
     if (currentCategory){
         self.headerLabel.text = currentCategory.name;
         if (self.currentRestaurantList == nil){
@@ -200,7 +204,7 @@
                     
                     if (self.restaurant1.distance){
                         listRestaurantText = [listRestaurantText stringByAppendingString:@" - "];
-                        listRestaurantText = [listRestaurantText stringByAppendingString:[self.restaurant1.distance stringValue]];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:[formatter stringFromNumber:self.restaurant1.distance]];
                         listRestaurantText = [listRestaurantText stringByAppendingString:@" Miles"];
                     }
                     
@@ -217,7 +221,7 @@
                     
                     if (self.restaurant2.distance){
                         listRestaurantText = [listRestaurantText stringByAppendingString:@" - "];
-                        listRestaurantText = [listRestaurantText stringByAppendingString:[self.restaurant2.distance stringValue]];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:[formatter stringFromNumber:self.restaurant2.distance]];
                         listRestaurantText = [listRestaurantText stringByAppendingString:@" Miles"];
                     }
                     
@@ -234,7 +238,8 @@
                     
                     if (self.restaurant3.distance){
                         listRestaurantText = [listRestaurantText stringByAppendingString:@" - "];
-                        listRestaurantText = [listRestaurantText stringByAppendingString:[self.restaurant3.distance stringValue]];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:[formatter stringFromNumber:self.restaurant3.distance]];
+//                        listRestaurantText = [listRestaurantText stringByAppendingString:[self.restaurant3.distance stringValue]];
                         listRestaurantText = [listRestaurantText stringByAppendingString:@" Miles"];
                     }
                     

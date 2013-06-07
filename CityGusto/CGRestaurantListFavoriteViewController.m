@@ -67,11 +67,15 @@
     CGRestaurantCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     CGRestaurant *restaurant = [self.restaurants objectAtIndex:indexPath.row];
     
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:2];
+    
     if (cell){
         NSString *name = restaurant.name;
         if (restaurant.distance){
             name = [name stringByAppendingString:@" - "];
-            name = [name stringByAppendingString:[restaurant.distance stringValue]];
+            name = [name stringByAppendingString:[formatter stringFromNumber:restaurant.distance]];
             name = [name stringByAppendingString:@" Miles"];
         }
         
