@@ -454,7 +454,7 @@
 
 - (void) startSpinner {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Loading...";
+    hud.labelText = @"Loading Venue Details";
     hud.userInteractionEnabled = YES;
 }
 
