@@ -122,6 +122,23 @@
 
 -(void) locationChanged{
     [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks/cuisines"
+                                           parameters:[[CGRestaurantParameter shared] buildFoodTruckParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [[CGRestaurantParameter shared].foodTruckCuisinesForSelectedLocation removeAllObjects];
+                                                      [[CGRestaurantParameter shared].foodTruckCuisinesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"cuisines"]];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 - (IBAction)search:(id)sender {

@@ -335,6 +335,7 @@ NSString *locationChangedNotification = @"locationChangedNotification";
     params.foodTruckSortOrder = @"distance";
     params.foodTruckOpenFilter = YES;
     params.sortOrder = @"distance";
+    params.eventSortOrder = @"distance";
     params.date = [[NSDate alloc] init];
     [params.times addObject:[NSNumber numberWithInt:1]];
     [params.times addObject:[NSNumber numberWithInt:2]];

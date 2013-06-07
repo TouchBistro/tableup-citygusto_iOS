@@ -580,11 +580,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantOptionsViewController.m"
-         timestampString = "388601937.382407"
+         timestampString = "392300283.392631"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "105"
-         endingLineNumber = "105"
+         startingLineNumber = "106"
+         endingLineNumber = "106"
          landmarkName = "-viewDidLayoutSubviews"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1178,11 +1178,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGFoodTruckOptionsViewController.m"
-         timestampString = "390958272.437641"
+         timestampString = "392300411.872629"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "140"
-         endingLineNumber = "140"
+         startingLineNumber = "157"
+         endingLineNumber = "157"
          landmarkName = "-search:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1405,6 +1405,19 @@
          startingLineNumber = "94"
          endingLineNumber = "94"
          landmarkName = "-viewDidLoad"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CityGusto/CGRestaurantOptionsViewController.m"
+         timestampString = "392300283.392631"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "216"
+         endingLineNumber = "216"
+         landmarkName = "-locationChanged"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

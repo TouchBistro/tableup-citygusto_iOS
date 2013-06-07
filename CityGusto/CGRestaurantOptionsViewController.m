@@ -53,6 +53,7 @@
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: self.activityView];
     
+    
     CGRestaurantParameter *params = [CGRestaurantParameter shared];
     
     if (params){
@@ -212,6 +213,26 @@
 
 -(void) locationChanged{
     [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/cuisines"
+                                           parameters:[[CGRestaurantParameter shared] buildParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [[CGRestaurantParameter shared].cuisinesForSelectedLocation removeAllObjects];
+                                                      [[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines removeAllObjects];
+                                                      
+                                                      [[CGRestaurantParameter shared].cuisinesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"cuisines"]];
+                                                      [[CGRestaurantParameter shared].featuresForSelectedLocationAndCuisines addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"features"]];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue getting cuisines"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 @end

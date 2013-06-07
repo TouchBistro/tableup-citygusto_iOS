@@ -181,6 +181,26 @@
 
 -(void) locationChanged{
     [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/categories"
+                                           parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [[CGRestaurantParameter shared].categoriesForSelectedLocation removeAllObjects];
+                                                      [[CGRestaurantParameter shared].tagsForSelectedLocationAndCategories removeAllObjects];
+                                                      
+                                                      [[CGRestaurantParameter shared].categoriesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"categories"]];
+                                                      [[CGRestaurantParameter shared].tagsForSelectedLocationAndCategories addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"tags"]];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 -(void) updateDate:(NSDate *)newDate{
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
