@@ -14,6 +14,7 @@
 #import "CGAppDelegate.h"
 #import <RestKit/RestKit.h>
 
+
 @implementation CGRestaurantParameter
 
 @synthesize max;
@@ -113,6 +114,13 @@
         [_sharedObject.neighborhoods setObject:@"Charlestown" forKey:@"19"];
         [_sharedObject.neighborhoods setObject:@"East Boston" forKey:@"20"];
         
+        _sharedObject.locationManager = [[CLLocationManager alloc] init];
+        [_sharedObject.locationManager setDelegate:_sharedObject];
+        
+        _sharedObject.locationManager.distanceFilter = kCLDistanceFilterNone;
+        _sharedObject.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+
+        _sharedObject.locationLoad = NO;
     });
     
     return _sharedObject;
@@ -353,7 +361,11 @@
 }
 
 - (void) changeLocation {
-    [[NSNotificationCenter defaultCenter] postNotificationName:locationChangedNotification object:self];
+    if (self.useCurrentLocation){
+        [self getCurrentLocation];
+    }else{
+        [[NSNotificationCenter defaultCenter] postNotificationName:locationChangedNotification object:self];
+    }
 }
 
 - (void) fetchFeatures{
@@ -396,6 +408,28 @@
                                                   NSLog(@"Hit error: %@", error);
                                               }];
     
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    [self.locationManager stopUpdatingLocation];
+    
+    CLLocation *location = [locations objectAtIndex:0];
+    
+    self.useCurrentLocation = YES;
+    self.lat = [NSNumber numberWithDouble:location.coordinate.latitude];
+    self.lon = [NSNumber numberWithDouble:location.coordinate.longitude];
+    
+    if (self.locationLoad == NO){
+        self.locationLoad = YES;
+        [[NSNotificationCenter defaultCenter] postNotificationName:locationChangedNotification object:self];
+    }
+    
+
+}
+
+-(void)getCurrentLocation{
+    self.locationLoad = NO;
+    [self.locationManager startUpdatingLocation];
 }
 
 @end

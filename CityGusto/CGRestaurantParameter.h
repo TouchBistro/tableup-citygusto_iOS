@@ -8,8 +8,9 @@
 
 #import "CGUser.h"
 #import <Foundation/Foundation.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface CGRestaurantParameter : NSObject
+@interface CGRestaurantParameter : NSObject <CLLocationManagerDelegate>
 
 
 @property (nonatomic, strong) NSNumber *max;
@@ -81,7 +82,11 @@
 - (void) fetchFeatures;
 - (void) fetchTags;
 
+-(void) getCurrentLocation;
+
 + (CGRestaurantParameter *)shared;
 
+@property (strong, nonatomic) CLLocationManager *locationManager;
+@property (assign, nonatomic) BOOL locationLoad;
 
 @end

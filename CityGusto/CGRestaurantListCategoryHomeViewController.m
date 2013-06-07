@@ -131,20 +131,12 @@
     
     self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
     
-    self.locationManager = [[CLLocationManager alloc] init];
-    [self.locationManager setDelegate:self];
-    
-    self.locationLoad = NO;
-        
-    self.locationManager.distanceFilter = kCLDistanceFilterNone;
-    self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    
     if (self.currentCategory == nil){
         [self.activityView startAnimating];
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                      [self.locationManager startUpdatingLocation];
+                                                      [[CGRestaurantParameter shared] getCurrentLocation];
                                                       
                                                       if (mappingResult){
                                                           self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
@@ -549,31 +541,9 @@
     [self showRestaurantListCategory];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
-    [self.locationManager stopUpdatingLocation];
-    
-    CLLocation *location = [locations objectAtIndex:0];
-    
-    CGRestaurantParameter *params = [CGRestaurantParameter shared];
-    
-    params.useCurrentLocation = YES;
-    params.lat = [NSNumber numberWithDouble:location.coordinate.latitude];
-    params.lon = [NSNumber numberWithDouble:location.coordinate.longitude];
-    
-    if (self.locationLoad == NO){
-        self.locationLoad = YES;
-        [params changeLocation];
-        [self locationChanged];
-    }    
-}
-
-
-- (void) locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    [self.locationManager stopUpdatingLocation];
-}
-
 -(void) swithLocationChanged{
     self.locationChangedFlag = YES;
+    [self locationChanged];
 }
 
 @end
