@@ -238,19 +238,27 @@
 {
     static NSString *CellIdentifier = @"EventCell";
     CGEventCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    CGEvent *event = [self.events objectAtIndex:indexPath.row];
     
+    NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+    [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
+    [formatter setMaximumFractionDigits:2];
     
-    cell.nameLabel.text = @"";
+    if (cell){
+        NSString *name = event.name;
+        if (event.distance){
+            name = [name stringByAppendingString:@" - "];
+            name = [name stringByAppendingString:[formatter stringFromNumber:event.distance]];
+            name = [name stringByAppendingString:@" Miles"];
+        }
+        
+        cell.nameLabel.text = name;
+    
     cell.venueLabel.text = @"";
     cell.timeLabel.text = @"";
     cell.nextOccurrenceLabel.text = @"";
-    
-    if (self.isResultsEmpty == NO){
-        CGEvent *event = [self.events objectAtIndex:indexPath.row];
-        
-        cell.nameLabel.text = event.name;
-        
-        //NSURL *url = [NSURL URLWithString:event.venuePhotoURL];
+    	
+    	//NSURL *url = [NSURL URLWithString:event.venuePhotoURL];
         //NSData *data = [NSData dataWithContentsOfURL:url];
         //UIImage *image = [UIImage imageWithData:data];
         
