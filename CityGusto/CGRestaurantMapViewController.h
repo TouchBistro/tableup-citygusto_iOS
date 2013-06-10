@@ -17,6 +17,8 @@
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 
+@property (assign, nonatomic) BOOL showPosition;
+
 - (IBAction)cancel:(id)sender;
 
 

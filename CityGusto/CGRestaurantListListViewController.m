@@ -264,6 +264,7 @@
     if ([[segue identifier] isEqualToString:@"listMapSegue"]){
         CGRestaurantMapViewController *mapController = [segue destinationViewController];
         mapController.restaurants = self.restaurants;
+        mapController.showPosition = YES;
     }else if ([[segue identifier] isEqualToString:@"listHomeSegue"]){
         CGRestaurantHomeViewController *homeController = [segue destinationViewController];
         homeController.restaurant = self.selectedRestaurant;

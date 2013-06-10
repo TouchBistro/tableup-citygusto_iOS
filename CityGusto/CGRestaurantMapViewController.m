@@ -27,6 +27,13 @@
 @synthesize mapView;
 @synthesize selectedRestaurant;
 
+-(id)init {
+    if (self = [super init])  {
+        self.showPosition = NO;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     self.mapView.delegate = self;
@@ -42,13 +49,24 @@
 }
 
 - (void)viewDidAppear:(BOOL)animated {
+    NSInteger index = 0;
     for (CGRestaurant *restaurant in restaurants) {
         CLLocation *location = [[CLLocation alloc] initWithLatitude:[restaurant.latitude doubleValue] longitude:[restaurant.longitude doubleValue]];
         
         CGAnnotation *annotation = [[CGAnnotation alloc] initWithLocation:location.coordinate];
-        annotation.title = restaurant.name;
+        
+        if (self.showPosition){
+            NSString *title = [NSString stringWithFormat:@"#)%1$d %2$@", index + 1, restaurant.name];
+            annotation.title = title;
+        }else{
+            annotation.title = restaurant.name;
+        }
+        
         annotation.restaurant = restaurant;
+        
         [self.mapView addAnnotation:annotation];
+        
+        index++;
     }
     
     MKMapRect zoomRect = MKMapRectNull;

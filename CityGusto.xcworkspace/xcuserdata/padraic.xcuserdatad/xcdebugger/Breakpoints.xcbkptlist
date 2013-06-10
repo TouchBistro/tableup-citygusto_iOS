@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantMapViewController.m"
-         timestampString = "392563764.547121"
+         timestampString = "392566659.805948"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "71"
-         endingLineNumber = "71"
+         startingLineNumber = "89"
+         endingLineNumber = "89"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
