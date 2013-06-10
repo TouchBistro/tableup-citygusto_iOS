@@ -9,6 +9,8 @@
 #import "CGRestaurantParameter.h"
 #import "CGEventDateViewController.h"
 #import "ActionSheetPicker.h"
+#import "MBProgressHud.h"
+#import <RestKit/RestKit.h>
 
 @interface CGEventDateViewController ()
 
@@ -197,6 +199,44 @@
     self.dateLabel.text = dateString;
     
     [self.delegate updateDate:[CGRestaurantParameter shared].date];
+    
+    //need to get the cateogries and tags
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/categories"
+                                           parameters:[[CGRestaurantParameter shared] buildEventParameterMap]
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [[CGRestaurantParameter shared].categoriesForSelectedLocation removeAllObjects];
+                                                      [[CGRestaurantParameter shared].tagsForSelectedLocationAndCategories removeAllObjects];
+                                                      
+                                                      [[CGRestaurantParameter shared].categoriesForSelectedLocation addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"categories"]];
+                                                      [[CGRestaurantParameter shared].tagsForSelectedLocationAndCategories addObjectsFromArray:[[mappingResult dictionary] objectForKey:@"tags"]];
+                                                  }
+                                                  
+                                                  [self stopSpinner];
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                                  [self stopSpinner];
+                                              }];
+    
+    
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading Categories and Tags";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 
