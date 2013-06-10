@@ -10,8 +10,10 @@
 #import "CGRestaurant.h"
 #import "CGRestaurantHomeViewController.h"
 #import "CGAnnotation.h"
+#import "MBProgressHud.h"
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
+#import <RestKit/RestKit.h>
 
 #define METERS_PER_MILE 1609.344
 
@@ -93,7 +95,29 @@
 -(void) showRestaurantHome:(UIButton *) sender {
     CGAnnotation *annotation = [[mapView selectedAnnotations] objectAtIndex:0];
     self.selectedRestaurant = annotation.restaurant;
-    [self performSegueWithIdentifier:@"mapHomeSegue" sender:self];
+    
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.selectedRestaurant.restaurantId, @"id", nil];
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
+                                                      
+                                                      [self stopSpinner];
+                                                      [self performSegueWithIdentifier:@"mapHomeSegue" sender:self];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
@@ -101,6 +125,16 @@
         CGRestaurantHomeViewController *homeController = [segue destinationViewController];
         homeController.restaurant = self.selectedRestaurant;
     }
+}
+
+- (void) startSpinner {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.labelText = @"Loading Restaurants & Bars";
+    hud.userInteractionEnabled = YES;
+}
+
+- (void) stopSpinner {
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
 @end
