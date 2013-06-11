@@ -97,8 +97,17 @@
     params.useCurrentLocation = NO;
 
     if (indexPath.row == 0){ //current location
-        [CGRestaurantParameter shared].useCurrentLocation = YES;
-        [[CGRestaurantParameter shared] changeLocation];
+        if ([CLLocationManager locationServicesEnabled] && [CLLocationManager authorizationStatus] == kCLAuthorizationStatusAuthorized){
+            [CGRestaurantParameter shared].useCurrentLocation = YES;
+            [[CGRestaurantParameter shared] changeLocation];
+        }else{
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Current Location"
+                                                            message:@"We are not able to access your current location.  Please enable location services in the Settings App on your home screen."
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"OK"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
     }else if (indexPath.row == 1){ //boston all
         params.cityId = [NSNumber numberWithInt:4];
         params.neighborhoodId = nil;

@@ -394,6 +394,7 @@
     if ([[segue identifier] isEqualToString:@"mapFoodTruckSegue"]){
         CGRestaurantMapViewController *mapController = [segue destinationViewController];
         mapController.restaurants = self.foodTrucks;
+        mapController.showFoodTrucks = YES;
     }
     
    else if ([[segue identifier] isEqualToString:@"foodTruckHomeSegue"]){

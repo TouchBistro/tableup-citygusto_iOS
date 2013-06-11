@@ -30,6 +30,7 @@
 -(id)init {
     if (self = [super init])  {
         self.showPosition = NO;
+        self.showFoodTrucks = NO;
     }
     return self;
 }
@@ -116,26 +117,52 @@
     
     NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:self.selectedRestaurant.restaurantId, @"id", nil];
     
-    [self startSpinner];
-    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
-                                           parameters:params
-                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                  if (mappingResult){
-                                                      self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
-                                                      
-                                                      [self stopSpinner];
-                                                      [self performSegueWithIdentifier:@"mapHomeSegue" sender:self];
+    if (self.showFoodTrucks){
+        [self startSpinner];
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/foodtrucks"
+                                               parameters:params
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
+                                                          
+                                                          [self stopSpinner];
+                                                          [self performSegueWithIdentifier:@"mapHomeSegue" sender:self];
+                                                      }
                                                   }
-                                              }
-                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                  message:@"There was an issue"
-                                                                                                 delegate:nil
-                                                                                        cancelButtonTitle:@"OK"
-                                                                                        otherButtonTitles:nil];
-                                                  [alert show];
-                                                  NSLog(@"Hit error: %@", error);
-                                              }];
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                  }];
+        
+    }else{
+        [self startSpinner];
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
+                                               parameters:params
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
+                                                          
+                                                          [self stopSpinner];
+                                                          [self performSegueWithIdentifier:@"mapHomeSegue" sender:self];
+                                                      }
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                  }];
+    }
+    
+    
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{

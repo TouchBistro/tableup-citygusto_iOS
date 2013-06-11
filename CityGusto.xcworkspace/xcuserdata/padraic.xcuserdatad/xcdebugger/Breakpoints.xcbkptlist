@@ -164,11 +164,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantMapViewController.m"
-         timestampString = "392566659.805948"
+         timestampString = "392652093.339768"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "89"
-         endingLineNumber = "89"
+         startingLineNumber = "90"
+         endingLineNumber = "90"
          landmarkName = "-mapView:viewForAnnotation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -1359,19 +1359,6 @@
          shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "CityGusto/CGLocationViewController.m"
-         timestampString = "392301248.816544"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "101"
-         endingLineNumber = "101"
-         landmarkName = "-tableView:didSelectRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
          filePath = "CityGusto/CGRestaurantParameter.m"
          timestampString = "392303158.874444"
          startingColumnNumber = "9223372036854775807"
@@ -1444,6 +1431,32 @@
          startingLineNumber = "53"
          endingLineNumber = "53"
          landmarkName = "-tableView:cellForRowAtIndexPath:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CityGusto/CGRestaurantParameter.m"
+         timestampString = "392652932.93049"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "432"
+         endingLineNumber = "432"
+         landmarkName = "-getCurrentLocation"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "CityGusto/CGLocationViewController.m"
+         timestampString = "392652962.478647"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "100"
+         endingLineNumber = "100"
+         landmarkName = "-tableView:didSelectRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>
