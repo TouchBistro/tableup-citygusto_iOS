@@ -323,7 +323,7 @@
 
 - (void) viewMorePressed:(id)sender{
     
-    [CGRestaurantParameter shared].foodTruckOffset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].offset intValue] + 20];
+    [CGRestaurantParameter shared].foodTruckOffset = [NSNumber numberWithInt:[[CGRestaurantParameter shared].foodTruckOffset intValue] + 20];
     NSMutableDictionary *params = [[CGRestaurantParameter shared] buildFoodTruckParameterMap];
     [params setObject:@"true" forKey:@"reduced"];
     

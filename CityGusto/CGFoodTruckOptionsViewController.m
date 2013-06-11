@@ -151,7 +151,7 @@
         params.foodTruckOpenFilter = NO;
     }
     
-    params.offset = 0;
+    params.foodTruckOffset = 0;
     
     NSMutableDictionary *paramsDictionary = [[CGRestaurantParameter shared] buildFoodTruckParameterMap];
     [paramsDictionary setObject:@"true" forKey:@"reduced"];
