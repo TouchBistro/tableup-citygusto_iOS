@@ -102,7 +102,7 @@
             [[CGRestaurantParameter shared] changeLocation];
         }else{
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Current Location"
-                                                            message:@"We are not able to access your current location.  Please enable location services in the Settings App on your home screen."
+                                                            message:@"We are unable to access your current location.  Please confirm location services is enabled.  On your Home Screen, tap Settings => Privacy => Location => turn 'On' for CityGusto."
                                                            delegate:nil
                                                   cancelButtonTitle:@"OK"
                                                   otherButtonTitles:nil];
