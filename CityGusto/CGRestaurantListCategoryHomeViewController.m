@@ -78,10 +78,10 @@
     bottomBorder3.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
     [self.restaurant3View.layer insertSublayer:bottomBorder3 atIndex:0];
     
-//    CAGradientLayer *gradient = [CAGradientLayer layer];
-//    gradient.frame = self.headerView.bounds;
-//    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:173.0f/255.0f green:98.0f/255.0f blue:137.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:200.0f/255.0f green:150.0f/255.0f blue:176.0f/255.0f alpha:1.0f].CGColor, nil];
-//    [self.headerView.layer insertSublayer:gradient atIndex:0];
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.headerView.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:173.0f/255.0f green:98.0f/255.0f blue:137.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:200.0f/255.0f green:150.0f/255.0f blue:176.0f/255.0f alpha:1.0f].CGColor, nil];
+    [self.headerView.layer insertSublayer:gradient atIndex:0];
 }
 
 - (void)viewDidLoad
