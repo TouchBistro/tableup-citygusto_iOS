@@ -10,10 +10,11 @@
                 <viewController id="3jq-np-8jH" customClass="CGRestaurantOptionsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PwM-Fy-bnQ">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="ncm-8S-mMD">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="635"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Filter Results:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="c6H-Of-7Zb">
                                         <rect key="frame" x="17" y="87" width="87" height="21"/>
@@ -201,7 +202,7 @@
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="CdX-Ew-kih">
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="wxg-Hp-VHo">
@@ -1205,10 +1206,11 @@
                 <viewController id="PHH-3G-vRc" customClass="CGEventOptionsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ah2-wS-wpO">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="HN7-jW-Ftc">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="1400"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="lYy-vs-Ei7">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="30"/>
@@ -1406,7 +1408,7 @@
                                 </subviews>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="5hb-xA-zo9">
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="2xr-dp-d4x">
@@ -3259,10 +3261,11 @@
                 <viewController id="B52-54-Ucu" customClass="CGFoodTruckOptionsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6AA-kL-qUj">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="8gb-5v-rby">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Filter Results:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="N0A-Xf-cJ6">
                                         <rect key="frame" x="17" y="80" width="87" height="21"/>
@@ -3342,7 +3345,7 @@
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Food Truck Filters" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Qmp-h5-fSN">
                                                 <rect key="frame" x="20" y="7" width="280" height="22"/>
-                                                <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
                                                 <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
@@ -3403,7 +3406,7 @@
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="uPP-ve-OoK">
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="q32-22-g9R">
@@ -3878,10 +3881,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="qXS-Q8-ecf"/>
+        <segue reference="Ewr-Nt-WZf"/>
         <segue reference="NQz-2H-uJM"/>
-        <segue reference="iew-l2-cJO"/>
         <segue reference="Em6-Bi-MbD"/>
         <segue reference="PaO-af-0TP"/>
-        <segue reference="Ewr-Nt-WZf"/>
     </inferredMetricsTieBreakers>
 </document>
