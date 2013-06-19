@@ -24,6 +24,7 @@
 #import "CGUser.h"
 #import "CGRestaurantFavoriteList.h"
 #import "CGLocal.h"
+#import "CGSearchResult.h"
 #import <RestKit/RestKit.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -38,8 +39,8 @@ NSString *locationChangedNotification = @"locationChangedNotification";
     RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelInfo);
     
-//    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8080"];
-    NSURL *baseURL = [NSURL URLWithString:@"http://citygusto.com"];
+    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8080"];
+//    NSURL *baseURL = [NSURL URLWithString:@"http://citygusto.com"];
     AFHTTPClient* client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
     [client setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
     
@@ -65,6 +66,9 @@ NSString *locationChangedNotification = @"locationChangedNotification";
     
     RKObjectMapping *topListMapping = [RKObjectMapping mappingForClass:[CGTopListPosition class]];
     [topListMapping addAttributeMappingsFromArray:@[ @"listName", @"neighborhoodName", @"cityName", @"listId", @"position" ]];
+    
+    RKObjectMapping *searchResultMapping = [RKObjectMapping mappingForClass:[CGSearchResult class]];
+    [searchResultMapping addAttributeMappingsFromArray:@[ @"name", @"resultId", @"type", @"photoURL" ]];
     
     RKObjectMapping* restaurantMapping = [RKObjectMapping mappingForClass:[CGRestaurant class] ];
     [restaurantMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantId" }];
@@ -320,6 +324,11 @@ NSString *locationChangedNotification = @"locationChangedNotification";
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:localMapping
                                                                                  pathPattern:nil
                                                                                      keyPath:@"locals"
+                                                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:searchResultMapping
+                                                                                 pathPattern:nil
+                                                                                     keyPath:@"results"
                                                                                  statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
     
     //set default parameters

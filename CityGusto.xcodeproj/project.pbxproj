@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1B00D2EC17713C940094634E /* CGEventTrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B00D2EB17713C940094634E /* CGEventTrendingViewController.m */; };
+		1B00D2EF177208B30094634E /* CGSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B00D2EE177208B20094634E /* CGSearchViewController.m */; };
+		1B00D2F2177209560094634E /* CGSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B00D2F1177209560094634E /* CGSearchResult.m */; };
+		1B00D2F51772109D0094634E /* CGSearchResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B00D2F41772109D0094634E /* CGSearchResultCell.m */; };
 		1B1B081B1703121300FF0372 /* CGCuisineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1B081A1703121300FF0372 /* CGCuisineViewController.m */; };
 		1B1B0833170326DD00FF0372 /* CGFeatureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B1B0832170326DD00FF0372 /* CGFeatureViewController.m */; };
 		1B2854CA17542042004885FF /* buttonBackgroundGreenSM.png in Resources */ = {isa = PBXBuildFile; fileRef = 1B2854C917542042004885FF /* buttonBackgroundGreenSM.png */; };
@@ -170,6 +173,12 @@
 /* Begin PBXFileReference section */
 		1B00D2EA17713C940094634E /* CGEventTrendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEventTrendingViewController.h; sourceTree = "<group>"; };
 		1B00D2EB17713C940094634E /* CGEventTrendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEventTrendingViewController.m; sourceTree = "<group>"; };
+		1B00D2ED177208B20094634E /* CGSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSearchViewController.h; sourceTree = "<group>"; };
+		1B00D2EE177208B20094634E /* CGSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSearchViewController.m; sourceTree = "<group>"; };
+		1B00D2F0177209560094634E /* CGSearchResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSearchResult.h; sourceTree = "<group>"; };
+		1B00D2F1177209560094634E /* CGSearchResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSearchResult.m; sourceTree = "<group>"; };
+		1B00D2F31772109D0094634E /* CGSearchResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSearchResultCell.h; sourceTree = "<group>"; };
+		1B00D2F41772109D0094634E /* CGSearchResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGSearchResultCell.m; sourceTree = "<group>"; };
 		1B1B08191703121300FF0372 /* CGCuisineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGCuisineViewController.h; sourceTree = "<group>"; };
 		1B1B081A1703121300FF0372 /* CGCuisineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGCuisineViewController.m; sourceTree = "<group>"; };
 		1B1B0831170326DD00FF0372 /* CGFeatureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFeatureViewController.h; sourceTree = "<group>"; };
@@ -577,6 +586,8 @@
 				1BE34FC5173B2F0100883DA8 /* CGEventAnnotation.m */,
 				1B980278174D09B00050D51E /* CGFoodTruck.h */,
 				1B980279174D09B00050D51E /* CGFoodTruck.m */,
+				1B00D2F0177209560094634E /* CGSearchResult.h */,
+				1B00D2F1177209560094634E /* CGSearchResult.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -592,6 +603,8 @@
 				1BE5E913171829ED00A84099 /* CGEventCell.m */,
 				1B98027E174D13AD0050D51E /* CGFoodTruckCell.h */,
 				1B98027F174D13AD0050D51E /* CGFoodTruckCell.m */,
+				1B00D2F31772109D0094634E /* CGSearchResultCell.h */,
+				1B00D2F41772109D0094634E /* CGSearchResultCell.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -669,6 +682,8 @@
 				1BBBB288174D8532009E84D2 /* CGFoodTruckCuisineViewController.m */,
 				1B00D2EA17713C940094634E /* CGEventTrendingViewController.h */,
 				1B00D2EB17713C940094634E /* CGEventTrendingViewController.m */,
+				1B00D2ED177208B20094634E /* CGSearchViewController.h */,
+				1B00D2EE177208B20094634E /* CGSearchViewController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -992,6 +1007,9 @@
 				1BBBB291174E4803009E84D2 /* MHImageCache.m in Sources */,
 				1BBBB292174E4803009E84D2 /* MHLazyTableImages.m in Sources */,
 				1B00D2EC17713C940094634E /* CGEventTrendingViewController.m in Sources */,
+				1B00D2EF177208B30094634E /* CGSearchViewController.m in Sources */,
+				1B00D2F2177209560094634E /* CGSearchResult.m in Sources */,
+				1B00D2F51772109D0094634E /* CGSearchResultCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

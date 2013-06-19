@@ -1647,6 +1647,28 @@
                                             <segue destination="Zmc-7E-SBl" kind="push" id="0NS-2B-3qw"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DbN-F2-gSE" style="IBUITableViewCellStyleDefault" id="r0R-nZ-qdZ">
+                                        <rect key="frame" x="0.0" y="132" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Search" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="DbN-F2-gSE">
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <size key="shadowOffset" width="1" height="1"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <connections>
+                                            <segue destination="oRW-Lz-Gcy" kind="push" id="pdC-e5-kxl"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -3249,6 +3271,85 @@
             </objects>
             <point key="canvasLocation" x="-1453" y="-406"/>
         </scene>
+        <!--Search View Controller-->
+        <scene sceneID="TM0-9o-uHW">
+            <objects>
+                <tableViewController id="oRW-Lz-Gcy" customClass="CGSearchViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" id="ihu-Rc-Boh">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" id="EEz-sP-BTM">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="oRW-Lz-Gcy" id="Bxf-QY-C6V"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SearchResultCell" rowHeight="74" id="dDx-uu-amz" customClass="CGSearchResultCell">
+                                <rect key="frame" x="0.0" y="66" width="320" height="74"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="EEX-oP-CTi">
+                                            <rect key="frame" x="12" y="6" width="60" height="60"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3a6-bL-9Gc">
+                                            <rect key="frame" x="80" y="45" width="206" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                            <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ico-list-arrow-alt.png" id="DbY-1z-RjU">
+                                            <rect key="frame" x="297" y="13" width="20" height="32"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="The Best List of Best Lists of all Restaurants" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="rfi-ai-CSS">
+                                            <rect key="frame" x="80" y="6" width="209" height="39"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                            <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="imageView" destination="EEX-oP-CTi" id="lrq-lP-SDq"/>
+                                    <outlet property="nameLabel" destination="rfi-ai-CSS" id="qh1-zb-Kfy"/>
+                                    <outlet property="typeLabel" destination="3a6-bL-9Gc" id="wwl-rf-mBf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="oRW-Lz-Gcy" id="1ED-2m-RoI"/>
+                            <outlet property="delegate" destination="oRW-Lz-Gcy" id="yPB-Qc-CrK"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="E3Y-uz-mQD"/>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="AU7-ze-dHe" id="bcb-XB-erQ"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lJC-jF-AfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="AU7-ze-dHe">
+                    <connections>
+                        <outlet property="delegate" destination="oRW-Lz-Gcy" id="JaG-uO-hK1"/>
+                        <outlet property="searchContentsController" destination="oRW-Lz-Gcy" id="zFd-3i-nvY"/>
+                        <outlet property="searchResultsDataSource" destination="oRW-Lz-Gcy" id="VXh-BX-uc0"/>
+                        <outlet property="searchResultsDelegate" destination="oRW-Lz-Gcy" id="3q9-e2-Wpt"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="-1571" y="1655"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="llK-UF-kPL">
             <objects>
@@ -3955,6 +4056,17 @@
         <class className="CGRestaurantTopListViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantTopListViewController.h"/>
         </class>
+        <class className="CGSearchResultCell" superclassName="UITableViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSearchResultCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="CGSearchViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSearchViewController.h"/>
+        </class>
         <class className="CGSelectRestaurantCategoryViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSelectRestaurantCategoryViewController.h"/>
             <relationships>
@@ -3987,11 +4099,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Ewr-Nt-WZf"/>
+        <segue reference="1xg-Mi-QDy"/>
         <segue reference="iew-l2-cJO"/>
         <segue reference="NQz-2H-uJM"/>
         <segue reference="PaO-af-0TP"/>
         <segue reference="MXO-9X-nkW"/>
-        <segue reference="zP4-ZE-mbc"/>
-        <segue reference="aRS-L5-XXR"/>
     </inferredMetricsTieBreakers>
 </document>
