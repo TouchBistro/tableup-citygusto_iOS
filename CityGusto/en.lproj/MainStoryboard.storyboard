@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="e5a-ZU-8AA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="e5a-ZU-8AA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Restaurant Options View Controller-->
@@ -1625,15 +1625,15 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zNF-ef-XYg" style="IBUITableViewCellStyleDefault" id="MMm-fX-hiY">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zNF-ef-XYg" style="IBUITableViewCellStyleDefault" id="MMm-fX-hiY">
                                         <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Trending Events (Coming soon)" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="zNF-ef-XYg">
-                                                    <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
@@ -1643,6 +1643,9 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
+                                        <connections>
+                                            <segue destination="Zmc-7E-SBl" kind="push" id="0NS-2B-3qw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -3158,6 +3161,87 @@
             </objects>
             <point key="canvasLocation" x="-1571" y="1011"/>
         </scene>
+        <!--Event Trending View Controller-->
+        <scene sceneID="bw0-Q2-Qzh">
+            <objects>
+                <tableViewController id="Zmc-7E-SBl" customClass="CGEventTrendingViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" id="nD1-Ko-wd8">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="74" id="k5b-NN-UR6" customClass="CGEventCell">
+                                <rect key="frame" x="0.0" y="22" width="320" height="74"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="73"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="yJZ-8h-r0X">
+                                            <rect key="frame" x="12" y="6" width="60" height="60"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zvc-Kq-asM">
+                                            <rect key="frame" x="80" y="25" width="206" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
+                                            <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="3mT-bc-aqZ">
+                                            <rect key="frame" x="80" y="44" width="50" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="8LT-Sr-3qC">
+                                            <rect key="frame" x="138" y="44" width="132" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ico-list-arrow-alt.png" id="f6a-Z2-EI1">
+                                            <rect key="frame" x="297" y="13" width="20" height="32"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="bBQ-xl-c4o">
+                                            <rect key="frame" x="80" y="6" width="234" height="21"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                                            <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                            <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <size key="shadowOffset" width="1" height="1"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="bBQ-xl-c4o" id="Vt7-fP-Cmb"/>
+                                    <outlet property="nextOccurrenceLabel" destination="3mT-bc-aqZ" id="fKW-nh-2Jx"/>
+                                    <outlet property="primaryPhotoImage" destination="yJZ-8h-r0X" id="u1B-hK-0cL"/>
+                                    <outlet property="timeLabel" destination="8LT-Sr-3qC" id="lNo-Yj-9kv"/>
+                                    <outlet property="venueLabel" destination="zvc-Kq-asM" id="6we-wI-Df9"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Zmc-7E-SBl" id="BJl-IW-a7Q"/>
+                            <outlet property="delegate" destination="Zmc-7E-SBl" id="5np-em-9uM"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="obe-EU-bkU"/>
+                    <connections>
+                        <segue destination="2hf-AF-Ai5" kind="push" identifier="eventTrendingDetailSegue" id="zP4-ZE-mbc"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VY9-oe-Og9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1453" y="-406"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="llK-UF-kPL">
             <objects>
@@ -3617,6 +3701,9 @@
                 <relationship kind="action" name="done:"/>
             </relationships>
         </class>
+        <class className="CGEventTrendingViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventTrendingViewController.h"/>
+        </class>
         <class className="CGFeatureViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGFeatureViewController.h"/>
             <relationships>
@@ -3890,10 +3977,10 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MXO-9X-nkW"/>
-        <segue reference="PaO-af-0TP"/>
-        <segue reference="NQz-2H-uJM"/>
-        <segue reference="ziQ-Qk-TXW"/>
         <segue reference="iew-l2-cJO"/>
+        <segue reference="NQz-2H-uJM"/>
+        <segue reference="PaO-af-0TP"/>
+        <segue reference="MXO-9X-nkW"/>
+        <segue reference="zP4-ZE-mbc"/>
     </inferredMetricsTieBreakers>
 </document>

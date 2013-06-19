@@ -280,6 +280,59 @@
     return params;
 }
 
+- (NSMutableDictionary *) buildEventTrendingParameterMap{
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    if (cityId){
+        [params setObject:cityId forKey:@"cityId"];
+    }
+    
+    if (neighborhoodId){
+        [params setObject:neighborhoodId forKey:@"neighborhoodId"];
+    }
+    
+    if (max){
+        [params setObject:max forKey:@"max"];
+    }else{
+        [params setObject:@"20" forKey:@"max"];
+    }
+    
+    if (self.eventTrendingOffset){
+        [params setObject:self.eventTrendingOffset forKey:@"offset"];
+    }else{
+        [params setObject:@"0" forKey:@"offset"];
+    }
+    
+    if (self.eventTrendingSortOrder){
+        [params setObject:self.eventTrendingSortOrder forKey:@"sortOrder"];
+    }
+    
+    if (self.useCurrentLocation){
+        if (lat){
+            [params setObject:lat forKey:@"lat"];
+        }
+        
+        if (lon){
+            [params setObject:lon forKey:@"long"];
+        }
+    }
+    
+    if (date){
+        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"MM/dd/yyyy"];
+        
+        NSString *dateString = [dateFormatter stringFromDate:date];
+        NSLog(@"%@",dateString);
+        
+        [params setObject:dateString forKey:@"date"];
+    }
+    
+    [params setObject:times forKey:@"time"];
+    [params setObject:@"true" forKey:@"trending"];
+    
+    return params;
+}
+
 - (NSMutableDictionary *) buildFoodTruckParameterMap{
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     

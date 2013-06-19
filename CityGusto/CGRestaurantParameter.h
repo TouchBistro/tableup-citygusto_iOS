@@ -25,6 +25,7 @@
 @property (nonatomic, strong) NSString *sortOrder;
 @property (nonatomic, strong) NSString *eventSortOrder;
 @property (nonatomic, strong) NSString *foodTruckSortOrder;
+@property (nonatomic, strong) NSString *eventTrendingSortOrder;
 
 @property (nonatomic, assign, getter=isDeliveryFilter) BOOL deliveryFilter;
 @property (nonatomic, assign, getter=isKitchenOpenFilter) BOOL kitchenOpenFilter;
@@ -60,6 +61,7 @@
 @property (nonatomic, strong) NSMutableArray *tagsForSelectedLocationAndCategories;
 
 @property (nonatomic, strong) NSNumber *eventOffset;
+@property (nonatomic, strong) NSNumber *eventTrendingOffset;
 @property (nonatomic, strong) NSNumber *foodTruckOffset;
 
 @property (nonatomic, strong) CGUser *loggedInUser;
@@ -67,6 +69,7 @@
 - (NSMutableDictionary *) buildParameterMap;
 - (NSMutableDictionary *) buildEventParameterMap;
 - (NSMutableDictionary *) buildFoodTruckParameterMap;
+- (NSMutableDictionary *) buildEventTrendingParameterMap;
 
 - (void) resetOffsets;
 - (void) buildAllCuisines;
