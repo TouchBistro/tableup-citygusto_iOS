@@ -3233,8 +3233,15 @@
                             <outlet property="delegate" destination="Zmc-7E-SBl" id="5np-em-9uM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="obe-EU-bkU"/>
+                    <navigationItem key="navigationItem" id="obe-EU-bkU">
+                        <barButtonItem key="rightBarButtonItem" title="Map" id="7SE-QZ-UFn">
+                            <connections>
+                                <segue destination="xOK-m1-FmK" kind="push" identifier="eventTrendingMapSegue" id="aRS-L5-XXR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="mapButtonItem" destination="7SE-QZ-UFn" id="bUM-1q-MgV"/>
                         <segue destination="2hf-AF-Ai5" kind="push" identifier="eventTrendingDetailSegue" id="zP4-ZE-mbc"/>
                     </connections>
                 </tableViewController>
@@ -3703,6 +3710,9 @@
         </class>
         <class className="CGEventTrendingViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGEventTrendingViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="mapButtonItem" candidateClass="UIBarButtonItem"/>
+            </relationships>
         </class>
         <class className="CGFeatureViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGFeatureViewController.h"/>
@@ -3982,5 +3992,6 @@
         <segue reference="PaO-af-0TP"/>
         <segue reference="MXO-9X-nkW"/>
         <segue reference="zP4-ZE-mbc"/>
+        <segue reference="aRS-L5-XXR"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -283,14 +283,6 @@
 - (NSMutableDictionary *) buildEventTrendingParameterMap{
     NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
     
-    if (cityId){
-        [params setObject:cityId forKey:@"cityId"];
-    }
-    
-    if (neighborhoodId){
-        [params setObject:neighborhoodId forKey:@"neighborhoodId"];
-    }
-    
     if (max){
         [params setObject:max forKey:@"max"];
     }else{
@@ -317,17 +309,6 @@
         }
     }
     
-    if (date){
-        NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"MM/dd/yyyy"];
-        
-        NSString *dateString = [dateFormatter stringFromDate:date];
-        NSLog(@"%@",dateString);
-        
-        [params setObject:dateString forKey:@"date"];
-    }
-    
-    [params setObject:times forKey:@"time"];
     [params setObject:@"true" forKey:@"trending"];
     
     return params;

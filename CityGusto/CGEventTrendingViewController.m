@@ -83,6 +83,9 @@
         
     }
     
+    UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
+    [self.mapButtonItem setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swithLocationChanged) name:locationChangedNotification object:nil];
     
     _lazyImages = [[MHLazyTableImages alloc] init];
@@ -373,6 +376,9 @@
     if ([[segue identifier] isEqualToString:@"eventTrendingDetailSegue"]){
         CGEventDetailViewController *detailController = [segue destinationViewController];
         detailController.event = self.selectedEvent;
+    }else if ([[segue identifier] isEqualToString:@"eventTrendingMapSegue"]){
+        CGEventMapViewController *mapController = [segue destinationViewController];
+        mapController.events = self.events;
     }
 }
 
