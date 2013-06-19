@@ -3322,8 +3322,8 @@
                                 </view>
                                 <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
-                                    <outlet property="imageView" destination="EEX-oP-CTi" id="lrq-lP-SDq"/>
                                     <outlet property="nameLabel" destination="rfi-ai-CSS" id="qh1-zb-Kfy"/>
+                                    <outlet property="primaryPhotoImage" destination="EEX-oP-CTi" id="QFa-IB-2sM"/>
                                     <outlet property="typeLabel" destination="3a6-bL-9Gc" id="wwl-rf-mBf"/>
                                 </connections>
                             </tableViewCell>
@@ -3336,6 +3336,10 @@
                     <navigationItem key="navigationItem" id="E3Y-uz-mQD"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="AU7-ze-dHe" id="bcb-XB-erQ"/>
+                        <segue destination="am7-Sl-lRs" kind="push" identifier="searchRestaurantListSegue" id="gl8-Nh-xVc"/>
+                        <segue destination="PEQ-5f-E8I" kind="push" identifier="searchRestaurantDetailSegue" id="NWT-y4-Avr"/>
+                        <segue destination="Kw5-NK-vw9" kind="push" identifier="searchLocalDetailSegue" id="qzp-BU-3PU"/>
+                        <segue destination="2hf-AF-Ai5" kind="push" identifier="searchEventDetailSegue" id="2tH-ZJ-a7J"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJC-jF-AfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3348,7 +3352,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1571" y="1655"/>
+            <point key="canvasLocation" x="-1619" y="1911"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="llK-UF-kPL">
@@ -4059,8 +4063,8 @@
         <class className="CGSearchResultCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSearchResultCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
             </relationships>
         </class>
@@ -4099,11 +4103,12 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ewr-Nt-WZf"/>
         <segue reference="1xg-Mi-QDy"/>
         <segue reference="iew-l2-cJO"/>
-        <segue reference="NQz-2H-uJM"/>
+        <segue reference="qzp-BU-3PU"/>
+        <segue reference="gl8-Nh-xVc"/>
+        <segue reference="NWT-y4-Avr"/>
+        <segue reference="2tH-ZJ-a7J"/>
         <segue reference="PaO-af-0TP"/>
-        <segue reference="MXO-9X-nkW"/>
     </inferredMetricsTieBreakers>
 </document>

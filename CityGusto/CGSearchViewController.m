@@ -11,6 +11,10 @@
 #import "CGSearchResult.h"
 #import "CGSearchViewController.h"
 #import "MBProgressHud.h"
+#import "CGRestaurantHomeViewController.h"
+#import "CGEventDetailViewController.h"
+#import "CGRestaurantListListViewController.h"
+#import "CGLocalDetailViewController.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -117,12 +121,6 @@
     return cell;
 }
 
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-}
-
 #pragma mark - UIScrollViewDelegate
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate
@@ -171,6 +169,8 @@
         [params setObject:[NSNumber numberWithInt:self.offset] forKey:@"offset"];
         
         [searchBar resignFirstResponder];
+        
+        [self startSpinner];
         
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/search"
                                                parameters:params
@@ -222,6 +222,133 @@
 
 - (void) stopSpinner {
     [MBProgressHUD hideHUDForView:self.view animated:YES];
+}
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    CGSearchResult *result = [self.results objectAtIndex:indexPath.row];
+    self.selectedResult = result;
+    NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:result.resultId, @"id", nil];
+    
+    if (result){
+        if ([result.type isEqualToString:@"Event"]){
+            [self startSpinner];
+            
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/events"
+                                                   parameters:params
+                                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                          if (mappingResult){
+                                                              self.selectedEvent = [[mappingResult array] objectAtIndex:0];
+                                                              
+                                                              [self stopSpinner];
+                                                              [self performSegueWithIdentifier:@"searchEventDetailSegue" sender:self];
+                                                          }
+                                                      }
+                                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                          message:@"There was an issue"
+                                                                                                         delegate:nil
+                                                                                                cancelButtonTitle:@"OK"
+                                                                                                otherButtonTitles:nil];
+                                                          [alert show];
+                                                          NSLog(@"Hit error: %@", error);
+                                                      }];
+        }else if ([result.type isEqualToString:@"Local Business"]){
+            [self startSpinner];
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/locals"
+                                                   parameters:params
+                                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                          if (mappingResult){
+                                                              self.selectedLocal = [[mappingResult array] objectAtIndex:0];
+                                                          }
+                                                          
+                                                          [self stopSpinner];
+                                                          [self performSegueWithIdentifier:@"searchLocalDetailSegue" sender:self];
+                                                      }
+                                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                          message:@"There was an issue"
+                                                                                                         delegate:nil
+                                                                                                cancelButtonTitle:@"OK"
+                                                                                                otherButtonTitles:nil];
+                                                          [alert show];
+                                                          NSLog(@"Hit error: %@", error);
+                                                          [self stopSpinner];
+                                                      }];
+        }else if ([result.type isEqualToString:@"Restaurant/Bar"]){
+            [self startSpinner];
+            
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
+                                                   parameters:params
+                                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                          if (mappingResult){
+                                                              self.selectedRestaurant = [[mappingResult array] objectAtIndex:0];
+                                                              
+                                                              [self stopSpinner];
+                                                              [self performSegueWithIdentifier:@"searchRestaurantDetailSegue" sender:self];
+                                                          }
+                                                      }
+                                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                          message:@"There was an issue"
+                                                                                                         delegate:nil
+                                                                                                cancelButtonTitle:@"OK"
+                                                                                                otherButtonTitles:nil];
+                                                          [alert show];
+                                                          NSLog(@"Hit error: %@", error);
+                                                      }];
+            
+        }else if ([result.type isEqualToString:@"'Best of' List"]){
+            NSDictionary *listParams = [NSDictionary dictionaryWithObjectsAndKeys:result.resultId, @"listId", nil];
+            
+            [self startSpinner];
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
+                                                   parameters:listParams
+                                                      success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                          if (mappingResult){
+                                                              self.listRestaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                              [self stopSpinner];
+
+                                                              [self performSegueWithIdentifier:@"searchRestaurantListSegue" sender:self];
+                                                          }
+                                                      }
+                                                      failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                          UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                          message:@"There was an issue"
+                                                                                                         delegate:nil
+                                                                                                cancelButtonTitle:@"OK"
+                                                                                                otherButtonTitles:nil];
+                                                          [alert show];
+                                                          NSLog(@"Hit error: %@", error);
+                                                          
+                                                          [self stopSpinner];
+                                                      }];
+            
+        }
+    }
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"searchRestaurantDetailSegue"]){
+        CGRestaurantHomeViewController *homeController = [segue destinationViewController];
+        homeController.restaurant = self.selectedRestaurant;
+    }else if ([[segue identifier] isEqualToString:@"searchEventDetailSegue"]){
+        CGEventDetailViewController *viewController = [segue destinationViewController];
+        viewController.event = self.selectedEvent;
+    }else if ([[segue identifier] isEqualToString:@"searchRestaurantListSegue"]){
+        CGRestaurantList *restaurantList = [CGRestaurantList alloc];
+        restaurantList.name = self.selectedResult.name;
+        restaurantList.restaurantListId = self.selectedResult.resultId;
+        
+        CGRestaurantListListViewController *restaurantListViewController = [segue destinationViewController];
+        restaurantListViewController.restaurants = self.listRestaurants;
+        restaurantListViewController.restaurantList = restaurantList;
+    }else if ([[segue identifier] isEqualToString:@"searchLocalDetailSegue"]){
+        CGLocalDetailViewController *viewController = [segue destinationViewController];
+        viewController.local = self.selectedLocal;
+    }
 }
 
 @end

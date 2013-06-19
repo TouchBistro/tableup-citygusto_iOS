@@ -11,6 +11,6 @@
 @interface CGSearchResultCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *nameLabel;
 @property (strong, nonatomic) IBOutlet UILabel *typeLabel;
-@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UIImageView *primaryPhotoImage;
 
 @end

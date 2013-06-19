@@ -86,14 +86,6 @@
 
 - (void)viewDidLoad
 {
-    for (UIView *subview in [self.view subviews]) {
-        if (subview == self.headerView){
-            NSLog(@"***************************************************");
-            NSLog(@"%@", NSStringFromCGPoint(subview.frame.origin));
-            
-        }
-    }
-    
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
