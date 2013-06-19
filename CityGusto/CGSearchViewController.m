@@ -67,10 +67,10 @@
     UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
     [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
     
-    self.noResultsView.hidden = YES;
-    [self.noResultsView addSubview:matchesLabel];
+//    self.noResultsView.hidden = YES;
+//    [self.noResultsView addSubview:matchesLabel];
     
-    [self.tableView insertSubview:self.noResultsView aboveSubview:self.tableView];
+//    [self.tableView insertSubview:self.noResultsView aboveSubview:self.tableView];
     
 }
 
@@ -89,11 +89,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.results.count == 0){
-        self.noResultsView.hidden = NO;
+//        self.noResultsView.hidden = NO;
 //        self.tableView.tableFooterView.hidden = YES;
     }else{
-        self.noResultsView.hidden = YES;
-        self.tableView.tableFooterView.hidden = NO;
+//        self.noResultsView.hidden = YES;
+//        self.tableView.tableFooterView.hidden = NO;
     }
     
     return self.results.count;
