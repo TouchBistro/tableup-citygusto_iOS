@@ -28,6 +28,8 @@
     MHLazyTableImages *_lazyImages;
 }
 
+@synthesize matchesLabel;
+
 
 - (void)viewDidLoad
 {
@@ -40,7 +42,7 @@
     
     self.offset = 0;
     
-    UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,320)];
+    self.matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,self.view.frame.size.height - 100)];
     matchesLabel.font = [UIFont boldSystemFontOfSize:18];
     matchesLabel.numberOfLines = 0;
     matchesLabel.shadowColor = [UIColor lightTextColor];
@@ -49,6 +51,13 @@
     matchesLabel.backgroundColor = [UIColor colorWithRed:238.0f/255.0f green:238.0f/255.0f blue:238.0f/255.0f alpha:1.0f];
     matchesLabel.textAlignment =  NSTextAlignmentCenter;
     matchesLabel.text = @"Enter a search term";
+    
+    self.noResultsView = [[UIView alloc] initWithFrame:CGRectMake(0,44,320,self.tableView.frame.size.height - 44)];
+    self.noResultsView.backgroundColor = [UIColor whiteColor];
+    
+    self.noResultsView.hidden = YES;
+    [self.noResultsView addSubview:matchesLabel];
+    [self.tableView insertSubview:self.noResultsView aboveSubview:self.tableView];
     
     self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -62,15 +71,10 @@
     
     [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
     
-    [self.tableView setTableFooterView:self.footerView];
-    
     UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
     [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
     
-//    self.noResultsView.hidden = YES;
-//    [self.noResultsView addSubview:matchesLabel];
-    
-//    [self.tableView insertSubview:self.noResultsView aboveSubview:self.tableView];
+    self.tableView.tableFooterView = self.footerView;
     
 }
 
@@ -89,11 +93,11 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.results.count == 0){
-//        self.noResultsView.hidden = NO;
-//        self.tableView.tableFooterView.hidden = YES;
+        self.noResultsView.hidden = NO;
+        self.tableView.tableFooterView.hidden = YES;
     }else{
-//        self.noResultsView.hidden = YES;
-//        self.tableView.tableFooterView.hidden = NO;
+        self.noResultsView.hidden = YES;
+        self.tableView.tableFooterView.hidden = NO;
     }
     
     return self.results.count;
@@ -184,7 +188,9 @@
                                                               [self.tableView setTableFooterView:self.footerView];
                                                           }
                                                           
-                                                          self.resultsEmpty = self.results.count == 0 ? YES : NO;
+                                                          if (self.results.count == 0){
+                                                              self.matchesLabel.text = @"No Results found.  Please refine your search";
+                                                          }
 
                                                           [self.tableView reloadData];
                                                           [self stopSpinner];
@@ -216,7 +222,7 @@
 
 - (void) startSpinner {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.labelText = @"Getting Search Results";
+    hud.labelText = @"Loading Results";
     hud.userInteractionEnabled = YES;
 }
 

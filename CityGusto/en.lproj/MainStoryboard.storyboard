@@ -3282,6 +3282,7 @@
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" id="EEz-sP-BTM">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <textInputTraits key="textInputTraits"/>
                             <connections>
                                 <outlet property="delegate" destination="oRW-Lz-Gcy" id="Bxf-QY-C6V"/>
@@ -3345,7 +3346,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lJC-jF-AfK" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <searchDisplayController id="AU7-ze-dHe">
                     <connections>
-                        <outlet property="delegate" destination="oRW-Lz-Gcy" id="JaG-uO-hK1"/>
                         <outlet property="searchContentsController" destination="oRW-Lz-Gcy" id="zFd-3i-nvY"/>
                         <outlet property="searchResultsDataSource" destination="oRW-Lz-Gcy" id="VXh-BX-uc0"/>
                         <outlet property="searchResultsDelegate" destination="oRW-Lz-Gcy" id="3q9-e2-Wpt"/>

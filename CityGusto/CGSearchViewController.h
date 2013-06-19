@@ -21,6 +21,7 @@
 
 @property (strong, nonatomic) UIView *noResultsView;
 @property (nonatomic, strong) UIView *footerView;
+@property (nonatomic, strong) UILabel *matchesLabel;
 
 @property (nonatomic, assign) NSInteger offset;
 
