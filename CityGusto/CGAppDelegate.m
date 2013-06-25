@@ -39,8 +39,8 @@ NSString *locationChangedNotification = @"locationChangedNotification";
     RKLogConfigureByName("RestKit/Network", RKLogLevelInfo);
     RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelInfo);
     
-    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8080"];
-//    NSURL *baseURL = [NSURL URLWithString:@"http://citygusto.com"];
+//    NSURL *baseURL = [NSURL URLWithString:@"http://localhost:8080"];
+    NSURL *baseURL = [NSURL URLWithString:@"http://citygusto.com"];
     AFHTTPClient* client = [[AFHTTPClient alloc] initWithBaseURL:baseURL];
     [client setDefaultHeader:@"Accept" value:RKMIMETypeJSON];
     

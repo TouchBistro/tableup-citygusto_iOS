@@ -194,7 +194,7 @@
         
         [self startSpinner];
         
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/search"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/search"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       if (mappingResult){
@@ -260,7 +260,7 @@
         if ([result.type isEqualToString:@"Event"]){
             [self startSpinner];
             
-            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/events"
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/events"
                                                    parameters:params
                                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                           if (mappingResult){
@@ -281,7 +281,7 @@
                                                       }];
         }else if ([result.type isEqualToString:@"Local Business"]){
             [self startSpinner];
-            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/locals"
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/locals"
                                                    parameters:params
                                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                           if (mappingResult){
@@ -304,7 +304,7 @@
         }else if ([result.type isEqualToString:@"Restaurant/Bar"]){
             [self startSpinner];
             
-            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                    parameters:params
                                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                           if (mappingResult){
@@ -328,7 +328,7 @@
             NSDictionary *listParams = [NSDictionary dictionaryWithObjectsAndKeys:result.resultId, @"listId", nil];
             
             [self startSpinner];
-            [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurants"
+            [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                    parameters:listParams
                                                       success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                           if (mappingResult){
