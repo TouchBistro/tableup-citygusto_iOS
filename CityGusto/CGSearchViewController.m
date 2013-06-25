@@ -15,6 +15,7 @@
 #import "CGEventDetailViewController.h"
 #import "CGRestaurantListListViewController.h"
 #import "CGLocalDetailViewController.h"
+#import "CGRestaurantParameter.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
 
@@ -30,10 +31,32 @@
 
 @synthesize matchesLabel;
 
+-(void) viewDidAppear:(BOOL)animated{
+    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:CGRectMake(10, 3, 300, 44)];
+    [button setTitle:@"View More" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+    [button addTarget:self action:@selector(viewMorePressed:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+    
+    UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
+    [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
+    
+    self.tableView.tableFooterView = self.footerView;
+}
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+        
+    }
     
     _lazyImages = [[MHLazyTableImages alloc] init];
     _lazyImages.placeholderImage = [UIImage imageNamed:@"CityGusto App Icon - 60x60.png"];
@@ -59,23 +82,8 @@
     [self.noResultsView addSubview:matchesLabel];
     [self.tableView insertSubview:self.noResultsView aboveSubview:self.tableView];
     
-    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setFrame:CGRectMake(10, 3, 300, 44)];
     
-    [button setTitle:@"View More" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
-    
-    [button addTarget:self action:@selector(viewMorePressed:)
-     forControlEvents:UIControlEventTouchUpInside];
-    
-    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-    
-    UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
-    [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
-    
-    self.tableView.tableFooterView = self.footerView;
-    
+    NSLog(@"%@", NSStringFromCGPoint(self.tableView.tableFooterView.frame.origin));
 }
 
 - (void)didReceiveMemoryWarning
@@ -171,6 +179,16 @@
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
         [params setObject:term forKey:@"term"];
         [params setObject:[NSNumber numberWithInt:self.offset] forKey:@"offset"];
+        
+        if ([CGRestaurantParameter shared].useCurrentLocation){
+            if ([CGRestaurantParameter shared].lat){
+                [params setObject:[CGRestaurantParameter shared].lat forKey:@"lat"];
+            }
+            
+            if ([CGRestaurantParameter shared].lon){
+                [params setObject:[CGRestaurantParameter shared].lon forKey:@"long"];
+            }
+        }
         
         [searchBar resignFirstResponder];
         
