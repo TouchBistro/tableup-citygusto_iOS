@@ -24,6 +24,7 @@
 @property (nonatomic, strong) UILabel *matchesLabel;
 
 @property (nonatomic, assign) NSInteger offset;
+@property (nonatomic, strong) NSString *term;
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 @property (nonatomic, strong) CGEvent *selectedEvent;

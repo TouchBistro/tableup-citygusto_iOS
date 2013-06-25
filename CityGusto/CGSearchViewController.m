@@ -31,23 +31,6 @@
 
 @synthesize matchesLabel;
 
--(void) viewDidAppear:(BOOL)animated{
-    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setFrame:CGRectMake(10, 3, 300, 44)];
-    [button setTitle:@"View More" forState:UIControlStateNormal];
-    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
-    [button addTarget:self action:@selector(viewMorePressed:)
-     forControlEvents:UIControlEventTouchUpInside];
-    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
-    
-    UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
-    [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
-    
-    self.tableView.tableFooterView = self.footerView;
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -82,7 +65,25 @@
     [self.noResultsView addSubview:matchesLabel];
     [self.tableView insertSubview:self.noResultsView aboveSubview:self.tableView];
     
+    self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0,100, 320, 60)];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setFrame:CGRectMake(10, 3, 300, 44)];
     
+    [button setTitle:@"View More" forState:UIControlStateNormal];
+    [button.titleLabel setFont:[UIFont boldSystemFontOfSize:15]];
+    
+    [button addTarget:self action:@selector(viewMorePressed:)
+     forControlEvents:UIControlEventTouchUpInside];
+    
+    [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+    
+    UIImage *greenImg = [UIImage imageNamed:@"buttonBackgroundGreen.png"];
+    [button setBackgroundImage:greenImg forState:UIBarMetricsDefault];
+    
+    [self.footerView addSubview:button];
+    
+    [self.tableView setTableFooterView:self.footerView];
+        
     NSLog(@"%@", NSStringFromCGPoint(self.tableView.tableFooterView.frame.origin));
 }
 
@@ -173,11 +174,11 @@
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
     
-    NSString *term = searchBar.text;
+    self.term = searchBar.text;
     
-    if (term.length > 0){
+    if (self.term.length > 0){
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
-        [params setObject:term forKey:@"term"];
+        [params setObject:self.term forKey:@"term"];
         [params setObject:[NSNumber numberWithInt:self.offset] forKey:@"offset"];
         
         if ([CGRestaurantParameter shared].useCurrentLocation){
@@ -352,6 +353,55 @@
             
         }
     }
+}
+
+- (void) viewMorePressed:(id)sender{
+    
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    self.offset += 20;
+    [params setObject:[[NSNumber alloc] initWithInt:self.offset] forKey:@"offset"];
+    [params setObject:[[NSNumber alloc] initWithInt:20] forKey:@"max"];
+    [params setObject:@"true" forKey:@"reduced"];
+    [params setObject:self.term forKey:@"term"];
+    
+    if ([CGRestaurantParameter shared].useCurrentLocation){
+        if ([CGRestaurantParameter shared].lat){
+            [params setObject:[CGRestaurantParameter shared].lat forKey:@"lat"];
+        }
+        
+        if ([CGRestaurantParameter shared].lon){
+            [params setObject:[CGRestaurantParameter shared].lon forKey:@"long"];
+        }
+    }
+    
+    
+    [self startSpinner];
+    [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/search"
+                                           parameters:params
+                                              success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                  if (mappingResult){
+                                                      [self.results addObjectsFromArray:[mappingResult array]];
+                                                      
+                                                      if ([mappingResult array].count < 20){
+                                                          self.tableView.tableFooterView = nil;
+                                                      }else{
+                                                          [self.tableView setTableFooterView:self.footerView];
+                                                      }
+                                                      
+                                                      [self.tableView reloadData];
+                                                      [self stopSpinner];
+                                                  }
+                                              }
+                                              failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                  message:@"There was an issue"
+                                                                                                 delegate:nil
+                                                                                        cancelButtonTitle:@"OK"
+                                                                                        otherButtonTitles:nil];
+                                                  [alert show];
+                                                  NSLog(@"Hit error: %@", error);
+                                              }];
 }
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
