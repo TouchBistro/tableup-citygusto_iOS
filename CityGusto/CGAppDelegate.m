@@ -22,6 +22,7 @@
 #import "CGCategory.h"
 #import "CGTag.h"
 #import "CGUser.h"
+#import "CGListUser.h"
 #import "CGRestaurantFavoriteList.h"
 #import "CGLocal.h"
 #import "CGSearchResult.h"
@@ -150,10 +151,18 @@ NSString *locationChangedNotification = @"locationChangedNotification";
     [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"reviewLinks" toKeyPath:@"reviewLinks" withMapping:reviewLinkMapping]];
     [restaurantMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"restaurantListPositions" toKeyPath:@"restaurantListPositions" withMapping:topListMapping]];
     
+    RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[CGUser class]];
+    [userMapping addAttributeMappingsFromDictionary:@{ @"id": @"userId" }];
+    [userMapping addAttributeMappingsFromArray:@[ @"username", @"firstname", @"lastname" ]];
+    
+    RKObjectMapping *listUserMapping = [RKObjectMapping mappingForClass:[CGListUser class]];
+    [listUserMapping addAttributeMappingsFromArray:@[ @"userId", @"username", @"firstname", @"lastname" ]];
+    
     RKObjectMapping *restaurantListMapping = [RKObjectMapping mappingForClass:[CGRestaurantList class]];
     [restaurantListMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantListId" }];
     [restaurantListMapping addAttributeMappingsFromArray:@[ @"name", @"cityUrlId", @"neighborhoodUrlId", @"photoURL" ]];
     [restaurantListMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"restaurants" toKeyPath:@"restaurants" withMapping:restaurantMapping]];
+    [restaurantListMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"user" toKeyPath:@"user" withMapping:listUserMapping]];
     
     RKObjectMapping *restaurantListCategoryMapping = [RKObjectMapping mappingForClass:[CGRestaurantListCategory class]];
     [restaurantListCategoryMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantListCategoryId" }];
@@ -282,10 +291,6 @@ NSString *locationChangedNotification = @"locationChangedNotification";
     RKObjectMapping *tagMapping = [RKObjectMapping mappingForClass:[CGTag class]];
     [tagMapping addAttributeMappingsFromArray:@[ @"name", @"tagId" ]];
     
-    RKObjectMapping *userMapping = [RKObjectMapping mappingForClass:[CGUser class]];
-    [userMapping addAttributeMappingsFromDictionary:@{ @"id": @"userId" }];
-    [userMapping addAttributeMappingsFromArray:@[ @"username" ]];
-    
     RKObjectMapping *restaurantFavoriteListMapping = [RKObjectMapping mappingForClass:[CGRestaurantFavoriteList class]];
     [restaurantFavoriteListMapping addAttributeMappingsFromDictionary:@{ @"id": @"restaurantFavoriteListId" }];
     [restaurantFavoriteListMapping addAttributeMappingsFromArray:@[ @"name" ]];
@@ -314,6 +319,11 @@ NSString *locationChangedNotification = @"locationChangedNotification";
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:userMapping
                                                                                  pathPattern:nil
                                                                                      keyPath:@"users"
+                                                                                 statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+    
+    [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:listUserMapping
+                                                                                 pathPattern:nil
+                                                                                     keyPath:@"user"
                                                                                  statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
     
     [objectManager addResponseDescriptor:[RKResponseDescriptor responseDescriptorWithMapping:restaurantFavoriteListMapping

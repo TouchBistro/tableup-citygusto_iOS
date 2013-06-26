@@ -141,6 +141,19 @@
                                                       
                                                       if (mappingResult){
                                                           self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                          
+                                                          CGRestaurantListCategory *expertCategory = [[CGRestaurantListCategory alloc] init];
+                                                          expertCategory.restaurantListCategoryId = [NSNumber numberWithInt:4];
+                                                          expertCategory.name = @"Experts";
+                                                          
+                                                          [self.restaurantListCategories addObject:expertCategory];
+                                                          
+                                                          CGRestaurantListCategory *personalCategory = [[CGRestaurantListCategory alloc] init];
+                                                          personalCategory.restaurantListCategoryId = [NSNumber numberWithInt:5];
+                                                          personalCategory.name = @"Personal";
+                                                          
+                                                          [self.restaurantListCategories addObject:personalCategory];
+                                                          
                                                           if (self.restaurantListCategories.count > 0){
                                                               currentCategory = self.restaurantListCategories[0];
                                                               if (currentCategory){
@@ -259,47 +272,6 @@
     if (self.locationChangedFlag == YES){
         self.locationChangedFlag = NO;
     }
-//        [self startSpinner];
-/*        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
-                                               parameters:[[CGRestaurantParameter shared] buildParameterMap]
-                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                      if (mappingResult){
-                                                          self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
-                                                          if (self.restaurantListCategories.count > 0){
-                                                              currentCategory = self.restaurantListCategories[0];
-                                                              if (currentCategory){
-                                                                  self.currentRestaurantList = self.currentCategory.restaurantLists[0];
-                                                              }
-                                                              [self showRestaurantListCategory];
-                                                          }
-                                                      }
-                                                      
-                                                      [self stopSpinner];
-                                                      
-                                                      [self.restaurantListPhotoUrls removeAllObjects];
-                                                      NSUInteger count = 0;
-                                                      for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
-                                                          NSInteger index = MAX(0, count);
-                                                          
-                                                          [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
-                                                          count++;
-                                                      }
-                                                      
-                                                      [self.carousel reloadData];
-                                                  }
-                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
-                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                                                                      message:@"There was an issue"
-                                                                                                     delegate:nil
-                                                                                            cancelButtonTitle:@"OK"
-                                                                                            otherButtonTitles:nil];
-                                                      [alert show];
-                                                      NSLog(@"Hit error: %@", error);
-                                                      
-                                                      [self stopSpinner];
-                                                  }];
-    }
- */
 }
 
 - (void)didReceiveMemoryWarning
@@ -432,25 +404,61 @@
 }
 
 - (void) updateRestaurantCategory:(CGRestaurantListCategory *) restaurantCategory{
-    self.currentCategory = restaurantCategory;
-    if (self.currentCategory){
-        self.currentRestaurantList = self.currentCategory.restaurantLists[0];
-    }
-    
-    [self.restaurantListPhotoUrls removeAllObjects];
-    NSUInteger count = 0;
-    for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
-        NSInteger index = MAX(0, count);
+    if ([restaurantCategory.restaurantListCategoryId intValue] == 4 || [restaurantCategory.restaurantListCategoryId intValue] == 5){
+        [self startSpinner];
+        NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
+        [params setObject:restaurantCategory.restaurantListCategoryId forKey:@"id"];
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
+                                               parameters:params
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      currentCategory = [[NSMutableArray alloc] initWithArray:[mappingResult array]][0];
+                                                      if (currentCategory){
+                                                          self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+                                                      }
+                                                      
+                                                      [self.restaurantListPhotoUrls removeAllObjects];
+                                                      NSUInteger count = 0;
+                                                      for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
+                                                          NSInteger index = MAX(0, count);
+                                                          
+                                                          [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
+                                                          count++;
+                                                      }
+                                                      
+                                                      [self stopSpinner];
+                                                      [self showRestaurantListCategory];
+                                                      [self.carousel reloadData];
+                                                      [self.carousel scrollToItemAtIndex:0 animated:NO];
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                      
+                                                      [self stopSpinner];
+                                                  }];
+    }else{
+        self.currentCategory = restaurantCategory;
+        if (self.currentCategory){
+            self.currentRestaurantList = self.currentCategory.restaurantLists[0];
+        }
         
-        [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
-//        [self.carousel insertItemAtIndex:index animated:YES];
+        [self.restaurantListPhotoUrls removeAllObjects];
+        NSUInteger count = 0;
+        for (CGRestaurantList *restauantList in self.currentCategory.restaurantLists){
+            NSInteger index = MAX(0, count);
+            [self.restaurantListPhotoUrls insertObject:restauantList.photoURL atIndex:index];
+            count++;
+        }
         
-        count++;
+        [self.carousel reloadData];
+        [self showRestaurantListCategory];
+        [self.carousel scrollToItemAtIndex:0 animated:NO];
     }
-    
-    [self.carousel reloadData];
-    [self showRestaurantListCategory];
-    [self.carousel scrollToItemAtIndex:0 animated:NO];
 }
 
 
@@ -521,6 +529,19 @@
                                                   if (mappingResult){
                                                       self.locationChangedFlag = NO;
                                                       self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                      
+                                                      CGRestaurantListCategory *expertCategory = [[CGRestaurantListCategory alloc] init];
+                                                      expertCategory.restaurantListCategoryId = [NSNumber numberWithInt:4];
+                                                      expertCategory.name = @"Experts";
+                                                      
+                                                      [self.restaurantListCategories addObject:expertCategory];
+                                                      
+                                                      CGRestaurantListCategory *personalCategory = [[CGRestaurantListCategory alloc] init];
+                                                      personalCategory.restaurantListCategoryId = [NSNumber numberWithInt:5];
+                                                      personalCategory.name = @"Personal";
+                                                      
+                                                      [self.restaurantListCategories addObject:personalCategory];
+                                                      
                                                       if (self.restaurantListCategories.count > 0){
                                                           self.currentCategory = self.restaurantListCategories[0];
                                                           if (self.currentCategory){

@@ -7,6 +7,7 @@
 //
 #import "CGRestaurantListCategory.h"
 #import "CGSelectRestaurantCategoryViewController.h"
+#import "CGRestaurantListCategory.h"
 
 @interface CGSelectRestaurantCategoryViewController ()
 

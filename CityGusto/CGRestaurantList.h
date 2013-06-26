@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 CityGusto. All rights reserved.
 //
 
+#import "CGListUser.h"
 #import <Foundation/Foundation.h>
 
 @interface CGRestaurantList : NSObject
@@ -18,6 +19,8 @@
 @property (nonatomic, strong) NSNumber *restaurantListId;
 
 @property (nonatomic, strong) NSString *photoURL;
+
+@property (nonatomic, strong) CGListUser *user;
 
 @property (nonatomic, strong) NSMutableArray *restaurants;
 

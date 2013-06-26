@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B00B1F7177B5B0400775CF0 /* CGListUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B00B1F6177B5B0400775CF0 /* CGListUser.m */; };
 		1B00D2EC17713C940094634E /* CGEventTrendingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B00D2EB17713C940094634E /* CGEventTrendingViewController.m */; };
 		1B00D2EF177208B30094634E /* CGSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B00D2EE177208B20094634E /* CGSearchViewController.m */; };
 		1B00D2F2177209560094634E /* CGSearchResult.m in Sources */ = {isa = PBXBuildFile; fileRef = 1B00D2F1177209560094634E /* CGSearchResult.m */; };
@@ -171,6 +172,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B00B1F5177B5B0400775CF0 /* CGListUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGListUser.h; sourceTree = "<group>"; };
+		1B00B1F6177B5B0400775CF0 /* CGListUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGListUser.m; sourceTree = "<group>"; };
 		1B00D2EA17713C940094634E /* CGEventTrendingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGEventTrendingViewController.h; sourceTree = "<group>"; };
 		1B00D2EB17713C940094634E /* CGEventTrendingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGEventTrendingViewController.m; sourceTree = "<group>"; };
 		1B00D2ED177208B20094634E /* CGSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGSearchViewController.h; sourceTree = "<group>"; };
@@ -588,6 +591,8 @@
 				1B980279174D09B00050D51E /* CGFoodTruck.m */,
 				1B00D2F0177209560094634E /* CGSearchResult.h */,
 				1B00D2F1177209560094634E /* CGSearchResult.m */,
+				1B00B1F5177B5B0400775CF0 /* CGListUser.h */,
+				1B00B1F6177B5B0400775CF0 /* CGListUser.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -1010,6 +1015,7 @@
 				1B00D2EF177208B30094634E /* CGSearchViewController.m in Sources */,
 				1B00D2F2177209560094634E /* CGSearchResult.m in Sources */,
 				1B00D2F51772109D0094634E /* CGSearchResultCell.m in Sources */,
+				1B00B1F7177B5B0400775CF0 /* CGListUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

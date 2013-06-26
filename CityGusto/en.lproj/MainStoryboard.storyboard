@@ -2556,6 +2556,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="carousel" destination="Wtq-lZ-Fa6" id="qns-iZ-DKS"/>
                         <outlet property="footerView" destination="PFW-OF-T4y" id="vtr-s3-IBM"/>
@@ -4104,11 +4105,11 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="1xg-Mi-QDy"/>
+        <segue reference="Em6-Bi-MbD"/>
+        <segue reference="NQz-2H-uJM"/>
         <segue reference="iew-l2-cJO"/>
-        <segue reference="qzp-BU-3PU"/>
-        <segue reference="gl8-Nh-xVc"/>
-        <segue reference="NWT-y4-Avr"/>
-        <segue reference="2tH-ZJ-a7J"/>
         <segue reference="PaO-af-0TP"/>
+        <segue reference="2tH-ZJ-a7J"/>
+        <segue reference="qzp-BU-3PU"/>
     </inferredMetricsTieBreakers>
 </document>
