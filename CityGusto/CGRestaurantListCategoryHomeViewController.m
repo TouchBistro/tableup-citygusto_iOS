@@ -408,6 +408,12 @@
         [self startSpinner];
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
         [params setObject:restaurantCategory.restaurantListCategoryId forKey:@"id"];
+        
+        if ([restaurantCategory.restaurantListCategoryId intValue] == 5){
+            [params setObject:[CGRestaurantParameter shared].loggedInUser.username forKey:@"username"];
+            
+        }
+        
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                                parameters:params
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {

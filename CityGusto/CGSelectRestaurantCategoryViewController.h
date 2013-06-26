@@ -6,6 +6,7 @@
 //  Copyright (c) 2013 CityGusto. All rights reserved.
 //
 #import "CGRestaurantListCategory.h"
+#import "CGLoginViewController.h"
 #import <UIKit/UIKit.h>
 
 @protocol CGSelectRestaurantCategoryDelegate
@@ -14,13 +15,16 @@
 
 
 
-@interface CGSelectRestaurantCategoryViewController : UITableViewController{
+@interface CGSelectRestaurantCategoryViewController : UITableViewController <CGLoginViewDelegate>{
     id <CGSelectRestaurantCategoryDelegate> delegate;
 }
 
 @property (nonatomic, assign) id <CGSelectRestaurantCategoryDelegate> delegate;
 
 @property (nonatomic, strong) NSMutableArray *restaurantCategories;
+@property (nonatomic, strong) CGRestaurantListCategory *selectedCategory;
+
+
 - (IBAction)cancel:(id)sender;
 
 @end

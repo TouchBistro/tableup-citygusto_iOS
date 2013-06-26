@@ -8,6 +8,10 @@
 #import "CGRestaurantListCategory.h"
 #import "CGSelectRestaurantCategoryViewController.h"
 #import "CGRestaurantListCategory.h"
+#import "CGAppDelegate.h"
+#import <RestKit/RestKit.h>
+#import "CGRestaurantParameter.h"
+#import "CGLoginViewController.h"
 
 @interface CGSelectRestaurantCategoryViewController ()
 
@@ -63,11 +67,66 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     CGRestaurantListCategory *category = [self.restaurantCategories objectAtIndex:indexPath.row];
-    if (category){
+    self.selectedCategory = category;
+    
+    if ([category.restaurantListCategoryId intValue] == 5){
+        if ([CGRestaurantParameter shared].loggedInUser){
+            [self loginSuccessful];            
+        }else{
+            CGAppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+            if (appDelegate.session.isOpen){
+                [FBRequestConnection startForMeWithCompletionHandler:^(FBRequestConnection *connection,
+                                                                       id<FBGraphUser> user,
+                                                                       NSError *error) {
+                    if (!error) {
+                        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+                        [params setObject:user.id forKey:@"fbUid"];
+                        
+                        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/facebook/login"
+                                                               parameters:params
+                                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                                      if (mappingResult){
+                                                                          [CGRestaurantParameter shared].loggedInUser = [[mappingResult array] objectAtIndex:0];
+                                                                          [self loginSuccessful];
+                                                                      }
+                                                                  }
+                                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                                      message:@"There was an issue"
+                                                                                                                     delegate:nil
+                                                                                                            cancelButtonTitle:@"OK"
+                                                                                                            otherButtonTitles:nil];
+                                                                      [alert show];
+                                                                  }];
+                    }
+                }];
+            }else{
+                [self performSegueWithIdentifier:@"restaurantCategoryLoginSegue" sender:self];
+            }
+        }
+    }else{
         [self.delegate updateRestaurantCategory:category];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+    
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"restaurantCategoryLoginSegue"]){
+        UINavigationController *navController = [segue destinationViewController];
+        
+        if (navController != nil){
+            CGLoginViewController *loginController = (CGLoginViewController *)navController.topViewController;
+            loginController.delegate = self;
+        }
+    }
+}
+
+-(void) loginSuccessful {
+//    [self.delegate updateRestaurantCategory:self.selectedCategory];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)cancel:(id)sender{
