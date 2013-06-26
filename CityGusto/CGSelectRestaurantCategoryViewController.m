@@ -125,8 +125,8 @@
 }
 
 -(void) loginSuccessful {
-//    [self.delegate updateRestaurantCategory:self.selectedCategory];
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.delegate updateRestaurantCategory:self.selectedCategory];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)cancel:(id)sender{

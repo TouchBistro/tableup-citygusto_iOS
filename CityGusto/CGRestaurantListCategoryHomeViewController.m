@@ -82,6 +82,11 @@
     gradient.frame = self.headerView.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:173.0f/255.0f green:98.0f/255.0f blue:137.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:200.0f/255.0f green:150.0f/255.0f blue:176.0f/255.0f alpha:1.0f].CGColor, nil];
     [self.headerView.layer insertSublayer:gradient atIndex:0];
+    
+    [self.scrollView setContentSize:CGSizeMake(320, 1000)];
+    self.scrollView.delegate = self;
+    [self.scrollView setScrollEnabled:YES];
+    
 }
 
 - (void)viewDidLoad
@@ -411,6 +416,22 @@
         
         if ([restaurantCategory.restaurantListCategoryId intValue] == 5){
             [params setObject:[CGRestaurantParameter shared].loggedInUser.username forKey:@"username"];
+            
+            UIView *nameView = [[UIView alloc] initWithFrame:CGRectMake(0, 217, self.view.frame.size.width, 20)];
+            [self.scrollView addSubview:nameView];
+            nameView.backgroundColor = [UIColor blueColor];
+            
+            CGRect newFrame = self.restaurant1View.frame;
+            newFrame.origin.y += 20;
+            self.restaurant1View.frame = newFrame;
+            
+            CGRect newFrame3 = self.restaurant3View.frame;
+            newFrame3.origin.y += 20;
+            self.restaurant3View.frame = newFrame3;
+            
+            CGRect newFrame4 = self.footerView.frame;
+            newFrame4.origin.y += 20;
+            self.footerView.frame = newFrame4;
             
         }
         

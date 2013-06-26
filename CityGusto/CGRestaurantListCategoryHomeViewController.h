@@ -16,7 +16,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <UIKit/UIKit.h>
 
-@interface CGRestaurantListCategoryHomeViewController : UIViewController <CGSelectRestaurantListViewViewDelegate, CGSelectRestaurantCategoryDelegate, CGLocationViewDelegate, iCarouselDataSource, iCarouselDelegate>
+@interface CGRestaurantListCategoryHomeViewController : UIViewController <CGSelectRestaurantListViewViewDelegate, CGSelectRestaurantCategoryDelegate, CGLocationViewDelegate, iCarouselDataSource, iCarouselDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *restaurantListCategories;
 @property (nonatomic, strong) NSMutableArray *restaurantListPhotoUrls;
@@ -52,6 +52,7 @@
 
 @property (nonatomic) BOOL wrap;
 @property (nonatomic) BOOL locationLoad;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
 - (IBAction)locationChange:(id)sender;
 
