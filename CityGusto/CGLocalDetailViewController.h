@@ -25,4 +25,6 @@
 - (IBAction)call:(id)sender;
 - (IBAction)website:(id)sender;
 
+@property (strong, nonatomic) IBOutlet UIButton *callButton;
+
 @end

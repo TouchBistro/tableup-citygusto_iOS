@@ -360,6 +360,7 @@
                     <connections>
                         <outlet property="address1" destination="b1S-Jx-UPR" id="4tG-6X-utf"/>
                         <outlet property="addressView" destination="jpB-ph-Y7I" id="xVP-qx-4uo"/>
+                        <outlet property="callButton" destination="BxW-Gz-Pcc" id="FrR-8y-GOz"/>
                         <outlet property="cityLabel" destination="BVh-bK-o4k" id="Sca-Qm-W3H"/>
                         <outlet property="headerLabel" destination="icf-0Y-ZOa" id="uiS-bt-Ojn"/>
                         <outlet property="headerView" destination="q2R-KE-PZs" id="ruX-zh-PZZ"/>
@@ -3914,6 +3915,7 @@
                 <relationship kind="action" name="website:"/>
                 <relationship kind="outlet" name="address1" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="addressView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="callButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="cityLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>

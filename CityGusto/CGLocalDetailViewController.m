@@ -61,7 +61,7 @@
             height += 50;
         }
         
-        [footerView setFrame:CGRectMake(0, 187, 320, height)];
+        [footerView setFrame:CGRectMake(0, self.callButton.frame.origin.y + self.callButton.frame.size.height + 20, 320, height)];
         
         if (self.local.twitterUserName && [self.local.twitterUserName length] > 0){
             UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
