@@ -58,5 +58,7 @@
 
 @property (nonatomic, assign) BOOL locationChangedFlag;
 
+@property (strong, nonatomic) IBOutlet UIView *expertNameView;
+@property (strong, nonatomic) IBOutlet UILabel *expertNameLabel;
 
 @end

@@ -83,9 +83,14 @@
     gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:173.0f/255.0f green:98.0f/255.0f blue:137.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:200.0f/255.0f green:150.0f/255.0f blue:176.0f/255.0f alpha:1.0f].CGColor, nil];
     [self.headerView.layer insertSublayer:gradient atIndex:0];
     
-    [self.scrollView setContentSize:CGSizeMake(320, 1000)];
+    [self.scrollView setContentSize:CGSizeMake(320, 660)];
     self.scrollView.delegate = self;
     [self.scrollView setScrollEnabled:YES];
+    
+    CALayer *bottomBorderExpertView = [CALayer layer];
+    bottomBorderExpertView.frame = CGRectMake(0.0f, self.expertNameView.frame.size.height - 1, self.expertNameView.frame.size.width, 1.0f);
+    bottomBorderExpertView.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
+    [self.expertNameView.layer insertSublayer:bottomBorderExpertView atIndex:0];
     
 }
 
@@ -204,6 +209,8 @@
     self.restaurant2Label.text = @"";
     self.restaurant3Label.text = @"";
     
+    self.expertNameView.hidden = YES;
+    
     NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
     [formatter setNumberStyle:NSNumberFormatterDecimalStyle];
     [formatter setMaximumFractionDigits:2];
@@ -267,6 +274,20 @@
                     self.restaurant3Label.text = listRestaurantText;
                 }
             }
+            
+            if (self.currentRestaurantList.user){
+                self.expertNameView.hidden = NO;
+                CGListUser *voter = self.currentRestaurantList.user;
+                
+                if (voter.lastname){
+                    NSString *votedByTest = [NSString stringWithFormat:@"Voted By: %@ %@", voter.firstname, voter.lastname];
+                    self.expertNameLabel.text = votedByTest;
+                }else{
+                    NSString *votedByTest = [NSString stringWithFormat:@"Voted By: %@", voter.firstname];
+                    self.expertNameLabel.text = votedByTest;
+                }
+            }
+            
         }
     }
 }
@@ -417,7 +438,7 @@
         if ([restaurantCategory.restaurantListCategoryId intValue] == 5){
             [params setObject:[CGRestaurantParameter shared].loggedInUser.username forKey:@"username"];
             
-            UIView *nameView = [[UIView alloc] initWithFrame:CGRectMake(0, 217, self.view.frame.size.width, 20)];
+/*            UIView *nameView = [[UIView alloc] initWithFrame:CGRectMake(0, 217, self.view.frame.size.width, 20)];
             [self.scrollView addSubview:nameView];
             nameView.backgroundColor = [UIColor blueColor];
             
@@ -432,6 +453,7 @@
             CGRect newFrame4 = self.footerView.frame;
             newFrame4.origin.y += 20;
             self.footerView.frame = newFrame4;
+*/
             
         }
         
