@@ -84,6 +84,7 @@
     [self.headerView.layer insertSublayer:gradient atIndex:0];
     
     [self.scrollView setContentSize:CGSizeMake(320, 660)];
+    self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     self.scrollView.delegate = self;
     [self.scrollView setScrollEnabled:YES];
     

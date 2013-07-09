@@ -2430,7 +2430,7 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="94p-jG-cD5">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="8bp-a7-MRd">
                                         <rect key="frame" x="0.0" y="217" width="320" height="20"/>
