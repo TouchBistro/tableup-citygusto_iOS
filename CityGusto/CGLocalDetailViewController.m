@@ -43,6 +43,99 @@
     [self.imageView.layer setShadowRadius:3.0];
     [self.imageView.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
     
+    if (self.local.twitterUserName || self.local.facebookURL || self.local.website){
+        
+        UIImage *blueImage = [UIImage imageNamed:@"buttonBackgroundBlue.png"];
+        UIView *footerView = [[UIView alloc] init];
+        
+        NSInteger height = 0;
+        if (self.local.twitterUserName) {
+            height += 50;
+        }
+        
+        if (self.local.facebookURL) {
+            height += 50;
+        }
+        
+        if (self.local.website) {
+            height += 50;
+        }
+        
+        [footerView setFrame:CGRectMake(0, 187, 320, height)];
+        
+        if (self.local.twitterUserName && [self.local.twitterUserName length] > 0){
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [button setFrame:CGRectMake(20, 0, 280, 44)];
+            
+            [button setTitle:@"Twitter" forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
+            
+            [button addTarget:self action:@selector(viewTwitter:)
+             forControlEvents:UIControlEventTouchUpInside];
+            
+            [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+            [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
+            
+            [footerView addSubview:button];
+            
+        }
+        
+        if (self.local.facebookURL && [self.local.facebookURL length] > 0){
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            
+            if (self.local.twitterUserName){
+                [button setFrame:CGRectMake(20, 47, 280, 44)];
+            }else{
+                [button setFrame:CGRectMake(20, 0, 280, 44)];
+            }
+            
+            
+            [button setTitle:@"Facebook" forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
+            
+            [button addTarget:self action:@selector(viewFacebook:)
+             forControlEvents:UIControlEventTouchUpInside];
+            
+            [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+            [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
+            
+            [footerView addSubview:button];
+        }
+        
+        if (self.local.website && [self.local.website length] > 0){
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+            
+            if (self.local.twitterUserName){
+                if (self.local.facebookURL) {
+                    [button setFrame:CGRectMake(20, 94, 280, 44)];
+                }else{
+                    [button setFrame:CGRectMake(20, 47, 280, 44)];
+                }
+            }else{
+                if (self.local.facebookURL) {
+                    [button setFrame:CGRectMake(20, 47, 280, 44)];
+                }else{
+                    [button setFrame:CGRectMake(20, 0, 280, 44)];
+                }
+            }
+            
+            [button setTitle:@"Website" forState:UIControlStateNormal];
+            [button.titleLabel setFont:[UIFont boldSystemFontOfSize:14]];
+            
+            [button addTarget:self action:@selector(viewWebsite:)
+             forControlEvents:UIControlEventTouchUpInside];
+            
+            [button setTitleColor:[UIColor whiteColor] forState:UIBarMetricsDefault];
+            [button setBackgroundImage:blueImage forState:UIBarMetricsDefault];
+            
+            [footerView addSubview:button];
+        }
+        
+        [self.view addSubview:footerView];
+        
+        
+    }
+    
     [super viewDidLoad];
 }
 
@@ -84,4 +177,29 @@
     NSURL *url = [NSURL URLWithString:self.local.website];
     [[UIApplication sharedApplication] openURL:url];
 }
+
+- (void) viewTwitter:(id)sender{
+    NSString *urlString = @"http://twitter.com/";
+    urlString = [urlString stringByAppendingString:self.local.twitterUserName];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewFacebook:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.local.facebookURL];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
+- (void) viewWebsite:(id)sender{
+    NSString *urlString = @"http://";
+    urlString = [urlString stringByAppendingString:self.local.website];
+    
+    NSURL *url = [NSURL URLWithString:urlString];
+    [[UIApplication sharedApplication] openURL:url];
+}
+
 @end
