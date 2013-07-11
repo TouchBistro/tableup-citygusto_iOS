@@ -88,11 +88,6 @@
     self.scrollView.delegate = self;
     [self.scrollView setScrollEnabled:YES];
     
-    CALayer *bottomBorderExpertView = [CALayer layer];
-    bottomBorderExpertView.frame = CGRectMake(0.0f, self.expertNameView.frame.size.height - 1, self.expertNameView.frame.size.width, 1.0f);
-    bottomBorderExpertView.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
-    [self.expertNameView.layer insertSublayer:bottomBorderExpertView atIndex:0];
-    
 }
 
 - (void)viewDidLoad
@@ -101,7 +96,24 @@
         UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
     }
-        
+    
+    self.expertNameView = [[UIView alloc] initWithFrame:CGRectMake(0, self.imageSliderView.frame.origin.y + self.imageSliderView.frame.size.height, self.view.frame.size.width, 20)];
+    self.expertNameView.backgroundColor = [UIColor clearColor];
+    
+    CALayer *bottomBorderExpertView = [CALayer layer];
+    bottomBorderExpertView.frame = CGRectMake(0.0f, self.expertNameView.frame.size.height - 1, self.expertNameView.frame.size.width, 1.0f);
+    bottomBorderExpertView.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
+    [self.expertNameView.layer insertSublayer:bottomBorderExpertView atIndex:0];
+    
+    self.expertNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 20)];
+    self.expertNameLabel.font = [UIFont boldSystemFontOfSize:12.0];
+    self.expertNameLabel.textColor = [UIColor colorWithRed:98.0/255.0 green:137.0/255.0 blue:173.0/255.0 alpha:1.0f];
+    self.expertNameLabel.textAlignment = NSTextAlignmentCenter;
+    self.expertNameLabel.backgroundColor = [UIColor clearColor];
+    
+    [self.expertNameView addSubview:self.expertNameLabel];
+    self.showingVotedBy = NO;
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swithLocationChanged) name:locationChangedNotification object:nil];
     self.locationChangedFlag = NO;
     
@@ -438,10 +450,11 @@
         
         if ([restaurantCategory.restaurantListCategoryId intValue] == 5){
             [params setObject:[CGRestaurantParameter shared].loggedInUser.username forKey:@"username"];
-            
-/*            UIView *nameView = [[UIView alloc] initWithFrame:CGRectMake(0, 217, self.view.frame.size.width, 20)];
-            [self.scrollView addSubview:nameView];
-            nameView.backgroundColor = [UIColor blueColor];
+        }
+        
+        
+        if (self.showingVotedBy == NO){
+            [self.scrollView addSubview:self.expertNameView];
             
             CGRect newFrame = self.restaurant1View.frame;
             newFrame.origin.y += 20;
@@ -454,8 +467,8 @@
             CGRect newFrame4 = self.footerView.frame;
             newFrame4.origin.y += 20;
             self.footerView.frame = newFrame4;
-*/
             
+            self.showingVotedBy = YES;
         }
         
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
@@ -492,6 +505,24 @@
                                                       [self stopSpinner];
                                                   }];
     }else{
+        if (self.showingVotedBy == YES){
+            [self.expertNameView removeFromSuperview];
+            
+            CGRect newFrame = self.restaurant1View.frame;
+            newFrame.origin.y -= 20;
+            self.restaurant1View.frame = newFrame;
+            
+            CGRect newFrame3 = self.restaurant3View.frame;
+            newFrame3.origin.y -= 20;
+            self.restaurant3View.frame = newFrame3;
+            
+            CGRect newFrame4 = self.footerView.frame;
+            newFrame4.origin.y -= 20;
+            self.footerView.frame = newFrame4;
+            
+            self.showingVotedBy = NO;
+        }
+        
         self.currentCategory = restaurantCategory;
         if (self.currentCategory){
             self.currentRestaurantList = self.currentCategory.restaurantLists[0];

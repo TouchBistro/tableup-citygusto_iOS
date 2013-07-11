@@ -2433,20 +2433,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="600"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="8bp-a7-MRd">
-                                        <rect key="frame" x="0.0" y="217" width="320" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CDo-e1-hob">
-                                                <rect key="frame" x="0.0" y="0.0" width="320" height="20"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
-                                                <color key="textColor" red="0.38431372549019605" green="0.53725490196078429" blue="0.67843137254901964" alpha="1" colorSpace="calibratedRGB"/>
-                                                <color key="highlightedColor" red="0.38431372549999998" green="0.53725490200000003" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
                                     <view contentMode="scaleToFill" id="I6C-ZH-uSn">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -2499,7 +2485,7 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="nWk-vs-893">
-                                        <rect key="frame" x="0.0" y="237" width="320" height="35"/>
+                                        <rect key="frame" x="0.0" y="217" width="320" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="ehU-c2-hnN">
@@ -2529,7 +2515,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="SqJ-nf-vvq">
-                                        <rect key="frame" x="0.0" y="305" width="320" height="35"/>
+                                        <rect key="frame" x="0.0" y="285" width="320" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="OIa-ZW-63P">
@@ -2544,7 +2530,7 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view contentMode="scaleToFill" id="PFW-OF-T4y">
-                                        <rect key="frame" x="0.0" y="340" width="320" height="47"/>
+                                        <rect key="frame" x="0.0" y="320" width="320" height="47"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aY3-vv-xPe">
@@ -2580,8 +2566,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics"/>
                     <connections>
                         <outlet property="carousel" destination="Wtq-lZ-Fa6" id="qns-iZ-DKS"/>
-                        <outlet property="expertNameLabel" destination="CDo-e1-hob" id="Dty-21-4OG"/>
-                        <outlet property="expertNameView" destination="8bp-a7-MRd" id="gCL-5o-ZKu"/>
                         <outlet property="footerView" destination="PFW-OF-T4y" id="vtr-s3-IBM"/>
                         <outlet property="headerLabel" destination="ukj-sQ-c9w" id="oCw-AU-CKY"/>
                         <outlet property="headerView" destination="I6C-ZH-uSn" id="8aL-a1-mTx"/>
@@ -4011,8 +3995,6 @@
             <relationships>
                 <relationship kind="action" name="locationChange:"/>
                 <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
-                <relationship kind="outlet" name="expertNameLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="expertNameView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="footerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="headerView" candidateClass="UIView"/>

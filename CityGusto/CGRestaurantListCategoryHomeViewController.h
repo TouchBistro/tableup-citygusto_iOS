@@ -58,7 +58,9 @@
 
 @property (nonatomic, assign) BOOL locationChangedFlag;
 
-@property (strong, nonatomic) IBOutlet UIView *expertNameView;
-@property (strong, nonatomic) IBOutlet UILabel *expertNameLabel;
+@property (strong, nonatomic) UIView *expertNameView;
+@property (strong, nonatomic) UILabel *expertNameLabel;
+
+@property (assign, nonatomic) BOOL showingVotedBy;
 
 @end
