@@ -293,10 +293,10 @@
                 CGListUser *voter = self.currentRestaurantList.user;
                 
                 if (voter.lastname){
-                    NSString *votedByTest = [NSString stringWithFormat:@"Voted By: %@ %@", voter.firstname, voter.lastname];
+                    NSString *votedByTest = [NSString stringWithFormat:@"Votes By: %@ %@", voter.firstname, voter.lastname];
                     self.expertNameLabel.text = votedByTest;
                 }else{
-                    NSString *votedByTest = [NSString stringWithFormat:@"Voted By: %@", voter.firstname];
+                    NSString *votedByTest = [NSString stringWithFormat:@"Votes By: %@", voter.firstname];
                     self.expertNameLabel.text = votedByTest;
                 }
             }
