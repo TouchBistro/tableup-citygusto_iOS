@@ -266,4 +266,5 @@
         [mapItem openInMapsWithLaunchOptions:nil];
     }
 }
+
 @end

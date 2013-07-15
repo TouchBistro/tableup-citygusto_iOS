@@ -85,6 +85,60 @@
     [self.tableView setTableFooterView:self.footerView];
         
     NSLog(@"%@", NSStringFromCGPoint(self.tableView.tableFooterView.frame.origin));
+    
+    
+    if (self.term.length > 0){
+        self.mobileSearchBar.text = self.term;
+        
+        NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+        [params setObject:self.term forKey:@"term"];
+        [params setObject:[NSNumber numberWithInt:self.offset] forKey:@"offset"];
+        
+        if ([CGRestaurantParameter shared].useCurrentLocation){
+            if ([CGRestaurantParameter shared].lat){
+                [params setObject:[CGRestaurantParameter shared].lat forKey:@"lat"];
+            }
+            
+            if ([CGRestaurantParameter shared].lon){
+                [params setObject:[CGRestaurantParameter shared].lon forKey:@"long"];
+            }
+        }
+        
+        [self startSpinner];
+        
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/search"
+                                               parameters:params
+                                                  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
+                                                      if (mappingResult){
+                                                          self.results = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
+                                                          
+                                                          if (self.results.count < 20){
+                                                              self.tableView.tableFooterView = nil;
+                                                          }else{
+                                                              [self.tableView setTableFooterView:self.footerView];
+                                                          }
+                                                          
+                                                          if (self.results.count == 0){
+                                                              self.matchesLabel.text = @"No Results found.  Please refine your search";
+                                                          }
+                                                          
+                                                          [self.tableView reloadData];
+                                                          [self stopSpinner];
+                                                      }
+                                                  }
+                                                  failure:^(RKObjectRequestOperation *operation, NSError *error) {
+                                                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                                                      message:@"There was an issue"
+                                                                                                     delegate:nil
+                                                                                            cancelButtonTitle:@"OK"
+                                                                                            otherButtonTitles:nil];
+                                                      [alert show];
+                                                      NSLog(@"Hit error: %@", error);
+                                                      [self stopSpinner];
+                                                  }];
+
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning

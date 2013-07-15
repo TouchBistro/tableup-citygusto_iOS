@@ -10,6 +10,7 @@
 #import "CGEvent.h"
 #import "CGLocal.h"
 #import "MHLazyTableImages.h"
+#import "CGSearchResult.h"
 #import <UIKit/UIKit.h>
 
 @interface CGSearchViewController : UITableViewController <MHLazyTableImagesDelegate, UIScrollViewDelegate, UISearchBarDelegate>
@@ -30,5 +31,6 @@
 @property (nonatomic, strong) CGEvent *selectedEvent;
 @property (nonatomic, strong) CGSearchResult *selectedResult;
 @property (nonatomic, strong) CGLocal *selectedLocal;
+@property (strong, nonatomic) IBOutlet UISearchBar *mobileSearchBar;
 
 @end

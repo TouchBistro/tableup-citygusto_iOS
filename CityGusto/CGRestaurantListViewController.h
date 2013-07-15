@@ -11,7 +11,7 @@
 #import "MHLazyTableImages.h"
 #import <UIKit/UIKit.h>
 
-@interface CGRestaurantListViewController : UITableViewController <CGRestaurantOptionsViewDelegate, MHLazyTableImagesDelegate, UIScrollViewDelegate>
+@interface CGRestaurantListViewController : UITableViewController <CGRestaurantOptionsViewDelegate, MHLazyTableImagesDelegate, UIScrollViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSMutableArray *restaurants;
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
@@ -30,5 +30,7 @@
 
 
 @property (nonatomic, assign) BOOL locationChanged;
+
+@property (nonatomic, strong) NSString *term;
 
 @end

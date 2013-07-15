@@ -13,6 +13,7 @@
 #import "CGRestaurantMapViewController.h"
 #import "CGRestaurantHomeViewController.h"
 #import "CGRestaurantOptionsViewController.h"
+#import "CGSearchViewController.h"
 #import "MHLazyTableImages.h"
 #import "CGAppDelegate.h"
 #import <QuartzCore/QuartzCore.h>
@@ -432,6 +433,10 @@
             CGRestaurantOptionsViewController *optionsController = (CGRestaurantOptionsViewController *)navController.topViewController;
             optionsController.delegate = self;
         }
+    
+    }else if ([[segue identifier] isEqualToString:@"restaurantListSearchSegue"]){
+        CGSearchViewController *searchViewController = [segue destinationViewController];
+        searchViewController.term = self.term;
     }
 }
 
@@ -491,6 +496,23 @@
 
 -(void) swithLocationChanged{
     self.locationChanged = YES;
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    self.term = searchBar.text;
+    
+    if (self.term.length > 0){
+        [self performSegueWithIdentifier:@"restaurantListSearchSegue" sender:self];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Search Term"
+                                                        message:@"Search term can not be blank"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
 }
 
 
