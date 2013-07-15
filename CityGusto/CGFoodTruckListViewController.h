@@ -11,7 +11,7 @@
 #import "CGRestaurant.h"
 #import <UIKit/UIKit.h>
 
-@interface CGFoodTruckListViewController : UITableViewController <CGFoodTrucksOptionsViewDelegate, MHLazyTableImagesDelegate, UIScrollViewDelegate>
+@interface CGFoodTruckListViewController : UITableViewController <CGFoodTrucksOptionsViewDelegate, MHLazyTableImagesDelegate, UIScrollViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSMutableArray *foodTrucks;
 
@@ -30,5 +30,8 @@
 @property (assign, nonatomic) BOOL locationChanged;
 
 - (void) viewMorePressed:(id)sender;
+
+
+@property (nonatomic, strong) NSString *term;
 
 @end

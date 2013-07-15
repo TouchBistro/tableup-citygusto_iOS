@@ -15,6 +15,7 @@
 #import "CGFoodTruckOptionsViewController.h"
 #import "CGRestaurantParameter.h"
 #import "CGAppDelegate.h"
+#import "CGSearchViewController.h"
 #import "MBProgressHud.h"
 #import <RestKit/RestKit.h>
 
@@ -407,6 +408,9 @@
             CGFoodTruckOptionsViewController *optionsController = (CGFoodTruckOptionsViewController *)navController.topViewController;
             optionsController.delegate = self;
         }
+    }else if ([[segue identifier] isEqualToString:@"foodTruckSearchSegue"]){
+        CGSearchViewController *searchViewController = [segue destinationViewController];
+        searchViewController.term = self.term;
     }
 }
 
@@ -466,6 +470,23 @@
 
 -(void) swithLocationChanged{
     self.locationChanged = YES;
+}
+
+-(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{
+    
+    self.term = searchBar.text;
+    
+    if (self.term.length > 0){
+        [self performSegueWithIdentifier:@"foodTruckSearchSegue" sender:self];
+    }else{
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Search Term"
+                                                        message:@"Search term can not be blank"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
 }
 
 @end

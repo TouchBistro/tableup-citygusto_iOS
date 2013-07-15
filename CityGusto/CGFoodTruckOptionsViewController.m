@@ -118,7 +118,7 @@
             CGLocationViewController *locationController = (CGLocationViewController *)navController.topViewController;
             locationController.delegate = self;
         }    
-    }
+    }    
 }
 
 -(void) locationChanged{
