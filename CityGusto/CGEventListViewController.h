@@ -11,7 +11,7 @@
 #import "CGEvent.h"
 #import <UIKit/UIKit.h>
 
-@interface CGEventListViewController : UITableViewController <CGEventOptionsViewDelegate, MHLazyTableImagesDelegate, UIScrollViewDelegate>
+@interface CGEventListViewController : UITableViewController <CGEventOptionsViewDelegate, MHLazyTableImagesDelegate, UIScrollViewDelegate, UISearchBarDelegate>
 
 @property (nonatomic, strong) NSMutableArray *events;
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
@@ -31,5 +31,6 @@
 -(void) startSpinner;
 -(void) stopSpinner;
 
+@property (nonatomic, strong) NSString *term;
 
 @end
