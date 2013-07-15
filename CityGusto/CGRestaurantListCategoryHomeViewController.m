@@ -669,4 +669,7 @@
     [MBProgressHUD hideHUDForView:self.view animated:YES];
 }
 
+- (IBAction)search:(id)sender {
+    [self performSegueWithIdentifier:@"listSearchSegue" sender:self];
+}
 @end

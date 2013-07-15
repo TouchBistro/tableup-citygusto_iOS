@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="e5a-ZU-8AA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="e5a-ZU-8AA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
         <!--Restaurant Options View Controller-->
@@ -2557,6 +2557,11 @@
                         <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="Dgr-Jp-QcV">
+                        <barButtonItem key="leftBarButtonItem" systemItem="search" id="28h-Ud-iqq">
+                            <connections>
+                                <action selector="search:" destination="YiM-wi-x3g" id="R4K-nK-J9e"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Lists" id="ome-tS-Cbl">
                             <connections>
                                 <segue destination="M48-6f-5Wx" kind="modal" identifier="selectListSegue" id="n4S-hh-m9s"/>
@@ -2583,6 +2588,7 @@
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="listRestaurantDetailSegue" id="Em6-Bi-MbD"/>
                         <segue destination="am7-Sl-lRs" kind="push" identifier="restaurantListListSegue" id="NQz-2H-uJM"/>
                         <segue destination="O0s-AD-xuG" kind="modal" identifier="selectCategorySegue" id="lv7-AY-OCh"/>
+                        <segue destination="oRW-Lz-Gcy" kind="push" identifier="listSearchSegue" id="Jmu-el-SyW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Gcu-Er-tdV" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3994,6 +4000,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGRestaurantListCategoryHomeViewController.h"/>
             <relationships>
                 <relationship kind="action" name="locationChange:"/>
+                <relationship kind="action" name="search:"/>
                 <relationship kind="outlet" name="carousel" candidateClass="iCarousel"/>
                 <relationship kind="outlet" name="footerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="headerLabel" candidateClass="UILabel"/>
@@ -4118,12 +4125,13 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="DYn-Ze-aqa"/>
-        <segue reference="Em6-Bi-MbD"/>
-        <segue reference="NQz-2H-uJM"/>
-        <segue reference="iew-l2-cJO"/>
-        <segue reference="PaO-af-0TP"/>
         <segue reference="1xg-Mi-QDy"/>
-        <segue reference="qzp-BU-3PU"/>
+        <segue reference="Em6-Bi-MbD"/>
+        <segue reference="Jmu-el-SyW"/>
+        <segue reference="iew-l2-cJO"/>
+        <segue reference="NQz-2H-uJM"/>
         <segue reference="2tH-ZJ-a7J"/>
+        <segue reference="qzp-BU-3PU"/>
+        <segue reference="PaO-af-0TP"/>
     </inferredMetricsTieBreakers>
 </document>

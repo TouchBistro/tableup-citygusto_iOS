@@ -62,5 +62,6 @@
 @property (strong, nonatomic) UILabel *expertNameLabel;
 
 @property (assign, nonatomic) BOOL showingVotedBy;
+- (IBAction)search:(id)sender;
 
 @end
