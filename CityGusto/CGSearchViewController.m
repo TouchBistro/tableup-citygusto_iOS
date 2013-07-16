@@ -305,6 +305,13 @@
     
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{	
+	searchBar.text = nil;	
+	[searchBar resignFirstResponder];
+	
+}
+
 - (void) startSpinner {
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.labelText = @"Loading Results";

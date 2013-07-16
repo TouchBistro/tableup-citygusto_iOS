@@ -653,11 +653,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92941182850000004" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
                         <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="OFk-eV-RfM">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search by Name" showsCancelButton="YES" id="OFk-eV-RfM">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <color key="tintColor" red="0.58823531870000001" green="0.58823531870000001" blue="0.58823531870000001" alpha="1" colorSpace="deviceRGB"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
                             <connections>
                                 <outlet property="delegate" destination="qiV-Wj-N6G" id="pDO-eE-0VT"/>
                             </connections>
@@ -1502,11 +1506,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92941182850000004" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
                         <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="xey-XS-cep">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search by Name" showsCancelButton="YES" id="xey-XS-cep">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <color key="tintColor" red="0.58823531870000001" green="0.58823531870000001" blue="0.58823531870000001" alpha="1" colorSpace="deviceRGB"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             <connections>
                                 <outlet property="delegate" destination="uau-jF-KGf" id="T8h-tj-s0K"/>
                             </connections>
@@ -1976,11 +1980,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92941182850000004" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
                         <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="iWH-lx-nwL">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Search by Name" showsCancelButton="YES" id="iWH-lx-nwL">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <color key="tintColor" red="0.58823531870000001" green="0.58823531870000001" blue="0.58823531870000001" alpha="1" colorSpace="deviceRGB"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
                             <connections>
                                 <outlet property="delegate" destination="hty-4g-u9T" id="tzY-gu-fLu"/>
                             </connections>
@@ -3329,11 +3337,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
                         <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" id="EEz-sP-BTM">
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="Enter Search Term" showsCancelButton="YES" id="EEz-sP-BTM">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <color key="tintColor" red="0.58823531870000001" green="0.58823531870000001" blue="0.58823531870000001" alpha="1" colorSpace="deviceRGB"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                             <connections>
                                 <outlet property="delegate" destination="oRW-Lz-Gcy" id="Bxf-QY-C6V"/>
                             </connections>
@@ -4160,14 +4168,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="f6c-60-Xhl"/>
-        <segue reference="qzp-BU-3PU"/>
-        <segue reference="gl8-Nh-xVc"/>
-        <segue reference="PaO-af-0TP"/>
-        <segue reference="1Ra-4h-4jl"/>
         <segue reference="iew-l2-cJO"/>
         <segue reference="DYn-Ze-aqa"/>
-        <segue reference="Ewr-Nt-WZf"/>
+        <segue reference="NzV-4r-3WK"/>
         <segue reference="1xg-Mi-QDy"/>
+        <segue reference="srY-08-244"/>
+        <segue reference="gl8-Nh-xVc"/>
+        <segue reference="NWT-y4-Avr"/>
+        <segue reference="qzp-BU-3PU"/>
+        <segue reference="2tH-ZJ-a7J"/>
     </inferredMetricsTieBreakers>
 </document>
