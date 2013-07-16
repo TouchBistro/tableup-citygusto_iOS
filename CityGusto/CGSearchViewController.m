@@ -48,18 +48,17 @@
     
     self.offset = 0;
     
-    self.matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,self.view.frame.size.height - 100)];
-    matchesLabel.font = [UIFont boldSystemFontOfSize:18];
+    self.matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,30,300,55)];
+    matchesLabel.font = [UIFont boldSystemFontOfSize:16];
     matchesLabel.numberOfLines = 0;
     matchesLabel.shadowColor = [UIColor lightTextColor];
     matchesLabel.textColor = [UIColor darkGrayColor];
     matchesLabel.shadowOffset = CGSizeMake(0, 1);
-    matchesLabel.backgroundColor = [UIColor colorWithRed:238.0f/255.0f green:238.0f/255.0f blue:238.0f/255.0f alpha:1.0f];
+    matchesLabel.backgroundColor = [UIColor clearColor];
     matchesLabel.textAlignment =  NSTextAlignmentCenter;
     matchesLabel.text = @"Enter a search term";
     
-    self.noResultsView = [[UIView alloc] initWithFrame:CGRectMake(0,44,320,self.tableView.frame.size.height - 44)];
-    self.noResultsView.backgroundColor = [UIColor whiteColor];
+    self.noResultsView = [[UIView alloc] initWithFrame:CGRectMake(0,30,300,55)];
     
     self.noResultsView.hidden = YES;
     [self.noResultsView addSubview:matchesLabel];
@@ -119,7 +118,7 @@
                                                           }
                                                           
                                                           if (self.results.count == 0){
-                                                              self.matchesLabel.text = @"No Results found.  Please refine your search";
+                                                              self.matchesLabel.text = @"No results found.  Please try another search term.";
                                                           }
                                                           
                                                           [self.tableView reloadData];
@@ -275,7 +274,7 @@
                                                           }
                                                           
                                                           if (self.results.count == 0){
-                                                              self.matchesLabel.text = @"No Results found.  Please refine your search";
+                                                              self.matchesLabel.text = @"No results found.  Please try another search term.";
                                                           }
 
                                                           [self.tableView reloadData];

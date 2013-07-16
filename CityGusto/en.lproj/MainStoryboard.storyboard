@@ -4117,7 +4117,6 @@
         <class className="CGSearchResultCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSearchResultCell.h"/>
             <relationships>
-                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>

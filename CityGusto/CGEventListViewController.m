@@ -136,17 +136,16 @@
     [self.tableView setTableFooterView:self.footerView];
     
     self.noResultsView = [[UIView alloc] initWithFrame:self.tableView.frame];
-    self.noResultsView.backgroundColor = [UIColor colorWithRed:238.0f/255.0f green:238.0f/255.0f blue:238.0f/255.0f alpha:1.0f];
     
-    UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,320,320)];
-    matchesLabel.font = [UIFont boldSystemFontOfSize:18];
+    UILabel *matchesLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,30,300,55)];
+    matchesLabel.font = [UIFont boldSystemFontOfSize:14];
     matchesLabel.numberOfLines = 0;
     matchesLabel.shadowColor = [UIColor lightTextColor];
     matchesLabel.textColor = [UIColor darkGrayColor];
     matchesLabel.shadowOffset = CGSizeMake(0, 1);
-    matchesLabel.backgroundColor = [UIColor colorWithRed:238.0f/255.0f green:238.0f/255.0f blue:238.0f/255.0f alpha:1.0f];
+    matchesLabel.backgroundColor = [UIColor clearColor];
     matchesLabel.textAlignment =  NSTextAlignmentCenter;
-    matchesLabel.text = @"Your search returned no results.\n Try clearing filters.";
+    matchesLabel.text = @"Your search returned no results.  Try clearing and/or turning off filters.";
     
     self.noResultsView.hidden = YES;
     [self.noResultsView addSubview:matchesLabel];
