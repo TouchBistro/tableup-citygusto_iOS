@@ -177,13 +177,26 @@
     cell.typeLabel.text = result.type;
     
     [_lazyImages addLazyImageForCell:cell withIndexPath:indexPath];
-    
-    [cell.imageView.layer setBorderColor:[UIColor whiteColor].CGColor];
-    [cell.imageView.layer setBorderWidth:1.5f];
-    [cell.imageView.layer setShadowColor:[UIColor blackColor].CGColor];
-    [cell.imageView.layer setShadowOpacity:0.8];
-    [cell.imageView.layer setShadowRadius:3.0];
-    [cell.imageView.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
+
+        CALayer *bottomBorder = [CALayer layer];
+        
+        CAGradientLayer *gradient = [CAGradientLayer layer];
+        gradient.frame = cell.bounds;
+        gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:221.0f/255.0f green:221.0f/255.0f blue:221.0f/255.0f alpha:1.0f].CGColor, nil];
+        [cell.layer insertSublayer:gradient atIndex:0];
+        
+		cell.nameLabel.layer.shadowColor = [UIColor colorWithRed:255.0f/255.0f green:255.0f/255.0f blue:255.0f/255.0f alpha:1.0f].CGColor;
+        cell.nameLabel.layer.shadowOffset = CGSizeMake(0.0, 0.0);
+        
+        cell.nameLabel.layer.shadowRadius = 3.0;
+        cell.nameLabel.layer.shadowOpacity = 0.5;
+        
+        [cell.imageView.layer setBorderColor:[UIColor whiteColor].CGColor];
+        [cell.imageView.layer setBorderWidth:1.5f];
+        [cell.imageView.layer setShadowColor:[UIColor blackColor].CGColor];
+        [cell.imageView.layer setShadowOpacity:0.8];
+        [cell.imageView.layer setShadowRadius:3.0];
+        [cell.imageView.layer setShadowOffset:CGSizeMake(2.0, 2.0)];
     
     return cell;
 }

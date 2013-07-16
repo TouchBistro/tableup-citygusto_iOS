@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="e5a-ZU-8AA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="e5a-ZU-8AA">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--Restaurant Options View Controller-->
@@ -652,7 +652,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92941182850000004" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="OFk-eV-RfM">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -1975,7 +1975,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.92941182850000004" green="0.92941182850000004" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" id="iWH-lx-nwL">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -3238,7 +3238,8 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" id="nD1-Ko-wd8">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="gray" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="EventCell" rowHeight="74" id="k5b-NN-UR6" customClass="CGEventCell">
                                 <rect key="frame" x="0.0" y="22" width="320" height="74"/>
@@ -3326,7 +3327,8 @@
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="74" sectionHeaderHeight="22" sectionFooterHeight="22" id="ihu-Rc-Boh">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.97254908080000002" green="0.96470594409999999" blue="0.96862751250000001" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="separatorColor" red="0.80000007149999997" green="0.80000007149999997" blue="0.80000007149999997" alpha="1" colorSpace="deviceRGB"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" barStyle="blackTranslucent" id="EEz-sP-BTM">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -4115,6 +4117,7 @@
         <class className="CGSearchResultCell" superclassName="UITableViewCell">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/CGSearchResultCell.h"/>
             <relationships>
+                <relationship kind="outlet" name="headerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="nameLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="primaryPhotoImage" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="typeLabel" candidateClass="UILabel"/>
@@ -4158,14 +4161,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="f6c-60-Xhl"/>
+        <segue reference="qzp-BU-3PU"/>
+        <segue reference="gl8-Nh-xVc"/>
+        <segue reference="PaO-af-0TP"/>
+        <segue reference="1Ra-4h-4jl"/>
+        <segue reference="iew-l2-cJO"/>
         <segue reference="DYn-Ze-aqa"/>
         <segue reference="Ewr-Nt-WZf"/>
         <segue reference="1xg-Mi-QDy"/>
-        <segue reference="oqS-Px-sIW"/>
-        <segue reference="c7V-yW-ixA"/>
-        <segue reference="XQ9-pZ-kPV"/>
-        <segue reference="qzp-BU-3PU"/>
-        <segue reference="gl8-Nh-xVc"/>
-        <segue reference="iew-l2-cJO"/>
     </inferredMetricsTieBreakers>
 </document>
