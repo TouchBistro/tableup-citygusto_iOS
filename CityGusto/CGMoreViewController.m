@@ -59,7 +59,15 @@
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: self.activityView];
     
-    if (indexPath.row == 1){
+    if (indexPath.row == 0){
+        [self.tabBarController setSelectedIndex:1];
+    }else if (indexPath.row == 1){
+        [self.tabBarController setSelectedIndex:2];
+    }else if (indexPath.row == 2){
+        [self.tabBarController setSelectedIndex:3];
+    }else if (indexPath.row == 3){
+        [self.tabBarController setSelectedIndex:4];
+    }else if (indexPath.row == 5){
         [self startSpinner];
         
         NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
@@ -88,7 +96,7 @@
                                                       
                                                       [self stopSpinner];
                                                   }];
-    }else if (indexPath.row == 0){
+    }else if (indexPath.row == 4){
         if ([CGRestaurantParameter shared].loggedInUser){
             NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
             [params setObject:[CGRestaurantParameter shared].loggedInUser.username forKey:@"username"];
