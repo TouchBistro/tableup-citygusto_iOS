@@ -43,6 +43,8 @@
         }
     }
     
+    [[CGRestaurantParameter shared] getCurrentLocation];
+    
     [super viewDidLoad];
 }
 

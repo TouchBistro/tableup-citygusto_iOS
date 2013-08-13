@@ -160,7 +160,7 @@
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-                                                      [[CGRestaurantParameter shared] getCurrentLocation];
+                                                      //[[CGRestaurantParameter shared] getCurrentLocation];
                                                       
                                                       if (mappingResult){
                                                           self.restaurantListCategories = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
