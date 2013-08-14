@@ -118,6 +118,22 @@
 		1BADA1F517010E1E002CE800 /* CGRestaurantMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BADA1F417010E1E002CE800 /* CGRestaurantMapViewController.m */; };
 		1BADA1FA170113C3002CE800 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BADA1F9170113C2002CE800 /* MapKit.framework */; };
 		1BADA1FC170113D4002CE800 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BADA1FB170113D4002CE800 /* CoreLocation.framework */; };
+		1BBB6C2417BACF2500536CDF /* new-restaurant@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C1C17BACF2500536CDF /* new-restaurant@2x.png */; };
+		1BBB6C2517BACF2500536CDF /* new-restaurant.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C1D17BACF2500536CDF /* new-restaurant.png */; };
+		1BBB6C2617BACF2500536CDF /* 58-bookmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C1E17BACF2500536CDF /* 58-bookmark.png */; };
+		1BBB6C2717BACF2500536CDF /* 58-bookmark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C1F17BACF2500536CDF /* 58-bookmark@2x.png */; };
+		1BBB6C2817BACF2500536CDF /* 06-magnify@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C2017BACF2500536CDF /* 06-magnify@2x.png */; };
+		1BBB6C2917BACF2500536CDF /* 17-bar-chart.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C2117BACF2500536CDF /* 17-bar-chart.png */; };
+		1BBB6C2A17BACF2500536CDF /* 17-bar-chart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C2217BACF2500536CDF /* 17-bar-chart@2x.png */; };
+		1BBB6C2B17BACF2500536CDF /* 06-magnify.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C2317BACF2500536CDF /* 06-magnify.png */; };
+		1BBB6C2D17BAD26A00536CDF /* lists.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C2C17BAD26A00536CDF /* lists.png */; };
+		1BBB6C2F17BAD45700536CDF /* truck.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C2E17BAD45700536CDF /* truck.png */; };
+		1BBB6C3117BAD46500536CDF /* food.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C3017BAD46500536CDF /* food.png */; };
+		1BBB6C3317BAD46D00536CDF /* events.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C3217BAD46D00536CDF /* events.png */; };
+		1BBB6C3817BAD6DC00536CDF /* events@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C3417BAD6DC00536CDF /* events@2x.png */; };
+		1BBB6C3917BAD6DC00536CDF /* food@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C3517BAD6DC00536CDF /* food@2x.png */; };
+		1BBB6C3A17BAD6DC00536CDF /* lists@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C3617BAD6DC00536CDF /* lists@2x.png */; };
+		1BBB6C3B17BAD6DC00536CDF /* truck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBB6C3717BAD6DC00536CDF /* truck@2x.png */; };
 		1BBBB286174D542B009E84D2 /* CGFoodTruckOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBBB285174D542B009E84D2 /* CGFoodTruckOptionsViewController.m */; };
 		1BBBB289174D8532009E84D2 /* CGFoodTruckCuisineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BBBB288174D8532009E84D2 /* CGFoodTruckCuisineViewController.m */; };
 		1BBBB28B174D89E1009E84D2 /* CityGusto App Icon - 60x60.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BBBB28A174D89E1009E84D2 /* CityGusto App Icon - 60x60.png */; };
@@ -327,6 +343,22 @@
 		1BADA1F417010E1E002CE800 /* CGRestaurantMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGRestaurantMapViewController.m; sourceTree = "<group>"; };
 		1BADA1F9170113C2002CE800 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		1BADA1FB170113D4002CE800 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		1BBB6C1C17BACF2500536CDF /* new-restaurant@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-restaurant@2x.png"; sourceTree = "<group>"; };
+		1BBB6C1D17BACF2500536CDF /* new-restaurant.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "new-restaurant.png"; sourceTree = "<group>"; };
+		1BBB6C1E17BACF2500536CDF /* 58-bookmark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "58-bookmark.png"; sourceTree = "<group>"; };
+		1BBB6C1F17BACF2500536CDF /* 58-bookmark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "58-bookmark@2x.png"; sourceTree = "<group>"; };
+		1BBB6C2017BACF2500536CDF /* 06-magnify@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-magnify@2x.png"; sourceTree = "<group>"; };
+		1BBB6C2117BACF2500536CDF /* 17-bar-chart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-bar-chart.png"; sourceTree = "<group>"; };
+		1BBB6C2217BACF2500536CDF /* 17-bar-chart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "17-bar-chart@2x.png"; sourceTree = "<group>"; };
+		1BBB6C2317BACF2500536CDF /* 06-magnify.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "06-magnify.png"; sourceTree = "<group>"; };
+		1BBB6C2C17BAD26A00536CDF /* lists.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = lists.png; sourceTree = "<group>"; };
+		1BBB6C2E17BAD45700536CDF /* truck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = truck.png; sourceTree = "<group>"; };
+		1BBB6C3017BAD46500536CDF /* food.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = food.png; sourceTree = "<group>"; };
+		1BBB6C3217BAD46D00536CDF /* events.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = events.png; sourceTree = "<group>"; };
+		1BBB6C3417BAD6DC00536CDF /* events@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "events@2x.png"; sourceTree = "<group>"; };
+		1BBB6C3517BAD6DC00536CDF /* food@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "food@2x.png"; sourceTree = "<group>"; };
+		1BBB6C3617BAD6DC00536CDF /* lists@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "lists@2x.png"; sourceTree = "<group>"; };
+		1BBB6C3717BAD6DC00536CDF /* truck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "truck@2x.png"; sourceTree = "<group>"; };
 		1BBBB284174D542B009E84D2 /* CGFoodTruckOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFoodTruckOptionsViewController.h; sourceTree = "<group>"; };
 		1BBBB285174D542B009E84D2 /* CGFoodTruckOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CGFoodTruckOptionsViewController.m; sourceTree = "<group>"; };
 		1BBBB287174D8532009E84D2 /* CGFoodTruckCuisineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CGFoodTruckCuisineViewController.h; sourceTree = "<group>"; };
@@ -703,6 +735,22 @@
 				1B2854C917542042004885FF /* buttonBackgroundGreenSM.png */,
 				1B85E31C17506A910028042D /* buttonBackgroundGreySM.png */,
 				1B85E31917506A880028042D /* buttonBackgroundLightGreySM.png */,
+				1BBB6C1C17BACF2500536CDF /* new-restaurant@2x.png */,
+				1BBB6C2C17BAD26A00536CDF /* lists.png */,
+				1BBB6C1D17BACF2500536CDF /* new-restaurant.png */,
+				1BBB6C2E17BAD45700536CDF /* truck.png */,
+				1BBB6C3017BAD46500536CDF /* food.png */,
+				1BBB6C1E17BACF2500536CDF /* 58-bookmark.png */,
+				1BBB6C3417BAD6DC00536CDF /* events@2x.png */,
+				1BBB6C3517BAD6DC00536CDF /* food@2x.png */,
+				1BBB6C3617BAD6DC00536CDF /* lists@2x.png */,
+				1BBB6C3717BAD6DC00536CDF /* truck@2x.png */,
+				1BBB6C3217BAD46D00536CDF /* events.png */,
+				1BBB6C1F17BACF2500536CDF /* 58-bookmark@2x.png */,
+				1BBB6C2017BACF2500536CDF /* 06-magnify@2x.png */,
+				1BBB6C2117BACF2500536CDF /* 17-bar-chart.png */,
+				1BBB6C2217BACF2500536CDF /* 17-bar-chart@2x.png */,
+				1BBB6C2317BACF2500536CDF /* 06-magnify.png */,
 				1BBBB28A174D89E1009E84D2 /* CityGusto App Icon - 60x60.png */,
 				1BC8AC0C17255FAB00317873 /* tabs */,
 				1BC8AC041724ED0400317873 /* buttonBackgroundGreen.png */,
@@ -924,6 +972,22 @@
 				1BE3DE92176A4AD200D4163A /* ico-list-arrow-lists@2x.png in Resources */,
 				1B78D37E1793449A004CEBA5 /* header-logo-mobile@2x.png in Resources */,
 				1B78D381179346E7004CEBA5 /* appHeader@2x.png in Resources */,
+				1BBB6C2417BACF2500536CDF /* new-restaurant@2x.png in Resources */,
+				1BBB6C2517BACF2500536CDF /* new-restaurant.png in Resources */,
+				1BBB6C2617BACF2500536CDF /* 58-bookmark.png in Resources */,
+				1BBB6C2717BACF2500536CDF /* 58-bookmark@2x.png in Resources */,
+				1BBB6C2817BACF2500536CDF /* 06-magnify@2x.png in Resources */,
+				1BBB6C2917BACF2500536CDF /* 17-bar-chart.png in Resources */,
+				1BBB6C2A17BACF2500536CDF /* 17-bar-chart@2x.png in Resources */,
+				1BBB6C2B17BACF2500536CDF /* 06-magnify.png in Resources */,
+				1BBB6C2D17BAD26A00536CDF /* lists.png in Resources */,
+				1BBB6C2F17BAD45700536CDF /* truck.png in Resources */,
+				1BBB6C3117BAD46500536CDF /* food.png in Resources */,
+				1BBB6C3317BAD46D00536CDF /* events.png in Resources */,
+				1BBB6C3817BAD6DC00536CDF /* events@2x.png in Resources */,
+				1BBB6C3917BAD6DC00536CDF /* food@2x.png in Resources */,
+				1BBB6C3A17BAD6DC00536CDF /* lists@2x.png in Resources */,
+				1BBB6C3B17BAD6DC00536CDF /* truck@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1102,8 +1166,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B7108018E0D4E1499AB8B8E /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Matt Zibell";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Matt Zibell";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1112,6 +1176,8 @@
 				GCC_PREFIX_HEADER = "CityGusto/CityGusto-Prefix.pch";
 				INFOPLIST_FILE = "CityGusto/CityGusto-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E19DC45B-397B-45AB-AD85-EA53A5555B5F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E19DC45B-397B-45AB-AD85-EA53A5555B5F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1120,8 +1186,8 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3B7108018E0D4E1499AB8B8E /* Pods.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Matt Zibell";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Matt Zibell";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -1130,6 +1196,8 @@
 				GCC_PREFIX_HEADER = "CityGusto/CityGusto-Prefix.pch";
 				INFOPLIST_FILE = "CityGusto/CityGusto-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "E19DC45B-397B-45AB-AD85-EA53A5555B5F";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "E19DC45B-397B-45AB-AD85-EA53A5555B5F";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

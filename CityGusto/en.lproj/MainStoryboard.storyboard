@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="e5a-ZU-8AA">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="11G63b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="e5a-ZU-8AA">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -1612,7 +1612,7 @@
                         <sections>
                             <tableViewSection id="9bB-wv-h7b">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rKz-np-zMQ" style="IBUITableViewCellStyleDefault" id="BGb-vz-x5k">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rKz-np-zMQ" imageView="dTS-kQ-fEN" style="IBUITableViewCellStyleDefault" id="BGb-vz-x5k">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1620,18 +1620,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Best of Lists" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="rKz-np-zMQ">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="63" y="0.0" width="227" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="lists.png" id="dTS-kQ-fEN">
+                                                    <rect key="frame" x="9" y="9" width="44" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="P2M-vi-TrH" style="IBUITableViewCellStyleDefault" id="eev-Pf-Gch">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="P2M-vi-TrH" imageView="OFO-ce-GaJ" style="IBUITableViewCellStyleDefault" id="eev-Pf-Gch">
                                         <rect key="frame" x="0.0" y="44" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1639,56 +1643,68 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="P2M-vi-TrH">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="64" y="0.0" width="226" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="events.png" id="OFO-ce-GaJ">
+                                                    <rect key="frame" x="10" y="10" width="44" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="96i-hI-RnI" style="IBUITableViewCellStyleDefault" id="qIr-7b-dXQ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="96i-hI-RnI" imageView="8sZ-pR-eeG" style="IBUITableViewCellStyleDefault" id="qIr-7b-dXQ">
                                         <rect key="frame" x="0.0" y="88" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Food Trucks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="96i-hI-RnI">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Restaurants &amp; Bars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="96i-hI-RnI">
+                                                    <rect key="frame" x="64" y="0.0" width="226" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="food.png" id="8sZ-pR-eeG">
+                                                    <rect key="frame" x="10" y="10" width="44" height="23"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="yYW-g1-KSK" style="IBUITableViewCellStyleDefault" id="NYd-Os-1kN">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="yYW-g1-KSK" imageView="Pgl-66-L8z" style="IBUITableViewCellStyleDefault" id="NYd-Os-1kN">
                                         <rect key="frame" x="0.0" y="132" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Food &amp; Bars" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="yYW-g1-KSK">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Food Trucks" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="yYW-g1-KSK">
+                                                    <rect key="frame" x="64" y="0.0" width="226" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="truck.png" id="Pgl-66-L8z">
+                                                    <rect key="frame" x="10" y="10" width="44" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="VKg-Ew-8st" style="IBUITableViewCellStyleDefault" id="IiN-8h-jjE">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="VKg-Ew-8st" imageView="Vsq-bj-KfP" style="IBUITableViewCellStyleDefault" id="IiN-8h-jjE">
                                         <rect key="frame" x="0.0" y="176" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1696,18 +1712,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="My Bookmarks - Restaurants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="VKg-Ew-8st">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="62" y="0.0" width="228" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="58-bookmark.png" id="Vsq-bj-KfP">
+                                                    <rect key="frame" x="8" y="8" width="44" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Xpk-cp-v12" style="IBUITableViewCellStyleDefault" id="2ci-hx-qiL">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="Xpk-cp-v12" imageView="62N-rg-4H3" style="IBUITableViewCellStyleDefault" id="2ci-hx-qiL">
                                         <rect key="frame" x="0.0" y="220" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1715,18 +1735,22 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="New Restaurants" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="Xpk-cp-v12">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="64" y="0.0" width="226" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="new-restaurant.png" id="62N-rg-4H3">
+                                                    <rect key="frame" x="10" y="10" width="44" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zNF-ef-XYg" style="IBUITableViewCellStyleDefault" id="MMm-fX-hiY">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="zNF-ef-XYg" imageView="cAZ-z1-fhy" style="IBUITableViewCellStyleDefault" id="MMm-fX-hiY">
                                         <rect key="frame" x="0.0" y="264" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1734,13 +1758,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Trending Events" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="zNF-ef-XYg">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="63" y="0.0" width="227" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="17-bar-chart.png" id="cAZ-z1-fhy">
+                                                    <rect key="frame" x="9" y="9" width="44" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -1748,7 +1776,7 @@
                                             <segue destination="Zmc-7E-SBl" kind="push" id="0NS-2B-3qw"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DbN-F2-gSE" style="IBUITableViewCellStyleDefault" id="r0R-nZ-qdZ">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="gray" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DbN-F2-gSE" imageView="SPm-pp-Ffb" style="IBUITableViewCellStyleDefault" id="r0R-nZ-qdZ">
                                         <rect key="frame" x="0.0" y="308" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -1756,13 +1784,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Search by Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="DbN-F2-gSE">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
+                                                    <rect key="frame" x="63" y="0.0" width="227" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                                                    <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
-                                                    <color key="highlightedColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="textColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
+                                                    <color key="highlightedColor" red="0.38431376220000002" green="0.53725492949999998" blue="0.6784313917" alpha="1" colorSpace="deviceRGB"/>
                                                     <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <size key="shadowOffset" width="1" height="1"/>
                                                 </label>
+                                                <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" image="06-magnify.png" id="SPm-pp-Ffb">
+                                                    <rect key="frame" x="9" y="9" width="44" height="24"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -3829,9 +3861,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="06-magnify.png" width="44" height="24"/>
         <image name="10-medical.png" width="22" height="22"/>
         <image name="125-food.png" width="29" height="23"/>
+        <image name="17-bar-chart.png" width="44" height="24"/>
         <image name="271-dramamasks.png" width="37" height="23"/>
+        <image name="58-bookmark.png" width="44" height="26"/>
         <image name="85-trophy.png" width="24" height="24"/>
         <image name="bg-list-320.png" width="320" height="150"/>
         <image name="buttonBackgroundGreen.png" width="560" height="72"/>
@@ -3840,14 +3875,19 @@
         <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
         <image name="buttonBackgroundPink.png" width="560" height="72"/>
+        <image name="events.png" width="44" height="23"/>
+        <image name="food.png" width="44" height="23"/>
         <image name="foodTruck.png" width="44" height="22"/>
         <image name="ico-list-arrow-alt.png" width="20" height="30"/>
         <image name="ico-list-arrow-lists.png" width="26" height="26"/>
         <image name="ico-list-arrow.png" width="20" height="11"/>
         <image name="ico-ratings-dislike.png" width="16" height="16"/>
         <image name="ico-ratings-like.png" width="16" height="16"/>
+        <image name="lists.png" width="44" height="24"/>
+        <image name="new-restaurant.png" width="44" height="22"/>
         <image name="reviewdollars1.png" width="37" height="12"/>
         <image name="stars_0.png" width="80" height="15"/>
+        <image name="truck.png" width="44" height="22"/>
     </resources>
     <classes>
         <class className="CGCuisineViewController" superclassName="UITableViewController">
