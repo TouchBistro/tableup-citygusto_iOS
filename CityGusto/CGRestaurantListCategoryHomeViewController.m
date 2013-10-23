@@ -98,6 +98,19 @@
     self.scrollView.delegate = self;
     [self.scrollView setScrollEnabled:YES];
     
+    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"320x35Bottom.png"]];
+    titleImageView.frame = CGRectMake(0,220,320,35);
+    
+    self.listNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
+    self.listNameLabel.textAlignment = NSTextAlignmentCenter;
+    
+    if (self.currentRestaurantList){
+        self.listNameLabel.text = self.currentRestaurantList.name;
+    }
+    
+    [titleImageView addSubview:self.listNameLabel];
+    [self.imageSliderView addSubview:titleImageView];
+    
 }
 
 - (void)viewDidLoad

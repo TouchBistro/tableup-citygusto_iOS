@@ -25,7 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIView *imageSliderView;
 
 @property (strong, nonatomic) IBOutlet UIView *listNameView;
-@property (strong, nonatomic) IBOutlet UILabel *listNameLabel;
+@property (strong, nonatomic) UILabel *listNameLabel;
 
 @property (strong, nonatomic) IBOutlet UIView *restaurant1View;
 @property (strong, nonatomic) IBOutlet UIView *restaurant2View;
