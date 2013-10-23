@@ -78,10 +78,20 @@
     bottomBorder3.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
     [self.restaurant3View.layer insertSublayer:bottomBorder3 atIndex:0];
     
+    CALayer *bottomBorder4 = [CALayer layer];
+    bottomBorder4.frame = CGRectMake(0.0f, self.restaurant4View.frame.size.height - 1, self.restaurant4View.frame.size.width, 1.0f);
+    bottomBorder4.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
+    [self.restaurant4View.layer insertSublayer:bottomBorder4 atIndex:0];
+    
+    CALayer *bottomBorder5 = [CALayer layer];
+    bottomBorder5.frame = CGRectMake(0.0f, self.restaurant5View.frame.size.height - 1, self.restaurant5View.frame.size.width, 1.0f);
+    bottomBorder5.backgroundColor = [UIColor colorWithRed:208.0f/255.0f green:208.0f/255.0f blue:208.0f/255.0f alpha:1.0f].CGColor;
+    [self.restaurant5View.layer insertSublayer:bottomBorder5 atIndex:0];
+    
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.headerView.bounds;
     gradient.colors = [NSArray arrayWithObjects:(id)[UIColor colorWithRed:173.0f/255.0f green:98.0f/255.0f blue:137.0f/255.0f alpha:1.0f].CGColor, (id)[UIColor colorWithRed:200.0f/255.0f green:150.0f/255.0f blue:176.0f/255.0f alpha:1.0f].CGColor, nil];
-    [self.headerView.layer insertSublayer:gradient atIndex:0];
+//    [self.headerView.layer insertSublayer:gradient atIndex:0];
     
     [self.scrollView setContentSize:CGSizeMake(320, 660)];
     self.scrollView.autoresizingMask = UIViewAutoresizingFlexibleHeight;
@@ -133,6 +143,10 @@
                                                                                      action:@selector(handleRestaurantViewTap:)];
     UITapGestureRecognizer *singleFingerTap3 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                      action:@selector(handleRestaurantViewTap:)];
+    UITapGestureRecognizer *singleFingerTap4 = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                       action:@selector(handleRestaurantViewTap:)];
+    UITapGestureRecognizer *singleFingerTap5 = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                                       action:@selector(handleRestaurantViewTap:)];
     
     UITapGestureRecognizer *singleFingerTapListView1 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                       action:@selector(handleRestaurantListViewTap:)];
@@ -143,9 +157,13 @@
     [singleFingerTap1 setCancelsTouchesInView:NO];
     [singleFingerTap2 setCancelsTouchesInView:NO];
     [singleFingerTap3 setCancelsTouchesInView:NO];
+    [singleFingerTap4 setCancelsTouchesInView:NO];
+    [singleFingerTap5 setCancelsTouchesInView:NO];
     [self.restaurant1View addGestureRecognizer:singleFingerTap1];
     [self.restaurant2View addGestureRecognizer:singleFingerTap2];
     [self.restaurant3View addGestureRecognizer:singleFingerTap3];
+    [self.restaurant4View addGestureRecognizer:singleFingerTap4];
+    [self.restaurant5View addGestureRecognizer:singleFingerTap5];
     
     [singleFingerTapListView1 setCancelsTouchesInView:NO];
     [self.listNameView addGestureRecognizer:singleFingerTapListView1];
@@ -157,7 +175,7 @@
     
     if (self.currentCategory == nil){
         [self startSpinner];
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantListCategories"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       //[[CGRestaurantParameter shared] getCurrentLocation];
@@ -221,6 +239,8 @@
     self.restaurant1Label.text = @"";
     self.restaurant2Label.text = @"";
     self.restaurant3Label.text = @"";
+    self.restaurant4Label.text = @"";
+    self.restaurant5Label.text = @"";
     
     self.expertNameView.hidden = YES;
     
@@ -288,6 +308,42 @@
                 }
             }
             
+            if (3 < self.currentRestaurantList.restaurants.count){
+                if (currentRestaurantList.restaurants[3]){
+                    self.restaurant4 = currentRestaurantList.restaurants[3];
+                    
+                    NSString *listRestaurantText = @"4) ";
+                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant4.name];
+                    
+                    if (self.restaurant3.distance){
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" - "];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:[formatter stringFromNumber:self.restaurant4.distance]];
+                        //                        listRestaurantText = [listRestaurantText stringByAppendingString:[self.restaurant3.distance stringValue]];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" Miles"];
+                    }
+                    
+                    self.restaurant4Label.text = listRestaurantText;
+                }
+            }
+            
+            if (4 < self.currentRestaurantList.restaurants.count){
+                if (currentRestaurantList.restaurants[4]){
+                    self.restaurant5 = currentRestaurantList.restaurants[4];
+                    
+                    NSString *listRestaurantText = @"5) ";
+                    listRestaurantText = [listRestaurantText stringByAppendingString:self.restaurant5.name];
+                    
+                    if (self.restaurant5.distance){
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" - "];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:[formatter stringFromNumber:self.restaurant5.distance]];
+                        //                        listRestaurantText = [listRestaurantText stringByAppendingString:[self.restaurant3.distance stringValue]];
+                        listRestaurantText = [listRestaurantText stringByAppendingString:@" Miles"];
+                    }
+                    
+                    self.restaurant5Label.text = listRestaurantText;
+                }
+            }
+            
             if (self.currentRestaurantList.user){
                 self.expertNameView.hidden = NO;
                 CGListUser *voter = self.currentRestaurantList.user;
@@ -328,6 +384,10 @@
         restaurant = self.restaurant2;
     }else if (recognizer.view == self.restaurant3View){
         restaurant = self.restaurant3;
+    }else if (recognizer.view == self.restaurant4View){
+        restaurant = self.restaurant4;
+    }else if (recognizer.view == self.restaurant5View){
+        restaurant = self.restaurant5;
     }
     
     if (restaurant){
@@ -561,7 +621,7 @@
     
     if (view == nil)
     {
-        view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, 130.0f, 130.0f)];
+        view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
         view.contentMode = UIViewContentModeScaleAspectFit;
     }
     
@@ -671,5 +731,9 @@
 
 - (IBAction)search:(id)sender {
     [self performSegueWithIdentifier:@"listSearchSegue" sender:self];
+}
+
+- (IBAction)locationChange:(id)sender{
+    [self performSegueWithIdentifier:@"listLocationSegue" sender:self];
 }
 @end
