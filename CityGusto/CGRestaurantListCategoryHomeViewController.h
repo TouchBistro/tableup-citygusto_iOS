@@ -25,15 +25,19 @@
 @property (strong, nonatomic) IBOutlet UIView *imageSliderView;
 
 @property (strong, nonatomic) IBOutlet UIView *listNameView;
-@property (strong, nonatomic) IBOutlet UILabel *listNameLabel;
+@property (strong, nonatomic) UILabel *listNameLabel;
 
 @property (strong, nonatomic) IBOutlet UIView *restaurant1View;
 @property (strong, nonatomic) IBOutlet UIView *restaurant2View;
 @property (strong, nonatomic) IBOutlet UIView *restaurant3View;
+@property (strong, nonatomic) IBOutlet UIView *restaurant4View;
+@property (strong, nonatomic) IBOutlet UIView *restaurant5View;
 
 @property (strong, nonatomic) IBOutlet UILabel *restaurant1Label;
 @property (strong, nonatomic) IBOutlet UILabel *restaurant2Label;
 @property (strong, nonatomic) IBOutlet UILabel *restaurant3Label;
+@property (strong, nonatomic) IBOutlet UILabel *restaurant4Label;
+@property (strong, nonatomic) IBOutlet UILabel *restaurant5Label;
 
 @property (strong, nonatomic) IBOutlet UIView *footerView;
 
@@ -44,6 +48,8 @@
 @property (nonatomic, strong) CGRestaurant *restaurant1;
 @property (nonatomic, strong) CGRestaurant *restaurant2;
 @property (nonatomic, strong) CGRestaurant *restaurant3;
+@property (nonatomic, strong) CGRestaurant *restaurant4;
+@property (nonatomic, strong) CGRestaurant *restaurant5;
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
 @property (strong, nonatomic) IBOutlet UIButton *locationButton;
