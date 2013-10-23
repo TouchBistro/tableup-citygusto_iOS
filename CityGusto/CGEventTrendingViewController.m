@@ -83,8 +83,8 @@
         
     }
     
-    UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
-    [self.mapButtonItem setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
+//    [self.mapButtonItem setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swithLocationChanged) name:locationChangedNotification object:nil];
     

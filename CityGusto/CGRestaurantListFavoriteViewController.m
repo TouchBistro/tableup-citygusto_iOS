@@ -41,8 +41,8 @@
     _lazyImages.delegate = self;
     _lazyImages.tableView = self.tableView;
     
-    UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
-    [self.mapHeaderButton setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
+//    [self.mapHeaderButton setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
 }
 
 - (void)didReceiveMemoryWarning

@@ -43,8 +43,8 @@
     _lazyImages.delegate = self;
     _lazyImages.tableView = self.tableView;
     
-    UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
-    [self.mapButtonItem setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
+//    UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
+//    [self.mapButtonItem setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     
     self.footerView = [[UIView alloc] initWithFrame:CGRectMake(0,0, 320, 60)];
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
