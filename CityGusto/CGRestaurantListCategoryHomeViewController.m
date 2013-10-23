@@ -188,7 +188,7 @@
     
     if (self.currentCategory == nil){
         [self startSpinner];
-        [[RKObjectManager sharedManager] getObjectsAtPath:@"/MattsMenus/mobile/native/restaurantListCategories"
+        [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
                                                parameters:[[CGRestaurantParameter shared] buildParameterMap]
                                                   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
                                                       //[[CGRestaurantParameter shared] getCurrentLocation];
