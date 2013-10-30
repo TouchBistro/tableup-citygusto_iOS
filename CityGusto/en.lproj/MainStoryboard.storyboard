@@ -3724,22 +3724,62 @@
         <image name="85-trophy.png" width="24" height="24"/>
         <image name="bg-list-320.png" width="320" height="150"/>
         <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
         <image name="buttonBackgroundGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
+        <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundPink.png" width="560" height="72"/>
+        <image name="buttonBackgroundPink.png" width="560" height="72"/>
         <image name="buttonBackgroundPink.png" width="560" height="72"/>
         <image name="events.png" width="44" height="23"/>
         <image name="food.png" width="44" height="23"/>
         <image name="foodTruck.png" width="44" height="22"/>
         <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
         <image name="ico-list-arrow-lists.png" width="26" height="26"/>
         <image name="ico-list-arrow.png" width="20" height="11"/>
         <image name="ico-ratings-dislike.png" width="16" height="16"/>
+        <image name="ico-ratings-dislike.png" width="16" height="16"/>
+        <image name="ico-ratings-like.png" width="16" height="16"/>
         <image name="ico-ratings-like.png" width="16" height="16"/>
         <image name="lists.png" width="44" height="24"/>
         <image name="new-restaurant.png" width="44" height="22"/>
         <image name="reviewdollars1.png" width="37" height="12"/>
+        <image name="reviewdollars1.png" width="37" height="12"/>
+        <image name="reviewdollars1.png" width="37" height="12"/>
+        <image name="reviewdollars1.png" width="37" height="12"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
         <image name="stars_0.png" width="80" height="15"/>
         <image name="truck.png" width="44" height="22"/>
     </resources>
