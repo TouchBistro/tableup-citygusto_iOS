@@ -150,9 +150,6 @@
 	self.carousel.decelerationRate = 0.95f;
 	self.carousel.scrollSpeed = 0.5f;
     
-    
-    
-    
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: self.activityView];
@@ -681,18 +678,30 @@
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
     NSString *photoURL = [self.restaurantListPhotoUrls objectAtIndex:index];
+    AsyncImageView *imageView;
     
     if (view == nil)
     {
-        view = [[AsyncImageView alloc] initWithFrame:CGRectMake(0, 0, 200.0f, 200.0f)];
-        view.contentMode = UIViewContentModeScaleAspectFit;
+        view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 240.0f, 200.0f)];
+        view.backgroundColor = [UIColor clearColor];
+        
+        imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(20, 0, 200.0f, 200.0f)];
+        imageView.contentMode = UIViewContentModeScaleAspectFit;
+        
+        [view addSubview:imageView];
+    }else{
+        for (UIView *v in view.subviews) {
+            if ([v isKindOfClass:[AsyncImageView class]]){
+                imageView = (AsyncImageView *)v;
+            }
+        }
     }
     
     //cancel any previously loading images for this view
-    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:view];
+    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:imageView];
     
     //set image URL. AsyncImageView class will then dynamically load the image
-    ((AsyncImageView *)view).imageURL = [NSURL URLWithString:photoURL];
+    imageView.imageURL = [NSURL URLWithString:photoURL];
     
     return view;
 }

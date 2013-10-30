@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-            timestampString = "404847183.486973"
+            timestampString = "404857228.258856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "252"
-            endingLineNumber = "252"
+            startingLineNumber = "249"
+            endingLineNumber = "249"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -298,11 +298,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-            timestampString = "404854858.261595"
+            timestampString = "404857228.258856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "574"
-            endingLineNumber = "574"
+            startingLineNumber = "571"
+            endingLineNumber = "571"
             landmarkName = "-updateRestaurantCategory:"
             landmarkType = "5">
          </BreakpointContent>
@@ -372,11 +372,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-            timestampString = "404854858.261595"
+            timestampString = "404857228.258856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "723"
-            endingLineNumber = "723"
+            startingLineNumber = "732"
+            endingLineNumber = "732"
             landmarkName = "-swithLocationChanged"
             landmarkType = "5">
          </BreakpointContent>
@@ -388,11 +388,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-            timestampString = "404847183.486973"
+            timestampString = "404857228.258856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "384"
-            endingLineNumber = "384"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "-viewDidAppear:"
             landmarkType = "5">
          </BreakpointContent>
@@ -452,11 +452,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-            timestampString = "404854858.261595"
+            timestampString = "404857228.258856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "702"
-            endingLineNumber = "702"
+            startingLineNumber = "711"
+            endingLineNumber = "711"
             landmarkName = "-numberOfPlaceholdersInCarousel:"
             landmarkType = "5">
          </BreakpointContent>
@@ -464,15 +464,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-            timestampString = "404854858.261595"
+            timestampString = "404857228.258856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "663"
-            endingLineNumber = "663"
+            startingLineNumber = "660"
+            endingLineNumber = "660"
             landmarkName = "-carousel:valueForOption:withDefault:"
             landmarkType = "5">
          </BreakpointContent>
@@ -516,11 +516,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-            timestampString = "404847484.72956"
+            timestampString = "404857228.258856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "239"
-            endingLineNumber = "239"
+            startingLineNumber = "236"
+            endingLineNumber = "236"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
             <Locations>
@@ -576,11 +576,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-            timestampString = "404854605.777437"
+            timestampString = "404857228.258856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "441"
-            endingLineNumber = "441"
+            startingLineNumber = "438"
+            endingLineNumber = "438"
             landmarkName = "-prepareForSegue:sender:"
             landmarkType = "5">
          </BreakpointContent>
@@ -592,12 +592,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
-            timestampString = "404854912.460787"
+            timestampString = "404857228.258856"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "447"
-            endingLineNumber = "447"
+            startingLineNumber = "444"
+            endingLineNumber = "444"
             landmarkName = "-prepareForSegue:sender:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CityGusto/CGRestaurantListCategoryHomeViewController.m"
+            timestampString = "404857299.54672"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "680"
+            endingLineNumber = "680"
+            landmarkName = "-carousel:viewForItemAtIndex:reusingView:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
