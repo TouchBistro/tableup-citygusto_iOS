@@ -99,18 +99,18 @@
     self.scrollView.delegate = self;
     [self.scrollView setScrollEnabled:YES];
     
-    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"320x35Bottom.png"]];
-    titleImageView.frame = CGRectMake(0,220,320,35);
+//    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"320x35Bottom.png"]];
+//    titleImageView.frame = CGRectMake(0,220,320,35);
     
-    self.listNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
-    self.listNameLabel.textAlignment = NSTextAlignmentCenter;
+//    self.listNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
+//    self.listNameLabel.textAlignment = NSTextAlignmentCenter;
     
-    if (self.currentRestaurantList){
-        self.listNameLabel.text = self.currentRestaurantList.name;
-    }
+//    if (self.currentRestaurantList){
+//        self.listNameLabel.text = self.currentRestaurantList.name;
+//    }
     
-    [titleImageView addSubview:self.listNameLabel];
-    [self.imageSliderView addSubview:titleImageView];
+//    [titleImageView addSubview:self.listNameLabel];
+//    [self.imageSliderView addSubview:titleImageView];
     
 }
 
@@ -190,6 +190,19 @@
     
     self.restaurantListPhotoUrls = [[NSMutableArray alloc] init];
     
+    UIImageView *titleImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"320x35Bottom.png"]];
+    titleImageView.frame = CGRectMake(0,220,320,35);
+    
+    self.listNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
+    self.listNameLabel.textAlignment = NSTextAlignmentCenter;
+    
+    if (self.currentRestaurantList){
+        self.listNameLabel.text = self.currentRestaurantList.name;
+    }
+    
+    [titleImageView addSubview:self.listNameLabel];
+    [self.imageSliderView addSubview:titleImageView];
+    
     if (self.currentCategory == nil){
         [self startSpinner];
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurantListCategories"
@@ -258,6 +271,7 @@
     self.restaurant3Label.text = @"";
     self.restaurant4Label.text = @"";
     self.restaurant5Label.text = @"";
+    self.listNameLabel.text = @"";
     
     self.expertNameView.hidden = YES;
     

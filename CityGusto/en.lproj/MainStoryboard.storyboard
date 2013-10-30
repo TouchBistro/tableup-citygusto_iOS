@@ -766,10 +766,10 @@
                                             <size key="shadowOffset" width="1" height="1"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ico-ratings-dislike.png" id="H3t-Mr-xDx">
-                                            <rect key="frame" x="253" y="11.999999992515981" width="16" height="16"/>
+                                            <rect key="frame" x="253" y="11.999999992554935" width="16" height="16"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="ico-ratings-like.png" id="wt6-Tj-m0W">
-                                            <rect key="frame" x="63" y="11.999999992515981" width="16" height="16"/>
+                                            <rect key="frame" x="63" y="11.999999992554935" width="16" height="16"/>
                                         </imageView>
                                         <view contentMode="scaleToFill" id="Yk7-Be-3rt">
                                             <rect key="frame" x="60" y="38" width="200" height="30"/>
@@ -2292,7 +2292,7 @@
                                     <rect key="frame" x="0.0" y="115" width="320" height="120"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" id="NXN-gi-irN">
-                                            <rect key="frame" x="20" y="1.9999999981195768" width="280" height="21"/>
+                                            <rect key="frame" x="20" y="1.9999999981411261" width="280" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <color key="textColor" red="0.38823533059999998" green="0.38431376220000002" blue="0.38431376220000002" alpha="1" colorSpace="deviceRGB"/>
                                             <color key="shadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -3749,14 +3749,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="Em6-Bi-MbD"/>
         <segue reference="1xg-Mi-QDy"/>
         <segue reference="DYn-Ze-aqa"/>
         <segue reference="Jmu-el-SyW"/>
-        <segue reference="Des-PV-krl"/>
-        <segue reference="Em6-Bi-MbD"/>
         <segue reference="NQz-2H-uJM"/>
-        <segue reference="qzp-BU-3PU"/>
+        <segue reference="Des-PV-krl"/>
         <segue reference="2tH-ZJ-a7J"/>
+        <segue reference="qzp-BU-3PU"/>
         <segue reference="PaO-af-0TP"/>
     </inferredMetricsTieBreakers>
 </document>
