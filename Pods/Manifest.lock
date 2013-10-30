@@ -1,6 +1,6 @@
 PODS:
   - AFNetworking (1.1.0)
-  - iCarousel (1.6.3)
+  - iCarousel (1.7.6)
   - MBProgressHUD (0.6)
   - RestKit (0.20.0-rc1):
     - RestKit/Core
@@ -22,7 +22,7 @@ PODS:
   - SOCKit (1.1)
 
 DEPENDENCIES:
-  - iCarousel (~> 1.6.2)
+  - iCarousel (~> 1.7.6)
   - MBProgressHUD (~> 0.6)
   - RestKit (~> 0.20.0pre)
   - RestKit/Search (~> 0.20.0pre)
@@ -30,9 +30,9 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 761a418233d280c1e0580bcb76ff9cb4c3073d17
-  iCarousel: 13e5f3f4df46460011d92a333015b1be99024c09
+  iCarousel: e23a26d7ba722215a42144e80adb0dcb59bebc41
   MBProgressHUD: 9b55a90566fb5d07df0602f6fd9fa04510ad5d52
   RestKit: f74b2384e8a3f28942d79c84c453815e3d25a3db
   SOCKit: 2f3bc4d07910de12dcc202815e07db68a3802581
 
-COCOAPODS: 0.19.1
+COCOAPODS: 0.24.0

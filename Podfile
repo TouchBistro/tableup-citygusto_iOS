@@ -1,6 +1,6 @@
 platform :ios, '6.0'
 pod 'RestKit', '~> 0.20.0pre'
-pod 'iCarousel', '~>1.6.2'
+pod 'iCarousel', '~>1.7.6'
 pod 'MBProgressHUD', '~> 0.6'
 
 # Testing and Search are optional components

@@ -462,7 +462,7 @@ THE SOFTWARE.
 
 iCarousel
 
-Version 1.6.3, May 17th, 2012
+Version 1.7.6, July 1st, 2013
 
 Copyright (C) 2011 Charcoal Design
 

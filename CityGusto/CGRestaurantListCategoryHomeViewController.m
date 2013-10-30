@@ -18,6 +18,7 @@
 #import "AsyncImageView.h"
 #import "CGAppDelegate.h"
 #import "MBProgressHud.h"
+#import "iCarousel.h"
 #import <CoreLocation/CoreLocation.h>
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
@@ -115,6 +116,9 @@
 
 - (void)viewDidLoad
 {
+    self.carousel.delegate = self;
+    self.carousel.dataSource = self;
+    
     if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
         UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
         [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
@@ -145,6 +149,9 @@
     self.carousel.type = iCarouselTypeCoverFlow2;
 	self.carousel.decelerationRate = 0.95f;
 	self.carousel.scrollSpeed = 0.5f;
+    
+    
+    
     
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
@@ -440,6 +447,10 @@
         NSMutableDictionary *params = [[CGRestaurantParameter shared] buildParameterMap];
         [params setObject:self.currentRestaurantList.restaurantListId forKey:@"listId"];
         
+        if (self.currentRestaurantList.user){
+            [params setObject:self.currentRestaurantList.user.userId forKey:@"userId"];
+        }
+        
         [self startSpinner];
         [[RKObjectManager sharedManager] getObjectsAtPath:@"/mobile/native/restaurants"
                                                parameters:params
@@ -533,13 +544,25 @@
             newFrame.origin.y += 20;
             self.restaurant1View.frame = newFrame;
             
+            CGRect newFrame2 = self.restaurant2View.frame;
+            newFrame2.origin.y += 20;
+            self.restaurant2View.frame = newFrame2;
+            
             CGRect newFrame3 = self.restaurant3View.frame;
             newFrame3.origin.y += 20;
             self.restaurant3View.frame = newFrame3;
             
-            CGRect newFrame4 = self.footerView.frame;
+            CGRect newFrame4 = self.restaurant4View.frame;
             newFrame4.origin.y += 20;
-            self.footerView.frame = newFrame4;
+            self.restaurant4View.frame = newFrame4;
+            
+            CGRect newFrame5 = self.restaurant5View.frame;
+            newFrame5.origin.y += 20;
+            self.restaurant5View.frame = newFrame5;
+            
+            CGRect newFrame6 = self.footerView.frame;
+            newFrame6.origin.y += 20;
+            self.footerView.frame = newFrame6;
             
             self.showingVotedBy = YES;
         }
@@ -585,13 +608,25 @@
             newFrame.origin.y -= 20;
             self.restaurant1View.frame = newFrame;
             
+            CGRect newFrame2 = self.restaurant2View.frame;
+            newFrame2.origin.y -= 20;
+            self.restaurant2View.frame = newFrame2;
+            
             CGRect newFrame3 = self.restaurant3View.frame;
             newFrame3.origin.y -= 20;
             self.restaurant3View.frame = newFrame3;
             
-            CGRect newFrame4 = self.footerView.frame;
+            CGRect newFrame4 = self.restaurant4View.frame;
             newFrame4.origin.y -= 20;
-            self.footerView.frame = newFrame4;
+            self.restaurant4View.frame = newFrame4;
+            
+            CGRect newFrame5 = self.restaurant5View.frame;
+            newFrame5.origin.y -= 20;
+            self.restaurant5View.frame = newFrame5;
+            
+            CGRect newFrame6 = self.footerView.frame;
+            newFrame6.origin.y -= 20;
+            self.footerView.frame = newFrame6;
             
             self.showingVotedBy = NO;
         }
@@ -622,6 +657,21 @@
 
 #pragma mark -
 #pragma mark iCarousel methods
+
+- (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
+{
+    switch (option)
+    {
+        case iCarouselOptionSpacing:
+        {
+            return value * 5;
+        }
+        default:
+        {
+            return value;
+        }
+    }
+}
 
 - (NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel
 {
@@ -749,4 +799,5 @@
 - (IBAction)locationChange:(id)sender{
     [self performSegueWithIdentifier:@"listLocationSegue" sender:self];
 }
+
 @end

@@ -4,6 +4,31 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>Pods-AFNetworking.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>Pods-MBProgressHUD.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-RestKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
+		<key>Pods-SOCKit.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
+		<key>Pods-iCarousel.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 		<key>Pods.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -22,12 +47,42 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4153F09F0E3740938249B3FC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>59C31B3EF0BE45529BA6FFE8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>74058D87C13040ECA5CCB79B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>76726DA8DEEC49EFA91D454A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>7C8AE03BA12949FA831D2984</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>7FEDC57BAD924D75934958A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>8929AF08A6DB42448E744396</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CAED9AB5B9954A6EAF1909ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
