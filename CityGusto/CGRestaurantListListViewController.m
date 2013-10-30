@@ -45,8 +45,23 @@
     label.textAlignment = NSTextAlignmentCenter;
     label.backgroundColor = [UIColor clearColor];
     
-    label.text = self.restaurantList.name;
+    NSString *titleString = self.restaurantList.name;
+    
+    if (self.restaurantList.user){
+        NSString *nameString;
+        if (self.restaurantList.user.lastname){
+            nameString = [NSString stringWithFormat:@" - %@ %@", self.restaurantList.user.firstname, self.restaurantList.user.lastname];
+        }else{
+            nameString = [NSString stringWithFormat:@" - %@", self.restaurantList.user.firstname];
+        }
+
+        titleString = [titleString stringByAppendingString:nameString];
+    }
+    
+    label.text = titleString;
     label.textColor = [UIColor whiteColor];
+    
+    
     [self.headerView addSubview:label];
     
     return self.headerView;
