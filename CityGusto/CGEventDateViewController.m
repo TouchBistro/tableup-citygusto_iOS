@@ -23,11 +23,11 @@
 
 - (void)viewDidLoad
 {
-    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
-        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
-        
-    }
+//    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
+//        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
+//        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
+//
+//    }
     
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];

@@ -20,12 +20,6 @@
 
 - (void)viewDidLoad
 {
-    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
-        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
-        
-    }
-    
     if (self.photos.count == 0){
         UILabel *noPhotoLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 120, 320, 60)];
         noPhotoLabel.text = @"There are no photos for this restaurant.";

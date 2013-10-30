@@ -69,5 +69,6 @@
 
 @property (assign, nonatomic) BOOL showingVotedBy;
 - (IBAction)search:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

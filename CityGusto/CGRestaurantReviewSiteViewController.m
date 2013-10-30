@@ -17,12 +17,6 @@
 
 - (void)viewDidLoad
 {
-    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
-        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
-        
-    }
-    
     if (self.selectedRestaurant.reviewLinks.count == 0){
         UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
         view.backgroundColor = [UIColor whiteColor];

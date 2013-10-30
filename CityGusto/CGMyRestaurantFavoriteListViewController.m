@@ -23,12 +23,6 @@
 
 - (void)viewDidLoad
 {
-    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
-        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
-        
-    }
-    
     self.activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.tableView addSubview: self.activityView];

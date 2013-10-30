@@ -38,12 +38,6 @@
 
 - (void)viewDidLoad
 {
-    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
-        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
-        
-    }
-    
     UITapGestureRecognizer *singleFingerTap1 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                        action:@selector(handleVenueViewTap:)];
     

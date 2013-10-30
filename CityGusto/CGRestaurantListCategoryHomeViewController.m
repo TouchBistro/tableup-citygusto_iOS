@@ -106,10 +106,7 @@
     self.carousel.delegate = self;
     self.carousel.dataSource = self;
     
-    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
-        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
-    }
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     
     self.expertNameView = [[UIView alloc] initWithFrame:CGRectMake(0, self.imageSliderView.frame.origin.y + self.imageSliderView.frame.size.height, self.view.frame.size.width, 20)];
     self.expertNameView.backgroundColor = [UIColor clearColor];
@@ -384,6 +381,7 @@
     
     if (self.locationChangedFlag == YES){
         self.locationChangedFlag = NO;
+        self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     }
 }
 

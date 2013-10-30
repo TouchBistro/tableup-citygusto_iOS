@@ -22,12 +22,6 @@
 
 - (void)viewDidLoad
 {
-    if ([self.navigationController.navigationBar respondsToSelector:@selector( setBackgroundImage:forBarMetrics:)]){
-        UIImage *navBarImg = [UIImage imageNamed:@"appHeader.png"];
-        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
-        
-    }
-    
     self.locations = [[NSMutableArray alloc] init];
     [self.locations addObject:@"Current Location"]; // 0
     [self.locations addObject:@"Boston - All"]; // 1
