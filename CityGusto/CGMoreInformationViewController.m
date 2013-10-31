@@ -8,6 +8,7 @@
 
 #import "CGInformation.h"
 #import "CGInformationCell.h"
+#import "CGRestaurantParameter.h"
 #import "CGMoreInformationViewController.h"
 
 @interface CGMoreInformationViewController ()
@@ -26,6 +27,8 @@
 //        [self.navigationController.navigationBar setBackgroundImage:navBarImg forBarMetrics:UIBarMetricsDefault];
         
     }
+    
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     
     self.rows = [[NSMutableArray alloc] init];
     if (self.selectedRestaurant.about){

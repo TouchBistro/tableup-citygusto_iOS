@@ -18,5 +18,6 @@
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
 
 @property (nonatomic, strong) NSMutableArray *restaurants;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

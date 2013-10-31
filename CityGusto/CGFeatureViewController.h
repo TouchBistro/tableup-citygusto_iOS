@@ -10,5 +10,6 @@
 
 @interface CGFeatureViewController : UITableViewController
 - (IBAction)done:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

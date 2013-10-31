@@ -12,5 +12,6 @@
 @interface CGRestaurantReviewSiteViewController : UITableViewController
 
 @property (nonatomic, strong) CGRestaurant *selectedRestaurant;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

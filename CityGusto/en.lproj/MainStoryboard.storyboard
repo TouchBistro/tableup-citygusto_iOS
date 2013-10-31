@@ -202,6 +202,7 @@
                         <outlet property="headerView" destination="D2C-Y4-h72" id="vvn-qx-XSY"/>
                         <outlet property="kitchenSwitch" destination="khx-Uo-gnv" id="ICZ-lu-OrG"/>
                         <outlet property="locationButton" destination="nye-An-b9z" id="n06-ki-wm6"/>
+                        <outlet property="navItem" destination="CdX-Ew-kih" id="CDm-cq-t6G"/>
                         <outlet property="scroller" destination="ncm-8S-mMD" id="Zav-sC-QhL"/>
                         <outlet property="searchButton" destination="Ef6-DD-EaR" id="Vte-SO-Iqs"/>
                         <outlet property="sortLabel" destination="3ga-Po-Pas" id="0ql-Aa-UOh"/>
@@ -403,6 +404,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navItem" destination="SRg-95-bcf" id="utw-nS-Pmd"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wdk-69-UMY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -439,6 +443,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navItem" destination="828-3d-ntU" id="7sy-MC-Ifr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qgt-lV-bkT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -513,6 +520,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="vCI-rr-mgd"/>
+                    <connections>
+                        <outlet property="navItem" destination="vCI-rr-mgd" id="k2X-CW-rue"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Is9-Gd-Ztx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -710,6 +720,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="navBarItem" destination="MAh-sa-R3x" id="ia8-pw-baq"/>
+                        <outlet property="navItem" destination="MAh-sa-R3x" id="a3O-A1-Cs9"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="homeSegue" id="Aqm-km-h2h"/>
                         <segue destination="oRW-Lz-Gcy" kind="push" identifier="restaurantListSearchSegue" id="f6c-60-Xhl"/>
                     </connections>
@@ -1028,6 +1039,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="KMG-au-60m"/>
+                    <connections>
+                        <outlet property="navItem" destination="KMG-au-60m" id="f7f-Sa-Y3k"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ft-eI-xZj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1068,6 +1082,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Hnv-L9-XJP"/>
+                    <connections>
+                        <outlet property="navItem" destination="Hnv-L9-XJP" id="GpS-0A-tkD"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TX9-OY-BRT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1109,6 +1126,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" id="qYy-uv-BE6"/>
                     <connections>
+                        <outlet property="navItem" destination="qYy-uv-BE6" id="Frx-io-v2E"/>
                         <segue destination="am7-Sl-lRs" kind="push" identifier="topRestaurantListToListSegue" id="lTX-NO-xF1"/>
                     </connections>
                 </tableViewController>
@@ -3803,14 +3821,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="MXO-9X-nkW"/>
-        <segue reference="XQ9-pZ-kPV"/>
+        <segue reference="Aqm-km-h2h"/>
         <segue reference="1xg-Mi-QDy"/>
-        <segue reference="NQz-2H-uJM"/>
         <segue reference="350-at-SyI"/>
-        <segue reference="c7V-yW-ixA"/>
-        <segue reference="qXS-Q8-ecf"/>
+        <segue reference="NzV-4r-3WK"/>
+        <segue reference="f6c-60-Xhl"/>
         <segue reference="2tH-ZJ-a7J"/>
         <segue reference="qzp-BU-3PU"/>
+        <segue reference="Mm5-eq-2Yi"/>
+        <segue reference="lTX-NO-xF1"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,6 +8,7 @@
 
 #import "CGMenu.h"
 #import "CGRestaurantMenuViewController.h"
+#import "CGRestaurantParameter.h"
 
 @interface CGRestaurantMenuViewController ()
 
@@ -32,6 +33,8 @@
         [self.view addSubview:view];
         [self.view bringSubviewToFront:view];
     }
+    
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     
     [super viewDidLoad];
 }

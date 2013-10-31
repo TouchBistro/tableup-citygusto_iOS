@@ -100,6 +100,7 @@
 - (void)viewDidLoad
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swithLocationChanged) name:locationChangedNotification object:nil];
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     
     
     self.locationChanged = NO;
@@ -489,6 +490,7 @@
 
 -(void) swithLocationChanged{
     self.locationChanged = YES;
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{

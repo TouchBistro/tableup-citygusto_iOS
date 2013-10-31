@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) NSMutableArray *cuisines;
 - (IBAction)done:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end
