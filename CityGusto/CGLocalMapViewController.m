@@ -8,6 +8,7 @@
 
 #import "CGLocalMapViewController.h"
 #import "CGLocalAnnotation.h"
+#import "CGRestaurantParameter.h"
 #import <MapKit/MapKit.h>
 
 #define METERS_PER_MILE 1609.344
@@ -38,6 +39,8 @@
     annotation.title = self.local.name;
     annotation.local = self.local;
     [self.mapView addAnnotation:annotation];
+    
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     
 }
 

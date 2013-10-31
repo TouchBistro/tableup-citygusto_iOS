@@ -23,5 +23,6 @@
 @property (nonatomic, assign, getter=isDataLoaded) BOOL dataLoaded;
 
 @property (nonatomic, assign) NSInteger offset;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

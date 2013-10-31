@@ -14,5 +14,6 @@
 
 @property (nonatomic, strong) CGLocal *local;
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

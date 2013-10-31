@@ -8,6 +8,7 @@
 
 #import "CGInformationCell.h"
 #import "CGInformation.h"
+#import "CGRestaurantParameter.h"
 #import "CGEventMoreInformationViewController.h"
 
 @interface CGEventMoreInformationViewController ()
@@ -38,6 +39,8 @@
     if (self.selectedEvent.occurrenceString){
         [self.rows addObject:[[CGInformation alloc]initWithHeader:@"Occurrences" value:self.selectedEvent.occurrenceString]];
     }
+    
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
         
     [super viewDidLoad];
 }

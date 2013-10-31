@@ -34,6 +34,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     
     _lazyImages = [[MHLazyTableImages alloc] init];
     _lazyImages.placeholderImage = [UIImage imageNamed:@"CityGusto App Icon - 60x60.png"];

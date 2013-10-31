@@ -37,6 +37,8 @@
     _lazyImages.delegate = self;
     _lazyImages.tableView = self.tableView;
     
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
+    
 //    UIImage *headerButtonImage = [UIImage imageNamed:@"headerButton.png"];
 //    [self.mapButtonItem setBackgroundImage:headerButtonImage forState:UIControlStateNormal barMetrics:UIBarMetricsDefault];
     

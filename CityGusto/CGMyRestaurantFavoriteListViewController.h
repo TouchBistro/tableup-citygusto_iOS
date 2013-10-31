@@ -16,5 +16,6 @@
 @property (strong, nonatomic) UIActivityIndicatorView *activityView;
 
 @property (strong, nonatomic) IBOutlet UIView *headerView;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

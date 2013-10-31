@@ -17,5 +17,6 @@
 @property (nonatomic, strong) CGEvent *seletedEvent;
 
 @property (nonatomic, strong) UIActivityIndicatorView *activityView;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

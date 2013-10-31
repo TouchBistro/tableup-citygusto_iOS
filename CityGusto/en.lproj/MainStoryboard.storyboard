@@ -367,6 +367,7 @@
                     <navigationItem key="navigationItem" id="1pm-GZ-mO5"/>
                     <connections>
                         <outlet property="mapView" destination="SER-lJ-Ta9" id="lIR-DE-Wqj"/>
+                        <outlet property="navItem" destination="1pm-GZ-mO5" id="gL4-CP-THK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UrY-34-DNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -618,6 +619,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="Yk1-88-NeD"/>
+                    <connections>
+                        <outlet property="navItem" destination="Yk1-88-NeD" id="4sh-UD-t5U"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QfH-qk-Agk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1389,6 +1393,7 @@
                         <outlet property="dateLabel" destination="evv-jy-cYf" id="976-b1-PyS"/>
                         <outlet property="headerView" destination="lYy-vs-Ei7" id="9Os-aY-TvP"/>
                         <outlet property="locationButton" destination="4aZ-gk-yBv" id="G7x-wA-HQX"/>
+                        <outlet property="navItem" destination="5hb-xA-zo9" id="HOl-Oa-ewg"/>
                         <outlet property="scroller" destination="HN7-jW-Ftc" id="hSb-hn-nDf"/>
                         <outlet property="searchButton" destination="pts-VI-9KB" id="TIh-DK-Le9"/>
                         <outlet property="sortLabel" destination="O2q-Y6-hZO" id="Q3W-Os-LpA"/>
@@ -1441,6 +1446,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navItem" destination="kpC-bI-wJ8" id="hef-9c-NlL"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gfU-xY-kfJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1540,6 +1548,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navItem" destination="8JC-Ij-3nk" id="JMu-cf-66a"/>
                         <segue destination="2hf-AF-Ai5" kind="push" identifier="eventDetailSegue" id="Ewr-Nt-WZf"/>
                         <segue destination="oRW-Lz-Gcy" kind="push" identifier="eventSearchSegue" id="srY-08-244"/>
                     </connections>
@@ -1813,6 +1822,7 @@
                     <navigationItem key="navigationItem" id="jmm-5g-m00"/>
                     <connections>
                         <outlet property="headerView" destination="18I-eS-Jxk" id="yAd-6M-2oR"/>
+                        <outlet property="navItem" destination="jmm-5g-m00" id="qMH-z8-ieD"/>
                         <segue destination="RWa-A2-pzJ" kind="push" identifier="restaurantFavoriteListRestaurantSegue" id="5n7-YX-ka0"/>
                     </connections>
                 </tableViewController>
@@ -2466,6 +2476,7 @@
                         <outlet property="headerView" destination="Vae-9r-JUP" id="S0H-v9-ec8"/>
                         <outlet property="likeLabel" destination="awW-Kh-eMZ" id="DAU-1Z-q2d"/>
                         <outlet property="likeView" destination="0L1-HW-qHK" id="FZ6-U7-SZ1"/>
+                        <outlet property="navItem" destination="3WG-P9-8V3" id="5wE-MD-Hut"/>
                         <outlet property="neighborhoodLabel" destination="zhs-h6-r3e" id="ssX-zb-mKR"/>
                         <outlet property="nextDateLabel" destination="VFu-ye-72V" id="JF7-kr-ScG"/>
                         <outlet property="numberOfDislikesLabel" destination="zD3-wE-tK0" id="dZY-km-nPQ"/>
@@ -3086,6 +3097,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="dateLabel" destination="c3o-N8-Sfc" id="whS-e6-Ddy"/>
+                        <outlet property="navItem" destination="w8X-Vu-4PK" id="F2R-Lh-Gvp"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="seu-oh-jCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3110,6 +3122,7 @@
                     <navigationItem key="navigationItem" id="j9b-oZ-IFW"/>
                     <connections>
                         <outlet property="mapView" destination="ewz-T0-kUG" id="smM-pH-b37"/>
+                        <outlet property="navItem" destination="j9b-oZ-IFW" id="XdO-HN-7Yf"/>
                         <segue destination="2hf-AF-Ai5" kind="push" identifier="mapEventHomeSegue" id="ziQ-Qk-TXW"/>
                     </connections>
                 </viewController>
@@ -3194,6 +3207,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navItem" destination="HpN-eI-oKh" id="XBz-Xl-lej"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jyn-k4-fZR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -3335,6 +3351,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapButtonItem" destination="7SE-QZ-UFn" id="bUM-1q-MgV"/>
+                        <outlet property="navItem" destination="obe-EU-bkU" id="eeZ-t0-jGX"/>
                         <segue destination="2hf-AF-Ai5" kind="push" identifier="eventTrendingDetailSegue" id="zP4-ZE-mbc"/>
                     </connections>
                 </tableViewController>
@@ -3408,6 +3425,7 @@
                     <navigationItem key="navigationItem" id="E3Y-uz-mQD"/>
                     <connections>
                         <outlet property="mobileSearchBar" destination="EEz-sP-BTM" id="J0r-hI-RsS"/>
+                        <outlet property="navItem" destination="E3Y-uz-mQD" id="53q-a1-a33"/>
                         <outlet property="searchDisplayController" destination="AU7-ze-dHe" id="bcb-XB-erQ"/>
                         <segue destination="am7-Sl-lRs" kind="push" identifier="searchRestaurantListSegue" id="gl8-Nh-xVc"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="searchRestaurantDetailSegue" id="NWT-y4-Avr"/>
@@ -3523,6 +3541,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapButtonItem" destination="2Qi-B6-Q9a" id="lka-8x-B9A"/>
+                        <outlet property="navItem" destination="fs8-tF-cgV" id="pMI-TD-XHU"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="newHomeSegue" id="Bq8-j4-MBc"/>
                     </connections>
                 </tableViewController>
@@ -3756,62 +3775,22 @@
         <image name="85-trophy.png" width="24" height="24"/>
         <image name="bg-list-320.png" width="320" height="150"/>
         <image name="buttonBackgroundGreen.png" width="560" height="72"/>
-        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
-        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
-        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
-        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
-        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
         <image name="buttonBackgroundGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
-        <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
-        <image name="buttonBackgroundPink.png" width="560" height="72"/>
-        <image name="buttonBackgroundPink.png" width="560" height="72"/>
         <image name="buttonBackgroundPink.png" width="560" height="72"/>
         <image name="events.png" width="44" height="23"/>
         <image name="food.png" width="44" height="23"/>
         <image name="foodTruck.png" width="44" height="22"/>
         <image name="ico-list-arrow-alt.png" width="20" height="30"/>
-        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
-        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
-        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
-        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
-        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
-        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
-        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
         <image name="ico-list-arrow-lists.png" width="26" height="26"/>
         <image name="ico-list-arrow.png" width="20" height="11"/>
         <image name="ico-ratings-dislike.png" width="16" height="16"/>
-        <image name="ico-ratings-dislike.png" width="16" height="16"/>
-        <image name="ico-ratings-like.png" width="16" height="16"/>
         <image name="ico-ratings-like.png" width="16" height="16"/>
         <image name="lists.png" width="44" height="24"/>
         <image name="new-restaurant.png" width="44" height="22"/>
         <image name="reviewdollars1.png" width="37" height="12"/>
-        <image name="reviewdollars1.png" width="37" height="12"/>
-        <image name="reviewdollars1.png" width="37" height="12"/>
-        <image name="reviewdollars1.png" width="37" height="12"/>
-        <image name="stars_0.png" width="80" height="15"/>
-        <image name="stars_0.png" width="80" height="15"/>
-        <image name="stars_0.png" width="80" height="15"/>
-        <image name="stars_0.png" width="80" height="15"/>
-        <image name="stars_0.png" width="80" height="15"/>
-        <image name="stars_0.png" width="80" height="15"/>
         <image name="stars_0.png" width="80" height="15"/>
         <image name="truck.png" width="44" height="22"/>
     </resources>
@@ -3821,14 +3800,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Aqm-km-h2h"/>
+        <segue reference="NWT-y4-Avr"/>
+        <segue reference="f6c-60-Xhl"/>
         <segue reference="1xg-Mi-QDy"/>
         <segue reference="350-at-SyI"/>
         <segue reference="NzV-4r-3WK"/>
-        <segue reference="f6c-60-Xhl"/>
+        <segue reference="Mm5-eq-2Yi"/>
         <segue reference="2tH-ZJ-a7J"/>
         <segue reference="qzp-BU-3PU"/>
-        <segue reference="Mm5-eq-2Yi"/>
-        <segue reference="lTX-NO-xF1"/>
+        <segue reference="gl8-Nh-xVc"/>
     </inferredMetricsTieBreakers>
 </document>

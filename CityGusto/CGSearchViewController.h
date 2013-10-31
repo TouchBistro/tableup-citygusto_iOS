@@ -32,5 +32,6 @@
 @property (nonatomic, strong) CGSearchResult *selectedResult;
 @property (nonatomic, strong) CGLocal *selectedLocal;
 @property (strong, nonatomic) IBOutlet UISearchBar *mobileSearchBar;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

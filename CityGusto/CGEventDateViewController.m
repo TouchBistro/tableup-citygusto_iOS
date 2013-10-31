@@ -29,6 +29,8 @@
 //
 //    }
     
+   self.navItem.title = [CGRestaurantParameter shared].getLocationName;
+    
     NSDateFormatter* dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"MM/dd/yyyy"];
     

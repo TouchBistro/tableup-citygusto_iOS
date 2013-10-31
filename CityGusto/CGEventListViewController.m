@@ -103,6 +103,7 @@
 - (void)viewDidLoad
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(swithLocationChanged) name:locationChangedNotification object:nil];
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     
     _lazyImages = [[MHLazyTableImages alloc] init];
     _lazyImages.placeholderImage = [UIImage imageNamed:@"CityGusto App Icon - 60x60.png"];
@@ -462,6 +463,7 @@
 
 -(void) swithLocationChanged{
     self.locationChanged = YES;
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
 }
 
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar{

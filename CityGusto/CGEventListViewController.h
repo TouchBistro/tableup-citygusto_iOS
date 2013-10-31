@@ -32,5 +32,6 @@
 -(void) stopSpinner;
 
 @property (nonatomic, strong) NSString *term;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

@@ -29,5 +29,6 @@
 -(void) startSpinner;
 -(void) stopSpinner;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *mapButtonItem;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

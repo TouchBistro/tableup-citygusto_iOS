@@ -19,6 +19,7 @@
 }
 
 @property (nonatomic, assign) id <CGEventOptionsViewDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @property (strong, nonatomic) IBOutlet UIButton *tagButton;
 @property (strong, nonatomic) IBOutlet UIButton *clearAllButton;

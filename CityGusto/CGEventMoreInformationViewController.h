@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) CGEvent *selectedEvent;
 @property (nonatomic, strong) NSMutableArray *rows;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

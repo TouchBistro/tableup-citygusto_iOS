@@ -26,6 +26,8 @@
         
 //    }
     
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
+    
     [super viewDidLoad];
 }
 

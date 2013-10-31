@@ -10,6 +10,7 @@
 #import "CGRestaurantHomeViewController.h"
 #import "CGEventMoreInformationViewController.h"
 #import "CGLocalDetailViewController.h"
+#import "CGRestaurantParameter.h"
 #import "MBProgressHUD.h"
 #import <RestKit/RestKit.h>
 #import <QuartzCore/QuartzCore.h>
@@ -43,6 +44,8 @@
     
     UITapGestureRecognizer *singleFingerTap2 = [[UITapGestureRecognizer alloc] initWithTarget:self
                                                                                        action:@selector(handleVenueViewWebsiteTap:)];
+    
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     
     [singleFingerTap1 setCancelsTouchesInView:NO];
     [self.venueView addGestureRecognizer:singleFingerTap1];

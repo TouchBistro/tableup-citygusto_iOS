@@ -25,5 +25,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) NSString *dateString;
 @property (assign, nonatomic) NSInteger sortIndex;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

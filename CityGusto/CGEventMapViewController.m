@@ -11,6 +11,7 @@
 #import "CGEventAnnotation.h"
 #import "CGEventDetailViewController.h"
 #import "CGEventMapViewController.h"
+#import "CGRestaurantParameter.h"
 #import "MBProgressHud.h"
 #import <RestKit/RestKit.h>
 
@@ -28,6 +29,8 @@
 {
     [super viewDidLoad];
     self.mapView.delegate = self;
+    
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
 
 }
 

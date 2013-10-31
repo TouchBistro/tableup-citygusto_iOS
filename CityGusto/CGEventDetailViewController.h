@@ -49,5 +49,6 @@
 
 - (IBAction)map:(id)sender;
 - (IBAction)call:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end
