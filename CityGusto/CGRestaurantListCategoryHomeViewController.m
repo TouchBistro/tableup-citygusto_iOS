@@ -456,6 +456,7 @@
                                                           listViewController.restaurants = [[NSMutableArray alloc] initWithArray:[mappingResult array]];
                                                           [listViewController setDataLoaded:YES];
                                                           listViewController.restaurantList = self.currentRestaurantList;
+                                                          listViewController.navItem.title = self.currentRestaurantList.name;
                                                           [listViewController.tableView reloadData];
                                                           
                                                           [self stopSpinner];

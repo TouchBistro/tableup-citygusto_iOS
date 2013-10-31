@@ -28,6 +28,10 @@
 @synthesize activityView;
 @synthesize restaurantList;
 
+-(void) viewWillAppear:(BOOL)animated{
+    self.navItem.title = self.restaurantList.name;
+}
+
 -(void)viewDidLayoutSubviews{
     CAGradientLayer *gradient = [CAGradientLayer layer];
     gradient.frame = self.headerView.bounds;
@@ -38,38 +42,39 @@
 }
 
 -(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
-    
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 7, 280, 21)];
-    [label setFont:[UIFont boldSystemFontOfSize:14]];
-    label.textAlignment = NSTextAlignmentCenter;
-    label.backgroundColor = [UIColor clearColor];
-    
-    NSString *titleString = self.restaurantList.name;
-    
     if (self.restaurantList.user){
+        self.headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 35)];
+        
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(20, 7, 280, 21)];
+        [label setFont:[UIFont boldSystemFontOfSize:14]];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.backgroundColor = [UIColor clearColor];
+        
         NSString *nameString;
         if (self.restaurantList.user.lastname){
-            nameString = [NSString stringWithFormat:@" - %@ %@", self.restaurantList.user.firstname, self.restaurantList.user.lastname];
+            nameString = [NSString stringWithFormat:@"Voted by %@ %@", self.restaurantList.user.firstname, self.restaurantList.user.lastname];
         }else{
-            nameString = [NSString stringWithFormat:@" - %@", self.restaurantList.user.firstname];
+            nameString = [NSString stringWithFormat:@"Voted by %@", self.restaurantList.user.firstname];
         }
-
-        titleString = [titleString stringByAppendingString:nameString];
+        
+        label.text = nameString;
+        label.textColor = [UIColor whiteColor];
+        
+        [self.headerView addSubview:label];
+        
+        return self.headerView;
+    }else{
+        return nil;
     }
-    
-    label.text = titleString;
-    label.textColor = [UIColor whiteColor];
-    
-    
-    [self.headerView addSubview:label];
-    
-    return self.headerView;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 35.0;
+    if (self.restaurantList.user){
+        return 35.0;
+    }else{
+        return 0.0;
+    }
 }
 
 - (void)viewDidLoad

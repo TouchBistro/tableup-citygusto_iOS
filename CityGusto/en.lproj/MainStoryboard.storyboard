@@ -2659,7 +2659,7 @@
             </objects>
             <point key="canvasLocation" x="1126" y="2062"/>
         </scene>
-        <!--Restaurant List List View Controller-->
+        <!--Restaurant List List View Controller - Boston-->
         <scene sceneID="nyP-7Q-82e">
             <objects>
                 <tableViewController id="am7-Sl-lRs" customClass="CGRestaurantListListViewController" sceneMemberID="viewController">
@@ -2729,7 +2729,7 @@
                             <outlet property="delegate" destination="am7-Sl-lRs" id="0yk-Ik-KnI"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="lZC-G8-Wav">
+                    <navigationItem key="navigationItem" title="Boston" id="lZC-G8-Wav">
                         <barButtonItem key="rightBarButtonItem" title="Map" id="BRQ-JW-5PK">
                             <connections>
                                 <segue destination="19t-C9-hou" kind="push" identifier="listMapSegue" id="PaO-af-0TP"/>
@@ -2738,6 +2738,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="mapButtonItem" destination="BRQ-JW-5PK" id="KNQ-Dc-DfJ"/>
+                        <outlet property="navItem" destination="lZC-G8-Wav" id="Nc1-lx-LXf"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="listHomeSegue" id="1Ra-4h-4jl"/>
                     </connections>
                 </tableViewController>
@@ -3750,11 +3751,11 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Em6-Bi-MbD"/>
+        <segue reference="1Ra-4h-4jl"/>
+        <segue reference="NQz-2H-uJM"/>
         <segue reference="1xg-Mi-QDy"/>
         <segue reference="DYn-Ze-aqa"/>
         <segue reference="Jmu-el-SyW"/>
-        <segue reference="NQz-2H-uJM"/>
         <segue reference="Des-PV-krl"/>
         <segue reference="2tH-ZJ-a7J"/>
         <segue reference="qzp-BU-3PU"/>
