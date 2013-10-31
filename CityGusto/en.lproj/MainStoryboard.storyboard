@@ -548,6 +548,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navItem" destination="czL-Xe-6ra" id="5Nl-Vd-9o9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNX-QA-k9q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1131,6 +1134,7 @@
                     <navigationItem key="navigationItem" id="gmX-bn-N1i"/>
                     <connections>
                         <outlet property="mapView" destination="yeB-p5-hx1" id="Lu1-kT-dFT"/>
+                        <outlet property="navItem" destination="gmX-bn-N1i" id="Tyj-Dl-KqJ"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="mapHomeSegue" id="MXO-9X-nkW"/>
                     </connections>
                 </viewController>
@@ -2079,6 +2083,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navItem" destination="ZoW-LT-Ouh" id="3Uj-uH-hKc"/>
                         <segue destination="PEQ-5f-E8I" kind="push" identifier="foodTruckHomeSegue" id="oqS-Px-sIW"/>
                         <segue destination="oRW-Lz-Gcy" kind="push" identifier="foodTruckSearchSegue" id="c7V-yW-ixA"/>
                     </connections>
@@ -3657,6 +3662,7 @@
                         <outlet property="cuisinesButton" destination="Cql-Vw-WRa" id="g2V-lM-aIp"/>
                         <outlet property="headerView" destination="rO5-Xl-aoR" id="Waa-ro-1VX"/>
                         <outlet property="locationButton" destination="zYP-SU-JDj" id="4hk-kj-LZU"/>
+                        <outlet property="navItem" destination="uPP-ve-OoK" id="DnB-Ej-Zyj"/>
                         <outlet property="openSwitch" destination="R0q-Ad-COQ" id="HzD-sk-ukD"/>
                         <outlet property="scroller" destination="8gb-5v-rby" id="BXl-lt-WJD"/>
                         <outlet property="sortLabel" destination="c3q-7H-XRV" id="Byc-Ak-EAg"/>
@@ -3732,22 +3738,62 @@
         <image name="85-trophy.png" width="24" height="24"/>
         <image name="bg-list-320.png" width="320" height="150"/>
         <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
+        <image name="buttonBackgroundGreen.png" width="560" height="72"/>
         <image name="buttonBackgroundGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
+        <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundLightGrey.png" width="560" height="72"/>
         <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundLightGreySM.png" width="200" height="72"/>
+        <image name="buttonBackgroundPink.png" width="560" height="72"/>
+        <image name="buttonBackgroundPink.png" width="560" height="72"/>
         <image name="buttonBackgroundPink.png" width="560" height="72"/>
         <image name="events.png" width="44" height="23"/>
         <image name="food.png" width="44" height="23"/>
         <image name="foodTruck.png" width="44" height="22"/>
         <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
+        <image name="ico-list-arrow-alt.png" width="20" height="30"/>
         <image name="ico-list-arrow-lists.png" width="26" height="26"/>
         <image name="ico-list-arrow.png" width="20" height="11"/>
         <image name="ico-ratings-dislike.png" width="16" height="16"/>
+        <image name="ico-ratings-dislike.png" width="16" height="16"/>
+        <image name="ico-ratings-like.png" width="16" height="16"/>
         <image name="ico-ratings-like.png" width="16" height="16"/>
         <image name="lists.png" width="44" height="24"/>
         <image name="new-restaurant.png" width="44" height="22"/>
         <image name="reviewdollars1.png" width="37" height="12"/>
+        <image name="reviewdollars1.png" width="37" height="12"/>
+        <image name="reviewdollars1.png" width="37" height="12"/>
+        <image name="reviewdollars1.png" width="37" height="12"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
+        <image name="stars_0.png" width="80" height="15"/>
         <image name="stars_0.png" width="80" height="15"/>
         <image name="truck.png" width="44" height="22"/>
     </resources>
@@ -3757,14 +3803,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Em6-Bi-MbD"/>
+        <segue reference="MXO-9X-nkW"/>
+        <segue reference="XQ9-pZ-kPV"/>
         <segue reference="1xg-Mi-QDy"/>
-        <segue reference="Jmu-el-SyW"/>
         <segue reference="NQz-2H-uJM"/>
-        <segue reference="Des-PV-krl"/>
+        <segue reference="350-at-SyI"/>
+        <segue reference="c7V-yW-ixA"/>
+        <segue reference="qXS-Q8-ecf"/>
         <segue reference="2tH-ZJ-a7J"/>
         <segue reference="qzp-BU-3PU"/>
-        <segue reference="350-at-SyI"/>
-        <segue reference="PaO-af-0TP"/>
     </inferredMetricsTieBreakers>
 </document>

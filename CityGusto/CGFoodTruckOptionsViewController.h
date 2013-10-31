@@ -44,6 +44,7 @@
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scroller;
 
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 
 @end

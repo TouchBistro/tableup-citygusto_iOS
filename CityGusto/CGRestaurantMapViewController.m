@@ -9,6 +9,7 @@
 #import "CGRestaurantMapViewController.h"
 #import "CGRestaurant.h"
 #import "CGRestaurantHomeViewController.h"
+#import "CGRestaurantParameter.h"
 #import "CGAnnotation.h"
 #import "MBProgressHud.h"
 #import <UIKit/UIKit.h>
@@ -38,6 +39,7 @@
 - (void)viewDidLoad
 {
     self.mapView.delegate = self;
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
     [super viewDidLoad];
 }
 

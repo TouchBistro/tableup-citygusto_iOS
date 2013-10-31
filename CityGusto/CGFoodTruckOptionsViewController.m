@@ -70,6 +70,10 @@
     [locationButton setTitle:[CGRestaurantParameter shared].getLocationName forState:UIControlStateNormal];
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

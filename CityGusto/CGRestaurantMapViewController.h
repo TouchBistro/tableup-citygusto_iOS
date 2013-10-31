@@ -21,6 +21,7 @@
 @property (assign, nonatomic) BOOL showFoodTrucks;
 
 - (IBAction)cancel:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 
 @end
