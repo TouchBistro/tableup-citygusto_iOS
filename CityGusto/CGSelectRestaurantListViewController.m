@@ -28,6 +28,8 @@
     self.activityView.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
     [self.view addSubview: self.activityView];
     
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
+    
     [super viewDidLoad];
 }
 

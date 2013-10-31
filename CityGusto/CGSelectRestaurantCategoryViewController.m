@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.navItem.title = [CGRestaurantParameter shared].getLocationName;
 }
 
 - (void)didReceiveMemoryWarning

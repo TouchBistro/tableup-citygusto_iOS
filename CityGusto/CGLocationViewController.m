@@ -23,6 +23,8 @@
 - (void)viewDidLoad
 {
     self.locations = [[NSMutableArray alloc] init];
+    self.navItem.title = @"Change Location";
+    
     [self.locations addObject:@"Current Location"]; // 0
     [self.locations addObject:@"Boston - All"]; // 1
     [self.locations addObject:@"Boston - Allston"]; // 2

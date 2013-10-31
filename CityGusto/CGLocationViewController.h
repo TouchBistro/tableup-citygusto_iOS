@@ -20,5 +20,6 @@
 @property (nonatomic, strong) NSMutableArray *locations;
 
 - (IBAction)cancel:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end

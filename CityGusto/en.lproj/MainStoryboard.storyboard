@@ -242,6 +242,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="navItem" destination="LHH-t9-YOm" id="NNW-5k-yAU"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cOD-PM-Yc3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -972,6 +975,7 @@
                         <outlet property="likeLabel" destination="TCF-e7-oVS" id="BtK-EH-Khl"/>
                         <outlet property="mapButton" destination="7tE-Ni-CJB" id="VpZ-9Y-9LE"/>
                         <outlet property="nameLabel" destination="E8a-bb-dMU" id="srl-vR-iAb"/>
+                        <outlet property="navItem" destination="Ejg-ds-YBH" id="aCk-DS-uCq"/>
                         <outlet property="numberOfDislikesLabel" destination="Xrn-8K-tvp" id="FO8-p3-ItU"/>
                         <outlet property="numberOfLikesLabel" destination="v1N-Ql-Yef" id="W6k-aH-DV4"/>
                         <outlet property="ratingLabel" destination="jFa-wh-5uQ" id="WbO-HN-yuy"/>
@@ -2788,6 +2792,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navItem" destination="WHD-bO-AGQ" id="GsW-ji-ddi"/>
                         <segue destination="am7-Sl-lRs" kind="push" identifier="selectListRestaurantListSegue" id="dle-eJ-xA0"/>
                     </connections>
                 </tableViewController>
@@ -2855,6 +2860,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="navItem" destination="Kde-RB-cYP" id="yq3-yj-Xkh"/>
                         <segue destination="BW2-wH-W7q" kind="modal" identifier="restaurantCategoryLoginSegue" id="350-at-SyI"/>
                     </connections>
                 </tableViewController>
@@ -3751,14 +3757,14 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="1Ra-4h-4jl"/>
-        <segue reference="NQz-2H-uJM"/>
+        <segue reference="Em6-Bi-MbD"/>
         <segue reference="1xg-Mi-QDy"/>
-        <segue reference="DYn-Ze-aqa"/>
         <segue reference="Jmu-el-SyW"/>
+        <segue reference="NQz-2H-uJM"/>
         <segue reference="Des-PV-krl"/>
         <segue reference="2tH-ZJ-a7J"/>
         <segue reference="qzp-BU-3PU"/>
+        <segue reference="350-at-SyI"/>
         <segue reference="PaO-af-0TP"/>
     </inferredMetricsTieBreakers>
 </document>

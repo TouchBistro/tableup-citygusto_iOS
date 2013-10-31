@@ -26,5 +26,6 @@
 @property (nonatomic, strong) NSMutableArray *restaurants;
 
 - (IBAction)cancel:(id)sender;
+@property (strong, nonatomic) IBOutlet UINavigationItem *navItem;
 
 @end
